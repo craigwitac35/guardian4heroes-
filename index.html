@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
   <style>
     body {
@@ -32,18 +32,31 @@
     nav a:hover {
       color: #f9c74f;
     }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1508675801607-5c0f41c1a6f6?auto=format&fit=crop&w=1050&q=80') center/cover no-repeat;
+      color: white;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
     .section {
       max-width: 900px;
-      margin: auto;
+      margin: 2rem auto;
       padding: 2rem;
       background: white;
-      margin-top: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .section h2 {
-      color: #2e3b55;
+    .section h3 {
       margin-bottom: 1rem;
+      color: #2e3b55;
     }
     .section p {
       line-height: 1.6;
@@ -57,29 +70,51 @@
       color: #3b5998;
       font-weight: bold;
     }
+    .collapsible {
+      background-color: #3b5998;
+      color: white;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .active, .collapsible:hover {
+      background-color: #2e3b55;
+    }
+    .content {
+      padding: 0 1rem;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .donation-buttons button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #3b5998;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    .donation-buttons button:hover {
+      background: #2d4373;
+    }
     footer {
       background-color: #2e3b55;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 2rem;
-    }
-    .donation-buttons button {
-      margin: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      border: none;
-      border-radius: 4px;
-      background: #3b5998;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .donation-buttons button:hover {
-      background: #2d4373;
-    }
-    a {
-      color: #3b5998;
-      text-decoration: none;
     }
   </style>
 </head>
@@ -95,33 +130,49 @@
     <a href="#empower">Empowerment</a>
     <a href="#donate">Donate</a>
     <a href="#contact">Contact</a>
-  </nav>  <section class="section" id="welcome">
-    <h2>Welcome</h2>
+  </nav>  <section class="hero">
+    <h2>Empowering Veterans & First Responders Through Healing</h2>
+  </section>  <section class="section" id="welcome">
+    <h3>Welcome</h3>
     <p>Welcome to Guardian 4 Heroes, where healing and growth meet the power of the horse. Our nonprofit is dedicated to equine-facilitated psychotherapy and assisted training, offering a compassionate and transformative experience for individuals seeking emotional, mental, and personal well-being.</p>
-    <p>Through the unique connection between humans and horses, we provide a safe, supportive space for therapy, learning, and self-discovery. Whether you're here for healing, training, or to support our mission, we're glad to have you with us.</p>
+    <p>Through the unique connection between humans and horses, we provide a safe, supportive space for therapy, learning, and self-discovery.</p>
   </section>  <section class="section" id="story">
-    <h2>Our Story & Mission</h2>
-    <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through innovative, compassionate, and empowering equine-facilitated psychotherapy-assisted training (EFPT). Our mission is to honor and uplift our heroes, guiding them towards healing, resilience, and a renewed sense of purpose through the transformative power of the human-animal bond.</p>
-    <p>Guardian 4 Heroes is owned and operated by Sara Peterson, a dedicated veteran advocate. We strive to create a safe, peaceful environment for mindful self-discovery, emotional awareness, and meaningful relationships with horses and each other.</p>
+    <h3>Our Story & Mission</h3>
+    <p>At Guardian 4 Heroes, we support the mental wellness of our veterans through innovative, compassionate, and empowering equine-facilitated psychotherapy-assisted training (EFPT). Founded by Sara Peterson, our mission is to honor and uplift heroes through the transformative power of the human-animal bond.</p>
   </section>  <section class="section" id="efpt">
-    <h2>What is EFPT?</h2>
-    <p>Equine Facilitated Psychotherapy Assisted Training (EFPT) is a therapeutic approach using interactions with horses to help individuals reconnect with themselves and rebuild emotional and social skills. Horses are intuitive and responsive to human emotion, providing authentic, non-verbal feedback that promotes healing and trust.</p>
-    <p>Through EFPT, individuals can gain confidence, explore personal boundaries, and form strong bonds with both animals and people in their community.</p>
-  </section>  <section class="section benefits" id="benefits">
-    <h2>Key Benefits of EFPT</h2>
-    <ul>
-      <li>Boundary Setting: Teaches clear, respectful communication</li>
-      <li>Self-Esteem: Builds confidence through success</li>
-      <li>Confidence Building: Master horsemanship and overcome fears</li>
-      <li>Friendship & Community: Connect with others on similar journeys</li>
-      <li>Bonding with Horses: Learn empathy through animal connection</li>
-      <li>Horsemanship Skills: Gain practical and emotional growth</li>
-    </ul>
+    <h3>What is EFPT?</h3>
+    <p>Equine Facilitated Psychotherapy Assisted Training (EFPT) is a therapeutic approach that uses horse interaction to help individuals rebuild emotional strength and social connection. Horses mirror human emotion and help participants explore trust, confidence, and communication in a safe, intuitive way.</p>
+  </section>  <section class="section" id="benefits">
+    <h3>Key Benefits of EFPT</h3>
+    <button class="collapsible">Boundary Setting</button>
+    <div class="content">
+      <p>Develops awareness and respect for personal boundaries through direct interaction with horses, who respond to clear, consistent cues.</p>
+    </div>
+    <button class="collapsible">Self-Esteem</button>
+    <div class="content">
+      <p>Builds confidence and self-worth as participants achieve milestones and experience growth through their work with the horse.</p>
+    </div>
+    <button class="collapsible">Confidence Building</button>
+    <div class="content">
+      <p>Strengthens self-assurance by mastering horsemanship skills and overcoming challenges in a supportive environment.</p>
+    </div>
+    <button class="collapsible">Friendship & Community</button>
+    <div class="content">
+      <p>Fosters connections with others who share similar experiences, creating a sense of camaraderie and mutual support.</p>
+    </div>
+    <button class="collapsible">Bonding with Horses</button>
+    <div class="content">
+      <p>Establishes a trusting, empathetic bond with horses, which can be therapeutic and help individuals understand non-verbal communication.</p>
+    </div>
+    <button class="collapsible">Horsemanship Skills</button>
+    <div class="content">
+      <p>Develops practical skills in caring for and working with horses, fostering a sense of accomplishment and responsibility.</p>
+    </div>
   </section>  <section class="section" id="empower">
-    <h2>Empowering Lives Through Connection</h2>
+    <h3>Empowering Lives Through Connection</h3>
     <p>Our Equine Facilitated Psychotherapy and Learning programs focus on building trust, love, and emotional well-being. Through powerful horse-human interactions, we foster healing, personal growth, and lasting transformation.</p>
   </section>  <section class="section" id="donate">
-    <h2>Support Our Mission</h2>
+    <h3>Support Our Mission</h3>
     <p>Your donation helps provide EFPT services to veterans facing PTSD, TBI, depression, and anxiety. Every dollar supports healing, therapy, and transformation.</p>
     <div class="donation-buttons">
       <button>$5</button>
@@ -132,7 +183,7 @@
       <button>Custom</button>
     </div>
   </section>  <section class="section" id="contact">
-    <h2>Contact & Connect</h2>
+    <h3>Contact & Connect</h3>
     <p><strong>Address:</strong> Sauk Centre, MN</p>
     <p><strong>Phone:</strong> 320-828-2477</p>
     <p><strong>Email:</strong> <a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
@@ -144,6 +195,14 @@
     <p><strong>License & Certifications:</strong><br />501c3 #33-3587146<br />MN Non-Profit #1544498100028<br />EFPT Certified</p>
   </section>  <footer>
     <p>&copy; 2025 Guardian 4 Heroes. Built with heart. Hosted on GitHub Pages.</p>
-  </footer>
-</body>
+  </footer>  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script></body>
 </html>

@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Donate to Guardian 4 Heroes to support equine therapy for veterans and first responders, fostering mental health and healing.">
+  <meta name="keywords" content="donate, equine therapy, veterans, first responders, mental health, nonprofit, PTSD">
   <title>Donate | Guardian 4 Heroes</title>
   <style>
     body {
@@ -20,8 +23,14 @@
       background: #1b263b;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       padding: 1rem 0;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
       color: white;
@@ -31,6 +40,15 @@
     }
     nav a:hover {
       color: #69a2b0;
+    }
+    .menu-toggle {
+      display: none;
+      background: #1b263b;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
     }
     .section {
       max-width: 900px;
@@ -47,10 +65,19 @@
     .section p {
       line-height: 1.6;
     }
+    .donation-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .donation-buttons form {
+      display: inline-block;
+    }
     .donation-buttons button {
-      margin: 0.5rem;
       padding: 0.75rem 1.5rem;
-      background: #3a7ca5;
+      background: #69a2b0;
       color: white;
       border-radius: 5px;
       font-weight: bold;
@@ -58,7 +85,17 @@
       cursor: pointer;
     }
     .donation-buttons button:hover {
-      background: #2c5c84;
+      background: #55889a;
+    }
+    .impact-highlight {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .impact-highlight img {
+      max-width: 200px;
+      border-radius: 10px;
     }
     footer {
       background-color: #0d1b2a;
@@ -67,6 +104,37 @@
       padding: 2rem 1rem;
       margin-top: 2rem;
     }
+    @media (max-width: 600px) {
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .donation-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .impact-highlight {
+        flex-direction: column;
+        align-items: center;
+      }
+      .impact-highlight img {
+        max-width: 150px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -74,27 +142,73 @@
     <h1>Support Our Mission</h1>
     <p>Donate to Help Veterans Heal Through Equine Therapy</p>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="donate.html">Donate</a>
-    <a href="contact.html">Contact</a>
-  </nav>  <section class="section">
+  <nav aria-label="Main navigation">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="section">
     <h2>Why Your Donation Matters</h2>
     <p>At Guardian 4 Heroes, your support enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, trust, and connection.</p>
-  </section>  <section class="section">
+    <div class="impact-highlight">
+      <img src="impact-image.jpg" alt="Veteran bonding with a horse during therapy" loading="lazy">
+      <p>Your donation funds therapy sessions that transform lives.</p>
+    </div>
+  </section>
+  <section class="section">
     <h2>Select a Donation Amount</h2>
     <div class="donation-buttons">
-      <button>$5</button>
-      <button>$10</button>
-      <button>$20</button>
-      <button>$25</button>
-      <button>$50</button>
-      <button>Custom</button>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <input type="hidden" name="amount" value="5">
+        <button type="submit">$5</button>
+      </form>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <input type="hidden" name="amount" value="10">
+        <button type="submit">$10</button>
+      </form>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <input type="hidden" name="amount" value="20">
+        <button type="submit">$20</button>
+      </form>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <input type="hidden" name="amount" value="25">
+        <button type="submit">$25</button>
+      </form>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <input type="hidden" name="amount" value="50">
+        <button type="submit">$50</button>
+      </form>
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <button type="submit">Custom</button>
+      </form>
     </div>
-  </section>  <footer>
-    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+  </section>
+  <section class="section">
+    <h2>Thank You for Your Support</h2>
+    <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Thank you for being a Guardian 4 Heroes!</p>
+    <div class="impact-highlight">
+      <img src="thank-you-image.jpg" alt="Group of veterans with horses at a therapy session" loading="lazy">
+      <p>Your support creates lasting impact for our community.</p>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

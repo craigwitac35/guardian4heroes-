@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore equine therapy programs at Guardian 4 Heroes, designed to support veterans and first responders with mental health and healing.">
+  <meta name="keywords" content="equine therapy, veterans, first responders, EFPT, PTSD, horsemanship, mental health, nonprofit">
   <title>Programs | Guardian 4 Heroes</title>
   <style>
     body {
@@ -20,8 +23,14 @@
       background: #1b263b;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       padding: 1rem 0;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
       color: white;
@@ -31,6 +40,15 @@
     }
     nav a:hover {
       color: #69a2b0;
+    }
+    .menu-toggle {
+      display: none;
+      background: #1b263b;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
     }
     .section {
       max-width: 900px;
@@ -47,12 +65,62 @@
     .section p {
       line-height: 1.6;
     }
+    .donate-button, .cta-button {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .donate-button button, .cta-button button {
+      background: #69a2b0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .program-highlight {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .program-highlight img {
+      max-width: 200px;
+      border-radius: 10px;
+    }
     footer {
       background-color: #0d1b2a;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .program-highlight {
+        flex-direction: column;
+        align-items: center;
+      }
+      .program-highlight img {
+        max-width: 150px;
+      }
     }
   </style>
 </head>
@@ -61,26 +129,60 @@
     <h1>Our Programs</h1>
     <p>Equine-Facilitated Therapy and Support for Veterans</p>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="donate.html">Donate</a>
-    <a href="contact.html">Contact</a>
-  </nav>  <section class="section">
+  <nav aria-label="Main navigation">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="section">
     <h2>Equine-Facilitated Psychotherapy Training (EFPT)</h2>
     <p>EFPT is a therapeutic approach that involves working directly with horses to help individuals reconnect with themselves and others. Our programs provide a safe and nurturing environment where veterans can process trauma, build self-esteem, and develop healthy interpersonal skills. The intuitive nature of horses allows for authentic feedback and emotional breakthroughs.</p>
-  </section>  <section class="section">
+    <div class="program-highlight">
+      <img src="efpt-program.jpg" alt="Veteran engaging in equine therapy session" loading="lazy">
+      <p>Experience emotional healing through guided horse interactions.</p>
+    </div>
+  </section>
+  <section class="section">
     <h2>Horsemanship & Skill Building</h2>
     <p>Participants learn practical horsemanship — grooming, leading, and understanding equine behavior — which enhances emotional regulation, confidence, and responsibility. These skills empower veterans to gain a sense of control and mastery, often lost due to trauma or transition stress.</p>
-  </section>  <section class="section">
+    <div class="program-highlight">
+      <img src="horsemanship-program.jpg" alt="Veteran grooming a horse during training" loading="lazy">
+      <p>Build confidence through hands-on horsemanship skills.</p>
+    </div>
+  </section>
+  <section class="section">
     <h2>Community & Peer Connection</h2>
     <p>Our group-based sessions foster camaraderie among participants who’ve shared similar life experiences. The shared time with horses and each other helps build trust, reduce isolation, and promote lasting healing.</p>
-  </section>  <section class="section">
+    <div class="program-highlight">
+      <img src="community-program.jpg" alt="Veterans connecting in a group equine therapy session" loading="lazy">
+      <p>Join a supportive community of peers and horses.</p>
+    </div>
+    <div class="cta-button">
+      <a href="contact.html"><button>Join Our Programs</button></a>
+    </div>
+  </section>
+  <section class="section">
     <h2>Why Horses?</h2>
     <p>Horses are incredibly responsive to human emotion. Their ability to mirror our non-verbal cues creates opportunities for self-discovery and therapeutic growth. They offer honest, immediate feedback in a judgment-free environment — an ideal partner in emotional recovery.</p>
-  </section>  <footer>
-    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+    <div class="donate-button">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <button type="submit">Donate Now</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

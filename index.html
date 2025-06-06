@@ -1,44 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guardian 4 Heroes</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Guardian 4 Heroes | Healing with Purpose</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #2e3b55, #3b5998);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav {
+      background: #1f2d45;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9c74f;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1508675801607-5c0f41c1a6f6?auto=format&fit=crop&w=1050&q=80') center/cover no-repeat;
+      color: white;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .section h3 {
+      margin-bottom: 1rem;
+      color: #2e3b55;
+    }
+    .section p {
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #3b5998;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .button:hover {
+      background: #2d4373;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2e3b55;
+      color: white;
+      margin-top: 2rem;
+    }
+    .collapsible {
+      background-color: #3b5998;
+      color: white;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .active, .collapsible:hover {
+      background-color: #2e3b55;
+    }
+    .content {
+      padding: 0 1rem;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Guardian 4 Heroes</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <h1>Guardian 4 Heroes</h1>
+    <p>Healing Through Connection, Purpose & Community</p>
+  </header>  <nav>
+    <a href="#mission">Mission</a>
+    <a href="#programs">Programs</a>
+    <a href="#support">Support</a>
+    <a href="#contact">Contact</a>
+  </nav>  <section class="hero">
+    <h2>Empowering Veterans & First Responders Through Healing</h2>
+  </section>  <section class="section" id="mission">
+    <h3>Our Mission</h3>
+    <p>Guardian 4 Heroes is a nonprofit dedicated to holistic healing through equine therapy, mindfulness, and supportive community programs. We honor those who serve by helping them reconnect with purpose, people, and peace.</p>
+  </section>  <section class="section" id="programs">
+    <h3>Our Programs</h3>
+    <button class="collapsible">Equine-Assisted Therapy</button>
+    <div class="content">
+      <p>Horses help veterans build trust, self-awareness, and confidence through nonverbal communication and emotional mirroring.</p>
     </div>
-  </header>
-  <section class="hero">
-    <div class="container">
-      <h2>Healing Through Connection, Purpose & Community</h2>
-      <p>Empowering veterans and first responders with holistic and equine-assisted therapy</p>
-      <a href="donate.html" class="button">Support the Mission</a>
+    <button class="collapsible">Sound Therapy & Meditation</button>
+    <div class="content">
+      <p>Experience deep relaxation through vibrational healing techniques using singing bowls and guided meditation sessions.</p>
     </div>
-  </section>
-  <section class="content">
-    <div class="container">
-      <h3>Our Vision</h3>
-      <p>We believe every hero deserves healing. At Guardian 4 Heroes, we offer transformative programs to support mental wellness, physical recovery, and spiritual renewal for those who’ve served.</p>
+    <button class="collapsible">Community Support Circles</button>
+    <div class="content">
+      <p>Weekly group sessions for veterans and first responders to share stories, challenges, and healing in a safe and supportive space.</p>
     </div>
-  </section>
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <script src="scripts.js"></script>
-</body>
+  </section>  <section class="section" id="support">
+    <h3>Support Our Work</h3>
+    <p>We're currently raising funds to expand our outreach and support more veterans in need. Donations help cover therapy costs, facility upgrades, and animal care.</p>
+    <a href="#" class="button">Donate Now</a>
+  </section>  <section class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: info@guardian4heroes.org</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Location: Freedom Ranch, Hometown, USA</p>
+  </section>  <footer>
+    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+  </footer>  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script></body>
 </html>

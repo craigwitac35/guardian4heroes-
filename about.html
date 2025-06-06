@@ -78,6 +78,9 @@
       cursor: pointer;
       font-size: 1rem;
     }
+    .donate-button button:hover {
+      background: #55889a;
+    }
     .team-member {
       display: flex;
       align-items: center;
@@ -179,4 +182,56 @@
   </nav>
   <section class="section">
     <h2>Our Mission</h2>
-    <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through compassionate and empowering equine-facilitated psychotherapy (EFPT). We provide a safe, therapeutic environment to help heal PTSD, TBI, anxiety, and more through meaningful human-animal bonds
+    <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through compassionate and empowering equine-facilitated psychotherapy (EFPT). We provide a safe, therapeutic environment to help heal PTSD, TBI, anxiety, and more through meaningful human-animal bonds.</p>
+  </section>
+  <section class="section">
+    <h2>Our Purpose</h2>
+    <p>Founded by Sara Peterson, a dedicated veteran advocate, our nonprofit strives to create an environment of safety, peace, and healing. Veterans build emotional awareness and self-discovery through horsemanship, supported by a compassionate community.</p>
+    <div class="team-member">
+      <img src="sara-peterson.jpg" alt="Sara Peterson, founder of Guardian 4 Heroes" loading="lazy">
+      <p>Sara Peterson, a veteran advocate with over 10 years of experience, founded Guardian 4 Heroes to empower veterans through equine therapy.</p>
+    </div>
+  </section>
+  <section class="section">
+    <h2>What Is EFPT?</h2>
+    <p>Equine-Facilitated Psychotherapy Training involves engaging with horses to rebuild confidence, explore boundaries, and enhance self-esteem. Horses, attuned to human emotion, offer a unique and honest connection that facilitates deep healing and personal growth.</p>
+    <div class="donate-button">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <button type="submit">Donate Now</button>
+      </form>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Veteran Stories</h2>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <p>“I’m Craig, a 35-year-old Army veteran who served in Afghanistan. After leaving the Army, I struggled with substance abuse and felt lost. I was hesitant to join Guardian 4 Heroes, especially since I was afraid of horses at first. But this program has been a game-changer. Working with the horses, especially Rocket—a spirited horse who’s a bit rebellious like me—has helped me find connection and healing. I’m learning to trust, grow, and even love horses in ways I never expected.” – Craig, Army Veteran</p>
+        </div>
+      </div>
+      <!-- Carousel buttons hidden for single testimonial; uncomment if adding more -->
+      <!-- <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button> -->
+      <!-- <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button> -->
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    // Carousel script disabled for single testimonial; uncomment if adding more
+    /*
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-item');
+    function moveCarousel(direction) {
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    */
+  </script>
+</body>
+</html>

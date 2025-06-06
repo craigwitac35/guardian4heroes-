@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
   <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
   <style>
     body {
@@ -20,8 +23,14 @@
       background: #1b263b;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       padding: 1rem 0;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
       color: white;
@@ -32,8 +41,17 @@
     nav a:hover {
       color: #69a2b0;
     }
+    .menu-toggle {
+      display: none;
+      background: #1b263b;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
     .hero {
-      background: url('https://images.unsplash.com/photo-1508675801607-5c0f41c1a6f6?auto=format&fit=crop&w=1050&q=80') center/cover no-repeat;
+      background: url('hero-image.jpg') center/cover no-repeat;
       color: white;
       height: 400px;
       display: flex;
@@ -61,12 +79,45 @@
     .section p {
       line-height: 1.6;
     }
+    .donate-button {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .donate-button button {
+      background: #69a2b0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
     footer {
       background-color: #0d1b2a;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -75,22 +126,41 @@
     <h1>Guardian 4 Heroes</h1>
     <p>Healing and Growth Through the Power of the Horse</p>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="donate.html">Donate</a>
-    <a href="contact.html">Contact</a>
-  </nav>  <section class="hero">
+  <nav aria-label="Main navigation">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="hero" role="banner">
+    <img src="hero-image.jpg" alt="Veteran and horse in equine therapy session" loading="lazy" style="display: none;">
     <h2>Empowering Veterans & First Responders Through Healing</h2>
-  </section>  <section class="section">
+  </section>
+  <section class="section">
     <h3>Welcome</h3>
     <p>Welcome to Guardian 4 Heroes, where healing and growth meet the power of the horse. Our nonprofit is dedicated to equine-facilitated psychotherapy and assisted training, offering a compassionate and transformative experience for individuals seeking emotional, mental, and personal well-being.</p>
-  </section>  <section class="section">
+  </section>
+  <section class="section">
     <h3>Empowering Journeys Begin</h3>
     <p>Discover the transformative power of EFPT at Guardian 4 Heroes. Our programs harness the power of horses to support mental health and physical well-being. Join us on a journey of healing and growth.</p>
-  </section>  <footer>
-    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+    <div class="donate-button">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <button type="submit">Donate Now</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

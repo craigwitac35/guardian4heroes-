@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Guardian 4 Heroes to learn about equine therapy programs for veterans and first responders or get involved.">
+  <meta name="keywords" content="contact, equine therapy, veterans, first responders, nonprofit, PTSD, mental health">
   <title>Contact | Guardian 4 Heroes</title>
   <style>
     body {
@@ -20,8 +23,14 @@
       background: #1b263b;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       padding: 1rem 0;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
       color: white;
@@ -31,6 +40,15 @@
     }
     nav a:hover {
       color: #69a2b0;
+    }
+    .menu-toggle {
+      display: none;
+      background: #1b263b;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
     }
     .section {
       max-width: 900px;
@@ -42,12 +60,75 @@
     }
     .section h2 {
       margin-bottom: 1rem;
+      color: #1c1c1c;
     }
     .section p {
       margin-bottom: 1rem;
+      line-height: 1.6;
     }
     .contact-info {
       line-height: 1.8;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form label {
+      font-weight: bold;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      background: #69a2b0;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form button:hover {
+      background: #55889a;
+    }
+    .contact-form .error {
+      color: red;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .donate-button {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .donate-button button {
+      background: #69a2b0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .donate-button button:hover {
+      background: #55889a;
+    }
+    .social-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-cta a {
+      text-decoration: none;
+      color: #69a2b0;
+      font-size: 2rem;
+    }
+    .social-cta a:hover {
+      color: #55889a;
     }
     footer {
       background-color: #0d1b2a;
@@ -56,6 +137,29 @@
       padding: 2rem 1rem;
       margin-top: 2rem;
     }
+    @media (max-width: 600px) {
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .contact-form input, .contact-form textarea {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -63,27 +167,94 @@
     <h1>Contact Us</h1>
     <p>We’re here to help — reach out anytime</p>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="donate.html">Donate</a>
-    <a href="contact.html">Contact</a>
-  </nav>  <section class="section">
+  <nav aria-label="Main navigation">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="section">
     <h2>Reach Out</h2>
     <p>If you have any questions about our services, want to get involved, or simply want to connect, feel free to reach out using the information below.</p>
     <div class="contact-info">
       <p><strong>Email:</strong> <a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
       <p><strong>Phone:</strong> (320) 828-2477</p>
       <p><strong>Location:</strong> Sauk Centre, MN</p>
-      <p><strong>Follow Us:</strong>
-        <br>
-        <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank">Facebook</a> |
-        <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank">Instagram</a>
-      </p>
     </div>
-  </section>  <footer>
-    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+    <div class="donate-button">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+        <button type="submit">Donate Now</button>
+      </form>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Send Us a Message</h2>
+    <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <span class="error" id="nameError">Please enter your name</span>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <span class="error" id="emailError">Please enter a valid email</span>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <span class="error" id="messageError">Please enter your message</span>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <section class="section">
+    <h2>Connect With Us</h2>
+    <p>Follow us on social media to stay updated on our programs and impact!</p>
+    <div class="social-cta">
+      <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" aria-label="Follow us on Facebook">📘</a>
+      <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank" aria-label="Follow us on Instagram">📸</a>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    function validateForm() {
+      let isValid = true;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      document.getElementById('nameError').style.display = 'none';
+      document.getElementById('emailError').style.display = 'none';
+      document.getElementById('messageError').style.display = 'none';
+
+      if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+      }
+      if (!message) {
+        document.getElementById('messageError').style.display = 'block';
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert('Message sent successfully!'); // Placeholder for form submission
+        document.getElementById('contactForm').reset();
+      }
+      return isValid;
+    }
+  </script>
 </body>
 </html>

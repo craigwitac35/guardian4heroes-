@@ -296,16 +296,50 @@ main {
   nav .nav-links {
     display: none;
     flex-direction: column;
-    width: 100%;
+    max-width: 300px; /* Updated: Compact menu width */
+    margin: 0 auto; /* Updated: Center menu */
     text-align: center;
   }
 
   nav .nav-links.active {
     display: flex;
+    background: var(--dark-neutral); /* Updated: Dark background for readability */
+    padding: 1rem; /* Updated: Container padding */
+    border-radius: var(--border-radius); /* Updated: Rounded corners */
+    box-shadow: var(--box-shadow); /* Updated: Modern shadow */
+  }
+
+  nav .nav-links a {
+    color: #ffffff; /* Updated: White text for contrast */
+    border: 1px solid var(--primary-accent); /* Updated: Subtle orange border */
+    background: transparent; /* Updated: No background */
+    margin: 0.5rem 0; /* Updated: Vertical spacing */
+    padding: 0.5rem; /* Updated: Consistent padding */
+    display: block; /* Updated: Full-width clickable links */
+    min-width: unset; /* Updated: Remove min-width for flexibility */
+    border-radius: var(--border-radius); /* Preserve rounded corners */
+  }
+
+  nav .nav-links a:hover, nav .nav-links a:focus {
+    color: #ffffff; /* Updated: Maintain white text */
+    background: rgba(197, 255, 87, 0.2); /* Corrected: Consistent hover background */
+    text-decoration: underline; /* Preserve underline */
   }
 
   .menu-toggle {
     display: block;
+    background: rgba(0, 0, 0, 0.5); /* Updated: Semi-transparent for visibility */
+    color: var(--header-footer-text);
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease;
+    border-radius: 0.25rem; /* Updated: Subtle rounding */
+  }
+
+  .menu-toggle:hover, .menu-toggle:focus {
+    background: rgba(0, 0, 0, 0.7); /* Updated: Darker hover */
   }
 
   header h1 {

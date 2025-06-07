@@ -46,12 +46,12 @@ body {
   position: relative;
 }
 
-/* Overlay for readability - reduced opacity further */
+/* Overlay for readability - reduced opacity */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(249, 246, 239, 0.1); /* Reduced from 0.3 to 0.1 */
+  background: rgba(249, 246, 239, 0.1);
   z-index: -1;
   pointer-events: none;
 }
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Increased shadow for better contrast */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -92,7 +92,7 @@ h3 {
 
 p {
   margin: 0 0 1rem 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Increased shadow for better contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -211,7 +211,7 @@ nav a:hover, nav a:focus {
    Sections and Cards
    ========================================================================== */
 .section, .box, .card, main {
-  background: rgba(255, 255, 255, 0.5); /* Reduced from 0.7 to 0.5 */
+  background: rgba(255, 255, 255, 0.5);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   margin: 2rem auto;
@@ -223,103 +223,4 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Buttons
    ========================================================================== */
-button, .btn, .donate-button button, .cta-button button {
-  background-color: var(--primary-accent);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-button:hover, .btn:hover, .donate-button button:hover, .cta-button button:hover {
-  background-color: var(--primary-accent-dark);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-.button-outline, .btn-outline {
-  background: transparent;
-  color: var(--primary-accent);
-  border: 2px solid var(--primary-accent);
-  box-shadow: none;
-}
-
-.button-outline:hover, .btn-outline:hover {
-  background: var(--primary-accent);
-  color: white;
-}
-
-.donate-button, .cta-button {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-/* ==========================================================================
-   Forms
-   ========================================================================== */
-input, textarea, select {
-  border: 1px solid var(--secondary-accent-alt);
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  background: var(--box-background);
-  color: var(--dark-neutral);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  max-width: 500px;
-  transition: border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: var(--primary-accent);
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.2);
-  outline: none;
-}
-
-/* ==========================================================================
-   Dividers and Tables
-   ========================================================================== */
-hr, .divider {
-  border: none;
-  border-top: 1px solid var(--secondary-accent);
-  margin: 2rem 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.97);
-  margin-bottom: 2rem;
-}
-
-th, td {
-  border: 1px solid var(--secondary-accent-alt);
-  padding: 0.75rem 1rem;
-  text-align: left;
-}
-
-/* ==========================================================================
-   Page-Specific Styles
-   ========================================================================== */
-/* About Page: Team Member */
-.team-member {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.team-member img {
-  max-width: 200px;
-  border-radius: var(--border-radius);
-}
-
-/* About Page: Testimonial Carousel */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100
+button, .btn,

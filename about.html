@@ -10,10 +10,10 @@
 </head>
 <body>
   <header>
-  <a href="index.html" aria-label="Guardian 4 Heroes Home">
-    <img src="images/logo.png" alt="Guardian 4 Heroes Logo" class="logo" loading="lazy">
-  </a>
-</header>
+    <a href="index.html" aria-label="Guardian 4 Heroes Home">
+      <img src="images/logo.png" alt="Guardian 4 Heroes Logo" class="logo" loading="lazy">
+    </a>
+  </header>
   <nav aria-label="Main navigation">
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="nav-links">
@@ -60,9 +60,8 @@
             <p>“I’m Craig, a 35-year-old Army veteran who served in Afghanistan. After leaving the Army, I struggled with substance abuse and felt lost. I was hesitant to join Guardian 4 Heroes, especially since I was afraid of horses at first. But this program has been a game-changer. Working with the horses, especially Rocket—a spirited horse who’s a bit rebellious like me—has helped me find connection and healing. I’m learning to trust, grow, and even love horses in ways I never expected.” – Craig, Army Veteran</p>
           </div>
         </div>
-        <!-- Carousel buttons hidden for single testimonial; uncomment if adding more -->
-        <!-- <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button> -->
-        <!-- <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button> -->
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
       </div>
     </section>
   </main>
@@ -74,15 +73,13 @@
       document.querySelector('.nav-links').classList.toggle('active');
     }
 
-    // Carousel script disabled for single testimonial; uncomment if adding more
-    /*
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-item');
     function moveCarousel(direction) {
+      if (slides.length <= 1) return; // Do nothing if only one slide
       currentSlide = (currentSlide + direction + slides.length) % slides.length;
       document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
     }
-    */
   </script>
 </body>
 </html>

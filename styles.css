@@ -10,8 +10,8 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: rgba(0, 0, 0, 0.3); /* Highly transparent black */
-  --header-footer-text: #1c1c1c;
+  --header-footer-bg: #000000; /* Solid black */
+  --header-footer-text: #ffffff; /* White text */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -85,8 +85,8 @@ h1 {
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
-  color: #000000; /* Changed to black for readability */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Kept enhanced shadow */
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h3 {
@@ -121,8 +121,8 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header, footer {
-  background-color: var(--header-footer-bg); /* Highly transparent black */
-  color: var(--header-footer-text);
+  background-color: var(--header-footer-bg); /* Solid black */
+  color: var(--header-footer-text); /* White text */
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
@@ -135,7 +135,7 @@ header, footer {
 
 header h1, footer h1,
 header h2, footer h2 {
-  color: var(--header-footer-text);
+  color: var(--header-footer-text); /* White text */
   margin: 0.2em 0;
   font-size: 1.5rem;
 }
@@ -205,10 +205,7 @@ nav a:hover, nav a:focus {
    Logo
    ========================================================================== */
 .logo {
-  max-width: 120px;
-  height: auto;
-  margin-bottom: 1rem;
-  position: static;
+  display: none; /* Removed logo from header for now */
 }
 
 /* ==========================================================================
@@ -238,10 +235,6 @@ nav a:hover, nav a:focus {
     max-width: 700px;
   }
 
-  .logo {
-    max-width: 100px;
-  }
-
   header h1 {
     font-size: 2rem;
   }
@@ -251,14 +244,6 @@ nav a:hover, nav a:focus {
   .section, .box, .card, main {
     max-width: 600px;
     padding: 1.5rem;
-  }
-
-  .logo {
-    max-width: 90px;
-  }
-
-  header {
-    padding: 0.75rem;
   }
 
   header h1 {
@@ -289,16 +274,6 @@ nav a:hover, nav a:focus {
 
   .menu-toggle {
     display: block;
-  }
-
-  .logo {
-    max-width: 75px;
-    margin-bottom: 0.5rem;
-  }
-
-  header {
-    padding: 0.5rem;
-    flex-direction: column;
   }
 
   header h1 {

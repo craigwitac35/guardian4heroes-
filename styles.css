@@ -10,7 +10,7 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent; /* Reverted to transparent */
+  --header-footer-bg: transparent; /* Transparent header */
   --header-footer-text: #ffffff; /* White text */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
@@ -50,7 +50,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(249, 246, 239, 0.1);
+  background: rgba(0, 0, 0, 0.2); /* Adjusted to 20% black overlay for readability */
   z-index: -1;
   pointer-events: none;
 }

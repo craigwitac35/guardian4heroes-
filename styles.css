@@ -28,9 +28,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Add Google Fonts link for Oswald */
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,7 +35,7 @@ body {
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('images/FoggyBackground.png'); /* Restored background image */
+  background-image: url('images/FoggyBackground.png'); /* Single background image declaration */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -180,6 +177,21 @@ nav a {
 nav a:hover, nav a:focus {
   color: var(--primary-accent);
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.menu-toggle:hover, .menu-toggle:focus {
+  background: var(--dark-neutral-alt);
 }
 
 /* ==========================================================================
@@ -462,6 +474,7 @@ th, td {
 
 .contact-form input, .contact-form textarea {
   width: 100%;
+  max-width: 100%; /* Fixed incomplete rule */
 }
 
 .contact-form .error {

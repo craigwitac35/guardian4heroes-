@@ -35,7 +35,7 @@ body {
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('images/FoggyBackground.png'); /* Updated to new background image */
+  background-image: url('images/FoggyBackground.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -120,18 +120,23 @@ header, footer {
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space logo and title */
 }
 
 header h1, footer h1,
 header h2, footer h2 {
   color: var(--primary-accent);
   margin: 0.2em 0;
+  font-size: 1.5rem; /* Adjusted for balance with logo */
 }
 
 header p {
   margin: 0.2em 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--header-footer-text);
+  display: none; /* Hide p for now, adjust later if needed */
 }
 
 footer {
@@ -161,38 +166,29 @@ nav a {
   color: var(--header-footer-text);
   font-weight: bold;
   transition: color var(--transition-duration) ease;
+  border: 1px solid #000; /* Black border for navigation links */
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
 }
 
 nav a:hover, nav a:focus {
   color: var(--primary-accent);
-}
-
-.menu-toggle {
-  display: none;
-  background: var(--header-footer-bg);
-  color: var(--header-footer-text);
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease;
-}
-
-.menu-toggle:hover, .menu-toggle:focus {
-  background: var(--dark-neutral-alt);
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle hover background */
 }
 
 /* ==========================================================================
    Logo Styling
    ========================================================================== */
 .logo {
-  max-width: 100px; /* Reduced from 120px to 100px */
+  max-width: 100px; /* Kept at 100px, adjustable if needed */
   height: auto;
+  margin-right: 1rem; /* Move logo to the right with spacing */
 }
 
 @media (max-width: 600px) {
   .logo {
-    max-width: 75px; /* Reduced from 90px to 75px */
+    max-width: 75px;
+    margin-right: 0.5rem; /* Adjusted spacing on mobile */
   }
 }
 
@@ -240,7 +236,7 @@ nav a:hover, nav a:focus {
 button, .btn, .donate-button button, .cta-button button {
   background-color: var(--primary-accent);
   color: white;
-  border: none;
+  border: 1px solid #000; /* Black border for all buttons */
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -258,7 +254,7 @@ button:hover, .btn:hover, .donate-button button:hover, .cta-button button:hover 
 .button-outline, .btn-outline {
   background: transparent;
   color: var(--primary-accent);
-  border: 2px solid var(--primary-accent);
+  border: 2px solid #000; /* Black border for outlined buttons */
   box-shadow: none;
 }
 
@@ -368,7 +364,7 @@ th, td {
   transform: translateY(-50%);
   background: var(--primary-accent);
   color: white;
-  border: none;
+  border: 1px solid #000; /* Black border for carousel buttons */
   padding: 0.5rem;
   cursor: pointer;
   font-size: 1.2rem;
@@ -447,7 +443,113 @@ th, td {
   display: none;
 }
 
+.contact-form button {
+  border: 1px solid #000; /* Black border for Send Message button */
+}
+
 /* Contact Page: Social CTA */
 .social-cta {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-cta a {
+  font-size: 2rem;
+  border: 1px solid #000; /* Black border for social CTA icons */
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-duration) ease;
+}
+
+.social-cta a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.p-1 { padding: 1rem; }
+.shadow { box-shadow: var(--box-shadow); }
+.rounded { border-radius: var(--border-radius); }
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 700px) {
+  .section, .box, .card, main {
+    padding: 1rem;
+    margin: 1rem 0.5rem;
+    width: calc(100% - 1rem);
+  }
+
+  header, footer {
+    padding: 1rem 0.5rem;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  .hero h2 { font-size: 1.8rem; }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .logo {
+    max-width: 75px;
+  }
+
+  .team-member, .carousel-item, .program-highlight, .impact-highlight {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member img, .carousel-item img, .program-highlight img, .impact-highlight img {
+    max-width: 150px;
+  }
+
+  .carousel-btn {
+    padding: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .donation-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .contact-form input, .contact-form textarea {
+    max-width: 100%;
+  }
+}

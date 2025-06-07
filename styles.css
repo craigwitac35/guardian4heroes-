@@ -38,7 +38,7 @@ body {
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('images/FoggyBackground.png');
+  background-image: url('images/FoggyBackground.png'); /* Restored background image */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -129,12 +129,6 @@ header, footer {
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-header .header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 header h1, footer h1,

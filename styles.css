@@ -121,8 +121,9 @@ ul, ol {
 /* ==========================================================================
    Header and Footer
    ========================================================================== */
-header, footer {
-  background-color: var(--header-footer-bg); /* Transparent */
+header {
+  background-color: rgba(0, 0, 0, 0.6); /* Updated: 60% opaque black for visibility */
+  border-radius: 0 0 var(--border-radius) var(--border-radius); /* Updated: 0.5rem bottom corners */
   color: var(--header-footer-text); /* White text */
   padding: 1rem;
   text-align: center;
@@ -132,6 +133,15 @@ header, footer {
   justify-content: center;
   position: relative;
   z-index: 2;
+}
+
+header a {
+  border: none; /* Added: Remove global <a> border causing black box */
+  background-color: transparent; /* Added: Ensure no conflicting background */
+  padding: 0; /* Added: Remove global <a> padding for clean text */
+  color: inherit; /* Added: Maintain white text from header */
+  text-decoration: none; /* Preserved from global <a> */
+  transition: color var(--transition-duration) ease; /* Adjusted: Keep color transition only */
 }
 
 header h1, footer h1,
@@ -149,8 +159,17 @@ header p {
 }
 
 footer {
-  margin-top: auto;
+  background-color: var(--header-footer-bg); /* Transparent */
+  color: var(--header-footer-text); /* White text */
   padding: 1.5rem 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
 }
 
 /* ==========================================================================

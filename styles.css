@@ -10,7 +10,7 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: #000000; /* Solid black */
+  --header-footer-bg: transparent; /* Reverted to transparent */
   --header-footer-text: #ffffff; /* White text */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
@@ -76,10 +76,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem; /* Enlarged */
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
+  text-align: center; /* Ensured centering */
 }
 
 h2 {
@@ -121,7 +122,7 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header, footer {
-  background-color: var(--header-footer-bg); /* Solid black */
+  background-color: var(--header-footer-bg); /* Transparent */
   color: var(--header-footer-text); /* White text */
   padding: 1rem;
   text-align: center;
@@ -156,7 +157,7 @@ footer {
    Navigation
    ========================================================================== */
 nav {
-  background: var(--header-footer-bg);
+  background: var(--header-footer-bg); /* Transparent */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +189,7 @@ nav a:hover, nav a:focus {
 
 .menu-toggle {
   display: none;
-  background: var(--header-footer-bg);
+  background: var(--header-footer-bg); /* Transparent */
   color: var(--header-footer-text);
   border: none;
   font-size: 1.5rem;
@@ -205,7 +206,7 @@ nav a:hover, nav a:focus {
    Logo
    ========================================================================== */
 .logo {
-  display: none; /* Removed logo from header for now */
+  display: none; /* Logo removed */
 }
 
 /* ==========================================================================
@@ -228,6 +229,10 @@ nav a:hover, nav a:focus {
   .section, .box, .card, main {
     max-width: 800px;
   }
+
+  header h1 {
+    font-size: 2.6rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -236,7 +241,7 @@ nav a:hover, nav a:focus {
   }
 
   header h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -247,7 +252,7 @@ nav a:hover, nav a:focus {
   }
 
   header h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   nav a {
@@ -277,7 +282,7 @@ nav a:hover, nav a:focus {
   }
 
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-top: 0.25rem;
   }
 

@@ -2,7 +2,7 @@
    Global Variables
    ========================================================================== */
 :root {
-  --primary-accent: #c59d57; /* Orange accent */
+  --primary-accent: #c59d57;
   --primary-accent-dark: #b88a44;
   --dark-neutral: #1c1c1c;
   --dark-neutral-alt: #0d0d0d;
@@ -10,8 +10,8 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: rgba(230, 211, 175, 0.8); /* Semi-transparent beige */
-  --header-footer-text: #1c1c1c; /* Dark text for contrast */
+  --header-footer-bg: rgba(0, 0, 0, 0.3); /* Highly transparent black */
+  --header-footer-text: #1c1c1c;
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -85,8 +85,8 @@ h1 {
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
-  color: #d4b77f; /* Lighter accent for standout */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  color: #000000; /* Changed to black for readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Kept enhanced shadow */
 }
 
 h3 {
@@ -99,16 +99,16 @@ p {
 }
 
 a {
-  color: var(--primary-accent); /* Restored orange */
+  color: var(--primary-accent);
   text-decoration: none;
-  border: 1px solid #000; /* Black outline */
-  padding: 0.25rem 0.5rem; /* Added padding for outline visibility */
+  border: 1px solid #000;
+  padding: 0.25rem 0.5rem;
   transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
 }
 
 a:hover, a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 157, 87, 0.2); /* Subtle orange hover */
+  background-color: rgba(197, 157, 87, 0.2);
   text-decoration: underline;
 }
 
@@ -121,7 +121,7 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header, footer {
-  background-color: var(--header-footer-bg); /* Semi-transparent beige */
+  background-color: var(--header-footer-bg); /* Highly transparent black */
   color: var(--header-footer-text);
   padding: 1rem;
   text-align: center;
@@ -171,17 +171,34 @@ nav .nav-links {
 }
 
 nav a {
-  color: var(--primary-accent); /* Orange links */
+  color: var(--primary-accent);
   font-weight: bold;
   transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
-  border: 1px solid #000; /* Black outline */
+  border: 1px solid #000;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
+  min-width: 100px;
+  text-align: center;
 }
 
 nav a:hover, nav a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 157, 87, 0.2); /* Subtle orange hover */
+  background-color: rgba(197, 157, 87, 0.2);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.menu-toggle:hover, .menu-toggle:focus {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
@@ -210,148 +227,106 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
+  .section, .box, .card, main {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section, .box, .card, main {
+    max-width: 700px;
+  }
+
   .logo {
-    max-width: 75px;
+    max-width: 100px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section, .box, .card, main {
+    max-width: 600px;
+    padding: 1.5rem;
+  }
+
+  .logo {
+    max-width: 90px;
+  }
+
+  header {
+    padding: 0.75rem;
   }
 
   header h1 {
     font-size: 1.8rem;
   }
 
+  nav a {
+    padding: 0.4rem 0.8rem;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 576px) {
   nav {
     flex-direction: column;
   }
 
   nav .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
     text-align: center;
   }
 
-  nav a {
-    margin: 0.5rem 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero h2 {
-    font-size: 1.6rem;
+  nav .nav-links.active {
+    display: flex;
   }
 
   .menu-toggle {
     display: block;
   }
-}
 
-/* ==========================================================================
-   Additional Styles (Restored from Previous Versions)
-   ========================================================================== */
-/* Hero Section */
-.hero {
-  background: url('images/hero-image.jpg') center/cover no-repeat;
-  color: white;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-}
+  .logo {
+    max-width: 75px;
+    margin-bottom: 0.5rem;
+  }
 
-.hero h2 {
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  margin: 0;
-}
+  header {
+    padding: 0.5rem;
+    flex-direction: column;
+  }
 
-.hero img {
-  display: none;
-}
+  header h1 {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+  }
 
-/* Buttons (Restored) */
-button, .btn, .donate-button button, .cta-button button {
-  background-color: var(--primary-accent);
-  color: white;
-  border: 1px solid #000;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  nav a {
+    padding: 0.3rem 0.6rem;
+    min-width: 80px;
+  }
 
-button:hover, .btn:hover, .donate-button button:hover, .cta-button button:hover {
-  background-color: var(--primary-accent-dark);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
+  .section, .box, .card, main {
+    max-width: 100%;
+    margin: 1rem 0.5rem;
+    padding: 1rem;
+  }
 
-/* Carousel (Restored) */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 900px;
-}
+  .carousel-item img {
+    max-width: 150px;
+  }
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  min-width: 100%;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  min-height: 200px;
-  box-sizing: border-box;
-}
-
-.carousel-item img {
-  max-width: 200px;
-  border-radius: var(--border-radius);
-  flex-shrink: 0;
-}
-
-.carousel-item p {
-  font-style: italic;
-  flex: 1;
-  overflow-wrap: break-word;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary-accent);
-  color: white;
-  border: 1px solid #000;
-  padding: 0.5rem;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color var(--transition-duration) ease;
-  z-index: 10;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-btn.prev {
-  left: 20px;
-}
-
-.carousel-btn.next {
-  right: 20px;
-}
-
-.carousel-btn:hover {
-  background: var(--primary-accent-dark);
+  .carousel-btn {
+    padding: 0.2rem;
+    font-size: 1rem;
+    left: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+  }
 }

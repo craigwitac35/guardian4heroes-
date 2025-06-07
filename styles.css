@@ -28,6 +28,9 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Add Google Fonts link for Oswald */
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -79,6 +82,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.2rem;
   letter-spacing: 1px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 h2 {
@@ -120,23 +125,30 @@ header, footer {
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Space logo and title */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header h1, footer h1,
 header h2, footer h2 {
-  color: var(--primary-accent);
+  color: var(--header-footer-text);
   margin: 0.2em 0;
-  font-size: 1.5rem; /* Adjusted for balance with logo */
+  font-size: 1.5rem;
 }
 
 header p {
   margin: 0.2em 0;
   font-size: 1rem;
   color: var(--header-footer-text);
-  display: none; /* Hide p for now, adjust later if needed */
+  display: none;
 }
 
 footer {
@@ -166,29 +178,32 @@ nav a {
   color: var(--header-footer-text);
   font-weight: bold;
   transition: color var(--transition-duration) ease;
-  border: 1px solid #000; /* Black border for navigation links */
+  border: 1px solid #000;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
 }
 
 nav a:hover, nav a:focus {
   color: var(--primary-accent);
-  background-color: rgba(0, 0, 0, 0.1); /* Subtle hover background */
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
    Logo Styling
    ========================================================================== */
 .logo {
-  max-width: 100px; /* Kept at 100px, adjustable if needed */
+  max-width: 100px;
   height: auto;
-  margin-right: 1rem; /* Move logo to the right with spacing */
+  margin-right: 1rem;
+  position: absolute;
+  left: 1rem;
 }
 
 @media (max-width: 600px) {
   .logo {
     max-width: 75px;
-    margin-right: 0.5rem; /* Adjusted spacing on mobile */
+    margin-right: 0.5rem;
+    left: 0.5rem;
   }
 }
 
@@ -236,7 +251,7 @@ nav a:hover, nav a:focus {
 button, .btn, .donate-button button, .cta-button button {
   background-color: var(--primary-accent);
   color: white;
-  border: 1px solid #000; /* Black border for all buttons */
+  border: 1px solid #000;
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -254,7 +269,7 @@ button:hover, .btn:hover, .donate-button button:hover, .cta-button button:hover 
 .button-outline, .btn-outline {
   background: transparent;
   color: var(--primary-accent);
-  border: 2px solid #000; /* Black border for outlined buttons */
+  border: 2px solid #000;
   box-shadow: none;
 }
 
@@ -321,6 +336,7 @@ th, td {
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .team-member img {
@@ -328,11 +344,18 @@ th, td {
   border-radius: var(--border-radius);
 }
 
+.team-member p {
+  flex: 1;
+  min-width: 200px;
+}
+
 /* About Page: Testimonial Carousel */
 .carousel {
   position: relative;
   overflow: hidden;
   width: 100%;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .carousel-inner {
@@ -346,16 +369,20 @@ th, td {
   display: flex;
   align-items: center;
   gap: 1rem;
+  min-height: 200px;
+  box-sizing: border-box;
 }
 
 .carousel-item img {
   max-width: 200px;
   border-radius: var(--border-radius);
+  flex-shrink: 0;
 }
 
 .carousel-item p {
   font-style: italic;
   flex: 1;
+  overflow-wrap: break-word;
 }
 
 .carousel-btn {
@@ -364,23 +391,29 @@ th, td {
   transform: translateY(-50%);
   background: var(--primary-accent);
   color: white;
-  border: 1px solid #000; /* Black border for carousel buttons */
+  border: 1px solid #000;
   padding: 0.5rem;
   cursor: pointer;
   font-size: 1.2rem;
   transition: background-color var(--transition-duration) ease;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
 }
 
 .carousel-btn:hover {
   background: var(--primary-accent-dark);
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
 }
 
 /* Programs Page: Program Highlights */
@@ -444,7 +477,7 @@ th, td {
 }
 
 .contact-form button {
-  border: 1px solid #000; /* Black border for Send Message button */
+  border: 1px solid #000;
 }
 
 /* Contact Page: Social CTA */
@@ -457,7 +490,7 @@ th, td {
 
 .social-cta a {
   font-size: 2rem;
-  border: 1px solid #000; /* Black border for social CTA icons */
+  border: 1px solid #000;
   padding: 0.5rem;
   border-radius: var(--border-radius);
   transition: background-color var(--transition-duration) ease;
@@ -490,6 +523,12 @@ th, td {
 
   header, footer {
     padding: 1rem 0.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1 {
+    margin-top: 0.5rem;
   }
 
   h1 { font-size: 1.8rem; }
@@ -541,6 +580,10 @@ th, td {
   .carousel-btn {
     padding: 0.3rem;
     font-size: 1rem;
+    left: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
   }
 
   .donation-buttons {

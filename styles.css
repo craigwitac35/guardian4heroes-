@@ -113,6 +113,23 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+main a {
+  background-color: var(--primary-accent); /* Orange button background */
+  color: var(--header-footer-text); /* White text */
+  border: 2px solid #000; /* Bold black border */
+  border-radius: var(--border-radius); /* 0.5rem rounded corners */
+  padding: 0.5rem 1rem; /* Button-like padding */
+  text-decoration: none; /* Preserve no underline */
+  display: inline-block; /* Ensure consistent sizing */
+  transition: background-color var(--transition-duration) ease; /* Smooth background change */
+}
+
+main a:hover, main a:focus {
+  background-color: var(--primary-accent-dark); /* Darker orange on hover */
+  color: var(--header-footer-text); /* Maintain white text */
+  text-decoration: underline; /* Preserve underline on hover */
+}
+
 ul, ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;

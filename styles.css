@@ -5,13 +5,9 @@
   --primary-accent: #c59d57; /* Main orange/gold */
   --primary-accent-dark: #b88a44; /* Darker orange for hover */
   --dark-neutral: #1c1c1c;
-  --dark-neutral-alt: #0d0d0d;
   --background: #f9f6ef;
-  --box-background: #fff;
-  --secondary-accent: #a89f91;
-  --secondary-accent-alt: #dcd4c1;
   --header-footer-bg: transparent;
-  --header-footer-text: #ffffff; /* White text */
+  --header-footer-text: #ffffff;
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -35,7 +31,7 @@ body {
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('/images/FoggyBackground.png'); /* Adjusted path */
+  background-image: url('/images/FoggyBackground.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -55,7 +51,7 @@ body::before {
   pointer-events: none;
 }
 
-main, header, footer, .section, .box, .card {
+main, header, footer, .section {
   position: relative;
   z-index: 1;
 }
@@ -109,12 +105,12 @@ p {
 /* ==========================================================================
    Links and Buttons
    ========================================================================== */
-a.button, button.button {
-  background-color: var(--primary-accent); /* Orange background */
-  color: #000; /* Black text */
-  border: 2px solid #000; /* Black border */
-  border-radius: var(--border-radius); /* Rounded corners */
-  padding: 0.5rem 1rem; /* Button-like padding */
+a.button {
+  background-color: var(--primary-accent);
+  color: #000;
+  border: 2px solid #000;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
@@ -122,15 +118,13 @@ a.button, button.button {
   cursor: pointer;
 }
 
-a.button:hover, button.button:hover,
-a.button:focus, button.button:focus {
-  background-color: var(--primary-accent-dark); /* Darker orange */
-  color: #000; /* Maintain black text */
+a.button:hover, a.button:focus {
+  background-color: var(--primary-accent-dark);
+  color: #000;
   text-decoration: underline;
-  outline: 2px solid #000; /* Accessibility */
+  outline: 2px solid #000;
 }
 
-/* Default links (non-button, e.g., footer) */
 a {
   color: var(--primary-accent);
   text-decoration: none;
@@ -160,26 +154,18 @@ header {
 }
 
 header a {
-  color: inherit; /* White text */
-  background: none; /* No background */
-  border: none; /* No border */
-  padding: 0; /* No padding */
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
   text-decoration: none;
   transition: color var(--transition-duration) ease;
 }
 
-header h1, footer h1,
-header h2, footer h2 {
+header h1, header h2 {
   color: var(--header-footer-text);
   margin: 0.2em 0;
   font-size: 1.5rem;
-}
-
-header p {
-  margin: 0.2em 0;
-  font-size: 1rem;
-  color: var(--header-footer-text);
-  display: none;
 }
 
 footer {
@@ -209,6 +195,19 @@ footer a:hover, footer a:focus {
   text-decoration: none;
 }
 
+footer a.button {
+  background: none;
+  border: none;
+  color: var(--header-footer-text);
+  padding: 0;
+  text-decoration: underline;
+}
+
+footer a.button:hover, footer a.button:focus {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
 /* ==========================================================================
    Navigation
    ========================================================================== */
@@ -228,14 +227,13 @@ nav .nav-links {
 }
 
 nav .nav-links a {
-  background-color: var(--primary-accent); /* Orange background */
-  color: #000; /* Black text */
-  border: 2px solid #000; /* Black border */
+  background-color: var(--primary-accent);
+  color: #000;
+  border: 2px solid #000;
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
   font-weight: bold;
   text-decoration: none;
-  min-width: 100px;
   text-align: center;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
@@ -246,7 +244,6 @@ nav .nav-links a:hover, nav .nav-links a:focus {
   text-decoration: underline;
 }
 
-/* Mobile menu toggle */
 .menu-toggle {
   display: none;
   background: rgba(0, 0, 0, 0.5);
@@ -286,13 +283,12 @@ nav .nav-links a:hover, nav .nav-links a:focus {
   }
 
   nav .nav-links a {
-    background-color: var(--primary-accent); /* Orange background */
-    color: #000; /* Black text */
-    border: 2px solid #000; /* Black border */
+    background-color: var(--primary-accent);
+    color: #000;
+    border: 2px solid #000;
     margin: 0.5rem 0;
     padding: 0.5rem;
     display: block;
-    min-width: unset;
     border-radius: var(--border-radius);
   }
 
@@ -308,16 +304,9 @@ nav .nav-links a:hover, nav .nav-links a:focus {
 }
 
 /* ==========================================================================
-   Logo
+   Sections and Elements
    ========================================================================== */
-.logo {
-  display: none;
-}
-
-/* ==========================================================================
-   Sections, Cards, and Other Elements
-   ========================================================================== */
-.section, .box, .card {
+.section {
   background: transparent;
   border-radius: 0;
   box-shadow: none;
@@ -325,38 +314,15 @@ nav .nav-links a:hover, nav .nav-links a:focus {
   padding: 0.5rem;
 }
 
-/* Veteran Stories arrows */
-.veteran-stories {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.veteran-stories a {
-  background-color: var(--primary-accent); /* Orange background */
-  color: #000; /* Black text */
-  border: 2px solid #000; /* Black border */
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  min-width: 40px;
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
-}
-
-.veteran-stories a:hover, .veteran-stories a:focus {
-  background-color: var(--primary-accent-dark);
-  color: #000;
-  text-decoration: underline;
-}
-
-/* Images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+img.placeholder {
+  background: #eee;
+  min-height: 100px;
 }
 
 /* ==========================================================================
@@ -382,11 +348,6 @@ img {
 }
 
 @media (max-width: 576px) {
-  header h1 {
-    font-size: 1.8rem;
-    margin-top: 0.25rem;
-  }
-
   main {
     max-width: 100%;
     margin: 1rem 0.5rem;

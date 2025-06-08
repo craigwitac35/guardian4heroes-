@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2rem; /* Elegant size for handwriting font */
-  font-family: 'Great Vibes', 'Oswald', sans-serif; /* Handwriting style */
+  font-family: 'Dancing Script', 'Oswald', sans-serif; /* New handwriting style */
   font-weight: 400; /* Lighter for elegance */
   color: var(--header-footer-text); /* White text */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Legibility */
@@ -149,7 +149,7 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header {
-  background: linear-gradient(to bottom, #f9f6ef 0%, #1c1c1c 100%); /* Vertical gradient, light top to dark bottom */
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #1c1c1c 100%); /* Mostly white, black near title */
   padding: 1.5rem; /* Balanced for logo and title */
   color: var(--header-footer-text);
   display: flex;

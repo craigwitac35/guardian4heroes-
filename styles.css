@@ -10,8 +10,8 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent; /* Reverted to transparent */
-  --header-footer-text: var(--dark-neutral); /* UPDATED: Black text (#1c1c1c) */
+  --header-footer-bg: transparent;
+  --header-footer-text: var(--dark-neutral); /* Black text (#1c1c1c) */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -76,18 +76,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.8rem; /* Enlarged */
+  font-size: 2.8rem;
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  text-align: center; /* Ensured centering */
+  text-align: center;
 }
 
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
   color: #000000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9); /* Updated: White glow effect */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
 }
 
 h3 {
@@ -109,25 +109,25 @@ a {
 
 a:hover, a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 255, 87, 0.2); /* Corrected: Green component */
+  background-color: rgba(197, 255, 87, 0.2);
   text-decoration: underline;
 }
 
 main a {
-  background-color: var(--primary-accent); /* Orange button background */
-  color: #ffffff; /* White text */
-  border: 2px solid #000; /* Bold black border */
-  border-radius: var(--border-radius); /* 0.5rem rounded corners */
-  padding: 0.5rem 1rem; /* Button-like padding */
-  text-decoration: none; /* Preserve no underline */
-  display: inline-block; /* Ensure consistent sizing */
-  transition: background-color var(--transition-duration) ease; /* Smooth background change */
+  background-color: var(--primary-accent);
+  color: #ffffff;
+  border: 2px solid #000;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color var(--transition-duration) ease;
 }
 
 main a:hover, main a:focus {
-  background-color: var(--primary-accent-dark); /* Darker orange on hover */
-  color: #ffffff; /* Maintain white text */
-  text-decoration: underline; /* Preserve underline on hover */
+  background-color: var(--primary-accent-dark);
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 ul, ol {
@@ -138,10 +138,13 @@ ul, ol {
 /* ==========================================================================
    Header and Footer
    ========================================================================== */
+
+/* UPDATED: Frosted Glass Header */
 header {
-  background-color: var(--primary-accent); /* UPDATED: Use primary orange */
+  /* Fallback for older browsers */
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  color: var(--header-footer-text); /* This now uses the black variable */
+  color: var(--header-footer-text);
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
@@ -150,6 +153,16 @@ header {
   justify-content: center;
   position: relative;
   z-index: 2;
+  box-shadow: var(--box-shadow);
+}
+
+/* Apply blur effect ONLY if the browser supports it */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  header {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 header a {
@@ -161,23 +174,30 @@ header a {
   transition: color var(--transition-duration) ease;
 }
 
-header h1, footer h1,
-header h2, footer h2 {
-  color: var(--header-footer-text); /* This now uses the black variable */
+/* UPDATED: Responsive Title */
+header h1 {
+  font-size: clamp(2.5rem, 10vw, 5.5rem);
+  color: var(--header-footer-text);
   margin: 0.2em 0;
-  font-size: 1.5rem;
+  /* Other h1 styles like font-family are inherited */
+}
+
+header h2, footer h2 {
+    color: var(--header-footer-text);
+    margin: 0.2em 0;
+    font-size: 1.5rem;
 }
 
 header p {
   margin: 0.2em 0;
   font-size: 1rem;
-  color: var(--header-footer-text); /* This now uses the black variable */
+  color: var(--header-footer-text);
   display: none;
 }
 
 footer {
   background-color: var(--header-footer-bg);
-  color: #ffffff; /* Footer text remains white */
+  color: #ffffff;
   padding: 1.5rem 1rem;
   text-align: center;
   letter-spacing: 1px;
@@ -207,31 +227,30 @@ nav .nav-links {
   gap: 1rem;
 }
 
-/* UPDATED navigation link styles for desktop */
 nav a {
-  color: var(--dark-neutral); /* Black text */
-  background-color: var(--primary-accent); /* Orange background */
+  color: var(--dark-neutral);
+  background-color: var(--primary-accent);
   font-weight: bold;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
-  border: 1px solid var(--dark-neutral); /* Black border for definition */
+  border: 1px solid var(--dark-neutral);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   min-width: 100px;
   text-align: center;
-  box-shadow: var(--box-shadow); /* Added for consistency and depth */
-  text-decoration: none; /* Ensure no underline by default */
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
 }
 
 nav a:hover, nav a:focus {
-  color: var(--dark-neutral); /* Keep text black */
-  background-color: var(--primary-accent-dark); /* Darker orange on hover */
-  text-decoration: none; /* Ensure no underline on hover */
+  color: var(--dark-neutral);
+  background-color: var(--primary-accent-dark);
+  text-decoration: none;
 }
 
 .menu-toggle {
   display: none;
   background: var(--header-footer-bg);
-  color: var(--header-footer-text); /* This now uses the black variable */
+  color: var(--header-footer-text);
   border: none;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
@@ -350,24 +369,23 @@ main {
     background: transparent;
     border: 1px solid var(--dark-neutral);
     border-radius: var(--border-radius);
-    color: var(--header-footer-text); /* This now correctly points to black */
+    color: var(--header-footer-text);
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color var(--transition-duration) ease;
-    box-shadow: var(--box-shadow); /* ADDED: This line for depth */
+    box-shadow: var(--box-shadow);
   }
 
   .menu-toggle:hover, .menu-toggle:focus {
     background: var(--primary-accent-dark);
   }
 
+  /* Note: The header h1 font-size is now controlled by the clamp() function in the main rule */
   header h1 {
-    font-size: 1.8rem;
     margin-top: 0.25rem;
   }
 
-  /* This rule is now overridden by the more specific mobile menu 'a' styles above, so it only affects desktop */
   nav a {
     padding: 0.3rem 0.6rem;
     min-width: 80px;

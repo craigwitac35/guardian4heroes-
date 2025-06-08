@@ -301,30 +301,56 @@ main {
     text-align: center;
   }
 
+  /*
+   START: REVISED MOBILE NAVIGATION STYLES
+   These rules replace the old mobile menu style with the new blur-effect design.
+  */
+
+  /* The active menu container uses a blur effect with a solid fallback for older browsers */
   nav .nav-links.active {
-    display: flex;
-    background: var(--dark-neutral); /* Updated: Dark background for readability */
-    padding: 1rem; /* Updated: Container padding */
-    border-radius: var(--border-radius); /* Updated: Rounded corners */
-    box-shadow: var(--box-shadow); /* Updated: Modern shadow */
+    display: flex; /* Kept from original rule to ensure it displays correctly */
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    /* Fallback background for browsers that don't support backdrop-filter */
+    background: rgba(249, 246, 239, 0.9); /* Opaque version of your site background */
   }
 
+  /* Apply blur effect ONLY if the browser supports it, overriding the fallback */
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    nav .nav-links.active {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  }
+
+  /* Styles for the individual links as orange buttons */
   nav .nav-links a {
-    color: #ffffff; /* Updated: White text for contrast */
-    border: 1px solid var(--primary-accent); /* Updated: Subtle orange border */
-    background: transparent; /* Updated: No background */
-    margin: 0.5rem 0; /* Updated: Vertical spacing */
-    padding: 0.5rem; /* Updated: Consistent padding */
-    display: block; /* Updated: Full-width clickable links */
-    min-width: unset; /* Updated: Remove min-width for flexibility */
-    border-radius: var(--border-radius); /* Preserve rounded corners */
+    background-color: var(--primary-accent-dark);
+    color: var(--dark-neutral);
+    border: 1px solid var(--dark-neutral);
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0;
+    display: block;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    min-width: unset; /* Override desktop min-width */
+    text-decoration: none; /* Override default link styles */
+    font-weight: normal; /* Override desktop bold style */
   }
 
+  /* Hover/focus effect for the new buttons */
   nav .nav-links a:hover, nav .nav-links a:focus {
-    color: #ffffff; /* Updated: Maintain white text */
-    background: rgba(197, 255, 87, 0.2); /* Corrected: Consistent hover background */
-    text-decoration: underline; /* Preserve underline */
+    background-color: var(--primary-accent);
+    color: var(--dark-neutral-alt);
+    text-decoration: none; /* Ensure no underline on hover */
   }
+
+  /*
+   END: REVISED MOBILE NAVIGATION STYLES
+  */
 
   .menu-toggle {
     display: block;
@@ -347,6 +373,7 @@ main {
     margin-top: 0.25rem;
   }
 
+  /* This rule is now overridden by the more specific mobile menu 'a' styles above but is kept for desktop */
   nav a {
     padding: 0.3rem 0.6rem;
     min-width: 80px;

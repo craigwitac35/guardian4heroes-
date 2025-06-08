@@ -271,6 +271,10 @@ footer {
   margin: 2rem auto;
 }
 
+.section h3 {
+  text-align: center; /* Center subheadings as requested */
+}
+
 .hero {
   background: rgba(0, 0, 0, 0.7); /* Darker for hero */
   padding: 3rem 2rem;
@@ -361,20 +365,22 @@ footer {
     box-shadow: var(--box-shadow);
   }
 
-  .nav__links a {
-    color: #ffffff;
-    border: 1px solid var(--primary-accent);
-    background: transparent;
+  .nav__links--active a {
+    background-color: #d4a76a; /* Orangish background for hamburger menu links */
+    color: #1c1c1c; /* Dark text for contrast */
+    border: 1px solid #b88a44; /* Darker orange border */
     margin: 0.5rem 0;
     padding: 0.75rem; /* Larger touch target */
     display: block;
     min-width: unset;
     border-radius: var(--border-radius);
+    font-weight: bold;
+    transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
   }
 
-  .nav__links a:hover, .nav__links a:focus {
-    color: #ffffff;
-    background: rgba(197, 255, 87, 0.2);
+  .nav__links--active a:hover, .nav__links--active a:focus {
+    background-color: #b88a44; /* Darker orange on hover/focus */
+    color: #ffffff; /* White text for contrast */
     text-decoration: underline;
   }
 

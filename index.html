@@ -63,13 +63,13 @@ main, header, footer, .section, .box, .card {
 
 main {
   flex: 1;
-  background: none; /* Updated: Remove blur */
-  box-shadow: none; /* Updated: No shadow */
-  border-radius: 0; /* Updated: No rounding */
-  margin: 0; /* Updated: No margin */
-  padding: 0; /* Updated: No padding */
-  max-width: 100%; /* Updated: Full width */
-  width: 100%; /* Updated: Full width */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -231,7 +231,9 @@ nav a:hover, nav a:focus {
   border-radius: var(--border-radius);
   color: #ffffff;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.25);
-  margin: 0;
+  max-width: 900px; /* Added: Restore container width */
+  width: 95%; /* Added: Responsive spacing */
+  margin: 2rem auto; /* Added: Centering and vertical spacing */
 }
 
 .card {
@@ -328,12 +330,21 @@ nav a:hover, nav a:focus {
    Media Queries
    ========================================================================== */
 @media (max-width: 1200px) {
+  .section {
+    max-width: 800px;
+  }
 }
 
 @media (max-width: 992px) {
+  .section {
+    max-width: 700px;
+  }
 }
 
 @media (max-width: 768px) {
+  .section {
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -393,11 +404,6 @@ nav a:hover, nav a:focus {
   header h1 {
     font-size: 1.8rem;
     margin-top: 0.25rem;
-  }
-
-  nav a {
-    padding: 0.3rem 0.6rem;
-    min-width: 80px;
   }
 
   main {

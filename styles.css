@@ -10,12 +10,12 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent; /* Reverted to transparent */
-  --header-footer-text: #ffffff; /* White text */
+  --header-footer-bg: transparent;
+  --header-footer-text: #ffffff;
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --heading-glow: rgba(255, 255, 255, 0.85); /* Added: Configurable glow */
+  --heading-glow: rgba(255, 255, 255, 0.85);
 }
 
 /* ==========================================================================
@@ -77,30 +77,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.8rem; /* Enlarged */
+  font-size: 2.8rem;
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  text-align: center; /* Ensured centering */
+  text-align: center;
 }
 
 main h2, .main-heading {
-  font-size: 2rem; /* Updated: Larger for prominence */
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  color: #ffffff; /* Updated: White for contrast */
-  text-shadow: 0 0 10px var(--heading-glow); /* Updated: Configurable white glow */
-  margin: 3rem 0 1rem; /* Updated: Vertical spacing */
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--heading-glow);
+  margin: 3rem 0 1rem;
   letter-spacing: 0.5px;
 }
 
 main h3, .sub-heading {
-  font-size: 1.3rem; /* Updated: Smaller for secondary role */
-  color: var(--primary-accent); /* Updated: Gold accent */
+  font-size: 1.3rem;
+  color: var(--primary-accent);
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Updated: Subtle shadow */
-  margin: 0 0 1rem; /* Updated: Spacing */
-  letter-spacing: 0.8px; /* Updated: Match polish */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 0 1rem;
+  letter-spacing: 0.8px;
 }
 
 /* ==========================================================================
@@ -235,11 +235,77 @@ main {
 }
 
 .section {
-  padding: 4rem 0; /* Added: Vertical rhythm */
+  padding: 4rem 0;
 }
 
 .section.light {
-  --heading-glow: rgba(0, 0, 0, 0.75); /* Added: Black glow for light backgrounds */
+  --heading-glow: rgba(0, 0, 0, 0.75);
+}
+
+/* ==========================================================================
+   Interactive Elements
+   ========================================================================== */
+.cta-button {
+  background-color: var(--primary-accent); /* Orange */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover, .cta-button:focus {
+  background-color: var(--primary-accent-dark); /* Darker orange */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.donation-option {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
+  border: 2px solid var(--primary-accent);
+  border-radius: var(--border-radius);
+  background-color: var(--box-background);
+  color: var(--dark-neutral);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.donation-option:hover, .donation-option:focus {
+  background-color: var(--primary-accent);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.donation-option.selected {
+  background-color: var(--primary-accent-dark);
+  color: #fff;
+  border-color: var(--primary-accent-dark);
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-accent);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.arrow-button:hover, .arrow-button:focus {
+  color: var(--primary-accent-dark);
+  transform: scale(1.2);
+}
+
+.arrow-button:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -335,10 +401,23 @@ main {
   }
 
   main h2, .main-heading {
-    font-size: clamp(1.6rem, 4vw, 1.8rem); /* Added: Responsive sizing */
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
   }
 
   main h3, .sub-heading {
-    font-size: clamp(1.1rem, 3vw, 1.2rem); /* Added: Responsive sizing */
+    font-size: clamp(1.1rem, 3vw, 1.2rem);
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem; /* Reduced for mobile */
+  }
+
+  .donation-option {
+    padding: 0.75rem 1rem; /* Reduced for mobile */
+    margin: 0.25rem;
+  }
+
+  .arrow-button {
+    font-size: 1.5rem; /* Slightly smaller for mobile */
   }
 }

@@ -84,13 +84,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.4rem; /* Adjusted for header */
+  font-size: 2.4rem;
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Added for legibility */
-  margin: 0.5rem 0;
 }
 
 h2 {
@@ -150,13 +148,13 @@ ul, ol {
    ========================================================================== */
 header {
   background: linear-gradient(to bottom, #f9f6ef 0%, #1c1c1c 100%); /* Vertical gradient, light top to dark bottom */
-  padding: 1rem; /* Reduced to bring content up */
+  padding: 1.5rem; /* Adjusted for larger logo */
   color: var(--header-footer-text);
   display: flex;
-  flex-direction: column; /* Stack logo and title */
+  flex-direction: column; /* Stack logo */
   align-items: center; /* Center horizontally */
   justify-content: center; /* Center vertically */
-  gap: 0.5rem; /* Space between logo and title */
+  gap: 0.5rem; /* Space for consistency */
   text-align: center;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   position: relative;
@@ -174,13 +172,6 @@ header a {
 
 header a:hover, header a:focus {
   text-decoration: underline; /* Subtle hover effect */
-}
-
-header h1 {
-  font-size: 2.4rem; /* As requested */
-  color: var(--header-footer-text); /* White text */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Added for legibility */
-  margin: 0.5rem 0;
 }
 
 footer {
@@ -240,7 +231,7 @@ footer {
    ========================================================================== */
 .logo {
   display: block; /* Show logo */
-  max-width: 150px; /* Increased size */
+  max-width: 180px; /* Increased size */
   margin: 0 auto -0.5rem; /* Center, nudge up */
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5)); /* Optional: helps it pop */
 }
@@ -381,12 +372,8 @@ footer {
 }
 
 @media (max-width: 576px) {
-  header h1 {
-    font-size: 1.8rem; /* Smaller on mobile */
-  }
-
   .logo {
-    max-width: 120px; /* Smaller logo on mobile */
+    max-width: 140px; /* Smaller logo on mobile */
   }
 
   .section, .hero {

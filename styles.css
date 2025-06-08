@@ -2,15 +2,15 @@
    Global Variables
    ========================================================================== */
 :root {
-  --primary-accent: #c59d57;
-  --primary-accent-dark: #b88a44;
+  --primary-accent: #c59d57; /* Main orange/gold */
+  --primary-accent-dark: #b88a44; /* Darker orange for hover */
   --dark-neutral: #1c1c1c;
   --dark-neutral-alt: #0d0d0d;
   --background: #f9f6ef;
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent; /* Reverted to transparent */
+  --header-footer-bg: transparent;
   --header-footer-text: #ffffff; /* White text */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
@@ -35,7 +35,7 @@ body {
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('images/FoggyBackground.png');
+  background-image: url('/images/FoggyBackground.png'); /* Adjusted path */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -62,6 +62,13 @@ main, header, footer, .section, .box, .card {
 
 main {
   flex: 1;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 900px;
+  width: 95%;
 }
 
 /* ==========================================================================
@@ -76,18 +83,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.8rem; /* Enlarged */
+  font-size: 2.8rem;
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  text-align: center; /* Ensured centering */
+  text-align: center;
 }
 
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
   color: #000000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9); /* Updated: White glow effect */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
 }
 
 h3 {
@@ -99,49 +106,49 @@ p {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* ==========================================================================
+   Links and Buttons
+   ========================================================================== */
+a.button, button.button {
+  background-color: var(--primary-accent); /* Orange background */
+  color: #000; /* Black text */
+  border: 2px solid #000; /* Black border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 0.5rem 1rem; /* Button-like padding */
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  cursor: pointer;
+}
+
+a.button:hover, button.button:hover,
+a.button:focus, button.button:focus {
+  background-color: var(--primary-accent-dark); /* Darker orange */
+  color: #000; /* Maintain black text */
+  text-decoration: underline;
+  outline: 2px solid #000; /* Accessibility */
+}
+
+/* Default links (non-button, e.g., footer) */
 a {
   color: var(--primary-accent);
   text-decoration: none;
-  border: 1px solid #000;
-  padding: 0.25rem 0.5rem;
-  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+  transition: color var(--transition-duration) ease;
 }
 
 a:hover, a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 255, 87, 0.2); /* Corrected: Green component */
   text-decoration: underline;
-}
-
-main a {
-  background-color: var(--primary-accent); /* Orange button background */
-  color: var(--header-footer-text); /* White text */
-  border: 2px solid #000; /* Bold black border */
-  border-radius: var(--border-radius); /* 0.5rem rounded corners */
-  padding: 0.5rem 1rem; /* Button-like padding */
-  text-decoration: none; /* Preserve no underline */
-  display: inline-block; /* Ensure consistent sizing */
-  transition: background-color var(--transition-duration) ease; /* Smooth background change */
-}
-
-main a:hover, main a:focus {
-  background-color: var(--primary-accent-dark); /* Darker orange on hover */
-  color: var(--header-footer-text); /* Maintain white text */
-  text-decoration: underline; /* Preserve underline on hover */
-}
-
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 /* ==========================================================================
    Header and Footer
    ========================================================================== */
 header {
-  background-color: rgba(0, 0, 0, 0.6); /* Updated: 60% opaque black for visibility */
-  border-radius: 0 0 var(--border-radius) var(--border-radius); /* 0.5rem bottom corners */
-  color: var(--header-footer-text); /* White text */
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  color: var(--header-footer-text);
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
@@ -153,32 +160,32 @@ header {
 }
 
 header a {
-  border: none; /* Added: Remove global <a> border causing black box */
-  background-color: transparent; /* Added: Ensure no conflicting background */
-  padding: 0; /* Added: Remove global <a> padding for clean text */
-  color: inherit; /* Added: Maintain white text from header */
-  text-decoration: none; /* Preserved from global <a> */
-  transition: color var(--transition-duration) ease; /* Adjusted: Keep color transition only */
+  color: inherit; /* White text */
+  background: none; /* No background */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+  text-decoration: none;
+  transition: color var(--transition-duration) ease;
 }
 
 header h1, footer h1,
 header h2, footer h2 {
-  color: var(--header-footer-text); /* White text */
+  color: var(--header-footer-text);
   margin: 0.2em 0;
   font-size: 1.5rem;
 }
 
 header p {
   margin: 0.2em 0;
-  font-size: 1rem; /* Corrected: Removed trailing semicolon */
+  font-size: 1rem;
   color: var(--header-footer-text);
   display: none;
 }
 
 footer {
-  background-color: var(--header-footer-bg); /* Transparent */
-  color: var(--header-footer-text); /* White text */
-  padding: 1.5rem 1rem; /* Corrected: Restored original padding */
+  background-color: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  padding: 1.5rem 1rem;
   text-align: center;
   letter-spacing: 1px;
   display: flex;
@@ -189,11 +196,24 @@ footer {
   margin-top: auto;
 }
 
+footer a {
+  background: none;
+  color: var(--header-footer-text);
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+}
+
+footer a:hover, footer a:focus {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
 /* ==========================================================================
    Navigation
    ========================================================================== */
 nav {
-  background: var(--header-footer-bg); /* Transparent */
+  background: var(--header-footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,63 +227,136 @@ nav .nav-links {
   gap: 1rem;
 }
 
-nav a {
-  color: var(--primary-accent);
-  font-weight: bold;
-  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
-  border: 1px solid #000;
-  padding: 0.5rem 1rem;
+nav .nav-links a {
+  background-color: var(--primary-accent); /* Orange background */
+  color: #000; /* Black text */
+  border: 2px solid #000; /* Black border */
   border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-decoration: none;
   min-width: 100px;
   text-align: center;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
-nav a:hover, nav a:focus {
-  color: var(--primary-accent-dark);
-  background-color: rgba(197, 255, 87, 0.2); /* Corrected: Green component */
+nav .nav-links a:hover, nav .nav-links a:focus {
+  background-color: var(--primary-accent-dark);
+  color: #000;
+  text-decoration: underline;
 }
 
+/* Mobile menu toggle */
 .menu-toggle {
   display: none;
-  background: var(--header-footer-bg); /* Transparent */
+  background: rgba(0, 0, 0, 0.5);
   color: var(--header-footer-text);
   border: none;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color var(--transition-duration) ease;
+  border-radius: 0.25rem;
 }
 
 .menu-toggle:hover, .menu-toggle:focus {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Mobile navigation */
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+    background: var(--dark-neutral);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  nav .nav-links a {
+    background-color: var(--primary-accent); /* Orange background */
+    color: #000; /* Black text */
+    border: 2px solid #000; /* Black border */
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    display: block;
+    min-width: unset;
+    border-radius: var(--border-radius);
+  }
+
+  nav .nav-links a:hover, nav .nav-links a:focus {
+    background-color: var(--primary-accent-dark);
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* ==========================================================================
    Logo
    ========================================================================== */
 .logo {
-  display: none; /* Logo removed */
+  display: none;
 }
 
 /* ==========================================================================
    Sections, Cards, and Other Elements
    ========================================================================== */
-main {
-  background: rgba(255, 255, 255, 0.3); /* Updated: 30% opaque for visibility */
-  border-radius: var(--border-radius); /* 0.5rem */
-  box-shadow: var(--box-shadow);
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 900px;
-  width: 95%;
+.section, .box, .card {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
 }
 
-.section, .box, .card {
-  background: transparent; /* Updated: Remove background */
-  border-radius: 0; /* Corrected: Valid value for no border-radius */
-  box-shadow: none; /* Updated: No shadow */
-  margin: 0.5rem auto; /* Retain minimal spacing */
-  padding: 0.5rem; /* Retain minimal padding */
+/* Veteran Stories arrows */
+.veteran-stories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.veteran-stories a {
+  background-color: var(--primary-accent); /* Orange background */
+  color: #000; /* Black text */
+  border: 2px solid #000; /* Black border */
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  min-width: 40px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+}
+
+.veteran-stories a:hover, .veteran-stories a:focus {
+  background-color: var(--primary-accent-dark);
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ==========================================================================
@@ -289,67 +382,9 @@ main {
 }
 
 @media (max-width: 576px) {
-  nav {
-    flex-direction: column;
-  }
-
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    max-width: 300px; /* Updated: Compact menu width */
-    margin: 0 auto; /* Updated: Center menu */
-    text-align: center;
-  }
-
-  nav .nav-links.active {
-    display: flex;
-    background: var(--dark-neutral); /* Updated: Dark background for readability */
-    padding: 1rem; /* Updated: Container padding */
-    border-radius: var(--border-radius); /* Updated: Rounded corners */
-    box-shadow: var(--box-shadow); /* Updated: Modern shadow */
-  }
-
-  nav .nav-links a {
-    color: #ffffff; /* Updated: White text for contrast */
-    border: 1px solid var(--primary-accent); /* Updated: Subtle orange border */
-    background: transparent; /* Updated: No background */
-    margin: 0.5rem 0; /* Updated: Vertical spacing */
-    padding: 0.5rem; /* Updated: Consistent padding */
-    display: block; /* Updated: Full-width clickable links */
-    min-width: unset; /* Updated: Remove min-width for flexibility */
-    border-radius: var(--border-radius); /* Preserve rounded corners */
-  }
-
-  nav .nav-links a:hover, nav .nav-links a:focus {
-    color: #ffffff; /* Updated: Maintain white text */
-    background: rgba(197, 255, 87, 0.2); /* Corrected: Consistent hover background */
-    text-decoration: underline; /* Preserve underline */
-  }
-
-  .menu-toggle {
-    display: block;
-    background: rgba(0, 0, 0, 0.5); /* Updated: Semi-transparent for visibility */
-    color: var(--header-footer-text);
-    border: none;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-duration) ease;
-    border-radius: 0.25rem; /* Updated: Subtle rounding */
-  }
-
-  .menu-toggle:hover, .menu-toggle:focus {
-    background: rgba(0, 0, 0, 0.7); /* Updated: Darker hover */
-  }
-
   header h1 {
     font-size: 1.8rem;
     margin-top: 0.25rem;
-  }
-
-  nav a {
-    padding: 0.3rem 0.6rem;
-    min-width: 80px;
   }
 
   main {
@@ -357,4 +392,12 @@ main {
     margin: 1rem 0.5rem;
     padding: 1rem;
   }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
 }

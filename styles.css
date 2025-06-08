@@ -30,8 +30,8 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--dark-neutral);
-  background-color: var(--background);
-  background-image: url('/images/FoggyBackground.png');
+  background-color: var(--background); /* Fallback if image fails */
+  background-image: url('/images/FoggyBackground.png'); /* Adjust path if needed */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

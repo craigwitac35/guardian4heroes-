@@ -235,7 +235,12 @@ main {
 }
 
 .section {
-  padding: 4rem 0;
+  background-color: rgba(28, 28, 28, 0.55); /* Updated: Darker frosted glass */
+  backdrop-filter: blur(8px); /* Updated: Glass effect */
+  -webkit-backdrop-filter: blur(8px); /* Updated: Safari support */
+  padding: 2rem; /* Updated: Consistent padding */
+  border-radius: var(--border-radius);
+  color: #ffffff; /* Updated: Ensure text readability */
 }
 
 .section.light {
@@ -246,7 +251,7 @@ main {
    Interactive Elements
    ========================================================================== */
 .cta-button {
-  background-color: var(--primary-accent); /* Orange */
+  background-color: var(--primary-accent);
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-weight: bold;
@@ -259,7 +264,7 @@ main {
 }
 
 .cta-button:hover, .cta-button:focus {
-  background-color: var(--primary-accent-dark); /* Darker orange */
+  background-color: var(--primary-accent-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
@@ -409,15 +414,15 @@ main {
   }
 
   .cta-button {
-    padding: 0.5rem 1rem; /* Reduced for mobile */
+    padding: 0.5rem 1rem;
   }
 
   .donation-option {
-    padding: 0.75rem 1rem; /* Reduced for mobile */
+    padding: 0.75rem 1rem;
     margin: 0.25rem;
   }
 
   .arrow-button {
-    font-size: 1.5rem; /* Slightly smaller for mobile */
+    font-size: 1.5rem;
   }
 }

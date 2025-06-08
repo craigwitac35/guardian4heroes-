@@ -10,8 +10,8 @@
   --box-background: #fff;
   --secondary-accent: #a89f91;
   --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent;
-  --header-footer-text: #ffffff;
+  --header-footer-bg: transparent; /* Reverted to transparent */
+  --header-footer-text: #ffffff; /* White text */
   --transition-duration: 0.2s;
   --border-radius: 0.5rem;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(249, 246, 239, 0.3); /* Increased opacity */
+  background: rgba(249, 246, 239, 0.1);
   z-index: -1;
   pointer-events: none;
 }
@@ -72,22 +72,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   line-height: 1.2;
-  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1); /* Subtler shadow */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.8rem; /* Enlarged */
   letter-spacing: 1px;
-  font-family: 'Oswald', 'Segoe UI', sans-serif; /* Added fallback */
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  text-align: center;
+  text-align: center; /* Ensured centering */
 }
 
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
   color: #000000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9); /* Updated: White glow effect */
 }
 
 h3 {
@@ -109,29 +109,25 @@ a {
 
 a:hover, a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 157, 87, 0.2); /* Aligned with primary accent */
+  background-color: rgba(197, 255, 87, 0.2); /* Corrected: Green component */
   text-decoration: underline;
-  outline: 2px solid var(--primary-accent); /* Added focus style */
-  outline-offset: 2px;
 }
 
 main a {
-  background-color: var(--primary-accent);
-  color: var(--header-footer-text);
-  border: 2px solid #000;
-  border-radius: var(--border-radius);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color var(--transition-duration) ease;
+  background-color: var(--primary-accent); /* Orange button background */
+  color: var(--header-footer-text); /* White text */
+  border: 2px solid #000; /* Bold black border */
+  border-radius: var(--border-radius); /* 0.5rem rounded corners */
+  padding: 0.5rem 1rem; /* Button-like padding */
+  text-decoration: none; /* Preserve no underline */
+  display: inline-block; /* Ensure consistent sizing */
+  transition: background-color var(--transition-duration) ease; /* Smooth background change */
 }
 
 main a:hover, main a:focus {
-  background-color: var(--primary-accent-dark);
-  color: var(--header-footer-text);
-  text-decoration: underline;
-  outline: 2px solid var(--primary-accent);
-  outline-offset: 2px;
+  background-color: var(--primary-accent-dark); /* Darker orange on hover */
+  color: var(--header-footer-text); /* Maintain white text */
+  text-decoration: underline; /* Preserve underline on hover */
 }
 
 ul, ol {
@@ -143,9 +139,9 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header {
-  background-color: rgba(0, 0, 0, 0.8); /* More opaque */
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  color: var(--header-footer-text);
+  background-color: rgba(0, 0, 0, 0.6); /* Updated: 60% opaque black for visibility */
+  border-radius: 0 0 var(--border-radius) var(--border-radius); /* 0.5rem bottom corners */
+  color: var(--header-footer-text); /* White text */
   padding: 1rem;
   text-align: center;
   letter-spacing: 1px;
@@ -157,32 +153,32 @@ header {
 }
 
 header a {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-duration) ease;
+  border: none; /* Added: Remove global <a> border causing black box */
+  background-color: transparent; /* Added: Ensure no conflicting background */
+  padding: 0; /* Added: Remove global <a> padding for clean text */
+  color: inherit; /* Added: Maintain white text from header */
+  text-decoration: none; /* Preserved from global <a> */
+  transition: color var(--transition-duration) ease; /* Adjusted: Keep color transition only */
 }
 
 header h1, footer h1,
 header h2, footer h2 {
-  color: var(--header-footer-text);
+  color: var(--header-footer-text); /* White text */
   margin: 0.2em 0;
   font-size: 1.5rem;
 }
 
 header p {
   margin: 0.2em 0;
-  font-size: 1rem;
+  font-size: 1rem; /* Corrected: Removed trailing semicolon */
   color: var(--header-footer-text);
   display: none;
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.8); /* More opaque */
-  color: var(--header-footer-text);
-  padding: 1.5rem 1rem;
+  background-color: var(--header-footer-bg); /* Transparent */
+  color: var(--header-footer-text); /* White text */
+  padding: 1.5rem 1rem; /* Corrected: Restored original padding */
   text-align: center;
   letter-spacing: 1px;
   display: flex;
@@ -197,7 +193,7 @@ footer {
    Navigation
    ========================================================================== */
 nav {
-  background: var(--header-footer-bg);
+  background: var(--header-footer-bg); /* Transparent */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,14 +220,12 @@ nav a {
 
 nav a:hover, nav a:focus {
   color: var(--primary-accent-dark);
-  background-color: rgba(197, 157, 87, 0.2); /* Aligned with primary accent */
-  outline: 2px solid var(--primary-accent);
-  outline-offset: 2px;
+  background-color: rgba(197, 255, 87, 0.2); /* Corrected: Green component */
 }
 
 .menu-toggle {
   display: none;
-  background: var(--header-footer-bg);
+  background: var(--header-footer-bg); /* Transparent */
   color: var(--header-footer-text);
   border: none;
   font-size: 1.5rem;
@@ -242,40 +236,21 @@ nav a:hover, nav a:focus {
 
 .menu-toggle:hover, .menu-toggle:focus {
   background: rgba(0, 0, 0, 0.1);
-  outline: 2px solid var(--primary-accent); /* Added focus style */
-  outline-offset: 2px;
 }
 
 /* ==========================================================================
    Logo
    ========================================================================== */
 .logo {
-  display: block;
-  max-width: 100px; /* Appropriate size */
-  height: auto;
-  margin-right: 1rem; /* Space between logo and title */
-}
-
-/* Header layout for logo and title */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping on small screens */
-}
-
-header h1 {
-  margin: 0; /* Remove default margin for alignment */
-  flex: 1; /* Allow title to take remaining space */
-  text-align: left; /* Align text with logo */
+  display: none; /* Logo removed */
 }
 
 /* ==========================================================================
    Sections, Cards, and Other Elements
    ========================================================================== */
 main {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.3); /* Updated: 30% opaque for visibility */
+  border-radius: var(--border-radius); /* 0.5rem */
   box-shadow: var(--box-shadow);
   margin: 2rem auto;
   padding: 2rem;
@@ -284,11 +259,11 @@ main {
 }
 
 .section, .box, .card {
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0.5rem auto;
-  padding: 0.5rem;
+  background: transparent; /* Updated: Remove background */
+  border-radius: 0; /* Corrected: Valid value for no border-radius */
+  box-shadow: none; /* Updated: No shadow */
+  margin: 0.5rem auto; /* Retain minimal spacing */
+  padding: 0.5rem; /* Retain minimal padding */
 }
 
 /* ==========================================================================
@@ -321,70 +296,55 @@ main {
   nav .nav-links {
     display: none;
     flex-direction: column;
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 300px; /* Updated: Compact menu width */
+    margin: 0 auto; /* Updated: Center menu */
     text-align: center;
   }
 
   nav .nav-links.active {
     display: flex;
-    background: var(--dark-neutral);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    background: var(--dark-neutral); /* Updated: Dark background for readability */
+    padding: 1rem; /* Updated: Container padding */
+    border-radius: var(--border-radius); /* Updated: Rounded corners */
+    box-shadow: var(--box-shadow); /* Updated: Modern shadow */
   }
 
   nav .nav-links a {
-    color: #ffffff;
-    border: 1px solid var(--primary-accent);
-    background: transparent;
-    margin: 0.5rem 0;
-    padding: 0.75rem; /* Increased for touch-friendliness */
-    display: block;
-    min-width: unset;
-    border-radius: var(--border-radius);
+    color: #ffffff; /* Updated: White text for contrast */
+    border: 1px solid var(--primary-accent); /* Updated: Subtle orange border */
+    background: transparent; /* Updated: No background */
+    margin: 0.5rem 0; /* Updated: Vertical spacing */
+    padding: 0.5rem; /* Updated: Consistent padding */
+    display: block; /* Updated: Full-width clickable links */
+    min-width: unset; /* Updated: Remove min-width for flexibility */
+    border-radius: var(--border-radius); /* Preserve rounded corners */
   }
 
   nav .nav-links a:hover, nav .nav-links a:focus {
-    color: #ffffff;
-    background: rgba(197, 157, 87, 0.2);
-    text-decoration: underline;
-    outline: 2px solid var(--primary-accent);
-    outline-offset: 2px;
+    color: #ffffff; /* Updated: Maintain white text */
+    background: rgba(197, 255, 87, 0.2); /* Corrected: Consistent hover background */
+    text-decoration: underline; /* Preserve underline */
   }
 
   .menu-toggle {
     display: block;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Updated: Semi-transparent for visibility */
     color: var(--header-footer-text);
     border: none;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color var(--transition-duration) ease;
-    border-radius: 0.25rem;
+    border-radius: 0.25rem; /* Updated: Subtle rounding */
   }
 
   .menu-toggle:hover, .menu-toggle:focus {
-    background: rgba(0, 0, 0, 0.7);
-    outline: 2px solid var(--primary-accent);
-    outline-offset: 2px;
+    background: rgba(0, 0, 0, 0.7); /* Updated: Darker hover */
   }
 
   header h1 {
     font-size: 1.8rem;
     margin-top: 0.25rem;
-    text-align: center; /* Center on small screens */
-  }
-
-  .logo {
-    max-width: 80px; /* Smaller logo for mobile */
-    margin: 0 auto 0.5rem; /* Center logo above title */
-  }
-
-  header {
-    flex-direction: column; /* Stack logo and title */
-    text-align: center;
   }
 
   nav a {

@@ -50,7 +50,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(249, 246, 239, 0.3); /* Increased opacity for readability */
+  background: rgba(255, 255, 255, 0.35); /* Light white overlay */
   z-index: -1;
   pointer-events: none;
 }
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2rem; /* Elegant size for handwriting font */
-  font-family: 'Dancing Script', 'Oswald', sans-serif; /* New handwriting style */
+  font-family: 'Dancing Script', 'Oswald', sans-serif; /* Handwriting style */
   font-weight: 400; /* Lighter for elegance */
   color: var(--header-footer-text); /* White text */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Legibility */
@@ -140,18 +140,13 @@ main a:hover, main a:focus {
   text-decoration: underline;
 }
 
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 /* ==========================================================================
    Header and Footer
    ========================================================================== */
 header {
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #1c1c1c 100%); /* Mostly white, black near title */
+  background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 100%); /* Subtle white-to-light-gray */
   padding: 1.5rem; /* Balanced for logo and title */
-  color: var(--header-footer-text);
+  color: #000; /* Black for non-title elements */
   display: flex;
   flex-direction: column; /* Stack logo and title */
   align-items: center; /* Center horizontally */
@@ -224,10 +219,6 @@ footer {
   background-color: rgba(197, 255, 87, 0.2);
 }
 
-.nav__toggle {
-  display: none; /* Hidden by default */
-}
-
 /* ==========================================================================
    Logo
    ========================================================================== */
@@ -243,10 +234,11 @@ footer {
    Sections, Cards, and Other Elements
    ========================================================================== */
 .section {
-  background: rgba(28, 28, 28, 0.6); /* Semi-transparent dark */
+  background: rgba(255, 255, 255, 0.85); /* Light transparent box */
+  color: #000; /* Black text */
   padding: 2rem;
   border-radius: var(--border-radius);
-  color: #f0f0f0; /* Off-white for contrast */
+  box-shadow: var(--box-shadow);
   max-width: 900px;
   width: 95%;
   margin: 2rem auto;
@@ -257,19 +249,22 @@ footer {
 }
 
 .hero {
-  background: rgba(0, 0, 0, 0.7); /* Darker for hero */
+  background: rgba(255, 255, 255, 0.85); /* Light transparent box */
+  color: #000; /* Black text */
   padding: 3rem 2rem;
   text-align: center;
   border-radius: var(--border-radius);
-  margin: 2rem auto;
+  box-shadow: var(--box-shadow);
   max-width: 900px;
   width: 95%;
+  margin: 2rem auto;
 }
 
 .hero h2 {
   font-size: 2.2rem;
-  color: var(--header-footer-text);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
+  color: #ffffff; /* White text */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Contrast */
+  background: none; /* No black box */
 }
 
 .hero-image {
@@ -281,26 +276,43 @@ footer {
 }
 
 .box, .card {
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.85); /* Light transparent box */
+  color: #000; /* Black text */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   margin: 0.5rem auto;
   padding: 0.5rem;
 }
 
-.donate-button button {
-  background-color: var(--primary-accent);
-  color: var(--header-footer-text);
-  border: 2px solid var(--dark-neutral);
+.about-page .section,
+.about-page .box,
+.about-page .card {
+  background: rgba(255, 255, 255, 0.85); /* Light transparent box */
+  color: #000; /* Black text */
   border-radius: var(--border-radius);
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease;
+  box-shadow: var(--box-shadow);
 }
 
-.donate-button button:hover, .donate-button button:focus {
-  background-color: var(--primary-accent-dark);
+a.button-link,
+.join-programs a,
+main a[href*="join"] {
+  background-color: var(--primary-accent); /* Brand color */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.25rem; /* Consistent padding */
+  border-radius: var(--border-radius);
+  display: inline-block;
+  text-align: center;
+  transition: background-color var(--transition-duration) ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+a.button-link:hover,
+.join-programs a:hover,
+main a[href*="join"]:hover {
+  background-color: var(--primary-accent-dark); /* Darker on hover */
+  color: #fff;
+  text-decoration: none; /* No underline */
 }
 
 /* ==========================================================================
@@ -324,53 +336,16 @@ footer {
     padding: 1.5rem;
   }
 
-  .nav__toggle {
-    display: block; /* Show toggle on mobile */
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--header-footer-text);
-    border: none;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-duration) ease;
-    border-radius: 0.25rem;
-  }
-
-  .nav__toggle:hover, .nav__toggle:focus {
-    background: rgba(0, 0, 0, 0.7);
-  }
-
   .nav__links {
-    display: none; /* Hide links by default */
-    flex-direction: column; /* Stack vertically */
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center;
+    flex-direction: row; /* Keep horizontal */
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Smaller gap */
   }
 
-  .nav__links--active {
-    display: flex; /* Show when active */
-    background: var(--dark-neutral);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-
-  .nav__links--active a {
-    color: #ffffff; /* White text */
-    border: 1px solid var(--primary-accent);
-    background: transparent;
-    margin: 0.5rem 0;
-    padding: 0.75rem;
-    display: block;
-    min-width: unset;
-    border-radius: var(--border-radius);
-    font-size: 0.9rem; /* Slightly smaller for mobile */
-  }
-
-  .nav__links--active a:hover, .nav__links--active a:focus {
-    background: rgba(197, 255, 87, 0.2);
-    text-decoration: underline;
+  .nav__links a {
+    padding: 0.3rem 0.6rem; /* Smaller padding */
+    min-width: 80px; /* Smaller buttons */
+    font-size: 0.9rem; /* Smaller text */
   }
 }
 

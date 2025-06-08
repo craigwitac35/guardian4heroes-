@@ -62,7 +62,7 @@ main, header, footer, .section, .box, .card {
 
 main {
   flex: 1;
-  background: none; /* Removed semi-transparent white box */
+  background: none; /* No semi-transparent white box */
   margin: 0; /* Neutral margins */
   padding: 0; /* Neutral padding */
   max-width: 100%; /* Full width */
@@ -84,11 +84,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.4rem; /* Adjusted for header */
   letter-spacing: 1px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Added for legibility */
+  margin: 0.5rem 0;
 }
 
 h2 {
@@ -147,17 +149,16 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header {
-  background-color: var(--secondary-accent-alt); /* Light neutral beige */
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background: linear-gradient(to bottom, #f9f6ef 0%, #1c1c1c 100%); /* Vertical gradient, light top to dark bottom */
+  padding: 2rem 1rem; /* Increased padding */
   color: var(--header-footer-text);
-  padding: 1.5rem; /* Increased for spacing */
-  text-align: center;
-  letter-spacing: 1px;
   display: flex;
   flex-direction: column; /* Stack logo and title */
   align-items: center; /* Center horizontally */
   justify-content: center; /* Center vertically */
   gap: 0.5rem; /* Space between logo and title */
+  text-align: center;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   position: relative;
   z-index: 2;
 }
@@ -175,18 +176,10 @@ header a:hover, header a:focus {
   text-decoration: underline; /* Subtle hover effect */
 }
 
-header h1, footer h1,
-header h2, footer h2 {
-  color: var(--header-footer-text);
-  margin: 0.2em 0;
-  font-size: 1.5rem;
-}
-
-header p {
-  margin: 0.2em 0;
-  font-size: 1rem;
-  color: var(--header-footer-text);
-  display: none;
+header h1 {
+  font-size: 2.4rem; /* As requested */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Added for legibility */
+  margin: 0.5rem 0;
 }
 
 footer {
@@ -246,8 +239,9 @@ footer {
    ========================================================================== */
 .logo {
   display: block; /* Show logo */
-  max-width: 120px; /* Smaller size */
+  max-width: 120px; /* As requested */
   margin: 0 auto; /* Center */
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5)); /* Optional: helps it pop */
 }
 
 /* ==========================================================================
@@ -376,6 +370,7 @@ footer {
     display: block;
     min-width: unset;
     border-radius: var(--border-radius);
+    font-size: 0.9rem; /* Slightly smaller for mobile */
   }
 
   .nav__links--active a:hover, .nav__links--active a:focus {
@@ -386,8 +381,7 @@ footer {
 
 @media (max-width: 576px) {
   header h1 {
-    font-size: 1.8rem;
-    margin-top: 0.25rem;
+    font-size: 1.8rem; /* Smaller on mobile */
   }
 
   .logo {

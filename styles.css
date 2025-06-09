@@ -55,7 +55,7 @@ body::before {
   pointer-events: none;
 }
 
-main, header, footer, .section, .box, .card {
+main, .site-header, footer, .section, .box, .card {
   position: relative;
   z-index: 1;
 }
@@ -149,75 +149,45 @@ ul, ol {
 /* ==========================================================================
    Header and Footer
    ========================================================================== */
-header {
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  color: var(--header-footer-text);
-  padding: 1rem;
-  text-align: center;
-  letter-spacing: 1px;
+.site-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-  box-shadow: var(--box-shadow);
-  gap: 1rem;
-  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-  header {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-}
-
-header a {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  color: inherit;
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
-  transition: color var(--transition-duration) ease;
+  border: none; /* Override default 'a' border */
+  padding: 0;
 }
 
-header h1 {
-  font-size: clamp(2.5rem, 10vw, 5.5rem);
-  color: var(--header-footer-text);
-  margin: 0;
-}
-
-header h2, footer h2 {
-    color: var(--header-footer-text);
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-header p {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--header-footer-text);
-  display: none;
-}
-
-/* ==========================================================================
-   Header Logo
-   ========================================================================== */
-.logo-wrapper {
-  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-  padding: 0.5rem 0.7rem;
-  border-radius: var(--border-radius);
-  display: inline-block;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  line-height: 0; /* Fix for extra space under image */
+.logo-title:hover {
+  background-color: transparent;
+  text-decoration: none;
 }
 
 .header-logo {
-  height: 48px;
-  width: auto; /* Maintains aspect ratio */
-  display: block;
+  height: 40px;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.site-header h1 {
+  color: var(--dark-neutral);
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive title */
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
 }
 
 footer {
@@ -243,6 +213,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 nav .nav-links {
@@ -328,20 +299,21 @@ main {
     max-width: 600px;
     padding: 1.5rem;
   }
-  
-  /* Responsive Logo and Header Styles */
-  .header-logo {
-    height: 36px;
-  }
-  .logo-wrapper {
-    padding: 0.3rem 0.5rem;
-  }
-  header h1 {
-    font-size: 1.4rem; /* Overrides clamp() for better control on mobile */
-  }
 }
 
 @media (max-width: 576px) {
+  .site-header {
+    flex-direction: column; /* Stack logo and title vertically */
+  }
+
+  .site-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-logo {
+    height: 36px;
+  }
+
   nav {
     flex-direction: column;
   }
@@ -354,7 +326,6 @@ main {
     text-align: center;
   }
 
-  /* START: REVISED MOBILE NAVIGATION STYLES */
   nav .nav-links.active {
     display: flex;
     padding: 1rem;
@@ -391,7 +362,6 @@ main {
     color: var(--dark-neutral-alt);
     text-decoration: none;
   }
-  /* END: REVISED MOBILE NAVIGATION STYLES */
 
   .menu-toggle {
     display: block;
@@ -409,11 +379,6 @@ main {
   .menu-toggle:hover, .menu-toggle:focus {
     background-color: var(--primary-accent-dark);
   }
-  
-  /* Overwrite the larger responsive title on the smallest screens */
-  header h1 {
-     margin: 0; /* Reset margin for better alignment */
-  }
 
   nav a {
     padding: 0.3rem 0.6rem;
@@ -430,7 +395,6 @@ main {
 /* ==========================================================================
    Final Style Overrides & Fixes
    ========================================================================== */
-/* Fix for Carousel Buttons on About Page */
 .carousel-btn {
   background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
@@ -457,7 +421,6 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Fix for Social Media Icons on Contact Page */
 .social-cta a {
   background-color: transparent;
   border: none;
@@ -470,7 +433,6 @@ main {
   transform: scale(1.1);
 }
 
-/* Fix for Contact Form Errors */
 .contact-form .error {
   display: none;
   color: #D8000C;

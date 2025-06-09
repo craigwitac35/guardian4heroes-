@@ -175,9 +175,9 @@ ul, ol {
 }
 
 .header-logo {
-  height: 64px; /* Changed from 48px for better visibility */
+  height: 64px;
   width: auto;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85)); /* Enhanced glow effect */
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
 }
 
 .site-header h1 {
@@ -301,7 +301,7 @@ main {
   }
   
   .header-logo {
-    height: 48px; /* Resize logo for smaller screens */
+    height: 72px; /* === CHANGED THIS VALUE FROM 48px TO 72px === */
   }
 
   nav {

@@ -373,10 +373,10 @@ main {
 
   .menu-toggle {
     display: block;
-    background: transparent;
+    background-color: var(--primary-accent); /* UPDATED: Set default to orange */
     border: 1px solid var(--dark-neutral);
     border-radius: var(--border-radius);
-    color: var(--header-footer-text);
+    color: var(--header-footer-text); /* This is already correctly set to black */
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -385,7 +385,7 @@ main {
   }
 
   .menu-toggle:hover, .menu-toggle:focus {
-    background: var(--primary-accent-dark);
+    background-color: var(--primary-accent-dark); /* UPDATED: Darker orange on hover */
   }
 
   header h1 {

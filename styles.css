@@ -83,12 +83,11 @@ h1 {
   text-align: center;
 }
 
-/* New rule for the "Heroes" subtitle */
 .subtitle {
   display: block;
   font-size: 0.8em;
   font-weight: 500;
-  letter-spacing: 0.5px; /* Adjust spacing as needed */
+  letter-spacing: 0.5px;
 }
 
 
@@ -273,7 +272,7 @@ nav a:hover, nav a:focus {
 main {
   background: rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-socket);
   margin: 2rem auto;
   padding: 2rem;
   max-width: 900px;
@@ -315,23 +314,27 @@ main {
   }
 
   .site-header {
-    flex-direction: column;
+    /* This rule can remain to stack the header relative to the nav if needed */
   }
   
-  .site-header h1 {
-    font-size: 1.8rem;
-    text-align: center;
-    line-height: 1.1; /* Adjust line height for stacked title */
-  }
-  
+  /* === UPDATED RULES FOR MOBILE HEADER === */
   .logo-title {
-    flex-direction: column; /* Stack logo and title on mobile */
-    padding: 1rem;
+    flex-direction: row; /* Set back to side-by-side */
+    align-items: center; /* Vertically center logo and title block */
+    width: 100%;
+    padding: 0.5rem; /* Adjust padding for horizontal layout */
   }
 
   .header-logo {
-    height: 96px;
-    margin-bottom: 0.5rem; /* Add space between logo and title */
+    height: 80px; /* Adjusted size for mobile horizontal layout */
+    margin-bottom: 0; /* Remove margin from stacked layout */
+  }
+  
+  .site-header h1 {
+    flex-grow: 1; /* Allow title to fill available space */
+    font-size: 1.5rem; /* Adjust font size for mobile */
+    text-align: center;
+    line-height: 1.2;
   }
 
   nav {

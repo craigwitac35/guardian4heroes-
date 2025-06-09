@@ -117,28 +117,27 @@ a:hover, a:focus {
    Main Content Link & Button Styling
    ========================================================================== */
 main a, main button {
-  display: inline-block; /* Ensures padding and border apply correctly */
+  display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: var(--primary-accent);   /* Orange background */
-  color: var(--dark-neutral);              /* Black lettering */
-  border: 2px solid var(--dark-neutral);   /* Thick black border */
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 2px solid var(--dark-neutral);
   border-radius: var(--border-radius);
-  font-family: inherit; /* Ensures buttons use the same font as the page */
+  font-family: inherit;
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
-  text-decoration: none; /* Removes underline */
+  text-decoration: none;
   cursor: pointer;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
 main a:hover, main a:focus,
 main button:hover, main button:focus {
-  background-color: var(--primary-accent-dark); /* Darker orange on hover */
-  color: var(--dark-neutral);                   /* Keep lettering black */
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
   text-decoration: none;
-  outline: none; /* Removes the default outline */
-  /* Adds an accessible 'glow' for keyboard users */
+  outline: none;
   box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
 }
 
@@ -151,7 +150,6 @@ ul, ol {
    Header and Footer
    ========================================================================== */
 header {
-  /* Fallback for older browsers */
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   color: var(--header-footer-text);
@@ -164,6 +162,8 @@ header {
   position: relative;
   z-index: 2;
   box-shadow: var(--box-shadow);
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
@@ -200,6 +200,23 @@ header p {
   font-size: 1rem;
   color: var(--header-footer-text);
   display: none;
+}
+
+/* ==========================================================================
+   Header Logo
+   ========================================================================== */
+.logo-wrapper {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 60px;
+  width: auto;
 }
 
 footer {
@@ -267,13 +284,6 @@ nav a:hover, nav a:focus {
 
 .menu-toggle:hover, .menu-toggle:focus {
   background: rgba(0, 0, 0, 0.1);
-}
-
-/* ==========================================================================
-   Logo
-   ========================================================================== */
-.logo {
-  display: none;
 }
 
 /* ==========================================================================
@@ -373,10 +383,10 @@ main {
 
   .menu-toggle {
     display: block;
-    background-color: var(--primary-accent); /* UPDATED: Set default to orange */
+    background-color: var(--primary-accent);
     border: 1px solid var(--dark-neutral);
     border-radius: var(--border-radius);
-    color: var(--header-footer-text); /* This is already correctly set to black */
+    color: var(--header-footer-text);
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -385,7 +395,7 @@ main {
   }
 
   .menu-toggle:hover, .menu-toggle:focus {
-    background-color: var(--primary-accent-dark); /* UPDATED: Darker orange on hover */
+    background-color: var(--primary-accent-dark);
   }
 
   header h1 {

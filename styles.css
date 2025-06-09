@@ -186,17 +186,17 @@ header a {
 header h1 {
   font-size: clamp(2.5rem, 10vw, 5.5rem);
   color: var(--header-footer-text);
-  margin: 0.2em 0;
+  margin: 0;
 }
 
 header h2, footer h2 {
     color: var(--header-footer-text);
-    margin: 0.2em 0;
+    margin: 0;
     font-size: 1.5rem;
 }
 
 header p {
-  margin: 0.2em 0;
+  margin: 0;
   font-size: 1rem;
   color: var(--header-footer-text);
   display: none;
@@ -206,17 +206,18 @@ header p {
    Header Logo
    ========================================================================== */
 .logo-wrapper {
-  background: rgba(255, 255, 255, 0.75);
-  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+  padding: 0.5rem 0.7rem;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  line-height: 0; /* Fix for extra space under image */
 }
 
 .header-logo {
-  height: 60px;
-  width: auto;
+  height: 48px;
+  width: auto; /* Maintains aspect ratio */
+  display: block;
 }
 
 footer {
@@ -327,6 +328,17 @@ main {
     max-width: 600px;
     padding: 1.5rem;
   }
+  
+  /* Responsive Logo and Header Styles */
+  .header-logo {
+    height: 36px;
+  }
+  .logo-wrapper {
+    padding: 0.3rem 0.5rem;
+  }
+  header h1 {
+    font-size: 1.4rem; /* Overrides clamp() for better control on mobile */
+  }
 }
 
 @media (max-width: 576px) {
@@ -397,9 +409,10 @@ main {
   .menu-toggle:hover, .menu-toggle:focus {
     background-color: var(--primary-accent-dark);
   }
-
+  
+  /* Overwrite the larger responsive title on the smallest screens */
   header h1 {
-    margin-top: 0.25rem;
+     margin: 0; /* Reset margin for better alignment */
   }
 
   nav a {
@@ -412,4 +425,56 @@ main {
     margin: 1rem 0.5rem;
     padding: 1rem;
   }
+}
+
+/* ==========================================================================
+   Final Style Overrides & Fixes
+   ========================================================================== */
+/* Fix for Carousel Buttons on About Page */
+.carousel-btn {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Fix for Social Media Icons on Contact Page */
+.social-cta a {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.social-cta a:hover {
+  background-color: transparent;
+  transform: scale(1.1);
+}
+
+/* Fix for Contact Form Errors */
+.contact-form .error {
+  display: none;
+  color: #D8000C;
+  font-weight: bold;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
 }

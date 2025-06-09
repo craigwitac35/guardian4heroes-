@@ -179,7 +179,7 @@ ul, ol {
   text-decoration: none;
 }
 .header-image-full {
-  height: 100px; /* Controls the height on desktop */
+  height: 130px; /* UPDATED - Controls the height on desktop */
   width: auto;
   transition: transform 0.2s ease;
 }
@@ -306,7 +306,7 @@ main {
   /* UPDATED MOBILE HEADER */
   .header-image-full {
     height: auto; /* let the width control the size */
-    width: 90%; /* set width to 90% of screen */
+    width: 95%; /* UPDATED - set width to 95% of screen */
     max-width: 400px; /* prevent it from getting too large */
     margin: 0 auto; /* center the image */
     display: block;

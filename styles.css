@@ -175,12 +175,10 @@ ul, ol {
 }
 
 .header-logo {
-  height: 40px;
+  height: 48px;
   width: auto;
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 0.4rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  /* This optional line adds a subtle glow for readability */
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
 }
 
 .site-header h1 {
@@ -312,6 +310,7 @@ main {
   
   .header-logo {
     height: 36px;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
   }
 
   nav {

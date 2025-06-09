@@ -175,10 +175,9 @@ ul, ol {
 }
 
 .header-logo {
-  height: 48px;
+  height: 64px; /* Changed from 48px for better visibility */
   width: auto;
-  /* This optional line adds a subtle glow for readability */
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85)); /* Enhanced glow effect */
 }
 
 .site-header h1 {
@@ -280,26 +279,19 @@ main {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   main {
     max-width: 800px;
   }
 }
 
-@media (max-width: 992px) {
-  main {
-    max-width: 700px;
-  }
-}
-
 @media (max-width: 768px) {
   main {
-    max-width: 600px;
+    max-width: 100%;
+    margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
-}
-
-@media (max-width: 576px) {
+  
   .site-header {
     flex-direction: column; /* Stack logo and title vertically */
   }
@@ -309,22 +301,22 @@ main {
   }
   
   .header-logo {
-    height: 36px;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+    height: 48px; /* Resize logo for smaller screens */
   }
 
   nav {
     flex-direction: column;
   }
-
+  
   nav .nav-links {
     display: none;
     flex-direction: column;
+    width: 100%;
     max-width: 300px;
     margin: 0 auto;
     text-align: center;
   }
-
+  
   nav .nav-links.active {
     display: flex;
     padding: 1rem;
@@ -343,23 +335,14 @@ main {
 
   nav .nav-links a {
     background-color: var(--primary-accent-dark);
-    color: var(--dark-neutral);
-    border: 1px solid var(--dark-neutral);
     padding: 0.75rem 1.5rem;
     margin: 0.5rem 0;
-    display: block;
-    border-radius: var(--border-radius);
-    text-align: center;
-    transition: background-color var(--transition-duration), color var(--transition-duration);
-    min-width: unset;
-    text-decoration: none;
     font-weight: normal;
   }
 
   nav .nav-links a:hover, nav .nav-links a:focus {
     background-color: var(--primary-accent);
     color: var(--dark-neutral-alt);
-    text-decoration: none;
   }
 
   .menu-toggle {
@@ -368,26 +351,11 @@ main {
     border: 1px solid var(--dark-neutral);
     border-radius: var(--border-radius);
     color: var(--header-footer-text);
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-duration) ease;
     box-shadow: var(--box-shadow);
   }
 
   .menu-toggle:hover, .menu-toggle:focus {
     background-color: var(--primary-accent-dark);
-  }
-
-  nav a {
-    padding: 0.3rem 0.6rem;
-    min-width: 80px;
-  }
-
-  main {
-    max-width: 100%;
-    margin: 1rem 0.5rem;
-    padding: 1rem;
   }
 }
 

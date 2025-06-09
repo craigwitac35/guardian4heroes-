@@ -331,11 +331,11 @@ main {
   }
   
   .site-header h1 {
-    flex-grow: 1; /* Allow title to fill available space */
-    font-size: 1.5rem; /* Adjust font size for mobile */
-    text-align: left; /* Aligns text to the left of its container */
-    line-height: 1.2;
-    padding-left: 0.5rem; /* Adds space between logo and title */
+    flex-grow: 1;                 /* Allow title to fill available space */
+    font-size: 1.4rem;              /* Adjusted to better fit two lines */
+    text-align: center;             /* Keeps both lines centered */
+    line-height: 1.3;               /* Adjusts spacing between the two lines */
+    padding-right: 80px;            /* IMPORTANT: Balances the space taken by the logo */
   }
 
   nav {

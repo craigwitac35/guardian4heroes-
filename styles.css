@@ -333,8 +333,9 @@ main {
   .site-header h1 {
     flex-grow: 1; /* Allow title to fill available space */
     font-size: 1.5rem; /* Adjust font size for mobile */
-    text-align: center;
+    text-align: left; /* Aligns text to the left of its container */
     line-height: 1.2;
+    padding-left: 0.5rem; /* Adds space between logo and title */
   }
 
   nav {

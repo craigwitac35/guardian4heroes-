@@ -113,27 +113,37 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-main a {
-  background-color: var(--primary-accent);
-  color: #ffffff;
-  border: 2px solid #000;
-  border-radius: var(--border-radius);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color var(--transition-duration) ease;
-}
-
-main a:hover, main a:focus {
-  background-color: var(--primary-accent-dark);
-  color: #ffffff;
-  text-decoration: underline;
-}
-
 ul, ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
+
+/* ==========================================================================
+   Universal Button Styling
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-accent);
+  color: #ffffff; /* White text for contrast on orange */
+  border: 2px solid var(--dark-neutral); /* Thick black border */
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.btn:hover, .btn:focus {
+  background-color: var(--primary-accent-dark);
+  color: #ffffff;
+  text-decoration: none;
+  outline: none; /* Removes the default 'weird' outline */
+  /* This adds an accessible 'glow' for keyboard users, replacing the outline */
+  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5); 
+}
+
 
 /* ==========================================================================
    Header and Footer
@@ -381,7 +391,6 @@ main {
     background: var(--primary-accent-dark);
   }
 
-  /* Note: The header h1 font-size is now controlled by the clamp() function in the main rule */
   header h1 {
     margin-top: 0.25rem;
   }

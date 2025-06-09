@@ -83,6 +83,15 @@ h1 {
   text-align: center;
 }
 
+/* New rule for the "Heroes" subtitle */
+.subtitle {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 0.5px; /* Adjust spacing as needed */
+}
+
+
 h2 {
   font-size: 1.6rem;
   letter-spacing: 0.5px;
@@ -168,17 +177,17 @@ ul, ol {
   border: none;
   padding: 0.5rem 1rem;
   background-color: white;
-  border-radius: 100px; /* High value for pill shape */
+  border-radius: 100px;
   box-shadow: var(--box-shadow);
 }
 
 .logo-title:hover {
-  background-color: #f0f0f0; /* Slight hover effect */
+  background-color: #f0f0f0;
   text-decoration: none;
 }
 
 .header-logo {
-  height: 80px; /* Increased desktop logo size */
+  height: 80px;
   width: auto;
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
 }
@@ -304,23 +313,31 @@ main {
     margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
-  
+
   .site-header {
     flex-direction: column;
   }
-
+  
   .site-header h1 {
     font-size: 1.8rem;
+    text-align: center;
+    line-height: 1.1; /* Adjust line height for stacked title */
   }
   
+  .logo-title {
+    flex-direction: column; /* Stack logo and title on mobile */
+    padding: 1rem;
+  }
+
   .header-logo {
-    height: 96px; /* Increased mobile logo size */
+    height: 96px;
+    margin-bottom: 0.5rem; /* Add space between logo and title */
   }
 
   nav {
     flex-direction: column;
   }
-  
+
   nav .nav-links {
     display: none;
     flex-direction: column;
@@ -329,7 +346,7 @@ main {
     margin: 0 auto;
     text-align: center;
   }
-  
+
   nav .nav-links.active {
     display: flex;
     padding: 1rem;

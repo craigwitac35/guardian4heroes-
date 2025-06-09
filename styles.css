@@ -113,43 +113,39 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+/* ==========================================================================
+   Main Content Link Styling (Buttons)
+   ========================================================================== */
+main a {
+  display: inline-block; /* Ensures padding and border apply correctly */
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-accent);   /* Orange background */
+  color: var(--dark-neutral);              /* CORRECTED: Black lettering */
+  border: 2px solid var(--dark-neutral);   /* Thick black border */
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Removes underline */
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+}
+
+main a:hover, main a:focus {
+  background-color: var(--primary-accent-dark); /* Darker orange on hover */
+  color: var(--dark-neutral);                   /* Keep lettering black */
+  text-decoration: none;
+  outline: none; /* Removes the default outline */
+  /* Adds an accessible 'glow' for keyboard users */
+  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
+}
+
 ul, ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
 /* ==========================================================================
-   Universal Button Styling
-   ========================================================================== */
-.btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--primary-accent);
-  color: #ffffff; /* White text for contrast on orange */
-  border: 2px solid var(--dark-neutral); /* Thick black border */
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease;
-}
-
-.btn:hover, .btn:focus {
-  background-color: var(--primary-accent-dark);
-  color: #ffffff;
-  text-decoration: none;
-  outline: none; /* Removes the default 'weird' outline */
-  /* This adds an accessible 'glow' for keyboard users, replacing the outline */
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5); 
-}
-
-
-/* ==========================================================================
    Header and Footer
    ========================================================================== */
-
-/* UPDATED: Frosted Glass Header */
 header {
   /* Fallback for older browsers */
   background-color: rgba(255, 255, 255, 0.75);
@@ -166,7 +162,6 @@ header {
   box-shadow: var(--box-shadow);
 }
 
-/* Apply blur effect ONLY if the browser supports it */
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
   header {
     background-color: rgba(255, 255, 255, 0.1);
@@ -184,12 +179,10 @@ header a {
   transition: color var(--transition-duration) ease;
 }
 
-/* UPDATED: Responsive Title */
 header h1 {
   font-size: clamp(2.5rem, 10vw, 5.5rem);
   color: var(--header-footer-text);
   margin: 0.2em 0;
-  /* Other h1 styles like font-family are inherited */
 }
 
 header h2, footer h2 {

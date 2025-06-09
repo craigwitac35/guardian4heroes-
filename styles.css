@@ -160,7 +160,6 @@ ul, ol {
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -179,8 +178,10 @@ ul, ol {
   text-decoration: none;
 }
 .header-image-full {
-  height: 130px; /* UPDATED - Controls the height on desktop */
-  width: auto;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
   transition: transform 0.2s ease;
 }
 .logo-title-link:hover .header-image-full {

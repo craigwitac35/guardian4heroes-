@@ -450,6 +450,43 @@ main {
   }
 }
 
+/* ==========================================================================
+   Unique Page Layouts
+   ========================================================================== */
+.program-feature, .impact-feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.program-feature img, .impact-feature img {
+  width: 50%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.program-feature-text, .impact-feature-text {
+  width: 50%;
+}
+
+/* On the impact feature, the image is on the right */
+.impact-feature {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .program-feature, .impact-feature {
+    flex-direction: column;
+  }
+  .program-feature img, 
+  .impact-feature img,
+  .program-feature-text, 
+  .impact-feature-text {
+    width: 100%;
+  }
+}
+
 .social-cta a {
   background-color: transparent;
   border: none;

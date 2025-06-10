@@ -160,6 +160,7 @@ ul, ol {
 .site-header {
   display: flex;
   align-items: center;
+  justify-content: center; /* UPDATED - This will center the header image */
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -303,7 +304,7 @@ main {
     margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
-  
+
   /* UPDATED MOBILE HEADER */
   .header-image-full {
     height: auto; /* let the width control the size */
@@ -311,8 +312,9 @@ main {
     max-width: 400px; /* prevent it from getting too large */
     margin: 0 auto; /* center the image */
     display: block;
+    padding: 0; /* Reset padding for mobile */
   }
-  
+
   .site-header {
     padding: 0.5rem; /* reduce padding on mobile */
   }

@@ -1,4 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
+  <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo-title-link">
+      <img src="images/headerlogo.png" alt="Guardian 4 Heroes" class="header-image-full">
+    </a>
+</header>
+
+  <nav aria-label="Main navigation">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
     </div>
+  </nav>
+  <main>
+    <section class="section">
+      <h3>Equine-Facilitated Psychotherapy Training (EFPT)</h3>
+      <p>EFPT is a therapeutic approach that involves working directly with horses to help individuals reconnect with themselves and others. Our programs provide a safe and nurturing environment where veterans can process trauma, build self-esteem, and develop healthy interpersonal skills. The intuitive nature of horses allows for authentic feedback and emotional breakthroughs.</p>
+      <div class="program-highlight">
+        <img src="images/efpt-program.jpg" alt="Veteran engaging in equine therapy session" loading="lazy">
+        <p>Experience emotional healing through guided horse interactions.</p>
+      </div>
     </section>
     <section class="section">
       <h3>Horsemanship & Skill Building</h3>
@@ -11,554 +46,33 @@
     </section>
     <section class="section">
       <h3>Community & Peer Connection</h3>
-    ```
-
-#### **`donate.html`**
-Similar to the programs page, I'll adjust the layout here. I'll make the first section, "Why Your Donation Matters," a side-by-side feature but with the image on the right, making it distinct from the programs page layout.
-
-**New Code Snippet (`donate.html`):**
-```html
-  <main>
-    <section class="section">
-      <h3>Why Your Donation Matters</h3>
-      <div class="impact-feature">
-        <div class="impact-feature-text">
-          <p>At Guardian 4 Heroes, your support enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, trust, and connection.</p>
-        </div>
-        <img src="images/impact-image.jpg" alt="Veteran bonding with a horse during therapy" loading="lazy">
+      <p>Our group-based sessions foster camaraderie among participants who’ve shared similar life experiences. The shared time with horses and each other helps build trust, reduce isolation, and promote lasting healing.</p>
+      <div class="program-highlight">
+        <img src="images/community-program.jpg" alt="Veterans connecting in a group equine therapy session" loading="lazy">
+        <p>Join a supportive community of peers and horses.</p>
+      </div>
+      <div class="cta-button">
+        <a href="contact.html"><button>Join Our Programs</button></a>
       </div>
     </section>
     <section class="section">
-      <h3>Select a Donation Amount</h3>
-    ```
-
-#### **`contact.html`**
-This page is currently just text. I'll add a banner image placeholder at the top of the main content area to give it a strong visual anchor.
-
-**New Code Snippet (`contact.html`):**
-```html
-  <main>
-    <section class="banner-image">
-      <img src="images/contact-banner.jpg" alt="A serene horse looking at the camera, inviting contact." loading="lazy">
+      <h3>Why Horses?</h3>
+      <p>Horses are incredibly responsive to human emotion. Their ability to mirror our non-verbal cues creates opportunities for self-discovery and therapeutic growth. They offer honest, immediate feedback in a judgment-free environment — an ideal partner in emotional recovery.</p>
+      <div class="donate-button">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <button type="submit">Donate Now</button>
+        </form>
+      </div>
     </section>
-    <section class="section">
-      <h3>Reach Out</h3>
-      <p>If you have any questions about our services, want to get involved, or simply want to connect, feel free to reach out using the information below.</p>
-    ```
-
----
-
-### 3. Full Updated Code
-
-Here are the complete, updated files with all the changes integrated.
-
-**`styles.css` (Updated)**
-```css
-/* ==========================================================================
-   Global Variables
-   ========================================================================== */
-:root {
-  --primary-accent: #c59d57;
-  --primary-accent-dark: #b88a44;
-  --dark-neutral: #1c1c1c;
-  --dark-neutral-alt: #0d0d0d;
-  --background: #f9f6ef;
-  --box-background: #fff;
-  --secondary-accent: #a89f91;
-  --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent;
-  --header-footer-text: var(--dark-neutral); /* Black text (#1c1c1c) */
-  --transition-duration: 0.2s;
-  --border-radius: 0.5rem;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* ==========================================================================
-   Base Styles
-   ========================================================================== */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--dark-neutral);
-  background-color: var(--background);
-  background-image: url('images/FoggyBackground.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(249, 246, 239, 0.1);
-  z-index: -1;
-  pointer-events: none;
-}
-
-main, .site-header, footer, .section, .box, .card {
-  position: relative;
-  z-index: 1;
-}
-
-main {
-  flex: 1;
-}
-
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--dark-neutral);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-size: 2.8rem;
-  letter-spacing: 1px;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  text-align: center;
-}
-
-.subtitle {
-  display: block;
-  font-size: 0.8em;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-
-h2 {
-  font-size: 1.6rem;
-  letter-spacing: 0.5px;
-  color: #000000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
-}
-
-h3 {
-  font-size: 1.4rem;
-}
-
-p {
-  margin: 0 0 1rem 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-a {
-  color: var(--primary-accent);
-  text-decoration: none;
-  border: 1px solid #000;
-  padding: 0.25rem 0.5rem;
-  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
-}
-
-a:hover, a:focus {
-  color: var(--primary-accent-dark);
-  background-color: rgba(197, 255, 87, 0.2);
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-   Main Content Link & Button Styling
-   ========================================================================== */
-main a, main button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 2px solid var(--dark-neutral);
-  border-radius: var(--border-radius);
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
-}
-
-main a:hover, main a:focus,
-main button:hover, main button:focus {
-  background-color: var(--primary-accent-dark);
-  color: var(--dark-neutral);
-  text-decoration: none;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
-}
-
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* ==========================================================================
-   Header and Footer
-   ========================================================================== */
-.site-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-/* NEW HEADER STYLES */
-.logo-title-link {
-  display: block;
-  border: none; /* remove default link border */
-  line-height: 0; /* remove extra space below image */
-}
-.logo-title-link:hover {
-  background-color: transparent; /* remove hover effect */
-  text-decoration: none;
-}
-.header-image-full {
-  height: auto;
-  width: 100%;
-  max-width: 600px;
-  padding: 0 1rem;
-  transition: transform 0.2s ease;
-}
-.logo-title-link:hover .header-image-full {
-  transform: scale(1.02); /* a subtle zoom effect on hover */
-}
-/* END NEW HEADER STYLES */
-
-footer {
-  background-color: var(--header-footer-bg);
-  color: #ffffff;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-}
-
-/* ==========================================================================
-   Navigation
-   ========================================================================== */
-nav {
-  background: var(--header-footer-bg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-nav .nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-nav a {
-  color: var(--dark-neutral);
-  background-color: var(--primary-accent);
-  font-weight: bold;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
-  border: 1px solid var(--dark-neutral);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  min-width: 100px;
-  text-align: center;
-  box-shadow: var(--box-shadow);
-  text-decoration: none;
-}
-
-nav a:hover, nav a:focus {
-  color: var(--dark-neutral);
-  background-color: var(--primary-accent-dark);
-  text-decoration: none;
-}
-
-.menu-toggle {
-  display: none;
-  background: var(--header-footer-bg);
-  color: var(--header-footer-text);
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease;
-}
-
-.menu-toggle:hover, .menu-toggle:focus {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-/* ==========================================================================
-   Sections, Cards, and Other Elements
-   ========================================================================== */
-main {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 900px;
-  width: 95%;
-}
-
-.banner-image img,
-.closing-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin: 1rem 0;
-}
-
-.section, .box, .card {
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0.5rem auto;
-  padding: 0.5rem;
-}
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media (max-width: 992px) {
-  main {
-    max-width: 800px;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    max-width: 100%;
-    margin: 1rem 0.5rem;
-    padding: 1.5rem;
-  }
-  
-  /* UPDATED MOBILE HEADER */
-  .header-image-full {
-    height: auto; /* let the width control the size */
-    width: 95%; /* UPDATED - set width to 95% of screen */
-    max-width: 400px; /* prevent it from getting too large */
-    margin: 0 auto; /* center the image */
-    display: block;
-  }
-  
-  .site-header {
-    padding: 0.5rem; /* reduce padding on mobile */
-  }
-
-  nav {
-    flex-direction: column;
-  }
-
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  nav .nav-links.active {
-    display: flex;
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    background: rgba(249, 246, 239, 0.9);
-  }
-
-  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-    nav .nav-links.active {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+  </main>
+  <footer>
+    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
     }
-  }
-
-  nav .nav-links a {
-    background-color: var(--primary-accent-dark);
-    padding: 0.75rem 1.5rem;
-    margin: 0.5rem 0;
-    font-weight: normal;
-  }
-
-  nav .nav-links a:hover, nav .nav-links a:focus {
-    background-color: var(--primary-accent);
-    color: var(--dark-neutral-alt);
-  }
-
-  .menu-toggle {
-    display: block;
-    background-color: var(--primary-accent);
-    border: 1px solid var(--dark-neutral);
-    border-radius: var(--border-radius);
-    color: var(--header-footer-text);
-    box-shadow: var(--box-shadow);
-  }
-
-  .menu-toggle:hover, .menu-toggle:focus {
-    background-color: var(--primary-accent-dark);
-  }
-}
-
-/* ==========================================================================
-   Carousel Styles
-   ========================================================================== */
-.carousel {
-  position: relative;
-  overflow: hidden; /* Hides the other slides */
-  border-radius: var(--border-radius);
-  margin-top: 1rem;
-  background: rgba(255, 255, 255, 0.4); /* Add a subtle background */
-  padding: 1rem;
-  box-shadow: var(--box-shadow);
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding-bottom: 60px; /* Add space at the bottom for buttons */
-  text-align: center;
-}
-
-.carousel-item img {
-  max-width: 200px; /* Control image size */
-  height: auto;
-  border-radius: 50%; /* Make testimonial image circular */
-  margin: 0 auto 1rem;
-  border: 4px solid var(--secondary-accent-alt);
-}
-
-.carousel-btn {
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 1px solid var(--dark-neutral);
-  border-radius: var(--border-radius);
-  height: 40px;
-  width: 120px;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: bold;
-  position: absolute;
-  bottom: 20px; /* Position at the bottom of the container */
-  transform: translateX(-50%); /* Center the button */
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
-}
-
-.carousel-btn:hover, .carousel-btn:focus {
-  background-color: var(--primary-accent-dark);
-  color: var(--dark-neutral);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
-}
-
-.carousel-btn.prev {
-  left: calc(50% - 70px); /* Position left button */
-}
-
-.carousel-btn.next {
-  left: calc(50% + 70px); /* Position right button */
-}
-
-/* Make carousel buttons responsive on smaller screens */
-@media (max-width: 480px) {
-  .carousel-btn {
-    width: 100px;
-  }
-  .carousel-btn.prev {
-    left: calc(50% - 55px);
-  }
-  .carousel-btn.next {
-    left: calc(50% + 55px);
-  }
-}
-
-/* ==========================================================================
-   Unique Page Layouts
-   ========================================================================== */
-.program-feature, .impact-feature {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.program-feature img, .impact-feature img {
-  width: 50%;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-.program-feature-text, .impact-feature-text {
-  width: 50%;
-}
-
-/* On the impact feature, the image is on the right */
-.impact-feature {
-  flex-direction: row-reverse;
-}
-
-@media (max-width: 768px) {
-  .program-feature, .impact-feature {
-    flex-direction: column;
-  }
-  .program-feature img, 
-  .impact-feature img,
-  .program-feature-text, 
-  .impact-feature-text {
-    width: 100%;
-  }
-}
-
-.social-cta a {
-  background-color: transparent;
-  border: none;
-  font-size: 2.5rem;
-  padding: 0 0.5rem;
-}
-
-.social-cta a:hover {
-  background-color: transparent;
-  transform: scale(1.1);
-}
-
-.contact-form .error {
-  display: none;
-  color: #D8000C;
-  font-weight: bold;
-  margin-top: -0.5rem;
-  margin-bottom: 0.5rem;
-}
+  </script>
+</body>
+</html>

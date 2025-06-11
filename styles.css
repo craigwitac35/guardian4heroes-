@@ -60,9 +60,11 @@ main, .site-header, footer, .section, .box, .card {
   z-index: 1;
 }
 
+/* Flexbox for the main content area is now inside the 'main' rule below */
 main {
   flex: 1;
 }
+
 
 /* ==========================================================================
    Typography
@@ -122,31 +124,54 @@ a:hover, a:focus {
 }
 
 /* ==========================================================================
-   Main Content Link & Button Styling
+   Main Content Area
    ========================================================================== */
-main a, main button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 2px solid var(--dark-neutral);
+
+main {
+  background: rgba(40, 40, 40, 0.6); /* Darker semi-transparent background */
   border-radius: var(--border-radius);
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  box-shadow: var(--box-shadow);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 900px;
+  width: 95%;
+  color: #f5f5f5; /* Set default text color for main content to off-white */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-main a:hover, main a:focus,
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  color: #ffffff; /* White headings */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+main p {
+  color: #f5f5f5; /* Off-white paragraph text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+main a {
+    color: var(--primary-accent);
+    border-color: var(--primary-accent-dark);
+    font-weight: bold;
+}
+
+main a:hover, main a:focus {
+    color: #ffffff;
+    background-color: var(--primary-accent);
+    text-decoration: underline;
+}
+
+/* Re-style buttons inside the dark box for better contrast */
+main button {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 2px solid var(--primary-accent-dark);
+}
+
 main button:hover, main button:focus {
   background-color: var(--primary-accent-dark);
   color: var(--dark-neutral);
-  text-decoration: none;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
+  border-color: var(--primary-accent);
 }
 
 ul, ol {
@@ -167,14 +192,12 @@ ul, ol {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* NEW HEADER STYLES */
 .logo-title-link {
   display: block;
-  border: none; /* remove default link border */
-  line-height: 0; /* remove extra space below image */
+  border: none;
 }
 .logo-title-link:hover {
-  background-color: transparent; /* remove hover effect */
+  background-color: transparent;
   text-decoration: none;
 }
 .header-image-full {
@@ -185,9 +208,8 @@ ul, ol {
   transition: transform 0.2s ease;
 }
 .logo-title-link:hover .header-image-full {
-  transform: scale(1.02); /* a subtle zoom effect on hover */
+  transform: scale(1.02);
 }
-/* END NEW HEADER STYLES */
 
 footer {
   background-color: var(--header-footer-bg);
@@ -258,17 +280,23 @@ nav a:hover, nav a:focus {
 }
 
 /* ==========================================================================
+   Hero Section Styles
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero h2 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
    Sections, Cards, and Other Elements
    ========================================================================== */
-main {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 900px;
-  width: 95%;
-}
 
 .banner-image img,
 .closing-image img {
@@ -304,17 +332,16 @@ main {
     padding: 1.5rem;
   }
   
-  /* UPDATED MOBILE HEADER */
   .header-image-full {
-    height: auto; /* let the width control the size */
-    width: 95%; /* UPDATED - set width to 95% of screen */
-    max-width: 400px; /* prevent it from getting too large */
-    margin: 0 auto; /* center the image */
+    height: auto;
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
     display: block;
   }
   
   .site-header {
-    padding: 0.5rem; /* reduce padding on mobile */
+    padding: 0.5rem;
   }
 
   nav {
@@ -377,10 +404,10 @@ main {
    ========================================================================== */
 .carousel {
   position: relative;
-  overflow: hidden; /* Hides the other slides */
+  overflow: hidden;
   border-radius: var(--border-radius);
   margin-top: 1rem;
-  background: rgba(255, 255, 255, 0.4); /* Add a subtle background */
+  background: rgba(255, 255, 255, 0.4);
   padding: 1rem;
   box-shadow: var(--box-shadow);
 }
@@ -393,14 +420,14 @@ main {
 .carousel-item {
   min-width: 100%;
   box-sizing: border-box;
-  padding-bottom: 60px; /* Add space at the bottom for buttons */
+  padding-bottom: 60px;
   text-align: center;
 }
 
 .carousel-item img {
-  max-width: 200px; /* Control image size */
+  max-width: 200px;
   height: auto;
-  border-radius: 50%; /* Make testimonial image circular */
+  border-radius: 50%;
   margin: 0 auto 1rem;
   border: 4px solid var(--secondary-accent-alt);
 }
@@ -416,8 +443,8 @@ main {
   font-size: 1rem;
   font-weight: bold;
   position: absolute;
-  bottom: 20px; /* Position at the bottom of the container */
-  transform: translateX(-50%); /* Center the button */
+  bottom: 20px;
+  transform: translateX(-50%);
   cursor: pointer;
   transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
 }
@@ -430,14 +457,13 @@ main {
 }
 
 .carousel-btn.prev {
-  left: calc(50% - 70px); /* Position left button */
+  left: calc(50% - 70px);
 }
 
 .carousel-btn.next {
-  left: calc(50% + 70px); /* Position right button */
+  left: calc(50% + 70px);
 }
 
-/* Make carousel buttons responsive on smaller screens */
 @media (max-width: 480px) {
   .carousel-btn {
     width: 100px;
@@ -470,7 +496,6 @@ main {
   width: 50%;
 }
 
-/* On the impact feature, the image is on the right */
 .impact-feature {
   flex-direction: row-reverse;
 }

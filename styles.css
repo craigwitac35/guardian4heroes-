@@ -196,23 +196,31 @@ ul, ol {
 .site-header.new-header {
   justify-content: center; /* Center the images */
   padding: 1.5rem 1rem; /* Adjust padding */
+  /* If the transparent background of the header is still causing issues,
+     you can make it fully transparent here: */
+  background-color: transparent; /* Changed from rgba(255,255,255,0.1) */
+  backdrop-filter: none; /* Removed blur for full transparency */
+  -webkit-backdrop-filter: none;
+  border-bottom: none; /* Removed border */
 }
 
 .header-images {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between logo and title */
+  gap: 1.5rem; /* Increased space between logo and title for clarity */
 }
 
 .header-logo {
-  max-height: 100px; /* Adjust logo size */
+  max-height: 200px; /* Matched image's native height */
   width: auto;
+  max-width: 200px; /* Matched image's native width */
   transition: transform 0.2s ease;
 }
 
 .header-title {
-  max-height: 80px; /* Adjust title size */
+  max-height: 120px; /* Matched image's native height */
   width: auto;
+  max-width: 800px; /* Matched image's native width */
   transition: transform 0.2s ease;
 }
 
@@ -221,23 +229,11 @@ ul, ol {
 }
 
 
-.logo-title-link {
-  display: block;
-  border: none;
+.logo-title-link { /* This class is no longer used in the new HTML header structure */
+  display: none; /* Hide if not used */
 }
-.logo-title-link:hover {
-  background-color: transparent;
-  text-decoration: none;
-}
-.header-image-full {
-  height: auto;
-  width: 100%;
-  max-width: 600px;
-  padding: 0 1rem;
-  transition: transform 0.2s ease;
-}
-.logo-title-link:hover .header-image-full {
-  transform: scale(1.02);
+.header-image-full { /* This class is no longer used in the new HTML header structure */
+  display: none; /* Hide if not used */
 }
 
 footer {
@@ -611,50 +607,40 @@ nav a:hover, nav a:focus {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* ==========================================================================
-   New Header Styles
-   ========================================================================== */
-.site-header.new-header {
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.header-images {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.header-logo {
-    max-height: 100px; /* Adjust as needed */
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.header-title {
-    max-height: 80px; /* Adjust as needed */
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.header-images img:hover {
-    transform: scale(1.05);
-}
-
-/* Media query for smaller screens */
+/* Media queries for responsiveness for the new card style */
 @media (max-width: 600px) {
-    .header-images {
-        flex-direction: column; /* Stack logo and title on smaller screens */
-        gap: 0.5rem;
-    }
+  .featured-profile-card {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
 
-    .header-logo {
-        max-height: 80px; /* Adjust logo size for smaller screens */
-    }
+  .featured-profile-card img {
+    max-width: 180px; /* Adjust image size for smaller screens */
+    height: 180px;
+  }
 
-    .header-title {
-        max-height: 60px; /* Adjust title size for smaller screens */
-    }
+  .featured-profile-card h4 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .featured-profile-card p {
+    font-size: 1rem; /* Adjust paragraph size */
+  }
+
+  /* Specific mobile adjustments for the new header images */
+  .site-header.new-header {
+      padding: 1rem 0.5rem; /* Reduce header padding on small screens */
+  }
+
+  .header-images {
+      flex-direction: column; /* Stack logo and title vertically */
+      gap: 0.5rem; /* Reduce gap when stacked */
+  }
+
+  .header-logo {
+      max-height: 120px; /* Adjust logo size for smaller screens */
+  }
+
+  .header-title {
+      max-height: 70px; /* Adjust title size for smaller screens */
+  }
 }

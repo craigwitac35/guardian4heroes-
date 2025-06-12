@@ -438,7 +438,7 @@ nav a:hover, nav a:focus {
     margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
-  
+
   .header-image-full {
     height: auto;
     width: 95%;
@@ -446,7 +446,7 @@ nav a:hover, nav a:focus {
     margin: 0 auto;
     display: block;
   }
-  
+
   .site-header {
     padding: 0.5rem;
   }
@@ -527,6 +527,27 @@ nav a:hover, nav a:focus {
      margin-right: auto;
      text-align: center;
    }
+
+  /* Responsive adjustments for Profile Features */
+  .profile-feature,
+  .profile-feature:nth-child(even) {
+    flex-direction: column; /* Stack vertically on mobile */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .profile-feature .profile-image,
+  .profile-feature .profile-bio {
+    width: 100%; /* Both image and bio take full width */
+  }
+
+  .profile-feature img {
+    margin-bottom: 1.5rem; /* Add margin back on mobile */
+    max-height: 300px; /* Reduce maximum image height on mobile */
+  }
+
+  .profile-feature .profile-bio h4 {
+    font-size: 1.8rem;
+  }
 }
 
 /* ==========================================================================
@@ -772,9 +793,9 @@ nav a:hover, nav a:focus {
 
   .profile-feature img {
     margin-bottom: 1.5rem; /* Add margin back on mobile */
-    max-height: 400px; /* Constrain image height on mobile */
+    max-height: 300px; /* Reduce maximum image height on mobile */
   }
-  
+
   .profile-feature .profile-bio h4 {
     font-size: 1.8rem;
   }

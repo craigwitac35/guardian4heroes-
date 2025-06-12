@@ -576,10 +576,10 @@ nav a:hover, nav a:focus {
 }
 
 .featured-profile-card img {
-  max-width: 250px; /* Larger image size */
-  height: 250px; /* Fixed height for consistent circular images */
-  object-fit: cover; /* Ensures image covers the area without distortion */
-  border-radius: 50%; /* Makes images circular */
+  max-width: 100%; /* Image takes full width of the card's content area */
+  height: 250px; /* Fixed height for consistent presentation across images */
+  object-fit: cover; /* Ensures the image fills the space, cropping as needed */
+  border-radius: var(--border-radius); /* Apply slight border-radius from global variable */
   margin-bottom: 1.5rem; /* More space below image */
   border: 6px solid var(--primary-accent); /* Thicker accent border */
   transition: border-color 0.3s ease;
@@ -613,8 +613,7 @@ nav a:hover, nav a:focus {
   }
 
   .featured-profile-card img {
-    max-width: 180px; /* Adjust image size for smaller screens */
-    height: 180px;
+    height: 200px; /* Adjust image height for smaller screens */
   }
 
   .featured-profile-card h4 {

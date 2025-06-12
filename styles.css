@@ -213,8 +213,9 @@ ul, ol {
 
 .header-combined-image {
   width: 100%; /* Make the image responsive within its container */
-  height: auto;
+  height: auto; /* Let height adjust proportionally */
   display: block; /* Remove extra space below image */
+  max-height: 180px; /* Limit height on larger screens to prevent excessive size */
 }
 
 
@@ -543,7 +544,7 @@ nav a:hover, nav a:focus {
   .program-feature img,
   .impact-feature img,
   .program-feature-text,
-  .program-feature-text {
+  .impact-feature-text {
     width: 100%;
   }
 }
@@ -647,6 +648,8 @@ nav a:hover, nav a:focus {
   }
 
   .header-combined-image {
-      max-height: 120px; /* Adjust combined image size for smaller screens */
+      max-height: 80px; /* Adjusted combined image size for smaller screens to be less tall */
+      width: 100%; /* Ensure it fills available width */
+      object-fit: contain; /* Ensure the full image is visible, no cropping */
   }
 }

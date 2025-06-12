@@ -60,11 +60,9 @@ main, .site-header, footer, .section, .box, .card {
   z-index: 1;
 }
 
-/* Flexbox for the main content area is now inside the 'main' rule below */
 main {
   flex: 1;
 }
-
 
 /* ==========================================================================
    Typography
@@ -91,7 +89,6 @@ h1 {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
-
 
 h2 {
   font-size: 1.6rem;
@@ -123,47 +120,44 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-/* Specific styling for CTA links that contain buttons */
 .cta-link {
-    display: inline-block; /* Allows padding and margin, but wraps content */
-    border: none; /* Ensure no border from global a style */
-    padding: 0; /* Ensure no padding from global a style */
+    display: inline-block;
+    border: none;
+    padding: 0;
 }
 
 .cta-link:hover, .cta-link:focus {
-    text-decoration: none; /* Remove underline for links containing buttons */
+    text-decoration: none;
     background-color: transparent;
 }
-
 
 /* ==========================================================================
    Main Content Area
    ========================================================================== */
-
 main {
-  background: rgba(40, 40, 40, 0.6); /* Darker semi-transparent background */
+  background: rgba(40, 40, 40, 0.6);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   margin: 2rem auto;
   padding: 2rem;
   max-width: 900px;
   width: 95%;
-  color: #f5f5f5; /* Set default text color for main content to off-white */
+  color: #f5f5f5;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 main h1, main h2, main h3, main h4, main h5, main h6 {
-  color: #ffffff; /* White headings */
+  color: #ffffff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 main p {
-  color: #f5f5f5; /* Off-white paragraph text */
+  color: #f5f5f5;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 main a {
-    color: var(--primary-accent); /* Override global 'a' for main content links */
+    color: var(--primary-accent);
     border-color: var(--primary-accent-dark);
     font-weight: bold;
 }
@@ -174,7 +168,6 @@ main a:hover, main a:focus {
     text-decoration: underline;
 }
 
-/* Re-style buttons inside the dark box for better contrast */
 main button {
   background-color: var(--primary-accent);
   color: var(--dark-neutral);
@@ -205,60 +198,33 @@ ul, ol {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* New header styles for the combined image */
 .site-header.new-header {
-  justify-content: center; /* Center the image */
-  padding: 0; /* Remove padding as image has its own spacing/background */
-  background-color: transparent; /* Make header background transparent */
-  backdrop-filter: none; /* Remove blur as image has its own background */
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom: none; /* Remove border */
-  height: auto; /* Allow header height to be determined by content */
+  border-bottom: none;
+  height: auto;
 }
 
 .header-images {
   display: flex;
-  justify-content: center; /* Center the single image */
+  justify-content: center;
   align-items: center;
-  width: 100%; /* Ensure it takes full width for centering */
-  max-width: 900px; /* Constrain max width for desktop */
+  width: 100%;
+  max-width: 900px;
 }
 
 .header-combined-image {
-  width: 100%; /* Make the image responsive within its container */
-  height: auto; /* Let height adjust proportionally */
-  display: block; /* Remove extra space below image */
-  max-height: 180px; /* Limit height on larger screens to prevent excessive size */
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 180px;
 }
-
-
-/* Removed individual header-logo and header-title styles as they are no longer used with the combined image */
-/*
-.header-logo {
-  max-height: 200px;
-  width: auto;
-  max-width: 200px;
-  transition: transform 0.2s ease;
-}
-
-.header-title {
-  max-height: 120px;
-  width: auto;
-  max-width: 800px;
-  transition: transform 0.2s ease;
-}
-*/
 
 .header-images img:hover {
-    transform: scale(1.02); /* Slightly less aggressive hover for combined image */
-}
-
-
-.logo-title-link { /* This class is no longer used in the new HTML header structure */
-  display: none; /* Hide if not used */
-}
-.header-image-full { /* This class is no longer used in the new HTML header structure */
-  display: none; /* Hide if not used */
+    transform: scale(1.02);
 }
 
 footer {
@@ -347,7 +313,6 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Sections, Cards, and Other Elements
    ========================================================================== */
-
 .banner-image img,
 .closing-image img {
   width: 100%;
@@ -446,6 +411,10 @@ nav a:hover, nav a:focus {
 
   .menu-toggle:hover, .menu-toggle:focus {
     background-color: var(--primary-accent-dark);
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
   }
 }
 
@@ -586,13 +555,13 @@ nav a:hover, nav a:focus {
    Featured Profile Card Styles (for Sara and each horse)
    ========================================================================== */
 .featured-profile-card {
-  background-color: rgba(255, 255, 255, 0.2); /* Transparent box effect */
-  padding: 2rem; /* Increased padding for larger look */
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2rem; /* Space between cards/sections */
+  margin-top: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -602,12 +571,12 @@ nav a:hover, nav a:focus {
 }
 
 .featured-profile-card img {
-  max-width: 100%; /* Image takes full width of the card's content area */
-  height: 250px; /* Fixed height for consistent presentation across images */
-  object-fit: cover; /* Ensures the image fills the space, cropping as needed */
-  border-radius: var(--border-radius); /* Apply slight border-radius from global variable */
-  margin-bottom: 1.5rem; /* More space below image */
-  border: 6px solid var(--primary-accent); /* Thicker accent border */
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 6px solid var(--primary-accent);
   transition: border-color 0.3s ease;
 }
 
@@ -616,53 +585,59 @@ nav a:hover, nav a:focus {
 }
 
 .featured-profile-card h4 {
-  color: var(--primary-accent); /* Match title color */
-  font-size: 1.8rem; /* Larger font size for name */
+  color: var(--primary-accent);
+  font-size: 1.8rem;
   margin-bottom: 0.75rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .featured-profile-card p {
-  color: #f5f5f5; /* Consistent text color for main content */
-  font-size: 1.1rem; /* Slightly larger text for readability */
+  color: #f5f5f5;
+  font-size: 1.1rem;
   line-height: 1.6;
-  max-width: 700px; /* Constrain text width for better readability on large screens */
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 /* Media queries for responsiveness for the new card style */
 @media (max-width: 600px) {
   .featured-profile-card {
-    padding: 1.5rem; /* Adjust padding for smaller screens */
+    padding: 1.5rem;
   }
 
   .featured-profile-card img {
-    height: 200px; /* Adjust image height for smaller screens */
+    height: 200px;
   }
 
   .featured-profile-card h4 {
-    font-size: 1.5rem; /* Adjust heading size */
+    font-size: 1.5rem;
   }
 
   .featured-profile-card p {
-    font-size: 1rem; /* Adjust paragraph size */
+    font-size: 1rem;
   }
 
-  /* Specific mobile adjustments for the new header images */
   .site-header.new-header {
-      padding: 0; /* Remove header padding on small screens as image handles it */
+      padding: 0;
   }
 
   .header-images {
-      flex-direction: row; /* Keep side-by-side even on small screens with combined image */
-      gap: 0; /* No gap needed for combined image */
+      flex-direction: row;
+      gap: 0;
   }
 
   .header-combined-image {
-      max-height: 80px; /* Adjusted combined image size for smaller screens to be less tall */
-      width: 100%; /* Ensure it fills available width */
-      object-fit: contain; /* Ensure the full image is visible, no cropping */
+      max-height: 80px;
+      width: 100%;
+      object-fit: contain;
   }
 }

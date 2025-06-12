@@ -531,3 +531,67 @@ nav a:hover, nav a:focus {
   margin-top: -0.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* ==========================================================================
+   Meet the Crew Section Styles
+   ========================================================================== */
+.horse-profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+  gap: 2rem; /* Space between horse profiles */
+  margin-top: 2rem;
+}
+
+.horse-profile {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background for each profile */
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.horse-profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.horse-profile img {
+  max-width: 180px; /* Adjust image size */
+  height: 180px; /* Fixed height for consistent circles */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  border-radius: 50%; /* Makes images circular */
+  margin-bottom: 1rem;
+  border: 4px solid var(--primary-accent); /* Accent border around images */
+  transition: border-color 0.3s ease;
+}
+
+.horse-profile:hover img {
+  border-color: var(--primary-accent-dark);
+}
+
+.horse-profile h4 {
+  color: var(--primary-accent); /* Match title color */
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.horse-profile p {
+  color: #f5f5f5; /* Consistent text color for main content */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .horse-profiles {
+    grid-template-columns: 1fr; /* Stack profiles on very small screens */
+  }
+
+  .horse-profile {
+    padding: 1rem;
+  }
+}

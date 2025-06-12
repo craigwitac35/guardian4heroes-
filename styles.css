@@ -110,18 +110,31 @@ p {
 }
 
 a {
-  color: var(--primary-accent);
+  color: #ffffff; /* Changed link text to white */
   text-decoration: none;
-  border: 1px solid #000;
-  padding: 0.25rem 0.5rem;
+  border: none; /* Removed default border for all links */
+  padding: 0; /* Removed default padding for all links */
   transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
 }
 
 a:hover, a:focus {
-  color: var(--primary-accent-dark);
-  background-color: rgba(197, 255, 87, 0.2);
+  color: var(--primary-accent); /* Keep accent color on hover */
+  background-color: transparent; /* Ensure no background on hover for general links */
   text-decoration: underline;
 }
+
+/* Specific styling for CTA links that contain buttons */
+.cta-link {
+    display: inline-block; /* Allows padding and margin, but wraps content */
+    border: none; /* Ensure no border from global a style */
+    padding: 0; /* Ensure no padding from global a style */
+}
+
+.cta-link:hover, .cta-link:focus {
+    text-decoration: none; /* Remove underline for links containing buttons */
+    background-color: transparent;
+}
+
 
 /* ==========================================================================
    Main Content Area
@@ -150,7 +163,7 @@ main p {
 }
 
 main a {
-    color: var(--primary-accent);
+    color: var(--primary-accent); /* Override global 'a' for main content links */
     border-color: var(--primary-accent-dark);
     font-weight: bold;
 }

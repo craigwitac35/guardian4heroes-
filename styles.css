@@ -299,15 +299,80 @@ nav a:hover, nav a:focus {
    Hero Section Styles
    ========================================================================== */
 .hero {
+  background-image: url('images/FB_IMG_1749752975080.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: #fff; /* Set text color to white for better contrast */
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 10rem 1rem; /* Adjust padding as needed for height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning hero-content */
 }
 
-.hero h2 {
-  color: #ffffff;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay for better text readability */
+}
+
+.hero-content {
+  position: relative; /* Bring content above the overlay */
+  z-index: 10;
+  max-width: 800px;
+  width: 90%;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: 0 10px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+}
+
+.hero-buttons .primary-button {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 2px solid var(--primary-accent-dark);
+}
+
+.hero-buttons .primary-button:hover,
+.hero-buttons .primary-button:focus {
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
+  border-color: var(--primary-accent);
+}
+
+.hero-buttons .secondary-button {
+  background-color: transparent;
+  color: var(--primary-accent);
+  border: 2px solid var(--primary-accent);
+}
+
+.hero-buttons .secondary-button:hover,
+.hero-buttons .secondary-button:focus {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
 }
 
 /* ==========================================================================
@@ -346,7 +411,7 @@ nav a:hover, nav a:focus {
     margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
-  
+
   .header-image-full {
     height: auto;
     width: 95%;
@@ -354,7 +419,7 @@ nav a:hover, nav a:focus {
     margin: 0 auto;
     display: block;
   }
-  
+
   .site-header {
     padding: 0.5rem;
   }
@@ -413,8 +478,26 @@ nav a:hover, nav a:focus {
     background-color: var(--primary-accent-dark);
   }
 
-  .hero h2 {
-    font-size: 1.8rem;
+  .hero {
+    padding: 8rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-buttons a {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }
 
@@ -603,41 +686,4 @@ nav a:hover, nav a:focus {
 
 .crew-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* Media queries for responsiveness for the new card style */
-@media (max-width: 600px) {
-  .featured-profile-card {
-    padding: 1.5rem;
-  }
-
-  .featured-profile-card img {
-    height: 200px;
-  }
-
-  .featured-profile-card h4 {
-    font-size: 1.5rem;
-  }
-
-  .featured-profile-card p {
-    font-size: 1rem;
-  }
-
-  .site-header.new-header {
-      padding: 0;
-  }
-
-  .header-images {
-      flex-direction: row;
-      gap: 0;
-  }
-
-  .header-combined-image {
-      max-height: 80px;
-      width: 100%;
-      object-fit: contain;
-  }
-}
+  grid-template-columns: repeat(auto-fit, minmax(280px,

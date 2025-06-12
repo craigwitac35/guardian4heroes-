@@ -504,9 +504,9 @@ nav a:hover, nav a:focus {
   .program-feature, .impact-feature {
     flex-direction: column;
   }
-  .program-feature img, 
+  .program-feature img,
   .impact-feature img,
-  .program-feature-text, 
+  .program-feature-text,
   .impact-feature-text {
     width: 100%;
   }
@@ -533,65 +533,75 @@ nav a:hover, nav a:focus {
 }
 
 /* ==========================================================================
-   Meet the Crew Section Styles
+   Featured Profile Card Styles (for Sara and each horse)
    ========================================================================== */
-.horse-profiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-  gap: 2rem; /* Space between horse profiles */
-  margin-top: 2rem;
-}
-
-.horse-profile {
-  background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background for each profile */
-  padding: 1.5rem;
+.featured-profile-card {
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent box effect */
+  padding: 2rem; /* Increased padding for larger look */
   border-radius: var(--border-radius);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem; /* Space between cards/sections */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.horse-profile:hover {
+.featured-profile-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.horse-profile img {
-  max-width: 180px; /* Adjust image size */
-  height: 180px; /* Fixed height for consistent circles */
+.featured-profile-card img {
+  max-width: 250px; /* Larger image size */
+  height: 250px; /* Fixed height for consistent circular images */
   object-fit: cover; /* Ensures image covers the area without distortion */
   border-radius: 50%; /* Makes images circular */
-  margin-bottom: 1rem;
-  border: 4px solid var(--primary-accent); /* Accent border around images */
+  margin-bottom: 1.5rem; /* More space below image */
+  border: 6px solid var(--primary-accent); /* Thicker accent border */
   transition: border-color 0.3s ease;
 }
 
-.horse-profile:hover img {
+.featured-profile-card:hover img {
   border-color: var(--primary-accent-dark);
 }
 
-.horse-profile h4 {
+.featured-profile-card h4 {
   color: var(--primary-accent); /* Match title color */
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem; /* Larger font size for name */
+  margin-bottom: 0.75rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.horse-profile p {
+.featured-profile-card p {
   color: #f5f5f5; /* Consistent text color for main content */
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.1rem; /* Slightly larger text for readability */
+  line-height: 1.6;
+  max-width: 700px; /* Constrain text width for better readability on large screens */
+  margin-left: auto;
+  margin-right: auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments for smaller screens */
+
+/* Remove previous horse-profiles grid container styling as it's no longer used */
+/* .horse-profiles is removed from HTML structure and no longer needs CSS */
+
+/* Media queries for responsiveness for the new card style */
 @media (max-width: 600px) {
-  .horse-profiles {
-    grid-template-columns: 1fr; /* Stack profiles on very small screens */
+  .featured-profile-card {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
   }
 
-  .horse-profile {
-    padding: 1rem;
+  .featured-profile-card img {
+    max-width: 180px; /* Adjust image size for smaller screens */
+    height: 180px;
+  }
+
+  .featured-profile-card h4 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .featured-profile-card p {
+    font-size: 1rem; /* Adjust paragraph size */
   }
 }

@@ -192,39 +192,51 @@ ul, ol {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* New header styles */
+/* New header styles for the combined image */
 .site-header.new-header {
-  justify-content: center; /* Center the images */
-  padding: 1.5rem 1rem; /* Adjust padding */
-  /* Black frosted glass effect */
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-  backdrop-filter: blur(10px); /* Stronger blur effect */
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light border for definition */
+  justify-content: center; /* Center the image */
+  padding: 0; /* Remove padding as image has its own spacing/background */
+  background-color: transparent; /* Make header background transparent */
+  backdrop-filter: none; /* Remove blur as image has its own background */
+  -webkit-backdrop-filter: none;
+  border-bottom: none; /* Remove border */
+  height: auto; /* Allow header height to be determined by content */
 }
 
 .header-images {
   display: flex;
+  justify-content: center; /* Center the single image */
   align-items: center;
-  gap: 1.5rem; /* Increased space between logo and title for clarity */
+  width: 100%; /* Ensure it takes full width for centering */
+  max-width: 900px; /* Constrain max width for desktop */
 }
 
+.header-combined-image {
+  width: 100%; /* Make the image responsive within its container */
+  height: auto;
+  display: block; /* Remove extra space below image */
+}
+
+
+/* Removed individual header-logo and header-title styles as they are no longer used with the combined image */
+/*
 .header-logo {
-  max-height: 200px; /* Matched image's native height */
+  max-height: 200px;
   width: auto;
-  max-width: 200px; /* Matched image's native width */
+  max-width: 200px;
   transition: transform 0.2s ease;
 }
 
 .header-title {
-  max-height: 120px; /* Matched image's native height */
+  max-height: 120px;
   width: auto;
-  max-width: 800px; /* Matched image's native width */
+  max-width: 800px;
   transition: transform 0.2s ease;
 }
+*/
 
 .header-images img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Slightly less aggressive hover for combined image */
 }
 
 
@@ -531,7 +543,7 @@ nav a:hover, nav a:focus {
   .program-feature img,
   .impact-feature img,
   .program-feature-text,
-  .impact-feature-text {
+  .program-feature-text {
     width: 100%;
   }
 }
@@ -626,19 +638,15 @@ nav a:hover, nav a:focus {
 
   /* Specific mobile adjustments for the new header images */
   .site-header.new-header {
-      padding: 1rem 0.5rem; /* Reduce header padding on small screens */
+      padding: 0; /* Remove header padding on small screens as image handles it */
   }
 
   .header-images {
-      flex-direction: column; /* Stack logo and title vertically */
-      gap: 0.5rem; /* Reduce gap when stacked */
+      flex-direction: row; /* Keep side-by-side even on small screens with combined image */
+      gap: 0; /* No gap needed for combined image */
   }
 
-  .header-logo {
-      max-height: 120px; /* Adjust logo size for smaller screens */
-  }
-
-  .header-title {
-      max-height: 70px; /* Adjust title size for smaller screens */
+  .header-combined-image {
+      max-height: 120px; /* Adjust combined image size for smaller screens */
   }
 }

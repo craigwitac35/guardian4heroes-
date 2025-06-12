@@ -196,12 +196,11 @@ ul, ol {
 .site-header.new-header {
   justify-content: center; /* Center the images */
   padding: 1.5rem 1rem; /* Adjust padding */
-  /* If the transparent background of the header is still causing issues,
-     you can make it fully transparent here: */
-  background-color: transparent; /* Changed from rgba(255,255,255,0.1) */
-  backdrop-filter: none; /* Removed blur for full transparency */
-  -webkit-backdrop-filter: none;
-  border-bottom: none; /* Removed border */
+  /* Added semi-transparent white background for better visibility */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  backdrop-filter: blur(5px); /* Apply a slight blur to the background */
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(0,0,0,0.1); /* Re-added border for definition */
 }
 
 .header-images {

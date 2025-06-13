@@ -55,6 +55,11 @@ body::before {
   pointer-events: none;
 }
 
+main, .site-header, footer, .section, .box, .card {
+  position: relative;
+  z-index: 1;
+}
+
 main {
   flex: 1;
 }
@@ -104,27 +109,28 @@ p {
 }
 
 a {
-  color: #ffffff;
+  color: #ffffff; /* Changed link text to white */
   text-decoration: none;
-  border: none;
-  padding: 0;
+  border: none; /* Removed default border for all links */
+  padding: 0; /* Removed default padding for all links */
   transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
 }
 
 a:hover, a:focus {
-  color: var(--primary-accent);
-  background-color: transparent;
+  color: var(--primary-accent); /* Keep accent color on hover */
+  background-color: transparent; /* Ensure no background on hover for general links */
   text-decoration: underline;
 }
 
+/* Specific styling for CTA links that contain buttons */
 .cta-link {
-    display: inline-block;
-    border: none;
-    padding: 0;
+    display: inline-block; /* Allows padding and margin, but wraps content */
+    border: none; /* Ensure no border from global a style */
+    padding: 0; /* Ensure no padding from global a style */
 }
 
 .cta-link:hover, .cta-link:focus {
-    text-decoration: none;
+    text-decoration: none; /* Remove underline for links containing buttons */
     background-color: transparent;
 }
 
@@ -132,47 +138,49 @@ a:hover, a:focus {
 /* ==========================================================================
    Main Content Area
    ========================================================================== */
-.content-box {
-  background: rgba(40, 40, 40, 0.6);
+
+main {
+  background: rgba(40, 40, 40, 0.6); /* Darker semi-transparent background */
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   margin: 2rem auto;
   padding: 2rem;
   max-width: 900px;
   width: 95%;
-  color: #f5f5f5;
+  color: #f5f5f5; /* Set default text color for main content to off-white */
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.content-box h1, .content-box h2, .content-box h3, .content-box h4, .content-box h5, .content-box h6 {
-  color: #ffffff;
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  color: #ffffff; /* White headings */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.content-box p {
-  color: #f5f5f5;
+main p {
+  color: #f5f5f5; /* Off-white paragraph text */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.content-box a {
-    color: var(--primary-accent);
+main a {
+    color: var(--primary-accent); /* Override global 'a' for main content links */
     border-color: var(--primary-accent-dark);
     font-weight: bold;
 }
 
-.content-box a:hover, .content-box a:focus {
+main a:hover, main a:focus {
     color: #ffffff;
     background-color: var(--primary-accent);
     text-decoration: underline;
 }
 
-.content-box button {
+/* Re-style buttons inside the dark box for better contrast */
+main button {
   background-color: var(--primary-accent);
   color: var(--dark-neutral);
   border: 2px solid var(--primary-accent-dark);
 }
 
-.content-box button:hover, .content-box button:focus {
+main button:hover, main button:focus {
   background-color: var(--primary-accent-dark);
   color: var(--dark-neutral);
   border-color: var(--primary-accent);
@@ -196,33 +204,43 @@ ul, ol {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* New header styles for the combined image */
 .site-header.new-header {
-  justify-content: center;
-  padding: 0;
-  background-color: transparent;
-  backdrop-filter: none;
+  justify-content: center; /* Center the image */
+  padding: 0; /* Remove padding as image has its own spacing/background */
+  background-color: transparent; /* Make header background transparent */
+  backdrop-filter: none; /* Remove blur as image has its own background */
   -webkit-backdrop-filter: none;
-  border-bottom: none;
-  height: auto;
+  border-bottom: none; /* Remove border */
+  height: auto; /* Allow header height to be determined by content */
 }
 
 .header-images {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the single image */
   align-items: center;
-  width: 100%;
-  max-width: 900px;
+  width: 100%; /* Ensure it takes full width for centering */
+  max-width: 900px; /* Constrain max width for desktop */
 }
 
 .header-combined-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 180px;
+  width: 100%; /* Make the image responsive within its container */
+  height: auto; /* Let height adjust proportionally */
+  display: block; /* Remove extra space below image */
+  max-height: 180px; /* Limit height on larger screens to prevent excessive size */
 }
 
+
 .header-images img:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Slightly less aggressive hover for combined image */
+}
+
+
+.logo-title-link { /* This class is no longer used in the new HTML header structure */
+  display: none; /* Hide if not used */
+}
+.header-image-full { /* This class is no longer used in the new HTML header structure */
+  display: none; /* Hide if not used */
 }
 
 footer {
@@ -281,7 +299,7 @@ nav a:hover, nav a:focus {
 .menu-toggle {
   display: none;
   background: var(--primary-accent);
-  color: #ffffff;
+  color: #ffffff; /* Set hamburger icon color to white */
   border: 1px solid var(--dark-neutral);
   border-radius: var(--border-radius);
   font-size: 1.5rem;
@@ -298,6 +316,12 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Hero Section Styles
    ========================================================================== */
+/* The original, simple hero style for pages like "About" */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
 .hero h2 {
   color: #ffffff;
   font-size: 2.2rem;
@@ -305,6 +329,7 @@ nav a:hover, nav a:focus {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
+/* NEW: Specific hero style for the homepage only */
 .home-hero {
   background-image: url('images/FB_IMG_1749752975080.jpg');
   background-size: cover;
@@ -325,7 +350,7 @@ nav a:hover, nav a:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
 }
 
 .home-hero .hero-content {
@@ -339,7 +364,7 @@ nav a:hover, nav a:focus {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  color: #f5f5f5;
+  color: #f5f5f5; /* Ensure subtitle is off-white */
 }
 
 .home-hero .hero-buttons a {
@@ -381,41 +406,53 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Sections, Cards, and Other Elements
    ========================================================================== */
-.home-hero, .banner-image, .closing-image, .program-feature, .impact-feature, .profile-feature, .hero {
-    max-width: 900px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
 
-.banner-image img, .closing-image img {
+.banner-image img,
+.closing-image img {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 1rem 0;
 }
 
 .section, .box, .card {
   background: transparent;
   border-radius: 0;
   box-shadow: none;
-  margin: 0;
-  padding: 0;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
 }
 
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media (max-width: 992px) {
+  main {
+    max-width: 800px;
+  }
+}
+
 @media (max-width: 768px) {
-  .content-box {
+  main {
+    max-width: 100%;
     margin: 1rem 0.5rem;
     padding: 1.5rem;
   }
   
+  .header-image-full {
+    height: auto;
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .site-header {
+    padding: 0.5rem;
+  }
+
   nav {
     flex-direction: column;
   }
@@ -450,7 +487,7 @@ nav a:hover, nav a:focus {
     padding: 0.75rem 1.5rem;
     margin: 0.5rem 0;
     font-weight: normal;
-    color: #ffffff;
+    color: #ffffff; /* Set mobile nav link color to white */
   }
 
   nav .nav-links a:hover, nav .nav-links a:focus {
@@ -462,6 +499,7 @@ nav a:hover, nav a:focus {
     display: block;
   }
 
+  /* Mobile adjustments for hero sections */
   .hero h2 {
     font-size: 1.8rem;
   }
@@ -498,50 +536,276 @@ nav a:hover, nav a:focus {
   box-shadow: var(--box-shadow);
 }
 
-/* ... (rest of carousel styles remain the same) ... */
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.carousel-item img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--secondary-accent-alt);
+}
+
+.carousel-btn {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 1px solid var(--dark-neutral);
+  border-radius: var(--border-radius);
+  height: 40px;
+  width: 120px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+}
+
+.carousel-btn:hover, .carousel-btn:focus {
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.5);
+}
+
+.carousel-btn.prev {
+  left: calc(50% - 70px);
+}
+
+.carousel-btn.next {
+  left: calc(50% + 70px);
+}
+
+@media (max-width: 480px) {
+  .carousel-btn {
+    width: 100px;
+  }
+  .carousel-btn.prev {
+    left: calc(50% - 55px);
+  }
+  .carousel-btn.next {
+    left: calc(50% + 55px);
+  }
+}
 
 /* ==========================================================================
    Unique Page Layouts
    ========================================================================== */
-.program-feature, .impact-feature, .profile-feature {
+.program-feature, .impact-feature {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  background: rgba(40, 40, 40, 0.6);
-  padding: 2rem;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-.program-feature img, .impact-feature img, .profile-feature .profile-image {
+.program-feature img, .impact-feature img {
   width: 50%;
-  flex-shrink: 0;
-}
-
-.profile-feature .profile-image img {
-  width: 100%;
-  height: auto;
-  border: 4px solid var(--primary-accent);
   border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
-.program-feature-text, .impact-feature-text, .profile-feature .profile-bio {
+.program-feature-text, .impact-feature-text {
   width: 50%;
 }
 
-.impact-feature, .profile-feature:nth-child(even) {
+.impact-feature {
   flex-direction: row-reverse;
 }
 
 @media (max-width: 768px) {
-  .program-feature, .impact-feature, .profile-feature, .profile-feature:nth-child(even) {
+  .program-feature, .impact-feature {
     flex-direction: column;
   }
-  .program-feature img, .impact-feature img, .profile-feature .profile-image,
-  .program-feature-text, .impact-feature-text, .profile-feature .profile-bio {
+  .program-feature img,
+  .impact-feature img,
+  .program-feature-text,
+  .impact-feature-text {
     width: 100%;
-  }
-  .profile-feature .profile-image img {
-    max-height: 400px;
   }
 }
 
-/* ... (social-cta, contact-form styles remain the same) ... */
+.social-cta a {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.social-cta a:hover {
+  background-color: transparent;
+  transform: scale(1.1);
+}
+
+.contact-form .error {
+  display: none;
+  color: #D8000C;
+  font-weight: bold;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Featured Profile Card Styles (for Sara and each horse)
+   ========================================================================== */
+.featured-profile-card {
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent box effect */
+  padding: 2rem; /* Increased padding for larger look */
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem; /* Space between cards/sections */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.featured-profile-card img {
+  max-width: 100%; /* Image takes full width of the card's content area */
+  height: 250px; /* Fixed height for consistent presentation across images */
+  object-fit: cover; /* Ensures the image fills the space, cropping as needed */
+  border-radius: var(--border-radius); /* Apply slight border-radius from global variable */
+  margin-bottom: 1.5rem; /* More space below image */
+  border: 6px solid var(--primary-accent); /* Thicker accent border */
+  transition: border-color 0.3s ease;
+}
+
+.featured-profile-card:hover img {
+  border-color: var(--primary-accent-dark);
+}
+
+.featured-profile-card h4 {
+  color: var(--primary-accent); /* Match title color */
+  font-size: 1.8rem; /* Larger font size for name */
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.featured-profile-card p {
+  color: #f5f5f5; /* Consistent text color for main content */
+  font-size: 1.1rem; /* Slightly larger text for readability */
+  line-height: 1.6;
+  max-width: 700px; /* Constrain text width for better readability on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   New Profile Feature Layout (About Page)
+   ========================================================================== */
+.profile-feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  text-align: left; /* Align text to the left instead of center */
+  margin-top: 3rem; /* Add more space between profiles */
+}
+
+/* For every other profile, we can reverse the order */
+.profile-feature:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.profile-feature .profile-image {
+  width: 40%; /* Image container takes 40% of the width */
+  flex-shrink: 0;
+}
+
+.profile-feature img {
+  width: 100%;
+  height: auto; /* Let the height be automatic to maintain aspect ratio */
+  object-fit: cover;
+  border: 4px solid var(--primary-accent);
+  border-radius: var(--border-radius);
+  margin-bottom: 0; /* Remove bottom margin as gap is handled by flexbox */
+}
+
+.profile-feature .profile-bio {
+  width: 60%; /* Bio takes the remaining 60% */
+}
+
+.profile-feature .profile-bio h4 {
+  font-size: 2rem; /* Make the name a bit larger */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.profile-feature .profile-bio p {
+  font-size: 1.1rem;
+  max-width: none; /* Remove the max-width for centered text */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .profile-feature,
+  .profile-feature:nth-child(even) {
+    flex-direction: column; /* Stack vertically on mobile */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .profile-feature .profile-image,
+  .profile-feature .profile-bio {
+    width: 100%; /* Both image and bio take full width */
+  }
+
+  .profile-feature img {
+    margin-bottom: 1.5rem; /* Add margin back on mobile */
+    max-height: 400px; /* Increase max height */
+  }
+  
+  .profile-feature .profile-bio h4 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* Media queries for responsiveness for the new card style */
+@media (max-width: 600px) {
+  .featured-profile-card {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .featured-profile-card img {
+    height: 200px; /* Adjust image height for smaller screens */
+  }
+
+  .featured-profile-card h4 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .featured-profile-card p {
+    font-size: 1rem; /* Adjust paragraph size */
+  }
+
+  /* Specific mobile adjustments for the new header images */
+  .site-header.new-header {
+      padding: 0; /* Remove header padding on small screens as image handles it */
+  }
+
+  .header-images {
+      flex-direction: row; /* Keep side-by-side even on small screens with combined image */
+      gap: 0; /* No gap needed for combined image */
+  }
+
+  .header-combined-image {
+      max-height: 80px; /* Adjusted combined image size for smaller screens to be less tall */
+      width: 100%; /* Ensure it fills available width */
+      object-fit: contain; /* Ensure the full image is visible, no cropping */
+  }
+}

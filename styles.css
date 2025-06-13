@@ -604,15 +604,21 @@ nav a:hover, nav a:focus {
    Unique Page Layouts
    ========================================================================== */
 .program-highlight {
-  margin-bottom: 1.5rem; /* Add space below the highlight container */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 .program-highlight img {
-  width: 100%; /* Make image span full width of its container */
-  height: auto;
-  display: block;
+  width: 50%;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+}
+
+.program-highlight p {
+  width: 50%;
+  margin-bottom: 0;
 }
    
 .program-feature, .impact-feature {
@@ -637,13 +643,15 @@ nav a:hover, nav a:focus {
 }
 
 @media (max-width: 768px) {
-  .program-feature, .impact-feature {
+  .program-feature, .impact-feature, .program-highlight {
     flex-direction: column;
   }
   .program-feature img,
   .impact-feature img,
   .program-feature-text,
-  .impact-feature-text {
+  .impact-feature-text,
+  .program-highlight img,
+  .program-highlight p {
     width: 100%;
   }
 }

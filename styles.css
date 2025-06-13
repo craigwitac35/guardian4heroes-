@@ -603,6 +603,18 @@ nav a:hover, nav a:focus {
 /* ==========================================================================
    Unique Page Layouts
    ========================================================================== */
+.program-highlight {
+  margin-bottom: 1.5rem; /* Add space below the highlight container */
+}
+
+.program-highlight img {
+  width: 100%; /* Make image span full width of its container */
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+   
 .program-feature, .impact-feature {
   display: flex;
   align-items: center;

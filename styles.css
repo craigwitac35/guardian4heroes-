@@ -298,17 +298,19 @@ nav a:hover, nav a:focus {
 
 .menu-toggle {
   display: none;
-  background: var(--header-footer-bg);
-  color: var(--header-footer-text);
-  border: none;
+  background: var(--primary-accent);
+  color: #ffffff; /* Set hamburger icon color to white */
+  border: 1px solid var(--dark-neutral);
+  border-radius: var(--border-radius);
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color var(--transition-duration) ease;
+  box-shadow: var(--box-shadow);
 }
 
 .menu-toggle:hover, .menu-toggle:focus {
-  background: rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-accent-dark);
 }
 
 /* ==========================================================================
@@ -485,6 +487,7 @@ nav a:hover, nav a:focus {
     padding: 0.75rem 1.5rem;
     margin: 0.5rem 0;
     font-weight: normal;
+    color: #ffffff; /* Set mobile nav link color to white */
   }
 
   nav .nav-links a:hover, nav .nav-links a:focus {
@@ -494,15 +497,6 @@ nav a:hover, nav a:focus {
 
   .menu-toggle {
     display: block;
-    background-color: var(--primary-accent);
-    border: 1px solid var(--dark-neutral);
-    border-radius: var(--border-radius);
-    color: var(--header-footer-text);
-    box-shadow: var(--box-shadow);
-  }
-
-  .menu-toggle:hover, .menu-toggle:focus {
-    background-color: var(--primary-accent-dark);
   }
 
   /* Mobile adjustments for hero sections */
@@ -814,4 +808,4 @@ nav a:hover, nav a:focus {
       width: 100%; /* Ensure it fills available width */
       object-fit: contain; /* Ensure the full image is visible, no cropping */
   }
-     }
+}

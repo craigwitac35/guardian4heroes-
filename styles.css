@@ -772,7 +772,7 @@ nav a:hover, nav a:focus {
 
   .profile-feature img {
     margin-bottom: 1.5rem; /* Add margin back on mobile */
-    max-height: 350px; /* Reset max-height */
+    max-height: 400px; /* Increase max height */
   }
   
   .profile-feature .profile-bio h4 {
@@ -814,4 +814,4 @@ nav a:hover, nav a:focus {
       width: 100%; /* Ensure it fills available width */
       object-fit: contain; /* Ensure the full image is visible, no cropping */
   }
-}
+     }

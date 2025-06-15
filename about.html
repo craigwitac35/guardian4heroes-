@@ -1,149 +1,880 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
-  <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
-    </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-  <main>
-    <section class="hero" role="banner">
-      <img src="images/about-hero.jpg" alt="Veteran and horse in equine therapy session" loading="lazy" style="display: none;">
-      <h2>Healing Through Connection</h2>
-    </section>
-    <section class="section">
-      <h3>Our Mission</h3>
-      <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through compassionate and empowering equine-facilitated psychotherapy (EFPT). We provide a safe, therapeutic environment where veterans and first responders can find connection, understanding, and hope.</p>
-    </section>
-    <section class="section">
-      <h3>Our Purpose</h3>
-      <p>Founded by Sara Peterson, a dedicated veteran advocate, our nonprofit strives to create an environment of safety, peace, and healing for our veterans. Our purpose is to provide a space where individuals can rediscover themselves, find strength in community, and heal through the transformative power of horses.</p>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Saraprofile.jpg" alt="Sara Peterson, founder of Guardian 4 Heroes" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Sara Peterson</h4>
-          <p>A veteran advocate with over 10 years of experience, Sara founded Guardian 4 Heroes to empower veterans and first responders through transformative equine therapy. Her vision creates an environment where healing and growth are possible for every participant.</p>
-        </div>
-      </div>
-    </section>
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+:root {
+  --primary-accent: #c59d57;
+  --primary-accent-dark: #b88a44;
+  --dark-neutral: #1c1c1c;
+  --dark-neutral-alt: #0d0d0d;
+  --background: #f9f6ef;
+  --box-background: #fff;
+  --secondary-accent: #a89f91;
+  --secondary-accent-alt: #dcd4c1;
+  --header-footer-bg: transparent;
+  --header-footer-text: var(--dark-neutral);
+  --transition-duration: 0.2s;
+  --border-radius: 0.5rem;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    <section class="section">
-      <h3>What Is EFPT?</h3>
-      <p>Equine-Facilitated Psychotherapy Training involves engaging with horses to rebuild confidence, explore boundaries, and enhance self-esteem. Horses, attuned to human emotion, offer a unique and powerful therapeutic experience that fosters personal growth and healing.</p>
-      <div class="donate-button">
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
-          <button type="submit">Donate Now</button>
-        </form>
-      </div>
-    </section>
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
 
-    <section class="section">
-      <h3>Licenses & Certifications</h3>
-      <ul>
-        <li>501c3 #33-3587146</li>
-        <li>MN Non-Profit #1544498100028</li>
-        <li>EFPT Certified</li>
-      </ul>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-    <section class="section">
-      <h3>Meet the Crew</h3>
-      <p>Our equine partners are at the heart of Guardian 4 Heroes. Each horse brings a unique personality and spirit to our therapy sessions, offering profound connections and opportunities for healing.</p>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dark-neutral);
+  background-color: var(--background);
+  background-image: url('images/backg.PNG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/hdimage1.jpg" alt="Nelly the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Nelly, or Nelly Bell</h4>
-          <p>A 12-year-old Mustang mare, Nelly sometimes pretends she doesn’t want to be brushed or touched. But she'll always come back for snuggles and is constantly aware of your presence, ensuring you're never alone in the arena.</p>
-        </div>
-      </div>
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(249, 246, 239, 0.1);
+  z-index: -1;
+  pointer-events: none;
+}
 
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/horse9.jpg" alt="Maverick the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Maverick, or Mav</h4>
-          <p>Our sweet Mav is always there when you’re in need of a hug or snuggles. This 12-year-old rescue loves attention and doesn’t let his disability get in his way, proving that love and bravery conquer all challenges.</p>
-        </div>
-      </div>
+main, .site-header, footer, .section, .box, .card {
+  position: relative;
+  z-index: 1;
+}
 
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Rocketprofile.jpg" alt="Rocket the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Rocket</h4>
-          <p>Rocket is the biggest of our bunch, both in size and personality! He loves to goof around and craves attention. You’d never guess this spirited horse is 26 years old—he’s truly ageless at heart.</p>
-        </div>
-      </div>
+main {
+  flex: 1;
+}
 
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Photoshootsingle.jpg" alt="Drifter the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Drifter</h4>
-          <p>Drifter may seem a bit aloof at first, but once he gets to know you, his warm personality shines through. At 20 years old, all he wants to do is please, and he absolutely loves brushing time and gentle words.</p>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <h3>Veteran Stories</h3>
-      <div class="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item">
-            <p>“I’m Craig, a 35-year-old Army veteran who served in Afghanistan. After leaving the Army, I struggled with substance abuse and felt lost. I was hesitant to join Guardian 4 Heroes, even though I knew I needed help. Equine therapy helped me reconnect with myself and others. The horses, and the people here, gave me hope and purpose again.”</p>
-          </div>
-        </div>
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-        <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-      </div>
-  </main>
-   <section class="closing-image">
-  <blockquote class="inspiring-quote">
-    Sometimes, the deepest healing happens between two souls who never speak the same language
-  </blockquote>
-</section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-neutral);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.subtitle {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: #000000;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 0 0 1rem 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+}
+
+a:hover, a:focus {
+  color: var(--primary-accent);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* CTA links styling */
+.cta-link {
+  display: inline-block;
+  border: none;
+  padding: 0;
+}
+
+.cta-link:hover, .cta-link:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+main {
+  background: rgba(40, 40, 40, 0.6);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 900px;
+  width: 95%;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+main p {
+  color: #f5f5f5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+main a {
+  color: var(--primary-accent);
+  border-color: var(--primary-accent-dark);
+  font-weight: bold;
+}
+
+main a:hover, main a:focus {
+  color: #ffffff;
+  background-color: var(--primary-accent);
+  text-decoration: underline;
+}
+
+main button {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 2px solid var(--primary-accent-dark);
+}
+
+main button:hover, main button:focus {
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
+  border-color: var(--primary-accent);
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Header and Footer
+   ========================================================================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.site-header.new-header {
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  height: auto;
+}
+
+.header-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.header-combined-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 180px;
+}
+
+.header-images img:hover {
+  transform: scale(1.02);
+}
+
+.logo-title-link,
+.header-image-full {
+  display: none;
+}
+
+footer {
+  background-color: var(--header-footer-bg);
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+  background: var(--header-footer-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+nav .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--dark-neutral);
+  background-color: var(--primary-accent);
+  font-weight: bold;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  border: 1px solid var(--dark-neutral);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  min-width: 100px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+  color: var(--dark-neutral);
+  background-color: var(--primary-accent-dark);
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--primary-accent);
+  color: #ffffff;
+  border: 1px solid var(--dark-neutral);
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+  box-shadow: var(--box-shadow);
+}
+
+.menu-toggle:hover, .menu-toggle:focus {
+  background-color: var(--primary-accent-dark);
+}
+
+/* ==========================================================================
+   Hero Section Styles
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero h2 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.home-hero {
+  background-image: url('images/FB_IMG_1749752975080.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  text-align: center;
+  padding: 10rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home-hero .hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  width: 90%;
+}
+
+.home-hero .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #f5f5f5;
+}
+
+.home-hero .hero-buttons a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: 0 10px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+}
+
+.home-hero .hero-buttons .primary-button {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 2px solid var(--primary-accent-dark);
+}
+
+.home-hero .hero-buttons .primary-button:hover,
+.home-hero .hero-buttons .primary-button:focus {
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
+  border-color: var(--primary-accent);
+}
+
+.home-hero .hero-buttons .secondary-button {
+  background-color: transparent;
+  color: var(--primary-accent);
+  border: 2px solid var(--primary-accent);
+}
+
+.home-hero .hero-buttons .secondary-button:hover,
+.home-hero .hero-buttons .secondary-button:focus {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+}
+
+/* ==========================================================================
+   Sections, Cards, and Other Elements
+   ========================================================================== */
+.banner-image img,
+.closing-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 1rem 0;
+}
+
+.section, .box, .card {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 992px) {
+  main {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    max-width: 100%;
+    margin: 1rem 0.5rem;
+    padding: 1.5rem;
+  }
+  .header-image-full {
+    height: auto;
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+  .site-header {
+    padding: 0.5rem;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  nav .nav-links.active {
+    display: flex;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background: rgba(249, 246, 239, 0.9);
+  }
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    nav .nav-links.active {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
+  }
+  nav .nav-links a {
+    background-color: var(--primary-accent-dark);
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0;
+    font-weight: normal;
+    color: #ffffff;
+  }
+  nav .nav-links a:hover, nav .nav-links a:focus {
+    background-color: var(--primary-accent);
+    color: var(--dark-neutral-alt);
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .home-hero {
+    padding: 8rem 1rem;
+  }
+  .home-hero .subtitle {
+    font-size: 1.2rem;
+  }
+  .home-hero .hero-buttons a {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
 
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    function moveCarousel(direction) {
-      if (slides.length <= 1) return; // Do nothing if only one slide
-      currentSlide = (currentSlide + direction + slides.length) % slides.length;
-      document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-  </script>
-</body>
-</html>
+/* ==========================================================================
+   Carousel Styles
+   ========================================================================== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+  text-align: center;
+  font-style: italic;
+  color: #41361e;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+  background: rgba(255,255,255,0.85);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem 1rem 3rem 1rem;
+}
+
+.carousel-item img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--secondary-accent-alt);
+}
+
+.carousel-btn {
+  background-color: var(--primary-accent);
+  color: var(--dark-neutral);
+  border: 1px solid var(--dark-neutral);
+  border-radius: 50%;
+  height: 2.2rem;
+  width: 2.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  opacity: 0.85;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.carousel-btn.prev {
+  left: -2.5rem;
+}
+
+.carousel-btn.next {
+  right: -2.5rem;
+}
+
+.carousel-btn:hover, .carousel-btn:focus {
+  background-color: var(--primary-accent-dark);
+  color: var(--dark-neutral);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.25);
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    max-width: 99%;
+    padding: 0.5rem;
+  }
+  .carousel-btn.prev { left: 0; }
+  .carousel-btn.next { right: 0; }
+}
+
+/* ==========================================================================
+   Veteran Stories Section Highlight
+   ========================================================================== */
+.veteran-stories {
+  background: rgba(255,255,255,0.75);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
+  padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+  margin: 2.5rem auto 2rem auto;
+  max-width: 750px;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--primary-accent-dark);
+}
+
+.veteran-stories h3 {
+  color: var(--primary-accent-dark);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.07);
+}
+
+/* Optional for personal quote/citation styling in carousel */
+.veteran-quote {
+  font-style: italic;
+  color: #41361e;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.veteran-citation {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--primary-accent-dark);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.03rem;
+}
+
+/* ==========================================================================
+   Unique Page Layouts
+   ========================================================================== */
+.program-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.program-highlight img {
+  width: 50%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.program-highlight p {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.program-feature, .impact-feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.program-feature img, .impact-feature img {
+  width: 50%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.program-feature-text, .impact-feature-text {
+  width: 50%;
+}
+
+.impact-feature {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .program-feature, .impact-feature, .program-highlight {
+    flex-direction: column;
+  }
+  .program-feature img,
+  .impact-feature img,
+  .program-feature-text,
+  .impact-feature-text,
+  .program-highlight img,
+  .program-highlight p {
+    width: 100%;
+  }
+}
+
+.social-cta a {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.social-cta a:hover {
+  background-color: transparent;
+  transform: scale(1.1);
+}
+
+.contact-form .error {
+  display: none;
+  color: #D8000C;
+  font-weight: bold;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Featured Profile Card Styles (for Sara and each horse)
+   ========================================================================== */
+.featured-profile-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.featured-profile-card img {
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 6px solid var(--primary-accent);
+  transition: border-color 0.3s ease;
+}
+
+.featured-profile-card:hover img {
+  border-color: var(--primary-accent-dark);
+}
+
+.featured-profile-card h4 {
+  color: var(--primary-accent);
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.featured-profile-card p {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   New Profile Feature Layout (About Page)
+   ========================================================================== */
+.profile-feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.profile-feature:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.profile-feature .profile-image {
+  width: 40%;
+  flex-shrink: 0;
+}
+
+.profile-feature img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 4px solid var(--primary-accent);
+  border-radius: var(--border-radius);
+  margin-bottom: 0;
+}
+
+.profile-feature .profile-bio {
+  width: 60%;
+}
+
+.profile-feature .profile-bio h4 {
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.profile-feature .profile-bio p {
+  font-size: 1.1rem;
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  .profile-feature,
+  .profile-feature:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-feature .profile-image,
+  .profile-feature .profile-bio {
+    width: 100%;
+  }
+  .profile-feature img {
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+  }
+  .profile-feature .profile-bio h4 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-profile-card {
+    padding: 1.5rem;
+  }
+  .featured-profile-card img {
+    height: 200px;
+  }
+  .featured-profile-card h4 {
+    font-size: 1.5rem;
+  }
+  .featured-profile-card p {
+    font-size: 1rem;
+  }
+  .site-header.new-header {
+    padding: 0;
+  }
+  .header-images {
+    flex-direction: row;
+    gap: 0;
+  }
+  .header-combined-image {
+    max-height: 80px;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ==========================================================================
+   Inspiring Quote Style (for closing section)
+   ========================================================================== */
+.inspiring-quote {
+  font-family: 'Oswald', serif;
+  font-size: 1.5rem;
+  color: var(--primary-accent);
+  background: rgba(28,28,28,0.7);
+  border-left: 6px solid var(--primary-accent-dark);
+  padding: 2rem 2rem 2rem 3rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+.inspiring-quote::before {
+  content: "❝";
+  font-size: 3rem;
+  color: var(--secondary-accent);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+.inspiring-quote::after {
+  content: "❞";
+  font-size: 3rem;
+  color: var(--secondary-accent);
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+/* ==========================================================================
+   END
+   ========================================================================== */

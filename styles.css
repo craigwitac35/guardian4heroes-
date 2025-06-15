@@ -595,6 +595,7 @@ nav a:hover, nav a:focus {
   text-align: center;
   position: relative;
   border: 1px solid var(--primary-accent-dark);
+     color: #1c1c1c;
 }
 
 .veteran-stories h3 {

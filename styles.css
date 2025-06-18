@@ -989,32 +989,21 @@ nav a:focus {
   overflow: hidden;
   overflow-wrap: break-word;
   word-break: break-word;
+  background: rgba(255,255,255,0.96);
+  border-radius: var(--border-radius, 18px);
+  border: 1.5px solid var(--primary-accent-dark, #b88a44);
+  box-shadow: 0 6px 24px rgba(197,157,87,0.07);
 }
 
+/* --- Contact Info Card --- */
 .contact-info {
-  background: rgba(255,255,255,0.96);
-  border-radius: var(--border-radius);
-  border: 1.5px solid var(--primary-accent-dark);
-  box-shadow: 0 6px 24px rgba(197,157,87,0.07);
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.3rem;
   padding: 1.5rem 1.8rem;
   margin: 2rem auto 2.5rem auto;
   font-size: 1.12rem;
   color: #2a2617;
-}
-
-.contact-info p,
-.contact-info a {
-  box-sizing: border-box;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.contact-info a {
-  word-break: break-all;
 }
 
 .contact-info p {
@@ -1022,53 +1011,62 @@ nav a:focus {
   display: flex;
   align-items: center;
   gap: 0.7em;
-  font-size: 1.13em;
-}
-
-.contact-info .ci-icon {
-  font-size: 1.4em;
-  color: var(--primary-accent-dark);
-  margin-right: 0.25em;
-}
-
-.contact-info strong {
-  color: var(--primary-accent-dark);
-  margin-right: 0.5em;
-}
-
-.contact-form {
-  background: rgba(255,255,255,0.97);
-  border-radius: var(--border-radius);
-  border: 1.5px solid var(--primary-accent);
-  box-shadow: 0 6px 24px rgba(197,157,87,0.09);
-  padding: 2.2rem 1.5rem 1.6rem 1.5rem;
-  margin: 2.5rem auto 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
-
-.contact-form label,
-.contact-form input,
-.contact-form textarea {
-  box-sizing: border-box;
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
+.contact-info .ci-icon {
+  font-size: 1.4em;
+  color: var(--primary-accent-dark, #b88a44);
+  margin-right: 0.25em;
+  flex-shrink: 0;
+}
+
+.contact-info strong {
+  color: var(--primary-accent-dark, #b88a44);
+  margin-right: 0.5em;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.contact-info a {
+  color: #b88a44;
+  font-weight: bold;
+  max-width: 100%;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  text-decoration: none;
+}
+
+/* --- Contact Form --- */
+.contact-form {
+  padding: 2.2rem 1.5rem 1.6rem 1.5rem;
+  margin: 2.5rem auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.97);
+  border: 1.5px solid var(--primary-accent, #c59d57);
+  box-shadow: 0 6px 24px rgba(197,157,87,0.09);
+}
+
 .contact-form label {
   font-weight: 700;
-  color: var(--primary-accent-dark);
+  color: var(--primary-accent-dark, #b88a44);
   margin-bottom: 0.3rem;
   letter-spacing: 0.2px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 0.85rem 1.1rem;
-  border: 1.5px solid var(--secondary-accent-alt);
+  border: 1.5px solid var(--secondary-accent-alt, #ede2d3);
   border-radius: 1.7em;
   font-size: 1.13rem;
   background: #fcfbf7;
@@ -1076,12 +1074,16 @@ nav a:focus {
   font-family: inherit;
   margin-bottom: 0.15rem;
   box-shadow: 0 1px 6px rgba(197,157,87,0.07);
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--primary-accent-dark);
+  border-color: var(--primary-accent-dark, #b88a44);
   outline: none;
   box-shadow: 0 0 0 2px rgba(197,157,87,0.14);
 }

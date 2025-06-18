@@ -269,64 +269,188 @@ footer {
 }
 
 /* ==========================================================================
-   Navigation
+   Main Navigation Styles
    ========================================================================== */
-nav {
-  background: var(--header-footer-bg);
+.nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-nav .nav-links {
-  display: flex;
+  gap: 0.7em;
+  margin: 1.5em 0 2em 0;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
 }
 
-nav a {
-  color: var(--dark-neutral);
-  background-color: var(--primary-accent);
-  font-weight: bold;
-  transition: background-color var(--transition-duration) ease,
-    color var(--transition-duration) ease;
-  border: 1px solid var(--dark-neutral);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  min-width: 100px;
-  text-align: center;
-  box-shadow: var(--box-shadow);
+.nav-links a {
+  display: inline-block;
+  background: #f6d48f;
+  border: 2px solid var(--primary-accent-dark, #b1883c);
+  border-radius: 12px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #46320a;
+  padding: 0.65em 1.6em;
+  margin: 0 0.5em;
   text-decoration: none;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+  box-shadow: 0 2px 8px rgba(197, 157, 87, 0.13);
+  position: relative;
 }
 
-nav a:hover,
-nav a:focus {
-  color: var(--dark-neutral);
-  background-color: var(--primary-accent-dark);
-  text-decoration: none;
+.nav-links a:hover,
+.nav-links a:focus {
+  background: linear-gradient(95deg, #ffe9b5, #f7c86c 65%);
+  color: #7a5a23;
+  box-shadow: 0 4px 18px rgba(197, 157, 87, 0.17);
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  background: #e8b44c;
+  color: #312002;
+  border-color: #c19d57;
+  text-decoration: underline;
+  box-shadow: 0 0 0 2px #d3b266;
 }
 
 .menu-toggle {
   display: none;
-  background: var(--primary-accent);
-  color: #ffffff;
-  border: 1px solid var(--dark-neutral);
-  border-radius: var(--border-radius);
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: var(--primary-accent-dark, #b1883c);
+  margin: 1em 0.5em 0 1em;
   cursor: pointer;
-  transition: background-color var(--transition-duration) ease;
-  box-shadow: var(--box-shadow);
 }
 
-.menu-toggle:hover,
-.menu-toggle:focus {
-  background-color: var(--primary-accent-dark);
+@media (max-width: 650px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    display: none;
+    margin: 0.7em 0 1em 0;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links a {
+    margin: 0.5em 0;
+    width: 100%;
+    text-align: center;
+  }
+  .menu-toggle {
+    display: inline-block;
+  }
 }
 
+/* ==========================================================================
+   Veteran Stories Section
+   ========================================================================== */
+
+.veteran-stories {
+  margin-top: 2.5rem;
+}
+
+.veteran-stories h3 {
+  text-align: center;
+}
+
+.stories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.story-card {
+  background: rgba(255, 255, 250, 0.94);
+  border: 2px solid var(--primary-accent);
+  border-radius: 1.1em;
+  box-shadow: 0 8px 32px 0 rgba(197, 157, 87, 0.10), 0 0 24px 0 rgba(197, 157, 87, 0.13);
+  max-width: 440px;
+  min-width: 280px;
+  padding: 2.2em 1.5em 1.3em 1.5em;
+  position: relative;
+  margin: 1em auto;
+  transition: transform 0.18s;
+  overflow: visible;
+}
+
+.story-card:hover {
+  transform: scale(1.03) translateY(-6px);
+  box-shadow: 0 12px 36px 0 rgba(197, 157, 87, 0.17), 0 0 32px 0 rgba(197, 157, 87, 0.21);
+}
+
+.big-quote {
+  font-size: 3em;
+  color: var(--primary-accent-dark);
+  position: absolute;
+  top: 0.18em;
+  left: 0.18em;
+  opacity: 0.18;
+  font-family: serif;
+  pointer-events: none;
+}
+
+.story-icon {
+  position: absolute;
+  top: 0.7em;
+  right: 1em;
+  opacity: 0.33;
+  pointer-events: none;
+}
+
+.story-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.07em;
+  color: #3b3020;
+  margin-bottom: 1.3em;
+  margin-top: 0.5em;
+  line-height: 1.6;
+}
+
+.story-meta {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95em;
+  color: var(--primary-accent-dark);
+  text-transform: uppercase;
+}
+
+.vet-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.vet-role {
+  margin-left: 0.6em;
+  color: var(--primary-accent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .story-card {
+    max-width: 98vw;
+    padding: 1.1em 0.7em 1em 0.7em;
+  }
+  .big-quote {
+    font-size: 2em;
+    left: 0.05em;
+    top: 0.05em;
+  }
+  .story-icon {
+    right: 0.4em;
+    top: 0.3em;
+    font-size: 1.1em;
+  }
+}
+
+/* ==========================================================================
+   Additional (retain your other site global styles here)
+   ========================================================================== */
+
+/* ...keep your other CSS rules for header, hero, sections, footer, etc. ... */
 /* ==========================================================================
    Hero Section Styles
    ========================================================================== */

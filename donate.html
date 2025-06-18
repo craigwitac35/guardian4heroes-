@@ -8,8 +8,6 @@
   <title>Guardian 4 Heroes | Donate</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header class="site-header new-header">
@@ -18,12 +16,12 @@
     </div>
   </header>
   <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
+      <a href="donate.html" aria-current="page">Donate</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
@@ -32,7 +30,7 @@
       <h3>Why Your Donation Matters</h3>
       <div class="impact-feature">
         <div class="impact-feature-text">
-          <p>At Guardian 4 Heroes, your support enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing and hope.</p>
+          <p>At Guardian 4 Heroes, your support enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, connection, and renewed purpose.</p>
         </div>
         <img src="images/Kissinghorse.jpg" alt="A tender moment sharing a kiss with a horse" loading="lazy">
       </div>
@@ -40,17 +38,40 @@
     <section class="section">
       <h3>Select a Donation Amount</h3>
       <div class="donation-buttons">
-        <a href="https://givebutter.com/z6eQeg?amount=5" class="donate-btn" target="_blank" rel="noopener"><i class="fa-solid fa-heart"></i> $5</a>
-        <a href="https://givebutter.com/z6eQeg?amount=10" class="donate-btn" target="_blank" rel="noopener"><i class="fa-solid fa-heart"></i> $10</a>
-        <a href="https://givebutter.com/z6eQeg?amount=20" class="donate-btn" target="_blank" rel="noopener"><i class="fa-solid fa-heart"></i> $20</a>
-        <a href="https://givebutter.com/z6eQeg?amount=25" class="donate-btn" target="_blank" rel="noopener"><i class="fa-solid fa-heart"></i> $25</a>
-        <a href="https://givebutter.com/z6eQeg?amount=50" class="donate-btn" target="_blank" rel="noopener"><i class="fa-solid fa-heart"></i> $50</a>
-        <a href="https://givebutter.com/z6eQeg" class="donate-btn custom" target="_blank" rel="noopener"><i class="fa-solid fa-hand-holding-heart"></i> Custom</a>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <input type="hidden" name="amount" value="5">
+          <button type="submit">$5</button>
+        </form>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <input type="hidden" name="amount" value="10">
+          <button type="submit">$10</button>
+        </form>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <input type="hidden" name="amount" value="20">
+          <button type="submit">$20</button>
+        </form>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <input type="hidden" name="amount" value="25">
+          <button type="submit">$25</button>
+        </form>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <input type="hidden" name="amount" value="50">
+          <button type="submit">$50</button>
+        </form>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
+          <button type="submit">Custom</button>
+        </form>
       </div>
     </section>
     <section class="section">
       <h3>Thank You for Your Support</h3>
-      <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Thank you for standing with us.</p>
+      <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Thank you for supporting Guardian 4 Heroes.</p>
       <div class="impact-highlight">
         <img src="images/Grouppasturesunset.jpg" alt="Horses in a pasture at sunset" loading="lazy" width="400">
         <p>Your support creates lasting impact for our community by making it possible for veterans and first responders to heal, grow, and rediscover purpose through our equine programs.</p>
@@ -59,7 +80,7 @@
   </main>
   <section class="closing-image">
     <blockquote class="inspiring-quote">
-      We don’t just offer a program—we offer a place where pain is understood, purpose is rediscovered, and healing begins
+      We don’t just offer a program—we offer a place where pain is understood, purpose is rediscovered, and healing begins.
     </blockquote>
   </section>
   <footer>

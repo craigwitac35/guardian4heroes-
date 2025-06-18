@@ -1245,5 +1245,32 @@ h3 {
   }
 }
 /* ==========================================================================
+   Profile/Crew Name Heading Styles
+   ========================================================================== */
+h4 {
+  font-family: 'Oswald', sans-serif;
+  color: var(--primary-accent);
+  background: linear-gradient(90deg, rgba(197,157,87,0.12) 60%, transparent 100%);
+  padding: 0.21em 1em 0.21em 0.7em;
+  border-left: 5px solid var(--primary-accent-dark);
+  border-radius: 0 1em 1em 0;
+  margin-top: 1.7rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 8px rgba(197, 157, 87, 0.09);
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  h4 {
+    font-size: 1rem;
+    padding: 0.15em 0.5em 0.15em 0.4em;
+    border-radius: 0 0.6em 0.6em 0;
+  }
+}
+/* ==========================================================================
    END
    ========================================================================== */

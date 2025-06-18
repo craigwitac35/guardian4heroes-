@@ -893,6 +893,72 @@ nav a:hover, nav a:focus {
   right: 1rem;
   bottom: 1rem;
 }
+...
+/* ==========================================================================
+   Inspiring Quote Style (for closing section)
+   ========================================================================== */
+.inspiring-quote {
+  /* ... */
+}
+
+/* ==========================================================================
+   Donation Buttons Styling
+   ========================================================================== */
+
+.donation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2rem auto;
+  padding: 1rem 0;
+}
+
+.donate-btn {
+  background: linear-gradient(100deg, #c59d57 0%, #b88a44 100%);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 2.5rem;
+  box-shadow: 0 6px 22px rgba(197, 157, 87, 0.18);
+  padding: 0.85rem 2.2rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.12s cubic-bezier(.4,2,.6,1), box-shadow 0.2s, background 0.25s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.donate-btn i {
+  font-size: 1.2em;
+}
+
+.donate-btn:hover,
+.donate-btn:focus {
+  background: linear-gradient(100deg, #b88a44 0%, #c59d57 100%);
+  color: #fff;
+  transform: scale(1.08) translateY(-2px) rotate(-2deg);
+  box-shadow: 0 12px 32px rgba(197, 157, 87, 0.28);
+  text-decoration: none;
+}
+
+.donate-btn.custom {
+  background: linear-gradient(100deg, #a89f91 0%, #c59d57 100%);
+  color: #1c1c1c;
+}
+
+.donate-btn.custom:hover,
+.donate-btn.custom:focus {
+  background: linear-gradient(100deg, #c59d57 0%, #a89f91 100%);
+  color: #fff;
+}
 
 /* ==========================================================================
    END

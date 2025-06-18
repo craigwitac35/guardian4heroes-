@@ -1095,36 +1095,62 @@ footer {
    ========================================================================== */
 .inspiring-quote {
   font-family: "Oswald", serif;
-  font-size: 1.5rem;
-  color: var(--primary-accent);
-  background: rgba(28, 28, 28, 0.7);
-  border-left: 6px solid var(--primary-accent-dark);
-  padding: 2rem 2rem 2rem 3rem;
-  margin: 2rem auto;
-  max-width: 700px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 1.7rem;
+  color: #fff;
+  background: linear-gradient(100deg, rgba(44,37,19,0.68) 80%, rgba(197,157,87,0.13));
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 4px rgba(197,157,87,0.08);
+  margin: 3rem auto 2rem auto;
+  max-width: 720px;
+  padding: 2.4rem 2.7rem 2.4rem 2.7rem;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   position: relative;
-}
-.inspiring-quote::before {
-  content: "“";
-  font-size: 3rem;
-  color: var(--secondary-accent);
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-}
-.inspiring-quote::after {
-  content: "”";
-  font-size: 3rem;
-  color: var(--secondary-accent);
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.32), 0 0 2px #c59d57;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
+.inspiring-quote::before,
+.inspiring-quote::after {
+  font-family: serif;
+  font-size: 3.2rem;
+  color: rgba(197,157,87,0.23);
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.inspiring-quote::before {
+  content: "“";
+  left: 1.1rem;
+  top: 0.1rem;
+}
+
+.inspiring-quote::after {
+  content: "”";
+  right: 1.1rem;
+  bottom: 0.1rem;
+}
+
+/* Optional: Add a gold accent line below the quote */
+.inspiring-quote::after {
+  /* Comment out the quote mark if using the accent bar below */
+  /* content: "”"; */
+}
+
+.inspiring-quote-accent {
+  display: block;
+  height: 4px;
+  width: 70px;
+  background: linear-gradient(90deg, #c59d57 50%, transparent 100%);
+  margin: 2rem auto 0 auto;
+  border-radius: 8px;
+  opacity: 0.75;
+}
 /* ==========================================================================
    Donation Buttons Styling
    ========================================================================== */

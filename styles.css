@@ -496,16 +496,47 @@ nav a:hover, nav a:focus {
 }
 
 /* ==========================================================================
-   Carousel Styles
+   Veteran Stories Section Highlight (Enhanced Readability)
+   ========================================================================== */
+.veteran-stories {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
+  padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+  margin: 2.5rem auto 2rem auto;
+  max-width: 750px;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--primary-accent-dark);
+  color: #1c1c1c;
+}
+
+.veteran-stories h3 {
+  color: var(--primary-accent-dark);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.07);
+}
+
+.veteran-stories,
+.veteran-stories * {
+  color: #1c1c1c !important;
+  text-shadow: none !important;
+}
+
+/* ==========================================================================
+   Carousel Styles (Enhanced Readability for Stories)
    ========================================================================== */
 .carousel {
   position: relative;
   overflow: hidden;
   border-radius: var(--border-radius);
   margin-top: 1rem;
-  background: rgba(255, 255, 255, 0.4);
-  padding: 1rem;
-  box-shadow: var(--box-shadow);
+  background: #fff;
+  padding: 1.5rem 1rem 2.5rem 1rem;
+  box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -519,31 +550,39 @@ nav a:hover, nav a:focus {
 .carousel-item {
   min-width: 100%;
   box-sizing: border-box;
-  padding-bottom: 60px;
   text-align: center;
   font-style: italic;
-  color: #41361e;
-  font-size: 1.15rem;
+  color: #222 !important;
+  font-size: 1.18rem;
   line-height: 1.7;
   margin-bottom: 0.8rem;
-  background: rgba(255,255,255,0.85);
+  background: #fff !important;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  padding: 2rem 1rem 3rem 1rem;
+  box-shadow: 0 2px 8px rgba(197, 157, 87, 0.08);
+  padding: 2rem 1rem 2.5rem 1rem;
+  border: 1px solid var(--secondary-accent-alt);
+}
+
+.carousel-item p {
+  color: #222 !important;
+  font-size: 1.18rem;
+  font-style: italic;
+  margin: 0 0 0.8rem 0;
+  text-shadow: none !important;
 }
 
 .carousel-item img {
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
   border-radius: 50%;
   margin: 0 auto 1rem;
-  border: 4px solid var(--secondary-accent-alt);
+  border: 4px solid var(--primary-accent);
 }
 
 .carousel-btn {
   background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 1px solid var(--dark-neutral);
+  color: #fff;
+  border: none;
   border-radius: 50%;
   height: 2.2rem;
   width: 2.2rem;
@@ -553,9 +592,10 @@ nav a:hover, nav a:focus {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
-  opacity: 0.85;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  opacity: 0.92;
   box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  z-index: 2;
 }
 
 .carousel-btn.prev {
@@ -568,81 +608,25 @@ nav a:hover, nav a:focus {
 
 .carousel-btn:hover, .carousel-btn:focus {
   background-color: var(--primary-accent-dark);
-  color: var(--dark-neutral);
+  color: #fff;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.25);
+  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.18);
 }
 
+/* Responsive improvements */
 @media (max-width: 600px) {
   .carousel {
     max-width: 99%;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem 2.5rem 0.5rem;
   }
   .carousel-btn.prev { left: 0; }
   .carousel-btn.next { right: 0; }
+  .carousel-item {
+    font-size: 1rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+  }
 }
 
-/* ==========================================================================
-   Veteran Stories Section Highlight
-   ========================================================================== */
-.veteran-stories {
-  background: rgba(255,255,255,0.97); /* Highly opaque for strong contrast */
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
-  padding: 2.5rem 1.5rem 3.5rem 1.5rem;
-  margin: 2.5rem auto 2rem auto;
-  max-width: 750px;
-  text-align: center;
-  position: relative;
-  border: 1px solid var(--primary-accent-dark);
-  /* Remove default color, handled below */
-}
-
-/* Force all text in .veteran-stories to be dark and remove text-shadow for readability */
-.veteran-stories,
-.veteran-stories *,
-.veteran-stories h1,
-.veteran-stories h2,
-.veteran-stories h3,
-.veteran-stories h4,
-.veteran-stories h5,
-.veteran-stories h6,
-.veteran-stories p,
-.veteran-stories li,
-.veteran-stories span {
-  color: #1c1c1c !important;
-  text-shadow: none !important;
-}
-
-/* Heading style for section */
-.veteran-stories h3 {
-  color: var(--primary-accent-dark) !important;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-  font-family: 'Oswald', sans-serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.07);
-}
-
-/* Optional for personal quote/citation styling in carousel */
-.veteran-quote {
-  font-style: italic;
-  color: #41361e !important;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  margin-bottom: 0.8rem;
-  text-shadow: none !important;
-}
-
-.veteran-citation {
-  display: block;
-  margin-top: 0.8rem;
-  color: var(--primary-accent-dark) !important;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1.03rem;
-  text-shadow: none !important;
-}
 /* ==========================================================================
    Unique Page Layouts
    ========================================================================== */
@@ -893,18 +877,10 @@ nav a:hover, nav a:focus {
   right: 1rem;
   bottom: 1rem;
 }
-...
-/* ==========================================================================
-   Inspiring Quote Style (for closing section)
-   ========================================================================== */
-.inspiring-quote {
-  /* ... */
-}
 
 /* ==========================================================================
    Donation Buttons Styling
    ========================================================================== */
-
 .donation-buttons {
   display: flex;
   flex-wrap: wrap;

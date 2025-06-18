@@ -1512,6 +1512,47 @@ h4 {
     border-radius: 0 0.6em 0.6em 0;
   }
 }
+.button.primary-button,
+a.button.primary-button,
+.donate-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #ffcb66 0%, #eeb13a 100%);
+  color: #fff;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.85em 2.5em;
+  margin: 0.5em auto 1.5em auto;
+  border: none;
+  border-radius: 2em;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+  gap: 0.5em;
+}
+
+.button.primary-button:hover,
+a.button.primary-button:hover,
+.donate-button a:hover {
+  background: linear-gradient(90deg, #eeb13a 0%, #ffcb66 100%);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  transform: translateY(-2px) scale(1.03);
+  color: #fff;
+  text-decoration: none;
+}
+
+.button.primary-button .icon,
+a.button.primary-button .icon,
+.donate-button a .icon {
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  display: inline-block;
+}
 /* ==========================================================================
    END
    ========================================================================== */

@@ -586,7 +586,7 @@ nav a:hover, nav a:focus {
    Veteran Stories Section Highlight
    ========================================================================== */
 .veteran-stories {
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.97); /* Highly opaque for strong contrast */
   border-radius: var(--border-radius);
   box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
   padding: 2.5rem 1.5rem 3.5rem 1.5rem;
@@ -595,11 +595,28 @@ nav a:hover, nav a:focus {
   text-align: center;
   position: relative;
   border: 1px solid var(--primary-accent-dark);
-     color: #1c1c1c;
+  /* Remove default color, handled below */
 }
 
+/* Force all text in .veteran-stories to be dark and remove text-shadow for readability */
+.veteran-stories,
+.veteran-stories *,
+.veteran-stories h1,
+.veteran-stories h2,
+.veteran-stories h3,
+.veteran-stories h4,
+.veteran-stories h5,
+.veteran-stories h6,
+.veteran-stories p,
+.veteran-stories li,
+.veteran-stories span {
+  color: #1c1c1c !important;
+  text-shadow: none !important;
+}
+
+/* Heading style for section */
 .veteran-stories h3 {
-  color: var(--primary-accent-dark);
+  color: var(--primary-accent-dark) !important;
   font-size: 2rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
@@ -610,27 +627,22 @@ nav a:hover, nav a:focus {
 /* Optional for personal quote/citation styling in carousel */
 .veteran-quote {
   font-style: italic;
-  color: #41361e;
+  color: #41361e !important;
   font-size: 1.15rem;
   line-height: 1.7;
   margin-bottom: 0.8rem;
+  text-shadow: none !important;
 }
 
 .veteran-citation {
   display: block;
   margin-top: 0.8rem;
-  color: var(--primary-accent-dark);
+  color: var(--primary-accent-dark) !important;
   font-weight: 600;
   font-style: normal;
   font-size: 1.03rem;
+  text-shadow: none !important;
 }
-.veteran-stories,
-.veteran-stories p,
-.veteran-stories li,
-.veteran-stories span {
-  color: #1c1c1c !important;
-}
-
 /* ==========================================================================
    Unique Page Layouts
    ========================================================================== */

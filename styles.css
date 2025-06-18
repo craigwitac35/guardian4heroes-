@@ -624,6 +624,12 @@ nav a:hover, nav a:focus {
   font-style: normal;
   font-size: 1.03rem;
 }
+.veteran-stories,
+.veteran-stories p,
+.veteran-stories li,
+.veteran-stories span {
+  color: #1c1c1c !important;
+}
 
 /* ==========================================================================
    Unique Page Layouts
@@ -860,7 +866,7 @@ nav a:hover, nav a:focus {
   position: relative;
 }
 .inspiring-quote::before {
-  content: "❝";
+  content: "“";
   font-size: 3rem;
   color: var(--secondary-accent);
   position: absolute;
@@ -868,7 +874,7 @@ nav a:hover, nav a:focus {
   top: 1rem;
 }
 .inspiring-quote::after {
-  content: "❞";
+  content: "”";
   font-size: 3rem;
   color: var(--secondary-accent);
   position: absolute;

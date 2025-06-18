@@ -30,12 +30,12 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--dark-neutral);
   background-color: var(--background);
-  background-image: url('images/backg.PNG');
+  background-image: url("images/backg.PNG");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -47,7 +47,7 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background: rgba(249, 246, 239, 0.1);
@@ -55,7 +55,12 @@ body::before {
   pointer-events: none;
 }
 
-main, .site-header, footer, .section, .box, .card {
+main,
+.site-header,
+footer,
+.section,
+.box,
+.card {
   position: relative;
   z-index: 1;
 }
@@ -67,7 +72,12 @@ main {
 /* ==========================================================================
    Typography
    ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--dark-neutral);
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -78,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.8rem;
   letter-spacing: 1px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
   text-align: center;
 }
@@ -111,10 +121,12 @@ a {
   text-decoration: none;
   border: none;
   padding: 0;
-  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+  transition: color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--primary-accent);
   background-color: transparent;
   text-decoration: underline;
@@ -127,7 +139,8 @@ a:hover, a:focus {
   padding: 0;
 }
 
-.cta-link:hover, .cta-link:focus {
+.cta-link:hover,
+.cta-link:focus {
   text-decoration: none;
   background-color: transparent;
 }
@@ -147,7 +160,12 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-main h1, main h2, main h3, main h4, main h5, main h6 {
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   color: #ffffff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
@@ -163,7 +181,8 @@ main a {
   font-weight: bold;
 }
 
-main a:hover, main a:focus {
+main a:hover,
+main a:focus {
   color: #ffffff;
   background-color: var(--primary-accent);
   text-decoration: underline;
@@ -175,13 +194,15 @@ main button {
   border: 2px solid var(--primary-accent-dark);
 }
 
-main button:hover, main button:focus {
+main button:hover,
+main button:focus {
   background-color: var(--primary-accent-dark);
   color: var(--dark-neutral);
   border-color: var(--primary-accent);
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -196,7 +217,7 @@ ul, ol {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .site-header.new-header {
@@ -256,7 +277,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 nav .nav-links {
@@ -270,7 +291,8 @@ nav a {
   color: var(--dark-neutral);
   background-color: var(--primary-accent);
   font-weight: bold;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  transition: background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
   border: 1px solid var(--dark-neutral);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
@@ -280,7 +302,8 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover,
+nav a:focus {
   color: var(--dark-neutral);
   background-color: var(--primary-accent-dark);
   text-decoration: none;
@@ -299,7 +322,8 @@ nav a:hover, nav a:focus {
   box-shadow: var(--box-shadow);
 }
 
-.menu-toggle:hover, .menu-toggle:focus {
+.menu-toggle:hover,
+.menu-toggle:focus {
   background-color: var(--primary-accent-dark);
 }
 
@@ -319,7 +343,7 @@ nav a:hover, nav a:focus {
 }
 
 .home-hero {
-  background-image: url('images/FB_IMG_1749752975080.jpg');
+  background-image: url("images/FB_IMG_1749752975080.jpg");
   background-size: cover;
   background-position: center center;
   color: #fff;
@@ -332,7 +356,7 @@ nav a:hover, nav a:focus {
 }
 
 .home-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -362,7 +386,8 @@ nav a:hover, nav a:focus {
   border-radius: var(--border-radius);
   font-weight: bold;
   text-decoration: none;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  transition: background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
 }
 
 .home-hero .hero-buttons .primary-button {
@@ -403,7 +428,9 @@ nav a:hover, nav a:focus {
   margin: 1rem 0;
 }
 
-.section, .box, .card {
+.section,
+.box,
+.card {
   background: transparent;
   border-radius: 0;
   box-shadow: none;
@@ -454,7 +481,8 @@ nav a:hover, nav a:focus {
     box-shadow: var(--box-shadow);
     background: rgba(249, 246, 239, 0.9);
   }
-  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  @supports (backdrop-filter: blur(10px)) or
+    (-webkit-backdrop-filter: blur(10px)) {
     nav .nav-links.active {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -468,7 +496,8 @@ nav a:hover, nav a:focus {
     font-weight: normal;
     color: #ffffff;
   }
-  nav .nav-links a:hover, nav .nav-links a:focus {
+  nav .nav-links a:hover,
+  nav .nav-links a:focus {
     background-color: var(--primary-accent);
     color: var(--dark-neutral-alt);
   }
@@ -516,8 +545,8 @@ nav a:hover, nav a:focus {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
-  font-family: 'Oswald', sans-serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.07);
+  font-family: "Oswald", sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.07);
 }
 
 .veteran-stories,
@@ -594,7 +623,7 @@ nav a:hover, nav a:focus {
   cursor: pointer;
   transition: background-color 0.2s, box-shadow 0.2s;
   opacity: 0.92;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
   z-index: 2;
 }
 
@@ -606,7 +635,8 @@ nav a:hover, nav a:focus {
   right: -2.5rem;
 }
 
-.carousel-btn:hover, .carousel-btn:focus {
+.carousel-btn:hover,
+.carousel-btn:focus {
   background-color: var(--primary-accent-dark);
   color: #fff;
   outline: none;
@@ -619,8 +649,12 @@ nav a:hover, nav a:focus {
     max-width: 99%;
     padding: 1rem 0.5rem 2.5rem 0.5rem;
   }
-  .carousel-btn.prev { left: 0; }
-  .carousel-btn.next { right: 0; }
+  .carousel-btn.prev {
+    left: 0;
+  }
+  .carousel-btn.next {
+    right: 0;
+  }
   .carousel-item {
     font-size: 1rem;
     padding: 1rem 0.5rem 2rem 0.5rem;
@@ -648,20 +682,23 @@ nav a:hover, nav a:focus {
   margin-bottom: 0;
 }
 
-.program-feature, .impact-feature {
+.program-feature,
+.impact-feature {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin: 2rem 0;
 }
 
-.program-feature img, .impact-feature img {
+.program-feature img,
+.impact-feature img {
   width: 50%;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
 
-.program-feature-text, .impact-feature-text {
+.program-feature-text,
+.impact-feature-text {
   width: 50%;
 }
 
@@ -670,7 +707,9 @@ nav a:hover, nav a:focus {
 }
 
 @media (max-width: 768px) {
-  .program-feature, .impact-feature, .program-highlight {
+  .program-feature,
+  .impact-feature,
+  .program-highlight {
     flex-direction: column;
   }
   .program-feature img,
@@ -697,7 +736,7 @@ nav a:hover, nav a:focus {
 
 .contact-form .error {
   display: none;
-  color: #D8000C;
+  color: #d8000c;
   font-weight: bold;
   margin-top: -0.5rem;
   margin-bottom: 0.5rem;
@@ -789,7 +828,7 @@ nav a:hover, nav a:focus {
 
 .profile-feature .profile-bio h4 {
   font-size: 2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .profile-feature .profile-bio p {
@@ -847,16 +886,16 @@ nav a:hover, nav a:focus {
    Inspiring Quote Style (for closing section)
    ========================================================================== */
 .inspiring-quote {
-  font-family: 'Oswald', serif;
+  font-family: "Oswald", serif;
   font-size: 1.5rem;
   color: var(--primary-accent);
-  background: rgba(28,28,28,0.7);
+  background: rgba(28, 28, 28, 0.7);
   border-left: 6px solid var(--primary-accent-dark);
   padding: 2rem 2rem 2rem 3rem;
   margin: 2rem auto;
   max-width: 700px;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   letter-spacing: 1px;
   position: relative;
@@ -893,7 +932,7 @@ nav a:hover, nav a:focus {
 .donate-btn {
   background: linear-gradient(100deg, #c59d57 0%, #b88a44 100%);
   color: #fff;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -904,7 +943,8 @@ nav a:hover, nav a:focus {
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.12s cubic-bezier(.4,2,.6,1), box-shadow 0.2s, background 0.25s;
+  transition: transform 0.12s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.2s,
+    background 0.25s;
   position: relative;
   overflow: hidden;
   display: flex;

@@ -978,12 +978,11 @@ nav a:focus {
 /* ==========================================================================
    Enhanced Contact Info & Form Styling
    ========================================================================== */
-
 .contact-info,
 .contact-form {
   box-sizing: border-box;
   width: 100%;
-  max-width: 420px;
+  max-width: 650px; /* Increased width for better email fit */
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -1000,7 +999,7 @@ nav a:focus {
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-  padding: 1.5rem 1.8rem;
+  padding: 1.5rem 2.5rem; /* Increased horizontal padding for more space */
   margin: 2rem auto 2.5rem auto;
   font-size: 1.12rem;
   color: #2a2617;

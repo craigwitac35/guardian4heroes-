@@ -16,15 +16,20 @@
     </div>
   </header>
   <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="donate.html">Donate</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
   <main>
     <section class="hero" role="banner">
       <img src="images/about-hero.jpg" alt="Veteran and horse in equine therapy session" loading="lazy" style="display: none;">

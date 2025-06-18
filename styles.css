@@ -649,21 +649,30 @@ footer {
 }
 
 /* ==========================================================================
-   Veteran Stories Section
+   Veteran Stories Section (Updated)
    ========================================================================== */
 
 .veteran-stories {
   margin-top: 2.5rem;
 }
 
-.veteran-stories h3 {
-  color: var(--primary-accent-dark);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-  font-family: "Oswald", sans-serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.07);
+.veteran-stories-heading {
   text-align: center;
+  color: #fff;
+  background: none;
+  border-left: none;
+  border-radius: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 8px rgba(0,0,0,0.32);
+  box-shadow: none;
+  opacity: 1;
+  margin-bottom: 1.5rem;
+  font-family: "Oswald", sans-serif;
 }
 
 .stories-grid {
@@ -754,7 +763,6 @@ footer {
     font-size: 1.1em;
   }
 }
-
 /* ==========================================================================
    Carousel Styles (Enhanced Readability for Stories)
    ========================================================================== */

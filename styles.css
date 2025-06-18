@@ -976,7 +976,7 @@ nav a:focus {
   color: #fff;
 }
 /* ==========================================================================
-   Enhanced Contact Info & Form Styling - Improved Readability
+   Enhanced Contact Info & Form Styling - Stacked & Responsive
    ========================================================================== */
 .contact-info,
 .contact-form {
@@ -986,8 +986,6 @@ nav a:focus {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  overflow-wrap: break-word;
-  word-break: break-word;
   border-radius: 1.2em;
   background: rgba(44, 37, 19, 0.97); /* Deep brown, almost opaque */
   border: 2px solid #b88a44;           /* Gold accent border */
@@ -998,67 +996,63 @@ nav a:focus {
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
-  padding: 2.2rem 2.5rem; /* Increased padding for more space */
+  gap: 1.2rem;
+  padding: 2.2rem 2.5rem;
   margin: 2rem auto 2.5rem auto;
-  font-size: 1.18rem;      /* Slightly larger font for readability */
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #fff;             /* White text for contrast */
+  font-size: 1.15rem;
+  color: #fff;
 }
 
-.contact-info p {
-  margin: 0;
+/* Stacked rows for mobile readability */
+.contact-row {
   display: flex;
-  align-items: center;
-  gap: 0.7em;
-  max-width: 100%;
-  flex-wrap: wrap;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  flex-direction: column;
+  gap: 0.15em;
+  margin-bottom: 1.2em;
 }
 
-.contact-info .ci-icon,
-.contact-info strong {
-  color: #ffd866;        /* Bright gold accent for icons and labels */
-  flex-shrink: 0;
-  min-width: 0;
+.ci-icon {
+  font-size: 1.3em;
+  color: #ffd866;
+  margin-bottom: 0.05em;
 }
 
-.contact-info .ci-icon {
-  font-size: 1.4em;
-  margin-right: 0.25em;
-}
-
-.contact-info strong {
-  margin-right: 0.5em;
-  font-weight: 700;
-}
-
-.contact-info a {
+.ci-label {
   color: #ffd866;
   font-weight: bold;
-  max-width: 100%;
+  font-size: 1rem;
+}
+
+.ci-value {
+  color: #fff;
+  font-size: 1.09rem;
+  word-break: break-word;
+  margin-left: 0.15em;
+  margin-top: 0.05em;
+}
+
+.ci-value a {
+  color: #ffd866;
+  font-weight: bold;
   word-break: break-all;
-  overflow-wrap: anywhere;
-  white-space: normal;
   text-decoration: none;
-  flex: 1 1 0;
-  min-width: 0;
+}
+
+.ci-value a:hover,
+.ci-value a:focus {
+  text-decoration: underline;
 }
 
 /* --- Contact Form --- */
 .contact-form {
-  padding: 2.2rem 2.5rem 1.6rem 2.5rem; /* Match contact-info padding */
+  padding: 2.2rem 2.5rem 1.6rem 2.5rem;
   margin: 2.5rem auto 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  font-size: 1.18rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 1.15rem;
   color: #fff;
-  background: rgba(44, 37, 19, 0.97); /* Match contact-info background */
+  background: rgba(44, 37, 19, 0.97);
   border: 2px solid #b88a44;
   box-shadow: 0 6px 32px rgba(0,0,0,0.18);
 }
@@ -1068,9 +1062,6 @@ nav a:focus {
   color: #ffd866;
   margin-bottom: 0.3rem;
   letter-spacing: 0.2px;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .contact-form input,
@@ -1086,9 +1077,6 @@ nav a:focus {
   margin-bottom: 0.15rem;
   box-shadow: 0 1px 6px rgba(197,157,87,0.07);
   box-sizing: border-box;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -1138,6 +1126,24 @@ nav a:focus {
   margin-top: -0.55em;
 }
 
+/* Responsive for larger screens: align contact rows horizontally */
+@media (min-width: 601px) {
+  .contact-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7em;
+    margin-bottom: 1.2em;
+  }
+  .ci-label,
+  .ci-icon {
+    margin-bottom: 0;
+  }
+  .ci-value {
+    margin-left: 0.5em;
+    margin-top: 0;
+  }
+}
+
 /* Responsive for small screens */
 @media (max-width: 600px) {
   .contact-info,
@@ -1146,7 +1152,7 @@ nav a:focus {
     max-width: 99%;
     font-size: 1rem;
   }
-  .contact-info a {
+  .ci-value {
     font-size: 0.98em;
   }
 }

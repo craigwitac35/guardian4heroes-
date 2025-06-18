@@ -976,22 +976,22 @@ nav a:focus {
   color: #fff;
 }
 /* ==========================================================================
-   Enhanced Contact Info & Form Styling
+   Enhanced Contact Info & Form Styling - Improved Readability
    ========================================================================== */
 .contact-info,
 .contact-form {
   box-sizing: border-box;
   width: 100%;
-  max-width: 650px; /* Increased width for better email fit */
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
   overflow-wrap: break-word;
   word-break: break-word;
-  background: rgba(255,255,255,0.96);
-  border-radius: var(--border-radius, 18px);
-  border: 1.5px solid var(--primary-accent-dark, #b88a44);
-  box-shadow: 0 6px 24px rgba(197,157,87,0.07);
+  border-radius: 1.2em;
+  background: rgba(44, 37, 19, 0.97); /* Deep brown, almost opaque */
+  border: 2px solid #b88a44;           /* Gold accent border */
+  box-shadow: 0 6px 32px rgba(0,0,0,0.18); /* Deeper shadow for contrast */
 }
 
 /* --- Contact Info Card --- */
@@ -999,10 +999,12 @@ nav a:focus {
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-  padding: 1.5rem 2.5rem; /* Increased horizontal padding for more space */
+  padding: 2.2rem 2.5rem; /* Increased padding for more space */
   margin: 2rem auto 2.5rem auto;
-  font-size: 1.12rem;
-  color: #2a2617;
+  font-size: 1.18rem;      /* Slightly larger font for readability */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;             /* White text for contrast */
 }
 
 .contact-info p {
@@ -1011,49 +1013,59 @@ nav a:focus {
   align-items: center;
   gap: 0.7em;
   max-width: 100%;
+  flex-wrap: wrap;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
+.contact-info .ci-icon,
+.contact-info strong {
+  color: #ffd866;        /* Bright gold accent for icons and labels */
+  flex-shrink: 0;
+  min-width: 0;
+}
+
 .contact-info .ci-icon {
   font-size: 1.4em;
-  color: var(--primary-accent-dark, #b88a44);
   margin-right: 0.25em;
-  flex-shrink: 0;
 }
 
 .contact-info strong {
-  color: var(--primary-accent-dark, #b88a44);
   margin-right: 0.5em;
   font-weight: 700;
-  flex-shrink: 0;
 }
 
 .contact-info a {
-  color: #b88a44;
+  color: #ffd866;
   font-weight: bold;
   max-width: 100%;
   word-break: break-all;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
   text-decoration: none;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 /* --- Contact Form --- */
 .contact-form {
-  padding: 2.2rem 1.5rem 1.6rem 1.5rem;
+  padding: 2.2rem 2.5rem 1.6rem 2.5rem; /* Match contact-info padding */
   margin: 2.5rem auto 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  font-size: 1.1rem;
-  background: rgba(255,255,255,0.97);
-  border: 1.5px solid var(--primary-accent, #c59d57);
-  box-shadow: 0 6px 24px rgba(197,157,87,0.09);
+  font-size: 1.18rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: rgba(44, 37, 19, 0.97); /* Match contact-info background */
+  border: 2px solid #b88a44;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.18);
 }
 
 .contact-form label {
   font-weight: 700;
-  color: var(--primary-accent-dark, #b88a44);
+  color: #ffd866;
   margin-bottom: 0.3rem;
   letter-spacing: 0.2px;
   max-width: 100%;
@@ -1082,9 +1094,9 @@ nav a:focus {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--primary-accent-dark, #b88a44);
+  border-color: #ffd866;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(197,157,87,0.14);
+  box-shadow: 0 0 0 2px rgba(255,216,102,0.14);
 }
 
 .contact-form textarea {
@@ -1094,7 +1106,7 @@ nav a:focus {
 
 .contact-form button[type="submit"] {
   background: linear-gradient(98deg, #c59d57 0%, #b88a44 100%);
-  color: #fff;
+  color: #1a1a1a;
   font-family: 'Oswald', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
@@ -1115,10 +1127,10 @@ nav a:focus {
 
 .contact-form .error {
   display: none;
-  color: #b32d00;
+  color: #ffd866;
   font-weight: bold;
-  background: #ffeae6;
-  border-left: 4px solid #b32d00;
+  background: #b32d00;
+  border-left: 4px solid #ffd866;
   padding: 0.4em 0.8em;
   font-size: 0.97em;
   border-radius: 0.4em;
@@ -1132,6 +1144,10 @@ nav a:focus {
   .contact-form {
     padding: 1.1rem 0.5rem;
     max-width: 99%;
+    font-size: 1rem;
+  }
+  .contact-info a {
+    font-size: 0.98em;
   }
 }
 /* ==========================================================================

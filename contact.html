@@ -38,11 +38,10 @@
         <p><span class="ci-icon">📞</span><strong>Phone:</strong> (320) 828-2477</p>
         <p><span class="ci-icon">📍</span><strong>Location:</strong> Sauk Centre, MN</p>
       </div>
-      <div class="donate-button">
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID">
-          <button type="submit">Donate Now</button>
-        </form>
+      <div class="donate-button" style="text-align:center; margin:2rem 0;">
+        <a href="https://givebutter.com/z6eQeg" target="_blank" class="donate-btn" style="display:inline-flex;align-items:center;gap:0.7em;">
+          <span class="donate-icon" style="font-size:1.5em;margin-right:0.2em;">💛</span> Donate Now
+        </a>
       </div>
     </section>
 
@@ -50,15 +49,15 @@
       <h3>Send Us a Message</h3>
       <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required autocomplete="name" style="color:#1a1a1a;">
         <span class="error" id="nameError">Please enter your name</span>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required autocomplete="email" style="color:#1a1a1a;">
         <span class="error" id="emailError">Please enter a valid email</span>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="message" rows="5" required style="color:#1a1a1a;"></textarea>
         <span class="error" id="messageError">Please enter your message</span>
 
         <button type="submit">Send Message</button>

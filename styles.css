@@ -1156,6 +1156,52 @@ nav a:focus {
     font-size: 0.98em;
   }
 }
+/* Centered, fixed-width, modern CTA and donate buttons for programs page */
+.donate-btn, .cta-link {
+  display: block;
+  width: 320px;                  /* Set a pleasing, readable width */
+  max-width: 90%;
+  margin: 1.1em auto;            /* Center horizontally + space above/below */
+  text-align: center;            /* Center text inside button */
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  background: linear-gradient(98deg, #c59d57 0%, #b88a44 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.85em 0;
+  box-shadow: 0 3px 10px rgba(197,157,87,0.14);
+  transition: background 0.2s, transform 0.15s;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.donate-btn:hover, .cta-link:hover,
+.donate-btn:focus, .cta-link:focus {
+  background: linear-gradient(100deg, #b88a44 0%, #c59d57 100%);
+  transform: scale(1.04) translateY(-1px);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Remove button styling from links if you used <a><button>...</button></a> */
+.cta-link button {
+  all: unset;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive for small screens */
+@media (max-width: 500px) {
+  .donate-btn, .cta-link {
+    width: 98%;
+    font-size: 1rem;
+    padding: 0.75em 0;
+  }
+}
 /* ==========================================================================
    END
    ========================================================================== */

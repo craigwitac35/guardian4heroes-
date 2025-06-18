@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
-  <title>Guardian 4 Heroes | Contact Us</title>
+  <meta name="description" content="Contact Guardian 4 Heroes for information about equine therapy programs for veterans and first responders.">
+  <meta name="keywords" content="contact, equine therapy, veterans, first responders, nonprofit">
+  <title>Contact | Guardian 4 Heroes</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -26,94 +26,51 @@
     </div>
   </nav>
   <main>
-    <section class="banner-image">
-      <img src="images/Photoshootflag.jpg" alt="Guardian 4 Heroes flag waving gently." loading="lazy">
-    </section>
-
     <section class="section">
-      <h3>Reach Out</h3>
+      <h2>Reach Out</h2>
       <p>If you have any questions about our services, want to get involved, or simply want to connect, feel free to reach out using the information below.</p>
       <div class="contact-info">
-        <p><span class="ci-icon">📧</span><strong>Email:</strong> <a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
-        <p><span class="ci-icon">📞</span><strong>Phone:</strong> (320) 828-2477</p>
-        <p><span class="ci-icon">📍</span><strong>Location:</strong> Sauk Centre, MN</p>
-      </div>
-      <div class="donate-button" style="text-align:center; margin:2rem 0;">
-        <a href="https://givebutter.com/z6eQeg" target="_blank" class="donate-btn" style="display:inline-flex;align-items:center;gap:0.7em;">
-          <span class="donate-icon" style="font-size:1.5em;margin-right:0.2em;">💛</span> Donate Now
-        </a>
+        <div class="contact-row">
+          <span class="ci-icon">📧</span>
+          <span class="ci-label">Email:</span>
+          <span class="ci-value"><a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="ci-icon">📞</span>
+          <span class="ci-label">Phone:</span>
+          <span class="ci-value"><a href="tel:3208282477">(320) 828-2477</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="ci-icon">📍</span>
+          <span class="ci-label">Location:</span>
+          <span class="ci-value">Sauk Centre, MN</span>
+        </div>
       </div>
     </section>
-
     <section class="section">
-      <h3>Send Us a Message</h3>
-      <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
+      <h2>Send Us a Message</h2>
+      <form class="contact-form" action="#" method="post" autocomplete="off">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name" style="color:#1a1a1a;">
-        <span class="error" id="nameError">Please enter your name</span>
+        <input type="text" id="name" name="name" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email" style="color:#1a1a1a;">
-        <span class="error" id="emailError">Please enter a valid email</span>
+        <input type="email" id="email" name="email" required>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required style="color:#1a1a1a;"></textarea>
-        <span class="error" id="messageError">Please enter your message</span>
+        <textarea id="message" name="message" required></textarea>
+
+        <div class="error" id="formError">Please fill out all fields correctly.</div>
 
         <button type="submit">Send Message</button>
       </form>
     </section>
-
-    <section class="section">
-      <h3>Connect With Us</h3>
-      <p>Follow us on social media to stay updated on our programs and impact!</p>
-      <div class="social-cta">
-        <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" aria-label="Follow us on Facebook">📘</a>
-        <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank" aria-label="Follow us on Instagram">📸</a>
-      </div>
-    </section>
   </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      This isn’t about forgetting the past. It’s about building peace with it, one step, one breath, one hoofprint at a time
-    </blockquote>
-  </section>
   <footer>
     <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
   <script>
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
-    }
-
-    function validateForm() {
-      let isValid = true;
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      document.getElementById('nameError').style.display = 'none';
-      document.getElementById('emailError').style.display = 'none';
-      document.getElementById('messageError').style.display = 'none';
-
-      if (!name) {
-        document.getElementById('nameError').style.display = 'block';
-        isValid = false;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        isValid = false;
-      }
-      if (!message) {
-        document.getElementById('messageError').style.display = 'block';
-        isValid = false;
-      }
-
-      if (isValid) {
-        alert('Message sent successfully!'); // Placeholder for real submission
-        document.getElementById('contactForm').reset();
-      }
-      return isValid;
     }
   </script>
 </body>

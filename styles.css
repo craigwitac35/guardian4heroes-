@@ -1001,19 +1001,43 @@ footer {
 }
 
 /* ==========================================================================
-   New Profile Feature Layout (About Page)
+   New Profile Feature Layout (About Page & Programs)
    ========================================================================== */
 .profile-feature {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Desktop: side-by-side */
   align-items: center;
   gap: 2rem;
   text-align: left;
   margin-top: 3rem;
+  flex-wrap: wrap; /* Allows title to be full width */
 }
 
 .profile-feature:nth-child(even) {
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; /* Alternates side-by-side layout */
+}
+
+/* This is the new Title style, moved out of .profile-bio */
+.profile-feature h4 {
+  /* Undoing the default h4 style */
+  font-family: 'Oswald', sans-serif;
+  color: var(--primary-accent);
+  background: none;
+  padding: 0;
+  border-left: none;
+  border-radius: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  box-shadow: none;
+
+  /* Applying the style from the old .profile-bio h4 */
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  text-align: left; /* Default desktop alignment */
 }
 
 .profile-feature .profile-image {
@@ -1034,11 +1058,6 @@ footer {
   width: 60%;
 }
 
-.profile-feature .profile-bio h4 {
-  font-size: 2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-}
-
 .profile-feature .profile-bio p {
   font-size: 1.1rem;
   max-width: none;
@@ -1047,19 +1066,27 @@ footer {
 @media (max-width: 768px) {
   .profile-feature,
   .profile-feature:nth-child(even) {
-    flex-direction: column;
+    flex-direction: column; /* Mobile: stacks in HTML order */
     text-align: center;
   }
-  .profile-feature .profile-image,
-  .profile-feature .profile-bio {
+  
+  /* On mobile, stack order is Title, then Image, then Bio */
+  .profile-feature h4 {
+    order: 1; /* Title first */
+    text-align: center; /* Center title on mobile */
+    font-size: 1.8rem;
+  }
+  .profile-feature .profile-image {
+    order: 2; /* Image second */
     width: 100%;
+    margin-bottom: 1.5rem;
   }
   .profile-feature img {
-    margin-bottom: 1.5rem;
     max-height: 400px;
   }
-  .profile-feature .profile-bio h4 {
-    font-size: 1.8rem;
+  .profile-feature .profile-bio {
+    order: 3; /* Bio text third */
+    width: 100%;
   }
 }
 

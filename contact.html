@@ -6,6 +6,11 @@
   <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
   <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
   <title>Guardian 4 Heroes | Contact</title>
+  
+  <meta property="og:title" content="Guardian 4 Heroes | Contact">
+  <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,80 +45,6 @@
       <div class="donate-button">
         <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
       </div>
-    </section>
-    <section class="section">
-      <h3>Send Us a Message</h3>
-      <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <span class="error" id="nameError">Please enter your name</span>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <span class="error" id="emailError">Please enter a valid email</span>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <span class="error" id="messageError">Please enter your message</span>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-    <section class="section">
-      <h3>Connect With Us</h3>
-      <p>Follow us on social media to stay updated on our programs and impact!</p>
-      <div class="social-cta">
-        <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" aria-label="Follow us on Facebook">📘</a>
-        <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank" aria-label="Follow us on Instagram">📸</a>
-      </div>
-    </section>
-  </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      This isn’t about forgetting the past. It’s about building peace with it, one step, one breath, one hoofprint at a time.
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
-  </section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-
-    function validateForm() {
-      let isValid = true;
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      document.getElementById('nameError').style.display = 'none';
-      document.getElementById('emailError').style.display = 'none';
-      document.getElementById('messageError').style.display = 'none';
-
-      if (!name) {
-        document.getElementById('nameError').style.display = 'block';
-        isValid = false;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        isValid = false;
-      }
-      if (!message) {
-        document.getElementById('messageError').style.display = 'block';
-        isValid = false;
-      }
-
-      if (isValid) {
-        alert('Message sent successfully!'); // Placeholder for form submission
-        document.getElementById('contactForm').reset();
-      }
-      return isValid;
-    }
-  </script>
-</body>
-</html>      </div>
     </section>
     <section class="section">
       <h3>Send Us a Message</h3>

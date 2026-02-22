@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Shop handmade crocheted horse stuffed animals and limited edition Guardian 4 Heroes coin boxes. Every purchase supports veterans and first responders.">
-<meta name="keywords" content="Guardian 4 Heroes shop, horse stuffed animals, crochet horse, limited edition coin, veterans nonprofit, equine therapy">
+<meta name="description" content="Shop handmade crocheted horse stuffed animals and limited edition Guardian 4 Heroes button boxes. Every purchase supports veterans and first responders.">
+<meta name="keywords" content="Guardian 4 Heroes shop, horse stuffed animals, crochet horse, limited edition button, veterans nonprofit, equine therapy">
 <title>Guardian 4 Heroes | Shop</title>
 <meta property="og:title" content="Guardian 4 Heroes | Shop">
-<meta property="og:description" content="Shop handmade crocheted horse stuffed animals and limited edition Guardian 4 Heroes coin boxes. Every purchase supports veterans and first responders.">
+<meta property="og:description" content="Shop handmade crocheted horse stuffed animals and limited edition Guardian 4 Heroes button boxes. Every purchase supports veterans and first responders.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/logo.png">
 
@@ -50,7 +50,7 @@ main {
 ============================================= */
 .subpage-hero {
   position: relative !important;
-  min-height: 50svh !important;
+  min-height: 45svh !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -81,26 +81,10 @@ main {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.65) 0%,
-    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,0.1) 0%,
+    rgba(26,16,8,0.4) 60%,
     rgba(26,16,8,1) 100%
   );
-}
-
-.subpage-hero .hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 80px 20px 40px;
-}
-
-.subpage-hero .hero-title {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
-  font-weight: 700 !important;
-  color: #fff !important;
-  margin-bottom: 12px !important;
-  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9) !important;
 }
 
 /* ==========================================================================
@@ -180,11 +164,13 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
+/* BIGGER PRODUCT IMAGES FIX */
 .product-card img {
   width: 100%;
-  height: 260px;
+  height: auto !important;
+  aspect-ratio: 1 / 1; /* Forces a perfect, large square */
   object-fit: cover;
-  object-position: center top;
+  object-position: center; 
   display: block;
   border-bottom: 2px solid #f0c040;
 }
@@ -507,24 +493,21 @@ main {
     <img src="images/Shop-hero-image.png" alt="Come In We're Open sign with yarn" loading="eager" />
   </div>
   <div class="subpage-hero__overlay"></div>
-
-  <div class="hero-content">
-    <h1 class="hero-title">The <em>Shop</em></h1>
-    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
-    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Handmade with Love</p>
-  </div>
-</section>
+  
+  </section>
 
 <main>
 
-  <section class="shop-intro">
+  <section class="shop-intro" style="position: relative; z-index: 10; margin-top: -1rem;">
+    <h2 style="color: #f0c040; font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 1.2rem; margin-top: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Handmade with Love</h2>
+    
     <span class="shop-badge">Every Purchase is a Donation</span>
     <p>Every item in our shop is handcrafted with care and represents one of our beloved therapy horses. Your purchase directly supports equine therapy, mental wellness, and sound therapy programs for veterans and first responders.</p>
   </section>
 
   <div class="pricing-box">
     <p><strong>Stuffed Animal Horses</strong> — $20.00 local pickup &nbsp;|&nbsp; $26.00 shipped</p>
-    <p><strong>Limited Edition Coin Boxes</strong> — $50.00 local pickup &nbsp;|&nbsp; $56.00 shipped</p>
+    <p><strong>Limited Edition Button Boxes</strong> — $50.00 local pickup &nbsp;|&nbsp; $56.00 shipped</p>
     <p style="font-size:0.95rem; margin-top:0.8rem; color: rgba(255,255,255,0.6);">Shipping is $6.00 &nbsp;·&nbsp; Sauk Centre, MN area pickup available</p>
   </div>
 
@@ -644,19 +627,19 @@ main {
   </section>
 
   <section>
-    <h3 style="text-align: center; margin-top: 5rem; font-size: 2.2rem; color: #fff;">Limited Edition Coin Boxes</h3>
-    <p style="text-align: center; color: rgba(255,255,255,0.7);">A beautifully presented gift box and a meaningful keepsake. Each box includes a commemorative coin, a real photo, and a thank you card.</p>
+    <h3 style="text-align: center; margin-top: 5rem; font-size: 2.2rem; color: #fff;">Limited Edition Button Boxes</h3>
+    <p style="text-align: center; color: rgba(255,255,255,0.7);">A beautifully presented gift box and a meaningful keepsake. Each box includes a commemorative button, a real photo, and a thank you card.</p>
 
     <div class="product-grid">
 
       <div class="product-card">
-        <img src="images/Nelly-coin.jpg" alt="Nelly limited edition coin box" loading="lazy">
+        <img src="images/Nelly-coin.jpg" alt="Nelly limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Nelly Bell</span>
-          <p class="product-desc">Coin box featuring Nelly — includes commemorative coin, Nelly's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Nelly — includes commemorative button, Nelly's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Nelly Bell"
             data-pickup="50"
             data-ship="56"
@@ -665,14 +648,14 @@ main {
       </div>
 
       <div class="product-card memorial">
-        <img src="images/Maverick-coin.jpg" alt="Maverick memorial edition coin box" loading="lazy">
+        <img src="images/Maverick-coin.jpg" alt="Maverick memorial edition button box" loading="lazy">
         <div class="product-info">
           <span class="memorial-label">In Loving Memory</span>
           <span class="product-name">Maverick "Mav"</span>
-          <p class="product-desc">Memorial coin box featuring Mav — includes commemorative coin, Mav's real photo, and a thank you card.</p>
+          <p class="product-desc">Memorial button box featuring Mav — includes commemorative button, Mav's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box — Memorial Edition"
+            data-product="Limited Edition Button Box — Memorial Edition"
             data-horse="Maverick"
             data-pickup="50"
             data-ship="56"
@@ -681,13 +664,13 @@ main {
       </div>
 
       <div class="product-card">
-        <img src="images/Rocket-coin.jpg" alt="Rocket limited edition coin box" loading="lazy">
+        <img src="images/Rocket-coin.jpg" alt="Rocket limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Rocket</span>
-          <p class="product-desc">Coin box featuring Rocket — includes commemorative coin, Rocket's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Rocket — includes commemorative button, Rocket's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Rocket"
             data-pickup="50"
             data-ship="56"
@@ -696,13 +679,13 @@ main {
       </div>
 
       <div class="product-card">
-        <img src="images/Drifter-coin.jpg" alt="Drifter limited edition coin box" loading="lazy">
+        <img src="images/Drifter-coin.jpg" alt="Drifter limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Drifter</span>
-          <p class="product-desc">Coin box featuring Drifter — includes commemorative coin, Drifter's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Drifter — includes commemorative button, Drifter's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Drifter"
             data-pickup="50"
             data-ship="56"
@@ -711,13 +694,13 @@ main {
       </div>
 
       <div class="product-card">
-        <img src="images/Smokey-Coin.jpg" alt="Smokey limited edition coin box" loading="lazy">
+        <img src="images/Smokey-Coin.jpg" alt="Smokey limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Smokey</span>
-          <p class="product-desc">Coin box featuring Smokey — includes commemorative coin, Smokey's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Smokey — includes commemorative button, Smokey's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Smokey"
             data-pickup="50"
             data-ship="56"
@@ -726,13 +709,13 @@ main {
       </div>
 
       <div class="product-card">
-        <img src="images/Frank-coin.jpg" alt="Frank limited edition coin box" loading="lazy">
+        <img src="images/Frank-coin.jpg" alt="Frank limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Frank</span>
-          <p class="product-desc">Coin box featuring Frank — includes commemorative coin, Frank's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Frank — includes commemorative button, Frank's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Frank"
             data-pickup="50"
             data-ship="56"
@@ -741,13 +724,13 @@ main {
       </div>
 
       <div class="product-card">
-        <img src="images/Sarge-coin.jpg" alt="Sarge limited edition coin box" loading="lazy">
+        <img src="images/Sarge-coin.jpg" alt="Sarge limited edition button box" loading="lazy">
         <div class="product-info">
           <span class="product-name">Sarge</span>
-          <p class="product-desc">Coin box featuring Sarge — includes commemorative coin, Sarge's real photo, and a thank you card.</p>
+          <p class="product-desc">Button box featuring Sarge — includes commemorative button, Sarge's real photo, and a thank you card.</p>
           <p class="product-price">$50.00 pickup &nbsp;·&nbsp; $56.00 shipped</p>
           <button type="button" class="button primary-button" style="width:100%; margin-top: auto;"
-            data-product="Limited Edition Coin Box"
+            data-product="Limited Edition Button Box"
             data-horse="Sarge"
             data-pickup="50"
             data-ship="56"
@@ -956,4 +939,4 @@ main {
   });
 </script>
 </body>
-            </html>
+           </html>

@@ -128,7 +128,7 @@ main {
   padding: 0;
 }
 
-/* Founder Section - FIXED IMAGE */
+/* Founder Section - IMAGE FIX (Hardcoded 8px Soft Corners) */
 .founder-section {
   display: flex;
   align-items: center;
@@ -144,7 +144,7 @@ main {
   width: 100%;
   max-width: 300px;
   height: auto;
-  border-radius: 8px; /* Soft rectangle, NO MORE CIRCLE */
+  border-radius: 8px !important; /* Force rectangle, prevent circle */
   object-fit: cover;
   border: 4px solid #b8860b;
   flex-shrink: 0;
@@ -178,7 +178,7 @@ main {
   }
 }
 
-/* THE CREW GRID - FIXED IMAGES */
+/* THE CREW GRID - IMAGE FIX (Hardcoded 8px Soft Corners) */
 .crew-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -203,8 +203,8 @@ main {
 
 .crew-card img {
   width: 100%;
-  height: 240px; /* Fixed height for consistency */
-  border-radius: 8px; /* Soft rectangle, NO MORE CIRCLE */
+  height: 240px; 
+  border-radius: 8px !important; /* Force rectangle, prevent circle */
   object-fit: cover;
   border: 3px solid #f0c040;
   margin: 0 auto 1.2rem auto;
@@ -229,7 +229,7 @@ main {
   line-height: 1.6;
 }
 
-/* Maverick Tribute */
+/* Maverick Tribute - IMAGE FIX (Hardcoded 8px Soft Corners) */
 .memorial-card {
   grid-column: 1 / -1; 
   background: linear-gradient(145deg, rgba(26,16,8,1) 0%, rgba(40,30,20,1) 100%);
@@ -244,8 +244,8 @@ main {
   width: 100%;
   max-width: 250px;
   height: auto;
-  border-radius: 8px;
-  border-color: #8a7560;
+  border-radius: 8px !important; /* Force rectangle, prevent circle */
+  border: 3px solid #8a7560;
   margin: 0;
 }
 

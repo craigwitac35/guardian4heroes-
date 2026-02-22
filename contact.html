@@ -1,93 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
-  <title>Guardian 4 Heroes | Contact</title>
-  
-  <meta property="og:title" content="Guardian 4 Heroes | Contact">
-  <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Guardian 4 Heroes. Reach out for information on equine therapy programs for veterans and first responders, volunteering, or donations.">
+<meta name="keywords" content="contact, equine therapy, veterans, first responders, mental health, Sauk Centre MN, get in touch">
+<title>Guardian 4 Heroes | Contact Us</title>
+
+<meta property="og:title" content="Guardian 4 Heroes | Contact Us">
+<meta property="og:description" content="Reach out to Guardian 4 Heroes to learn more about our equine therapy programs for veterans and first responders.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =============================================
+   PAGE-SPECIFIC OVERRIDES & FIXES
+============================================= */
+body {
+  background-image: none !important;
+  background-color: #1a1008 !important; 
+  color: #f5f5f5;
+}
+body::before { display: none !important; }
+
+main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 1100px !important; /* Slightly wider for side-by-side layout */
+  padding: 2rem 20px !important;
+}
+
+/* =============================================
+   MOBILE CLIPPING FIX
+============================================= */
+@media (max-width: 480px) {
+  .brand-tagline {
+    display: none !important;
+  }
+}
+
+/* =============================================
+   SUBPAGE HERO
+============================================= */
+.subpage-hero {
+  position: relative !important;
+  min-height: 50svh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden !important;
+  background: #1a1008 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.subpage-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.subpage-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.subpage-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65) 0%,
+    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,1) 100%
+  );
+}
+
+.subpage-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.subpage-hero .hero-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 12px !important;
+  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9) !important;
+}
+
+/* =============================================
+   CONTACT PAGE LAYOUT
+============================================= */
+.contact-container {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.contact-details {
+  flex: 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(240,192,64,0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.contact-form-wrapper {
+  flex: 1.5;
+}
+
+/* Styling the info info blocks */
+.info-block {
+  margin-bottom: 2rem;
+}
+
+.info-block h4 {
+  color: #f0c040;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-block p, .info-block a {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+}
+
+.social-links-contact a {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #f0c040;
+  transition: transform 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.social-links-contact a:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+@media (max-width: 850px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .contact-details, .contact-form-wrapper {
+    flex: auto;
+    width: 100%;
+  }
+}
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
+
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Main navigation">
+
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
+        <span class="brand-title">Guardian <em>4</em> Heroes</span>
+        <span class="brand-line"></span>
+        <span class="brand-tagline">The Power of the Connection with a Horse</span>
+      </a>
     </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
-    <div class="nav-links">
+
+    <div class="nav-center">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
       <a href="contact.html" aria-current="page">Contact</a>
       <a href="shop.html">Shop</a>
     </div>
+
+    <div class="nav-right">
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </div>
   </nav>
-  <main>
-    <section class="banner-image">
-      <img src="images/Photoshootflag.jpg" alt="Guardian 4 Heroes flag waving gently." loading="lazy">
-    </section>
-    <section class="section">
-      <h3>Reach Out</h3>
-      <p>If you have any questions about our services, want to get involved, or simply want to connect, feel free to reach out using the information below.</p>
-      <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
-        <p><strong>Phone:</strong> (320) 828-2477</p>
-        <p><strong>Location:</strong> Sauk Centre, MN</p>
-      </div>
-      <div class="donate-button">
-        <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
-      </div>
-    </section>
-    <section class="section">
-      <h3>Send Us a Message</h3>
-      <form class="contact-form" action="https://formsubmit.co/contact@guardian4heroes.org" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <input type="hidden" name="_subject" value="New message from Guardian 4 Heroes website">
-        <input type="hidden" name="_next" value="https://www.guardian4heroes.org/contact.html">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_template" value="table">
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-    <section class="section">
-      <h3>Connect With Us</h3>
-      <p>Follow us on social media to stay updated on our programs and impact!</p>
-      <div class="social-cta">
-        <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" aria-label="Follow us on Facebook">📘</a>
-        <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank" aria-label="Follow us on Instagram">📸</a>
-      </div>
-    </section>
-  </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      This isn't about forgetting the past. It's about building peace with it, one step, one breath, one hoofprint at a time.
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
+
+  <div class="nav-dropdown" id="nav-dropdown" role="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="donate.html">Donate</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+    <a href="shop.html">Shop</a>
+  </div>
+</header>
+
+<section class="subpage-hero" role="banner">
+  <div class="subpage-hero__bg">
+    <img src="images/backg.PNG" alt="Atmospheric background" loading="eager" />
+  </div>
+  <div class="subpage-hero__overlay"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Contact <em>Us</em></h1>
+    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
+    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Reach Out & Connect</p>
+  </div>
+</section>
+
+<main>
+  
+  <section style="text-align: center; max-width: 800px; margin: 0 auto;">
+    <p style="font-size: 1.2rem;">Have questions about our programs, volunteering, or how you can support our mission? We're here to help. Reach out to us using the form below or via email.</p>
   </section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  </script>
+
+  <div class="contact-container">
+    
+    <div class="contact-details">
+      <div class="info-block">
+        <h4><i class="fas fa-envelope"></i> Email Us</h4>
+        <p><a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
+      </div>
+
+      <div class="info-block">
+        <h4><i class="fas fa-map-marker-alt"></i> Our Location</h4>
+        <p>Sauk Centre, MN<br>(Visits by appointment only)</p>
+      </div>
+
+      <div class="info-block">
+        <h4><i class="fas fa-hashtag"></i> Follow Us</h4>
+        <div class="social-links-contact">
+          <a href="https://www.facebook.com/profile.php?id=61555666800962" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <form action="https://formspree.io/f/mzzbqzez" method="POST" class="dark-form">
+        <div style="margin-bottom: 1.5rem;">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="_replyto" required placeholder="Enter your email">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" class="button primary-button" style="width: 100%; font-size: 1.3rem;">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
+<section class="closing-image">
+  <blockquote class="inspiring-quote">
+    Sometimes the greatest battles are healed not with words, but in silence, between a soldier and the soul of a horse.
+    <span class="inspiring-quote-accent"></span>
+  </blockquote>
+</section>
+
+<footer style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+  <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+  function toggleMenu(btn) {
+    const dropdown = document.getElementById('nav-dropdown');
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
+  }
+</script>
+
 </body>
 </html>

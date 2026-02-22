@@ -164,12 +164,11 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
-/* REVERTED TO EDGE-TO-EDGE SQUARE IMAGES */
 .product-card img {
   width: 100%;
   height: auto !important;
-  aspect-ratio: 1 / 1; /* Forces a perfect, large square */
-  object-fit: cover; /* Fills the entire box right up to the borders */
+  aspect-ratio: 1 / 1; 
+  object-fit: cover; 
   object-position: center; 
   display: block;
   border-bottom: 2px solid #f0c040;
@@ -179,7 +178,7 @@ main {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex: 1; /* This ensures the card text area fills the space so buttons align */
+  flex: 1;
 }
 
 .product-name {
@@ -278,7 +277,6 @@ main {
   font-family: 'Lato', sans-serif;
 }
 
-/* Dark Mode Inputs */
 .order-form-box input[type="text"],
 .order-form-box input[type="email"],
 .order-form-box textarea {
@@ -336,7 +334,6 @@ main {
 .shipping-address-field { display: none; }
 .shipping-address-field.visible { display: block; }
 
-/* Honeypot — hidden from humans */
 .hp-field { display: none !important; }
 
 /* Confirmation Message */
@@ -436,7 +433,6 @@ main {
   margin-top: 1.5rem;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .product-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .order-form-box, .order-confirmation { padding: 2rem 1.5rem; }
@@ -498,7 +494,8 @@ main {
 <main>
 
   <section class="shop-intro" style="position: relative; z-index: 10; margin-top: -1rem;">
-    <h2 style="color: #f0c040; font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 1.2rem; margin-top: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Handmade with Love</h2>
+    <h2 style="color: #f0c040; font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 0.5rem; margin-top: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Handmade with Love</h2>
+    <span style="display:block; width:120px; height:2px; background:linear-gradient(90deg, transparent, #b8860b, #f0c040, #b8860b, transparent); margin: 0 auto 1.5rem auto;"></span>
     
     <span class="shop-badge">Every Purchase is a Donation</span>
     <p>Every item in our shop is handcrafted with care and represents one of our beloved therapy horses. Your purchase directly supports equine therapy, mental wellness, and sound therapy programs for veterans and first responders.</p>
@@ -828,7 +825,6 @@ main {
     btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
   }
 
-  // ── Current order state ─────────────────────────────────
   var currentOrder = {
     product: '',
     horse: '',
@@ -837,7 +833,6 @@ main {
     delivery: ''
   };
 
-  // ── Open order form when Order Now is clicked ───────────
   function openOrderForm(btn) {
     currentOrder.product = btn.getAttribute('data-product');
     currentOrder.horse   = btn.getAttribute('data-horse');
@@ -845,35 +840,29 @@ main {
     currentOrder.ship    = parseInt(btn.getAttribute('data-ship'), 10);
     currentOrder.delivery = '';
 
-    // Update form heading
     document.getElementById('order-form-title').textContent =
       'Ordering: ' + currentOrder.horse + ' — ' + currentOrder.product;
     document.getElementById('order-form-subtitle').textContent =
       'Fill in your details below and we\'ll get your order ready!';
 
-    // Fill hidden fields
     document.getElementById('field-product').value = currentOrder.product;
     document.getElementById('field-horse').value   = currentOrder.horse;
     document.getElementById('field-delivery').value = '';
     document.getElementById('field-amount').value   = '';
 
-    // Reset delivery radio buttons and address field
     var radios = document.querySelectorAll('input[name="delivery-choice"]');
     radios.forEach(function(r) { r.checked = false; });
     resetShippingAddress();
 
-    // Show and scroll to form
     var section = document.getElementById('order-form-section');
     section.classList.add('visible');
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Move keyboard focus to form title
     setTimeout(function() {
       document.getElementById('order-form-title').focus();
     }, 400);
   }
 
-  // ── Handle delivery method change ───────────────────────
   function updateDelivery(radio) {
     currentOrder.delivery = radio.value;
     var addrField  = document.getElementById('shipping-address-field');
@@ -886,7 +875,6 @@ main {
       resetShippingAddress();
     }
 
-    // Update hidden delivery and amount fields
     var amount = (radio.value === 'ship') ? currentOrder.ship : currentOrder.pickup;
     document.getElementById('field-delivery').value = (radio.value === 'ship') ? 'Shipping' : 'Local Pickup';
     document.getElementById('field-amount').value   = '$' + amount + '.00';
@@ -900,12 +888,10 @@ main {
     addrInput.value = '';
   }
 
-  // ── Handle form submit — save to localStorage ───────────
   function handleOrderSubmit(e) {
     var delivery = currentOrder.delivery;
     var amount   = (delivery === 'ship') ? currentOrder.ship : currentOrder.pickup;
 
-    // Save order info to localStorage before the page reloads after submit
     localStorage.setItem('g4h_order', JSON.stringify({
       product:  currentOrder.product,
       horse:    currentOrder.horse,
@@ -914,7 +900,6 @@ main {
     }));
   }
 
-  // ── On page load — check localStorage for confirmation ──
   window.addEventListener('DOMContentLoaded', function() {
     var raw = localStorage.getItem('g4h_order');
     if (raw) {

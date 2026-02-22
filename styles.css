@@ -1,27 +1,31 @@
 /* ==========================================================================
-   Global Variables
+   GUARDIAN 4 HEROES - GLOBAL STYLESHEET
+   Theme: Modern, Dark, Elegant (WebOps Style)
    ========================================================================== */
+
+/* --- 01. CSS VARIABLES --- 
+   Note: These are the core brand colors. If you ever want to change the 
+   exact shade of gold or the background, you just change it here once, 
+   and it updates across the whole website! 
+------------------------------------------------------------------------- */
 :root {
-  --primary-accent: #c59d57;
-  --primary-accent-dark: #b88a44;
-  --dark-neutral: #1c1c1c;
-  --dark-neutral-alt: #0d0d0d;
-  --background: #f9f6ef;
-  --box-background: #fff;
-  --secondary-accent: #a89f91;
-  --secondary-accent-alt: #dcd4c1;
-  --header-footer-bg: transparent;
-  --header-footer-text: var(--dark-neutral);
-  --transition-duration: 0.2s;
-  --border-radius: 0.5rem;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --bg-dark: #1a1008;              /* The rich dark brown/charcoal background */
+  --text-light: #f5f5f5;           /* Off-white for highly readable body text */
+  --gold-primary: #f0c040;         /* Bright gold accent */
+  --gold-dark: #b8860b;            /* Deeper gold for hover states/gradients */
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+  --transition-speed: 0.2s;
 }
 
-/* ==========================================================================
-   Base Styles
-   ========================================================================== */
+/* --- 02. GLOBAL RESETS & BASE --- 
+   Note: This strips away default browser spacing and applies your 
+   new global font (Lato) and global dark background. 
+------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -29,1557 +33,434 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: var(--dark-neutral);
-  background-color: var(--background);
-  background-image: url("images/backg.PNG");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
+  color: var(--text-light);
+  background-color: var(--bg-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(249, 246, 239, 0.1);
-  z-index: -1;
-  pointer-events: none;
-}
-
-main,
-.site-header,
-footer,
-.section,
-.box,
-.card {
-  position: relative;
-  z-index: 1;
-}
-
-main {
-  flex: 1;
-}
-
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--dark-neutral);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+/* --- 03. TYPOGRAPHY (HEADINGS & TEXT) --- 
+   Note: All headings now automatically use the elegant Playfair Display font. 
+------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
   line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-size: 2.8rem;
-  letter-spacing: 1px;
-  font-family: "Oswald", sans-serif;
   font-weight: 700;
-  text-align: center;
-}
-
-.subtitle {
-  display: block;
-  font-size: 0.8em;
-  font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
 h2 {
-  font-size: 1.6rem;
-  letter-spacing: 0.5px;
-  color: #000000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 h3 {
-  font-size: 1.4rem;
-}
-
-p {
-  margin: 0 0 1rem 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-a {
-  color: #ffffff;
-  text-decoration: none;
-  border: none;
-  padding: 0;
-  transition: color var(--transition-duration) ease,
-    background-color var(--transition-duration) ease;
-}
-
-a:hover,
-a:focus {
-  color: var(--primary-accent);
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-/* CTA links styling */
-.cta-link {
-  display: inline-block;
-  border: none;
-  padding: 0;
-}
-
-.cta-link:hover,
-.cta-link:focus {
-  text-decoration: none;
-  background-color: transparent;
-}
-
-/* ==========================================================================
-   Main Content Area
-   ========================================================================== */
-main {
-  background: rgba(40, 40, 40, 0.6);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 900px;
-  width: 95%;
-  color: #f5f5f5;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-main p {
-  color: #f5f5f5;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-main a {
-  color: var(--primary-accent);
-  border-color: var(--primary-accent-dark);
-  font-weight: bold;
-}
-
-main a:hover,
-main a:focus {
-  color: #ffffff;
-  background-color: var(--primary-accent);
-  text-decoration: underline;
-}
-
-main button {
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 2px solid var(--primary-accent-dark);
-}
-
-main button:hover,
-main button:focus {
-  background-color: var(--primary-accent-dark);
-  color: var(--dark-neutral);
-  border-color: var(--primary-accent);
-}
-
-ul,
-ol {
-  padding-left: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  color: var(--gold-primary);
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
-/* ==========================================================================
-   Header and Footer
-   ========================================================================== */
-.site-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
-.site-header.new-header {
-  justify-content: center;
-  padding: 0;
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
-  height: auto;
+p {
+  margin-bottom: 1.2rem;
 }
 
-.header-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* --- 04. MAIN LAYOUT CONTAINER --- 
+   Note: This holds your content in the middle of the screen. 
+   We removed the ugly gray box and borders so it breathes naturally. 
+------------------------------------------------------------------------- */
+main {
+  flex: 1;
+  max-width: 1000px;
   width: 100%;
-  max-width: 900px;
-}
-
-.header-combined-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 180px;
-}
-
-.header-images img:hover {
-  transform: scale(1.02);
-}
-
-.logo-title-link,
-.header-image-full {
-  display: none;
-}
-
-footer {
-  background-color: var(--header-footer-bg);
-  color: #ffffff;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem 20px 4rem 20px;
   position: relative;
   z-index: 2;
-  margin-top: auto;
 }
 
-/* ==========================================================================
-   Main Navigation Styles
-   ========================================================================== */
-.nav-links {
+/* --- 05. GLOBAL NAVIGATION & HEADER --- 
+   Note: This is the code from your new index page. It makes the header 
+   transparent, puts the logo on the left, and handles the mobile menu.
+------------------------------------------------------------------------- */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: transparent;
+  padding: 0;
+  display: block;
+}
+
+.nav-bar {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 0.7em;
-  margin: 1.5em 0 2em 0;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  display: inline-block;
-  background: #f6d48f;
-  border: 2px solid var(--primary-accent-dark, #b1883c);
-  border-radius: 12px;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #46320a;
-  padding: 0.65em 1.6em;
-  margin: 0 0.5em;
-  text-decoration: none;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
-  box-shadow: 0 2px 8px rgba(197, 157, 87, 0.13);
+  justify-content: space-between;
+  padding: 16px 20px;
   position: relative;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-  background: linear-gradient(95deg, #ffe9b5, #f7c86c 65%);
-  color: #7a5a23;
-  box-shadow: 0 4px 18px rgba(197, 157, 87, 0.17);
-  transform: translateY(-2px) scale(1.03);
-  outline: none;
+/* Stacked Brand Logo */
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-left: 12px;
+}
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+.brand-title em {
+  font-style: normal;
+  color: var(--gold-primary);
+}
+.brand-line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark), transparent);
+  margin: 4px 0 3px 0;
+  opacity: 0.8;
+}
+.brand-tagline {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  white-space: nowrap;
 }
 
-.nav-links a.active,
-.nav-links a[aria-current="page"] {
-  background: #e8b44c;
-  color: #312002;
-  border-color: #c19d57;
-  text-decoration: underline;
-  box-shadow: 0 0 0 2px #d3b266;
+/* Nav Layout */
+.nav-left { display: flex; align-items: center; min-width: 48px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-end; }
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+.nav-center a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.nav-center a:hover, .nav-center a[aria-current="page"] {
+  color: #fff;
+  background: rgba(0,0,0,0.35);
+}
+
+/* Donate Button in Nav */
+.nav-donate {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  border: 1px solid rgba(240,192,64,0.55);
+  border-radius: 4px;
+  padding: 7px 16px;
+}
+.nav-donate:hover {
+  background: var(--gold-dark);
+  color: #fff;
+  border-color: var(--gold-dark);
+}
+
+/* Mobile Menu Toggle & Dropdown */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  font-size: 2em;
-  color: var(--primary-accent-dark, #b1883c);
-  margin: 1em 0.5em 0 1em;
   cursor: pointer;
+  padding: 6px;
+  color: var(--gold-primary);
 }
-
-@media (max-width: 650px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: stretch;
-    display: none;
-    margin: 0.7em 0 1em 0;
-  }
-  .nav-links.active {
-    display: flex;
-  }
-  .nav-links a {
-    margin: 0.5em 0;
-    width: 100%;
-    text-align: center;
-  }
-  .menu-toggle {
-    display: inline-block;
-  }
-}
-
-/* ==========================================================================
-   Veteran Stories Section
-   ========================================================================== */
-
-.veteran-stories {
-  margin-top: 2.5rem;
-}
-
-.veteran-stories h3 {
-  text-align: center;
-}
-
-.stories-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.story-card {
-  background: rgba(255, 255, 250, 0.94);
-  border: 2px solid var(--primary-accent);
-  border-radius: 1.1em;
-  box-shadow: 0 8px 32px 0 rgba(197, 157, 87, 0.10), 0 0 24px 0 rgba(197, 157, 87, 0.13);
-  max-width: 440px;
-  min-width: 280px;
-  padding: 2.2em 1.5em 1.3em 1.5em;
-  position: relative;
-  margin: 1em auto;
-  transition: transform 0.18s;
-  overflow: visible;
-}
-
-.story-card:hover {
-  transform: scale(1.03) translateY(-6px);
-  box-shadow: 0 12px 36px 0 rgba(197, 157, 87, 0.17), 0 0 32px 0 rgba(197, 157, 87, 0.21);
-}
-
-.big-quote {
-  font-size: 3em;
-  color: var(--primary-accent-dark);
+.nav-dropdown {
+  display: none;
   position: absolute;
-  top: 0.18em;
-  left: 0.18em;
-  opacity: 0.18;
-  font-family: serif;
-  pointer-events: none;
-}
-
-.story-icon {
-  position: absolute;
-  top: 0.7em;
-  right: 1em;
-  opacity: 0.33;
-  pointer-events: none;
-}
-
-.story-text {
-  font-family: 'Georgia', serif;
-  font-size: 1.07em;
-  color: #3b3020;
-  margin-bottom: 1.3em;
-  margin-top: 0.5em;
-  line-height: 1.6;
-}
-
-.story-meta {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.95em;
-  color: var(--primary-accent-dark);
-  text-transform: uppercase;
-}
-
-.vet-name {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.vet-role {
-  margin-left: 0.6em;
-  color: var(--primary-accent);
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .story-card {
-    max-width: 98vw;
-    padding: 1.1em 0.7em 1em 0.7em;
-  }
-  .big-quote {
-    font-size: 2em;
-    left: 0.05em;
-    top: 0.05em;
-  }
-  .story-icon {
-    right: 0.4em;
-    top: 0.3em;
-    font-size: 1.1em;
-  }
-}
-
-/* ==========================================================================
-   Additional (retain your other site global styles here)
-   ========================================================================== */
-
-/* ...keep your other CSS rules for header, hero, sections, footer, etc. ... */
-/* ==========================================================================
-   Hero Section Styles
-   ========================================================================== */
-.hero {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.hero h2 {
-  color: #ffffff;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-.home-hero {
-  background-image: url("images/FB_IMG_1749752975080.jpg");
-  background-size: cover;
-  background-position: center center;
-  color: #fff;
-  text-align: center;
-  padding: 10rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.home-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
+  right: 0;
+  z-index: 300;
+  flex-direction: column;
+  background: rgba(12, 9, 3, 0.97);
+  padding: 8px 16px 16px;
+  border-bottom: 1px solid rgba(240,192,64,0.2);
+}
+.nav-dropdown.open { display: flex; }
+.nav-dropdown a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  padding: 14px 16px;
+  border-radius: 6px;
+}
+.nav-dropdown a:hover {
+  color: #fff;
+  background: rgba(240,192,64,0.12);
+}
+
+@media (max-width: 850px) {
+  .nav-center { display: none; }
+  .menu-toggle { display: flex; }
+}
+
+/* --- 06. SUBPAGE HERO SECTIONS --- 
+   Note: Add the class "subpage-hero" to the top section of any inner page 
+   (About, Programs, etc.) to get the WebOps style fading background image. 
+------------------------------------------------------------------------- */
+.subpage-hero {
+  position: relative;
+  min-height: 50svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.subpage-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.subpage-hero__bg img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  object-position: center;
 }
 
-.home-hero .hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
-  width: 90%;
-}
-
-.home-hero .subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  color: #f5f5f5;
-}
-
-.home-hero .hero-buttons a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin: 0 10px;
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color var(--transition-duration) ease,
-    color var(--transition-duration) ease;
-}
-
-.home-hero .hero-buttons .primary-button {
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-  border: 2px solid var(--primary-accent-dark);
-}
-
-.home-hero .hero-buttons .primary-button:hover,
-.home-hero .hero-buttons .primary-button:focus {
-  background-color: var(--primary-accent-dark);
-  color: var(--dark-neutral);
-  border-color: var(--primary-accent);
-}
-
-.home-hero .hero-buttons .secondary-button {
-  background-color: transparent;
-  color: var(--primary-accent);
-  border: 2px solid var(--primary-accent);
-}
-
-.home-hero .hero-buttons .secondary-button:hover,
-.home-hero .hero-buttons .secondary-button:focus {
-  background-color: var(--primary-accent);
-  color: var(--dark-neutral);
-}
-
-/* ==========================================================================
-   Sections, Cards, and Other Elements
-   ========================================================================== */
-.banner-image img,
-.closing-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin: 1rem 0;
-}
-
-.section,
-.box,
-.card {
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0.5rem auto;
-  padding: 0.5rem;
-}
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media (max-width: 992px) {
-  main {
-    max-width: 800px;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    max-width: 100%;
-    margin: 1rem 0.5rem;
-    padding: 1.5rem;
-  }
-  .header-image-full {
-    height: auto;
-    width: 95%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: block;
-  }
-  .site-header {
-    padding: 0.5rem;
-  }
-  nav {
-    flex-direction: column;
-  }
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  nav .nav-links.active {
-    display: flex;
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    background: rgba(249, 246, 239, 0.9);
-  }
-  @supports (backdrop-filter: blur(10px)) or
-    (-webkit-backdrop-filter: blur(10px)) {
-    nav .nav-links.active {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-  }
-  nav .nav-links a {
-    background-color: var(--primary-accent-dark);
-    padding: 0.75rem 1.5rem;
-    margin: 0.5rem 0;
-    font-weight: normal;
-    color: #ffffff;
-  }
-  nav .nav-links a:hover,
-  nav .nav-links a:focus {
-    background-color: var(--primary-accent);
-    color: var(--dark-neutral-alt);
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-  .home-hero {
-    padding: 8rem 1rem;
-  }
-  .home-hero .subtitle {
-    font-size: 1.2rem;
-  }
-  .home-hero .hero-buttons a {
-    padding: 0.8rem 1.5rem;
-    margin-bottom: 10px;
-    display: block;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-}
-
-/* ==========================================================================
-   Veteran Stories Section (Updated)
-   ========================================================================== */
-
-.veteran-stories {
-  margin-top: 2.5rem;
-}
-
-.veteran-stories-heading {
-  text-align: center;
-  color: #fff;
-  background: none;
-  border-left: none;
-  border-radius: 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 2rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-shadow: 1px 2px 8px rgba(0,0,0,0.32);
-  box-shadow: none;
-  opacity: 1;
-  margin-bottom: 1.5rem;
-  font-family: "Oswald", sans-serif;
-}
-
-.stories-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.story-card {
-  background: rgba(255, 255, 250, 0.94);
-  border: 2px solid var(--primary-accent);
-  border-radius: 1.1em;
-  box-shadow: 0 8px 32px 0 rgba(197, 157, 87, 0.10), 0 0 24px 0 rgba(197, 157, 87, 0.13);
-  max-width: 440px;
-  min-width: 280px;
-  padding: 2.2em 1.5em 1.3em 1.5em;
-  position: relative;
-  margin: 1em auto;
-  transition: transform 0.18s;
-  overflow: visible;
-}
-
-.story-card:hover {
-  transform: scale(1.03) translateY(-6px);
-  box-shadow: 0 12px 36px 0 rgba(197, 157, 87, 0.17), 0 0 32px 0 rgba(197, 157, 87, 0.21);
-}
-
-.big-quote {
-  font-size: 3em;
-  color: var(--primary-accent-dark);
+.subpage-hero__overlay {
   position: absolute;
-  top: 0.18em;
-  left: 0.18em;
-  opacity: 0.18;
-  font-family: serif;
-  pointer-events: none;
+  inset: 0;
+  z-index: 1;
+  /* Fades from dark transparent at top to solid brand background at bottom */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65) 0%,
+    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,1) 100% 
+  );
 }
 
-.story-icon {
-  position: absolute;
-  top: 0.7em;
-  right: 1em;
-  opacity: 0.33;
-  pointer-events: none;
-}
-
-.story-text {
-  font-family: 'Georgia', serif;
-  font-size: 1.07em;
-  color: #3b3020;
-  margin-bottom: 1.3em;
-  margin-top: 0.5em;
-  line-height: 1.6;
-}
-
-.story-meta {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.95em;
-  color: var(--primary-accent-dark);
-  text-transform: uppercase;
-}
-
-.vet-name {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.vet-role {
-  margin-left: 0.6em;
-  color: var(--primary-accent);
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .story-card {
-    max-width: 98vw;
-    padding: 1.1em 0.7em 1em 0.7em;
-  }
-  .big-quote {
-    font-size: 2em;
-    left: 0.05em;
-    top: 0.05em;
-  }
-  .story-icon {
-    right: 0.4em;
-    top: 0.3em;
-    font-size: 1.1em;
-  }
-}
-/* ==========================================================================
-   Carousel Styles (Enhanced Readability for Stories)
-   ========================================================================== */
-.carousel {
+.subpage-hero .hero-content {
   position: relative;
-  overflow: hidden;
-  border-radius: var(--border-radius);
-  margin-top: 1rem;
-  background: #fff;
-  padding: 1.5rem 1rem 2.5rem 1rem;
-  box-shadow: 0 4px 18px rgba(44, 37, 19, 0.08);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  font-style: italic;
-  color: #222 !important;
-  font-size: 1.18rem;
-  line-height: 1.7;
-  margin-bottom: 0.8rem;
-  background: #fff !important;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(197, 157, 87, 0.08);
-  padding: 2rem 1rem 2.5rem 1rem;
-  border: 1px solid var(--secondary-accent-alt);
-}
-
-.carousel-item p {
-  color: #222 !important;
-  font-size: 1.18rem;
-  font-style: italic;
-  margin: 0 0 0.8rem 0;
-  text-shadow: none !important;
-}
-
-.carousel-item img {
-  max-width: 180px;
-  height: auto;
-  border-radius: 50%;
-  margin: 0 auto 1rem;
-  border: 4px solid var(--primary-accent);
-}
-
-.carousel-btn {
-  background-color: var(--primary-accent);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  height: 2.2rem;
-  width: 2.2rem;
-  font-size: 1.4rem;
-  font-weight: bold;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s;
-  opacity: 0.92;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
   z-index: 2;
-}
-
-.carousel-btn.prev {
-  left: -2.5rem;
-}
-
-.carousel-btn.next {
-  right: -2.5rem;
-}
-
-.carousel-btn:hover,
-.carousel-btn:focus {
-  background-color: var(--primary-accent-dark);
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(197, 157, 87, 0.18);
-}
-
-/* Responsive improvements */
-@media (max-width: 600px) {
-  .carousel {
-    max-width: 99%;
-    padding: 1rem 0.5rem 2.5rem 0.5rem;
-  }
-  .carousel-btn.prev {
-    left: 0;
-  }
-  .carousel-btn.next {
-    right: 0;
-  }
-  .carousel-item {
-    font-size: 1rem;
-    padding: 1rem 0.5rem 2rem 0.5rem;
-  }
-}
-
-/* ==========================================================================
-   Unique Page Layouts
-   ========================================================================== */
-.program-highlight {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.program-highlight img {
-  width: 50%;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-.program-highlight p {
-  width: 50%;
-  margin-bottom: 0;
-}
-
-.program-feature,
-.impact-feature {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.program-feature img,
-.impact-feature img {
-  width: 50%;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-.program-feature-text,
-.impact-feature-text {
-  width: 50%;
-}
-
-.impact-feature {
-  flex-direction: row-reverse;
-}
-
-@media (max-width: 768px) {
-  .program-feature,
-  .impact-feature,
-  .program-highlight {
-    flex-direction: column;
-  }
-  .program-feature img,
-  .impact-feature img,
-  .program-feature-text,
-  .impact-feature-text,
-  .program-highlight img,
-  .program-highlight p {
-    width: 100%;
-  }
-}
-
-.social-cta a {
-  background-color: transparent;
-  border: none;
-  font-size: 2.5rem;
-  padding: 0 0.5rem;
-}
-
-.social-cta a:hover {
-  background-color: transparent;
-  transform: scale(1.1);
-}
-
-.contact-form .error {
-  display: none;
-  color: #d8000c;
-  font-weight: bold;
-  margin-top: -0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ==========================================================================
-   Featured Profile Card Styles (for Sara and each horse)
-   ========================================================================== */
-.featured-profile-card {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 80px 20px 40px;
 }
 
-.featured-profile-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.subpage-hero .hero-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: 12px;
+  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9);
 }
 
-.featured-profile-card img {
-  max-width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-  margin-bottom: 1.5rem;
-  border: 6px solid var(--primary-accent);
-  transition: border-color 0.3s ease;
-}
-
-.featured-profile-card:hover img {
-  border-color: var(--primary-accent-dark);
-}
-
-.featured-profile-card h4 {
-  color: var(--primary-accent);
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.featured-profile-card p {
-  color: #f5f5f5;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* ==========================================================================
-   New Profile Feature Layout (About Page & Programs)
-   ========================================================================== */
-.profile-feature {
-  display: flex;
-  flex-direction: row; /* Desktop: side-by-side */
-  align-items: center;
-  gap: 2rem;
-  text-align: left;
-  margin-top: 3rem;
-  flex-wrap: wrap; /* Allows title to be full width */
-}
-
-.profile-feature:nth-child(even) {
-  flex-direction: row-reverse; /* Alternates side-by-side layout */
-}
-
-/* This is the new Title style, moved out of .profile-bio */
-.profile-feature h4 {
-  /* Undoing the default h4 style */
-  font-family: 'Oswald', sans-serif;
-  color: var(--primary-accent);
-  background: none;
-  padding: 0;
-  border-left: none;
-  border-radius: 0;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  display: block;
-  width: 100%;
-  box-shadow: none;
-
-  /* Applying the style from the old .profile-bio h4 */
-  font-size: 2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-  text-align: left; /* Default desktop alignment */
-}
-
-.profile-feature .profile-image {
-  width: 40%;
-  flex-shrink: 0;
-}
-
-.profile-feature img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border: 4px solid var(--primary-accent);
-  border-radius: var(--border-radius);
-  margin-bottom: 0;
-}
-
-.profile-feature .profile-bio {
-  width: 60%;
-}
-
-.profile-feature .profile-bio p {
-  font-size: 1.1rem;
-  max-width: none;
-}
-
-@media (max-width: 768px) {
-  .profile-feature,
-  .profile-feature:nth-child(even) {
-    flex-direction: column; /* Mobile: stacks in HTML order */
-    text-align: center;
-  }
-  
-  /* On mobile, stack order is Title, then Image, then Bio */
-  .profile-feature h4 {
-    order: 1; /* Title first */
-    text-align: center; /* Center title on mobile */
-    font-size: 1.8rem;
-  }
-  .profile-feature .profile-image {
-    order: 2; /* Image second */
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  .profile-feature img {
-    max-height: 400px;
-  }
-  .profile-feature .profile-bio {
-    order: 3; /* Bio text third */
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .featured-profile-card {
-    padding: 1.5rem;
-  }
-  .featured-profile-card img {
-    height: 200px;
-  }
-  .featured-profile-card h4 {
-    font-size: 1.5rem;
-  }
-  .featured-profile-card p {
-    font-size: 1rem;
-  }
-  .site-header.new-header {
-    padding: 0;
-  }
-  .header-images {
-    flex-direction: row;
-    gap: 0;
-  }
-  .header-combined-image {
-    max-height: 80px;
-    width: 100%;
-    object-fit: contain;
-  }
-}
-
-/* ==========================================================================
-   Inspiring Quote Style (for closing section)
-   ========================================================================== */
-.inspiring-quote {
-  font-family: "Oswald", serif;
-  font-size: 1.7rem;
-  color: #fff;
-  background: linear-gradient(100deg, rgba(44,37,19,0.68) 80%, rgba(197,157,87,0.13));
-  border: none;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.28), 0 0 0 4px rgba(197,157,87,0.08);
-  margin: 3rem auto 2rem auto;
-  max-width: 720px;
-  padding: 2.4rem 2.7rem 2.4rem 2.7rem;
-  text-align: center;
-  letter-spacing: 1.2px;
-  position: relative;
-  font-style: italic;
-  line-height: 1.7;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.32), 0 0 2px #c59d57;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-
-.inspiring-quote::before,
-.inspiring-quote::after {
-  font-family: serif;
-  font-size: 3.2rem;
-  color: rgba(197,157,87,0.23);
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.7;
-  line-height: 1;
-}
-
-.inspiring-quote::before {
-  content: "“";
-  left: 1.1rem;
-  top: 0.1rem;
-}
-
-.inspiring-quote::after {
-  content: "”";
-  right: 1.1rem;
-  bottom: 0.1rem;
-}
-
-/* Optional: Add a gold accent line below the quote */
-.inspiring-quote::after {
-  /* Comment out the quote mark if using the accent bar below */
-  /* content: "”"; */
-}
-
-.inspiring-quote-accent {
-  display: block;
-  height: 4px;
-  width: 70px;
-  background: linear-gradient(90deg, #c59d57 50%, transparent 100%);
-  margin: 2rem auto 0 auto;
-  border-radius: 8px;
-  opacity: 0.75;
-}
-/* ==========================================================================
-   Donation Buttons Styling
-   ========================================================================== */
-.donation-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.2rem;
-  margin: 2rem auto;
-  padding: 1rem 0;
-}
-
-.donate-btn {
-  background: linear-gradient(100deg, #c59d57 0%, #b88a44 100%);
-  color: #fff;
-  font-family: "Oswald", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border: none;
-  border-radius: 2.5rem;
-  box-shadow: 0 6px 22px rgba(197, 157, 87, 0.18);
-  padding: 0.85rem 2.2rem;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: transform 0.12s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.2s,
-    background 0.25s;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.donate-btn i {
-  font-size: 1.2em;
-}
-
-.donate-btn:hover,
-.donate-btn:focus {
-  background: linear-gradient(100deg, #b88a44 0%, #c59d57 100%);
-  color: #fff;
-  transform: scale(1.08) translateY(-2px) rotate(-2deg);
-  box-shadow: 0 12px 32px rgba(197, 157, 87, 0.28);
-  text-decoration: none;
-}
-
-.donate-btn.custom {
-  background: linear-gradient(100deg, #a89f91 0%, #c59d57 100%);
-  color: #1c1c1c;
-}
-
-.donate-btn.custom:hover,
-.donate-btn.custom:focus {
-  background: linear-gradient(100deg, #c59d57 0%, #a89f91 100%);
-  color: #fff;
-}
-/* ==========================================================================
-   Enhanced Contact Info & Form Styling - Stacked & Responsive
-   ========================================================================== */
-.contact-info,
-.contact-form {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  border-radius: 1.2em;
-  background: rgba(44, 37, 19, 0.97); /* Deep brown, almost opaque */
-  border: 2px solid #b88a44;           /* Gold accent border */
-  box-shadow: 0 6px 32px rgba(0,0,0,0.18); /* Deeper shadow for contrast */
-}
-
-/* --- Contact Info Card --- */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding: 2.2rem 2.5rem;
-  margin: 2rem auto 2.5rem auto;
-  font-size: 1.15rem;
-  color: #fff;
-}
-
-/* Stacked rows for mobile readability */
-.contact-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15em;
-  margin-bottom: 1.2em;
-}
-
-.ci-icon {
-  font-size: 1.3em;
-  color: #ffd866;
-  margin-bottom: 0.05em;
-}
-
-.ci-label {
-  color: #ffd866;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.ci-value {
-  color: #fff;
-  font-size: 1.09rem;
-  word-break: break-word;
-  margin-left: 0.15em;
-  margin-top: 0.05em;
-}
-
-.ci-value a {
-  color: #ffd866;
-  font-weight: bold;
-  word-break: break-all;
-  text-decoration: none;
-}
-
-.ci-value a:hover,
-.ci-value a:focus {
-  text-decoration: underline;
-}
-
-/* --- Contact Form --- */
-.contact-form {
-  padding: 2.2rem 2.5rem 1.6rem 2.5rem;
-  margin: 2.5rem auto 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  font-size: 1.15rem;
-  color: #fff;
-  background: rgba(44, 37, 19, 0.97);
-  border: 2px solid #b88a44;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.18);
-}
-
-.contact-form label {
-  font-weight: 700;
-  color: #ffd866;
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.2px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.85rem 1.1rem;
-  border: 1.5px solid var(--secondary-accent-alt, #ede2d3);
-  border-radius: 1.7em;
-  font-size: 1.13rem;
-  background: #fcfbf7;
-  color: #1a1a1a;
-  font-family: inherit;
-  margin-bottom: 0.15rem;
-  box-shadow: 0 1px 6px rgba(197,157,87,0.07);
-  box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #ffd866;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255,216,102,0.14);
-}
-
-.contact-form textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.contact-form button[type="submit"] {
-  background: linear-gradient(98deg, #c59d57 0%, #b88a44 100%);
-  color: #1a1a1a;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-  box-shadow: 0 3px 10px rgba(197,157,87,0.10);
-  margin-top: 0.5rem;
-  transition: background 0.2s, transform 0.15s;
-  cursor: pointer;
-}
-
-.contact-form button[type="submit"]:hover,
-.contact-form button[type="submit"]:focus {
-  background: linear-gradient(100deg, #b88a44 0%, #c59d57 100%);
-  transform: scale(1.05) translateY(-2px);
-}
-
-.contact-form .error {
-  display: none;
-  color: #ffd866;
-  font-weight: bold;
-  background: #b32d00;
-  border-left: 4px solid #ffd866;
-  padding: 0.4em 0.8em;
-  font-size: 0.97em;
-  border-radius: 0.4em;
-  margin-bottom: 0.4em;
-  margin-top: -0.55em;
-}
-
-/* Responsive for larger screens: align contact rows horizontally */
-@media (min-width: 601px) {
-  .contact-row {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.7em;
-    margin-bottom: 1.2em;
-  }
-  .ci-label,
-  .ci-icon {
-    margin-bottom: 0;
-  }
-  .ci-value {
-    margin-left: 0.5em;
-    margin-top: 0;
-  }
-}
-
-/* Responsive for small screens */
-@media (max-width: 600px) {
-  .contact-info,
-  .contact-form {
-    padding: 1.1rem 0.5rem;
-    max-width: 99%;
-    font-size: 1rem;
-  }
-  .ci-value {
-    font-size: 0.98em;
-  }
-}
-/* Centered, fixed-width, modern CTA and donate buttons for programs page */
-.donate-btn, .cta-link {
-  display: block;
-  width: 320px;                  /* Set a pleasing, readable width */
-  max-width: 90%;
-  margin: 1.1em auto;            /* Center horizontally + space above/below */
-  text-align: center;            /* Center text inside button */
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.18rem;
-  font-weight: 700;
-  background: linear-gradient(98deg, #c59d57 0%, #b88a44 100%);
-  color: #fff;
-  border: none;
-  border-radius: 2em;
-  padding: 0.85em 0;
-  box-shadow: 0 3px 10px rgba(197,157,87,0.14);
-  transition: background 0.2s, transform 0.15s;
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-
-.donate-btn:hover, .cta-link:hover,
-.donate-btn:focus, .cta-link:focus {
-  background: linear-gradient(100deg, #b88a44 0%, #c59d57 100%);
-  transform: scale(1.04) translateY(-1px);
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Remove button styling from links if you used <a><button>...</button></a> */
-.cta-link button {
-  all: unset;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-/* Responsive for small screens */
-@media (max-width: 500px) {
-  .donate-btn, .cta-link {
-    width: 98%;
-    font-size: 1rem;
-    padding: 0.75em 0;
-  }
-}
-/* ==========================================================================
-   Enhanced Subheading Styles
-   ========================================================================== */
-
-h2, h3 {
-  font-family: 'Oswald', sans-serif;
-  color: var(--primary-accent-dark);
-  background: linear-gradient(90deg, rgba(197,157,87,0.08) 50%, transparent 100%);
-  padding: 0.25em 1.2em 0.25em 0.7em;
-  border-left: 6px solid var(--primary-accent);
-  border-radius: 0 1.5em 1.5em 0;
-  margin-top: 2.5rem;
-  margin-bottom: 1.2rem;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  display: inline-block;
-  text-shadow: 0 2px 8px rgba(197, 157, 87, 0.10);
-  /* Glow effect */
-  box-shadow:
-    1px 3px 12px 0 rgba(197, 157, 87, 0.06),
-    0 0 14px 3px rgba(197, 157, 87, 0.20); /* gold glow */
-}
-
-/* Make h2 slightly larger and bolder than h3 for clear hierarchy */
-h2 {
-  font-size: 2.1rem;
-  border-left-width: 9px;
-}
-
-h3 {
-  font-size: 1.45rem;
-  border-left-width: 5px;
-  opacity: 0.97;
-}
-
-@media (max-width: 600px) {
-  h2, h3 {
-    font-size: 1.2rem;
-    padding: 0.18em 0.7em 0.18em 0.5em;
-    border-radius: 0 1em 1em 0;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-}
-/* ==========================================================================
-   Profile/Crew Name Heading Styles
-   ========================================================================== */
-h4 {
-  font-family: 'Oswald', sans-serif;
-  color: var(--primary-accent);
-  background: linear-gradient(90deg, rgba(197,157,87,0.12) 60%, transparent 100%);
-  padding: 0.21em 1em 0.21em 0.7em;
-  border-left: 5px solid var(--primary-accent-dark);
-  border-radius: 0 1em 1em 0;
-  margin-top: 1.7rem;
-  margin-bottom: 0.7rem;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  display: inline-block;
-  font-size: 1.3rem;
-  text-shadow: 0 2px 8px rgba(197, 157, 87, 0.09);
-  /* Glow effect */
-  box-shadow:
-    1px 3px 12px 0 rgba(197, 157, 87, 0.06),
-    0 0 14px 3px rgba(197, 157, 87, 0.20); /* gold glow */
-}
-
-/* Responsive adjustment for mobile */
-@media (max-width: 600px) {
-  h4 {
-    font-size: 1rem;
-    padding: 0.15em 0.5em 0.15em 0.4em;
-    border-radius: 0 0.6em 0.6em 0;
-  }
-}
-.button.primary-button,
-a.button.primary-button,
-.donate-button a {
+/* --- 07. GLOBAL BUTTONS --- 
+   Note: Standardized buttons for consistent CTAs across the site.
+------------------------------------------------------------------------- */
+.button, .primary-button, .order-now-btn, .order-submit-btn, button[type="submit"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #ffcb66 0%, #eeb13a 100%);
-  color: #fff;
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.3rem;
+  background: linear-gradient(98deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: #1a1a1a;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
-  padding: 0.85em 2.5em;
-  margin: 0.5em auto 1.5em auto;
-  border: none;
-  border-radius: 2em;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-  cursor: pointer;
-  text-decoration: none;
   letter-spacing: 1px;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-  outline: none;
-  gap: 0.5em;
+  text-transform: uppercase;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(184,134,11,0.3);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-.button.primary-button:hover,
-a.button.primary-button:hover,
-.donate-button a:hover {
-  background: linear-gradient(90deg, #eeb13a 0%, #ffcb66 100%);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
-  transform: translateY(-2px) scale(1.03);
+.button:hover, .primary-button:hover, .order-now-btn:hover, button[type="submit"]:hover {
+  background: linear-gradient(100deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184,134,11,0.4);
+  color: #000;
+}
+
+/* --- 08. REUSABLE COMPONENTS (Cards, Profiles, Quotes) --- 
+   Note: Use these classes to easily build grids or highlight boxes.
+------------------------------------------------------------------------- */
+
+/* Card with left gold border (Great for Mission/Vision statements) */
+.highlight-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--gold-primary);
+  padding: 2rem;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Profile / Founder Row Layout */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem 0;
+  background: rgba(0,0,0,0.2);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(240,192,64,0.15);
+}
+.profile-row img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold-dark);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .profile-row { flex-direction: column; text-align: center; }
+}
+
+/* Responsive Grid (For Horses, Shop Items, etc) */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Grid Items (The individual cards) */
+.grid-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240,192,64,0.15);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.grid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  border-color: rgba(240,192,64,0.4);
+}
+.grid-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold-primary);
+  margin: 0 auto 1.2rem auto;
+}
+
+/* Inspiring Quote Block (Bottom of pages) */
+.inspiring-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
   color: #fff;
-  text-decoration: none;
+  text-align: center;
+  max-width: 800px;
+  margin: 4rem auto;
+  font-style: italic;
+  padding: 0 20px;
+}
+.inspiring-quote-accent {
+  display: block;
+  height: 2px;
+  width: 80px;
+  background: var(--gold-primary);
+  margin: 1.5rem auto 0;
 }
 
-.button.primary-button .icon,
-a.button.primary-button .icon,
-.donate-button a .icon {
-  font-size: 1.2em;
-  margin-right: 0.5em;
-  display: inline-block;
+/* --- 09. FORMS & INPUTS --- 
+   Note: Dark themed inputs for contact and order forms.
+------------------------------------------------------------------------- */
+.dark-form {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(240,192,64,0.15);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
-/* ==========================================================================
-   END
-   ========================================================================== */
+.dark-form label {
+  display: block;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+}
+.dark-form input, .dark-form textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: border 0.2s;
+}
+.dark-form input:focus, .dark-form textarea:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  background: rgba(255,255,255,0.08);
+}
+
+/* --- 10. FOOTER --- */
+footer {
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}

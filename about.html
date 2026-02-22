@@ -128,7 +128,7 @@ main {
   padding: 0;
 }
 
-/* Founder Section - IMAGE FIX (Hardcoded 8px Soft Corners) */
+/* Founder Section - IMAGE FIX */
 .founder-section {
   display: flex;
   align-items: center;
@@ -144,8 +144,9 @@ main {
   width: 100%;
   max-width: 300px;
   height: auto;
-  border-radius: 8px !important; /* Force rectangle, prevent circle */
+  border-radius: 8px !important; /* Force rectangle */
   object-fit: cover;
+  object-position: top !important; /* Anchors to the top */
   border: 4px solid #b8860b;
   flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
@@ -178,7 +179,7 @@ main {
   }
 }
 
-/* THE CREW GRID - IMAGE FIX (Hardcoded 8px Soft Corners) */
+/* THE CREW GRID - PORTRAIT IMAGE FIX */
 .crew-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -203,9 +204,10 @@ main {
 
 .crew-card img {
   width: 100%;
-  height: 240px; 
-  border-radius: 8px !important; /* Force rectangle, prevent circle */
+  height: 350px !important; /* MADE TALLER */
+  border-radius: 8px !important; /* Force rectangle */
   object-fit: cover;
+  object-position: top !important; /* ANCHORS TO THE TOP (NO MORE CHOPPED EARS) */
   border: 3px solid #f0c040;
   margin: 0 auto 1.2rem auto;
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
@@ -229,7 +231,7 @@ main {
   line-height: 1.6;
 }
 
-/* Maverick Tribute - IMAGE FIX (Hardcoded 8px Soft Corners) */
+/* Maverick Tribute - IMAGE FIX */
 .memorial-card {
   grid-column: 1 / -1; 
   background: linear-gradient(145deg, rgba(26,16,8,1) 0%, rgba(40,30,20,1) 100%);
@@ -243,8 +245,10 @@ main {
 .memorial-card img {
   width: 100%;
   max-width: 250px;
-  height: auto;
-  border-radius: 8px !important; /* Force rectangle, prevent circle */
+  height: 350px !important; /* MATCHES THE TALLER HEIGHT */
+  object-fit: cover;
+  object-position: top !important; /* ANCHORS TO THE TOP */
+  border-radius: 8px !important; 
   border: 3px solid #8a7560;
   margin: 0;
 }

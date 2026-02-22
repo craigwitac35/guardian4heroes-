@@ -190,13 +190,17 @@ main {
   }
 }
 
-/* 3-Column Grid for Wellness Classes */
+/* Grid for Wellness Classes */
 .wellness-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   margin-bottom: 4rem;
+  /* Added centering so the two items look perfectly balanced */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wellness-card {
@@ -217,7 +221,7 @@ main {
 .wellness-card img {
   width: 100%;
   height: 200px;
-  border-radius: 8px !important; /* Soft rectangle, NO circles */
+  border-radius: 8px !important; 
   object-fit: cover;
   border: 3px solid #f0c040;
   margin: 0 auto 1.2rem auto;
@@ -356,17 +360,10 @@ main {
 
     <div class="wellness-grid">
       <div class="wellness-card">
-        <img src="images/Yoga.jpg" alt="Yoga for Healing session at The Barnyard" loading="lazy">
-        <h4>Yoga for Healing</h4>
-        <span class="wellness-meta">with Heather Zollman</span>
-        <p>Gentle and restorative weekly yoga sessions designed to reconnect body and mind, enhance flexibility, and cultivate mindfulness.</p>
-      </div>
-
-      <div class="wellness-card">
-        <img src="images/Meditation.jpg" alt="A peaceful scene representing meditation and mindfulness" loading="lazy">
-        <h4>Meditation &amp; Mindfulness</h4>
-        <span class="wellness-meta">Facilitated by Sara</span>
-        <p>Guided moments of stillness and focused breathwork to calm the mind, reduce anxiety, support grounding, and encourage inner peace.</p>
+        <img src="images/Yoga.jpg" alt="Yoga and mindfulness session at The Barnyard" loading="lazy">
+        <h4>Yoga &amp; Mindfulness</h4>
+        <span class="wellness-meta">with Heather Zollman &amp; Sara</span>
+        <p>Gentle, restorative weekly yoga sessions combined with guided breathwork. Designed to reconnect body and mind, reduce anxiety, and encourage deep inner peace.</p>
       </div>
 
       <div class="wellness-card">

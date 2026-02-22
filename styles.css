@@ -88,16 +88,27 @@ main {
   z-index: 2;
 }
 
-/* --- 05. GLOBAL NAVIGATION & HEADER --- */
+/* --- 05. GLOBAL NAVIGATION & HEADER (STICKY HEADER UPGRADE) --- */
 .site-header {
-  position: absolute;
+  position: fixed !important; /* Changed to fixed so it follows the user */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 999; /* Keeps it above all images and content */
   background: transparent;
   padding: 0;
   display: block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+/* JavaScript triggered class for when the user scrolls down */
+.site-header.scrolled {
+  background-color: rgba(26, 16, 8, 0.95) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(240, 192, 64, 0.2) !important;
 }
 
 .nav-bar {
@@ -332,7 +343,6 @@ main {
   border: 1px solid rgba(240,192,64,0.15);
 }
 
-/* CHANGED: Removed the circular crop (50%) and changed to a rounded portrait rectangle */
 .profile-row img {
   width: 250px;
   height: 320px; 
@@ -370,7 +380,6 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
-/* CHANGED: Removed circular crop, images span the card beautifully */
 .grid-card img {
   width: 100%;
   height: 240px;

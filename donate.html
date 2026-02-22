@@ -1,87 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
-  <title>Guardian 4 Heroes | Donate</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders. Donate today to promote mental health and well-being.">
+<meta name="keywords" content="donate, equine therapy, veterans, first responders, mental health, nonprofit support">
+<title>Guardian 4 Heroes | Donate</title>
+
+<meta property="og:title" content="Guardian 4 Heroes | Donate">
+<meta property="og:description" content="Support Guardian 4 Heroes in offering equine therapy for veterans and first responders.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  /* =============================================
+     DONATE PAGE SPECIFIC STYLES
+     ============================================= */
   
-  <meta property="og:title" content="Guardian 4 Heroes | Donate">
-  <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .impact-highlight img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+  /* Flex layout for text and image side-by-side */
+  .impact-feature {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin: 2rem 0 4rem 0;
+  }
+  
+  .impact-feature-text {
+    flex: 1;
+  }
+  
+  .impact-feature-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Styling images to match the soft-rounded portrait/landscape aesthetic */
+  .framed-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: var(--border-radius-sm, 8px);
+    border: 3px solid var(--gold-dark, #b8860b);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Professional grid for the donation amounts */
+  .donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .donation-grid .button {
+    width: 100%;
+    padding: 1.2rem 1rem;
+    font-size: 1.4rem;
+    margin: 0; /* overrides the global margin */
+  }
+
+  .impact-highlight {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 3rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--border-radius-lg, 16px);
+    border: 1px solid rgba(240,192,64,0.15);
+  }
+
+  .impact-highlight p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
+    color: rgba(255,255,255,0.9);
+  }
+
+  @media (max-width: 768px) {
+    .impact-feature {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
     }
-  </style>
+    .impact-highlight {
+      padding: 1.5rem;
+    }
+  }
+</style>
 </head>
+
 <body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
+
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Main navigation">
+
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
+        <span class="brand-title">Guardian <em>4</em> Heroes</span>
+        <span class="brand-line"></span>
+        <span class="brand-tagline">Equine Therapy</span>
+      </a>
     </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
-    <div class="nav-links">
+
+    <div class="nav-center">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
-      <a href="donate.html" aria-current="page">Donate</a>
       <a href="contact.html">Contact</a>
       <a href="shop.html">Shop</a>
     </div>
+
+    <div class="nav-right">
+      <a href="donate.html" class="nav-donate" aria-current="page">Donate</a>
+    </div>
   </nav>
-  <main>
-    <section class="section">
-      <h3>Why Your Donation Matters</h3>
-      <div class="impact-feature">
-        <div class="impact-feature-text">
-          <p>At Guardian 4 Heroes, your support enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, connection, and renewed purpose.</p>
-        </div>
-        <img src="images/Kissinghorse.jpg" alt="A tender moment sharing a kiss with a horse" loading="lazy">
-      </div>
-    </section>
-    <section class="section">
-      <h3>Select a Donation Amount</h3>
-      <div class="donation-buttons">
-        <a href="https://givebutter.com/z6eQeg?amount=5" class="button primary-button" target="_blank" rel="noopener">$5</a>
-        <a href="https://givebutter.com/z6eQeg?amount=10" class="button primary-button" target="_blank" rel="noopener">$10</a>
-        <a href="https://givebutter.com/z6eQeg?amount=20" class="button primary-button" target="_blank" rel="noopener">$20</a>
-        <a href="https://givebutter.com/z6eQeg?amount=25" class="button primary-button" target="_blank" rel="noopener">$25</a>
-        <a href="https://givebutter.com/z6eQeg?amount=50" class="button primary-button" target="_blank" rel="noopener">$50</a>
-        <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Custom</a>
-      </div>
-    </section>
-    <section class="section">
-      <h3>Thank You for Your Support</h3>
-      <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Thank you for supporting Guardian 4 Heroes.</p>
-      <div class="impact-highlight">
-        <img src="images/Grouppasturesunset.jpg" alt="Horses in a pasture at sunset" loading="lazy" width="400">
-        <p>Your support creates lasting impact for our community by making it possible for veterans and first responders to heal, grow, and rediscover purpose through our equine programs.</p>
-      </div>
-    </section>
-  </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      We don’t just offer a program, we offer a place where pain is understood, purpose is rediscovered, and healing begins.
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
+
+  <div class="nav-dropdown" id="nav-dropdown" role="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="contact.html">Contact</a>
+    <a href="shop.html">Shop</a>
+  </div>
+</header>
+
+<section class="subpage-hero" role="banner">
+  <div class="subpage-hero__bg">
+    <img src="images/backg.PNG" alt="Atmospheric background" loading="eager" />
+  </div>
+  <div class="subpage-hero__overlay"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Support Our <em>Mission</em></h1>
+    <span class="brand-line" style="width: 120px; height: 2px; margin: 0 auto 15px; background: #f0c040;"></span>
+    <p class="brand-tagline" style="font-size: 0.75rem; color: #f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Empower Veterans &amp; First Responders</p>
+  </div>
+</section>
+
+<main>
+  
+  <section class="impact-feature">
+    <div class="impact-feature-text highlight-card" style="margin-bottom: 0;">
+      <h3 style="margin-top: 0;">Why Your Donation Matters</h3>
+      <p>At Guardian 4 Heroes, your support directly enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, connection, and renewed purpose.</p>
+    </div>
+    <div class="impact-feature-image">
+      <img src="images/Kissinghorse.jpg" alt="A tender moment sharing a kiss with a horse" class="framed-image" loading="lazy">
+    </div>
   </section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  </script>
+
+  <section style="text-align: center; margin-top: 5rem;">
+    <h2>Select a Donation Amount</h2>
+    <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Choose a preset amount below or enter a custom donation. All transactions are securely processed through Givebutter.</p>
+    
+    <div class="donation-grid">
+      <a href="https://givebutter.com/z6eQeg?amount=5" class="button primary-button" target="_blank" rel="noopener">$5</a>
+      <a href="https://givebutter.com/z6eQeg?amount=10" class="button primary-button" target="_blank" rel="noopener">$10</a>
+      <a href="https://givebutter.com/z6eQeg?amount=20" class="button primary-button" target="_blank" rel="noopener">$20</a>
+      <a href="https://givebutter.com/z6eQeg?amount=25" class="button primary-button" target="_blank" rel="noopener">$25</a>
+      <a href="https://givebutter.com/z6eQeg?amount=50" class="button primary-button" target="_blank" rel="noopener">$50</a>
+      <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Custom</a>
+    </div>
+  </section>
+
+  <section class="impact-highlight">
+    <h3 style="margin-top: 0; font-size: 2rem; color: #fff;">Thank You for Your Support</h3>
+    <img src="images/Grouppasturesunset.jpg" alt="Horses in a pasture at sunset" class="framed-image" style="max-width: 700px; margin-top: 2rem;" loading="lazy">
+    <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Your support creates a lasting impact for our community.</p>
+  </section>
+
+</main>
+
+<section class="closing-image">
+  <blockquote class="inspiring-quote">
+    We don’t just offer a program, we offer a place where pain is understood, purpose is rediscovered, and healing begins.
+    <span class="inspiring-quote-accent"></span>
+  </blockquote>
+</section>
+
+<footer>
+  <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+  function toggleMenu(btn) {
+    const dropdown = document.getElementById('nav-dropdown');
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
+  }
+</script>
+
 </body>
 </html>

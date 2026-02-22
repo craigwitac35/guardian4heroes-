@@ -34,12 +34,25 @@
     .nav-bar {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       padding: 16px 20px;
       gap: 4px;
     }
 
-    .nav-bar a {
+    /* Left side — hamburger on mobile, empty spacer on desktop */
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Center — desktop links */
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-center a {
       font-family: 'Lato', sans-serif;
       font-size: 0.72rem;
       font-weight: 400;
@@ -53,23 +66,34 @@
       white-space: nowrap;
     }
 
-    .nav-bar a:hover,
-    .nav-bar a[aria-current="page"] {
+    .nav-center a:hover,
+    .nav-center a[aria-current="page"] {
       color: #fff;
       background: rgba(0, 0, 0, 0.25);
     }
 
-    .nav-bar a.nav-donate {
+    /* Right side — donate button always visible */
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-donate {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: #f0c040;
       border: 1px solid rgba(240, 192, 64, 0.5);
       border-radius: 4px;
-      font-weight: 700;
-      margin-left: 6px;
       padding: 7px 16px;
+      text-decoration: none;
+      white-space: nowrap;
       transition: background 0.2s, color 0.2s;
     }
 
-    .nav-bar a.nav-donate:hover {
+    .nav-donate:hover {
       background: #b8860b;
       color: #fff;
       border-color: #b8860b;
@@ -87,7 +111,7 @@
     }
 
     /* =============================================
-       HERO — full width, header lives inside it
+       HERO
     ============================================= */
     .home-hero {
       position: relative;
@@ -100,7 +124,6 @@
       background: #1a1008;
     }
 
-    /* Hero background image */
     .home-hero__bg {
       position: absolute;
       inset: 0;
@@ -115,21 +138,19 @@
       display: block;
     }
 
-    /* Dark gradient overlay — heavier at top for nav, heavier at bottom for CTA */
     .home-hero__overlay {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.65) 0%,
-          rgba(0, 0, 0, 0.35) 30%,
-          rgba(0, 0, 0, 0.45) 65%,
-          rgba(0, 0, 0, 0.70) 100%
-        );
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.30) 30%,
+        rgba(0,0,0,0.45) 65%,
+        rgba(0,0,0,0.72) 100%
+      );
       z-index: 1;
     }
 
-    /* Hero content block */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -143,7 +164,6 @@
       width: 100%;
     }
 
-    /* Site name */
     .hero-title {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(2.4rem, 8vw, 4rem);
@@ -153,12 +173,10 @@
       line-height: 1.1;
       text-align: center;
       margin-bottom: 12px;
-
-      /* Gold glow + gold drop shadow combo */
       text-shadow:
         0 0 40px rgba(184, 134, 11, 0.6),
         0 0 80px rgba(184, 134, 11, 0.25),
-        3px 3px 8px rgba(100, 60, 0, 0.7);
+        3px 3px 8px rgba(0, 0, 0, 0.8);
     }
 
     .hero-title em {
@@ -167,10 +185,9 @@
       text-shadow:
         0 0 30px rgba(240, 192, 64, 0.8),
         0 0 60px rgba(184, 134, 11, 0.4),
-        3px 3px 8px rgba(100, 60, 0, 0.7);
+        3px 3px 8px rgba(0, 0, 0, 0.8);
     }
 
-    /* Gold rule */
     .hero-rule {
       display: block;
       width: 160px;
@@ -179,32 +196,31 @@
       margin: 0 auto 12px;
     }
 
-    /* Tagline */
     .hero-tagline {
       font-family: 'Lato', sans-serif;
       font-size: 0.65rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(240, 192, 64, 0.8);
+      color: #f0c040;
       text-align: center;
       margin-bottom: 28px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8);
     }
 
-    /* Mission statement */
     .hero-mission {
       font-family: 'Lato', sans-serif;
       font-size: clamp(1.05rem, 3vw, 1.3rem);
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.92);
+      font-weight: 400;
+      color: #fff;
       text-align: center;
       line-height: 1.55;
       letter-spacing: 0.02em;
       margin-bottom: 36px;
       max-width: 480px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.8);
     }
 
-    /* Donate button */
     .hero-donate {
       display: inline-block;
       font-family: 'Lato', sans-serif;
@@ -228,27 +244,26 @@
     }
 
     /* =============================================
-       MOBILE NAV
+       MOBILE ≤ 680px
     ============================================= */
     @media (max-width: 680px) {
-      .nav-bar {
-        justify-content: flex-end;
-        padding: 14px 16px;
-      }
-
-      .nav-bar a:not(.nav-donate):not(.menu-toggle) {
+      /* Hide desktop center links */
+      .nav-center {
         display: none;
       }
 
+      /* Show hamburger on left */
       .menu-toggle {
         display: flex;
       }
 
-      /* Mobile dropdown — appended after nav-bar */
+      /* Mobile dropdown */
       .nav-dropdown {
         display: none;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.92);
+        background: rgba(10, 8, 4, 0.88);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
         padding: 8px 16px 16px;
         gap: 2px;
         border-bottom: 1px solid rgba(184, 134, 11, 0.2);
@@ -264,7 +279,7 @@
         font-weight: 400;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.75);
         text-decoration: none;
         padding: 12px 16px;
         border-radius: 6px;
@@ -275,57 +290,50 @@
         color: #fff;
         background: rgba(184, 134, 11, 0.15);
       }
-
-      .nav-dropdown a.nav-donate {
-        color: #f0c040;
-        border: 1px solid rgba(240, 192, 64, 0.4);
-        border-radius: 6px;
-        margin-top: 8px;
-        text-align: center;
-        font-weight: 700;
-      }
-
-      .nav-dropdown a.nav-donate:hover {
-        background: #b8860b;
-        color: #fff;
-      }
     }
 
     @media (max-width: 400px) {
-      .hero-title {
-        font-size: 2.1rem;
-      }
+      .hero-title { font-size: 2.1rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- =============================================
-       HEADER — transparent, floats over hero
-  ============================================= -->
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="contact.html">Contact</a>
-      <a href="shop.html">Shop</a>
-      <a href="donate.html" class="nav-donate">Donate</a>
 
-      <button
-        class="menu-toggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="nav-dropdown"
-        onclick="toggleMenu(this)"
-      >
-        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
+      <!-- Left: hamburger (mobile only) -->
+      <div class="nav-left">
+        <button
+          class="menu-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-dropdown"
+          onclick="toggleMenu(this)"
+        >
+          <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Center: desktop links only -->
+      <div class="nav-center">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop</a>
+      </div>
+
+      <!-- Right: donate always visible -->
+      <div class="nav-right">
+        <a href="donate.html" class="nav-donate">Donate</a>
+      </div>
+
     </nav>
 
     <!-- Mobile dropdown -->
@@ -335,7 +343,6 @@
       <a href="programs.html">Programs</a>
       <a href="contact.html">Contact</a>
       <a href="shop.html">Shop</a>
-      <a href="donate.html" class="nav-donate">Donate</a>
     </div>
   </header>
 

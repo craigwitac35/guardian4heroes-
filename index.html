@@ -39,45 +39,53 @@
       justify-content: space-between;
       padding: 16px 20px;
       gap: 4px;
+      position: relative;
     }
 
     /* Left side — hamburger on mobile, empty spacer on desktop */
     .nav-left {
       display: flex;
       align-items: center;
+      min-width: 80px;
     }
 
-    /* Center — desktop links */
+    /* Center — desktop links, truly centered */
     .nav-center {
       display: flex;
       align-items: center;
       gap: 2px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .nav-center a {
       font-family: 'Lato', sans-serif;
       font-size: 0.72rem;
-      font-weight: 400;
+      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.92);
       text-decoration: none;
       padding: 8px 12px;
       border-radius: 4px;
       transition: color 0.2s, background 0.2s;
       white-space: nowrap;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
     }
 
     .nav-center a:hover,
     .nav-center a[aria-current="page"] {
       color: #fff;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.35);
     }
 
     /* Right side — donate button always visible */
     .nav-right {
       display: flex;
       align-items: center;
+      min-width: 80px;
+      justify-content: flex-end;
     }
 
     .nav-donate {
@@ -124,6 +132,7 @@
       justify-content: center;
       overflow: hidden;
       background: #1a1008;
+      width: 100%;
     }
 
     .home-hero__bg {
@@ -160,10 +169,11 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 100px 24px 60px;
+      padding: 100px 32px 60px;
       gap: 0;
       max-width: 700px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     .hero-title {

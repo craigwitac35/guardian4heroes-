@@ -20,10 +20,111 @@
 
 <style>
   /* =============================================
+     PAGE-SPECIFIC OVERRIDES & FIXES
+  ============================================= */
+  body {
+    background-image: none !important;
+    background-color: #1a1008 !important; 
+    color: #f5f5f5;
+  }
+  body::before { display: none !important; }
+
+  main {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 1000px !important;
+    padding: 2rem 20px !important;
+  }
+
+  /* =============================================
+     MOBILE CLIPPING FIX
+  ============================================= */
+  @media (max-width: 480px) {
+    .brand-tagline {
+      display: none !important;
+    }
+  }
+
+  /* =============================================
+     SUBPAGE HERO
+  ============================================= */
+  .subpage-hero {
+    position: relative !important;
+    min-height: 50svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background: #1a1008 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .subpage-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .subpage-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .subpage-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.65) 0%,
+      rgba(26,16,8,0.4) 50%,
+      rgba(26,16,8,1) 100%
+    );
+  }
+
+  .subpage-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 20px 40px;
+  }
+
+  .subpage-hero .hero-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-bottom: 12px !important;
+    text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9) !important;
+  }
+
+  /* =============================================
      DONATE PAGE SPECIFIC STYLES
      ============================================= */
   
-  /* Flex layout for text and image side-by-side */
+  .highlight-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #f0c040;
+    padding: 2rem;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .highlight-card h3 {
+    color: #f0c040;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
   .impact-feature {
     display: flex;
     align-items: center;
@@ -31,28 +132,20 @@
     margin: 2rem 0 4rem 0;
   }
   
-  .impact-feature-text {
-    flex: 1;
-  }
+  .impact-feature-text { flex: 1; }
+  .impact-feature-image { flex: 1; text-align: center; }
   
-  .impact-feature-image {
-    flex: 1;
-    text-align: center;
-  }
-  
-  /* Styling images to match the soft-rounded portrait/landscape aesthetic */
   .framed-image {
     width: 100%;
     max-width: 500px;
     height: auto;
-    border-radius: var(--border-radius-sm, 8px);
-    border: 3px solid var(--gold-dark, #b8860b);
+    border-radius: 8px;
+    border: 3px solid #b8860b;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     display: block;
     margin: 0 auto;
   }
 
-  /* Professional grid for the donation amounts */
   .donation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -65,7 +158,7 @@
     width: 100%;
     padding: 1.2rem 1rem;
     font-size: 1.4rem;
-    margin: 0; /* overrides the global margin */
+    margin: 0; 
   }
 
   .impact-highlight {
@@ -73,7 +166,7 @@
     margin-top: 3rem;
     padding: 3rem;
     background: rgba(0,0,0,0.2);
-    border-radius: var(--border-radius-lg, 16px);
+    border-radius: 16px;
     border: 1px solid rgba(240,192,64,0.15);
   }
 
@@ -90,9 +183,7 @@
       text-align: center;
       gap: 2rem;
     }
-    .impact-highlight {
-      padding: 1.5rem;
-    }
+    .impact-highlight { padding: 1.5rem; }
   }
 </style>
 </head>
@@ -114,7 +205,7 @@
       <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
         <span class="brand-title">Guardian <em>4</em> Heroes</span>
         <span class="brand-line"></span>
-        <span class="brand-tagline">Equine Therapy</span>
+        <span class="brand-tagline">The Power of the Connection with a Horse</span>
       </a>
     </div>
 
@@ -148,8 +239,8 @@
 
   <div class="hero-content">
     <h1 class="hero-title">Support Our <em>Mission</em></h1>
-    <span class="brand-line" style="width: 120px; height: 2px; margin: 0 auto 15px; background: #f0c040;"></span>
-    <p class="brand-tagline" style="font-size: 0.75rem; color: #f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Empower Veterans &amp; First Responders</p>
+    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
+    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Empower Veterans &amp; First Responders</p>
   </div>
 </section>
 
@@ -158,7 +249,7 @@
   <section class="impact-feature">
     <div class="impact-feature-text highlight-card" style="margin-bottom: 0;">
       <h3 style="margin-top: 0;">Why Your Donation Matters</h3>
-      <p>At Guardian 4 Heroes, your support directly enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, connection, and renewed purpose.</p>
+      <p style="font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.9);">At Guardian 4 Heroes, your support directly enables us to provide equine-facilitated therapy to veterans and first responders in need. With your help, we can continue to offer safe, meaningful experiences that foster healing, connection, and renewed purpose.</p>
     </div>
     <div class="impact-feature-image">
       <img src="images/Kissinghorse.jpg" alt="A tender moment sharing a kiss with a horse" class="framed-image" loading="lazy">
@@ -166,8 +257,8 @@
   </section>
 
   <section style="text-align: center; margin-top: 5rem;">
-    <h2>Select a Donation Amount</h2>
-    <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Choose a preset amount below or enter a custom donation. All transactions are securely processed through Givebutter.</p>
+    <h2 style="color: #f0c040; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">Select a Donation Amount</h2>
+    <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Choose a preset amount below or enter a custom donation. All transactions are securely processed through Givebutter.</p>
     
     <div class="donation-grid">
       <a href="https://givebutter.com/z6eQeg?amount=5" class="button primary-button" target="_blank" rel="noopener">$5</a>
@@ -180,21 +271,21 @@
   </section>
 
   <section class="impact-highlight">
-    <h3 style="margin-top: 0; font-size: 2rem; color: #fff;">Thank You for Your Support</h3>
+    <h3 style="margin-top: 0; font-size: 2rem; color: #fff; font-family: 'Playfair Display', serif;">Thank You for Your Support</h3>
     <img src="images/Grouppasturesunset.jpg" alt="Horses in a pasture at sunset" class="framed-image" style="max-width: 700px; margin-top: 2rem;" loading="lazy">
     <p>Every donation, big or small, makes a difference in the lives of veterans and first responders. Your generosity helps us continue our mission of healing through equine therapy. Your support creates a lasting impact for our community.</p>
   </section>
 
 </main>
 
-<section class="closing-image">
+<section class="closing-image" style="margin-top: 4rem;">
   <blockquote class="inspiring-quote">
     We don’t just offer a program, we offer a place where pain is understood, purpose is rediscovered, and healing begins.
     <span class="inspiring-quote-accent"></span>
   </blockquote>
 </section>
 
-<footer>
+<footer style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
   <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
 </footer>
 

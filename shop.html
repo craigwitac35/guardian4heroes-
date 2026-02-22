@@ -164,13 +164,11 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
-/* BIGGER PRODUCT IMAGES FIX */
+/* BIGGER PRODUCT IMAGES - NATURAL SIZE FIX */
 .product-card img {
   width: 100%;
-  height: auto !important;
-  aspect-ratio: 1 / 1; /* Forces a perfect, large square */
-  object-fit: cover;
-  object-position: center; 
+  height: auto !important; /* Let it display its exact, natural dimensions */
+  /* No aspect-ratio, no object-fit, zero cropping! */
   display: block;
   border-bottom: 2px solid #f0c040;
 }
@@ -179,7 +177,7 @@ main {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1; /* This ensures the card text area fills the space so buttons align */
 }
 
 .product-name {
@@ -939,4 +937,4 @@ main {
   });
 </script>
 </body>
-           </html>
+   </html>

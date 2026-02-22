@@ -164,13 +164,16 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
-/* BIGGER PRODUCT IMAGES - NATURAL SIZE FIX */
+/* PERFECTLY CENTERED, UNIFORM IMAGES (NO CROPPING) */
 .product-card img {
   width: 100%;
-  height: auto !important; /* Let it display its exact, natural dimensions */
-  /* No aspect-ratio, no object-fit, zero cropping! */
+  height: 280px !important; /* Fixed height so the grid lines up beautifully */
+  object-fit: contain !important; /* Forces the ENTIRE image to fit inside the box without clipping */
+  object-position: center !important; /* Perfectly centers it both vertically and horizontally */
+  background-color: rgba(0, 0, 0, 0.2); /* Soft dark background behind the image to fill empty space elegantly */
   display: block;
   border-bottom: 2px solid #f0c040;
+  padding: 1rem; /* Gives the product some breathing room inside the box */
 }
 
 .product-info {
@@ -491,8 +494,7 @@ main {
     <img src="images/Shop-hero-image.png" alt="Come In We're Open sign with yarn" loading="eager" />
   </div>
   <div class="subpage-hero__overlay"></div>
-  
-  </section>
+</section>
 
 <main>
 
@@ -937,4 +939,4 @@ main {
   });
 </script>
 </body>
-   </html>
+</html>

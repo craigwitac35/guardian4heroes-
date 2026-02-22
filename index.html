@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 
@@ -20,80 +20,64 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     /* =============================================
-       SITE HEADER
+       TRANSPARENT NAV — floats over hero
     ============================================= */
     .site-header {
-      background: #0e0e0e;
-      width: 100%;
-      position: sticky;
+      position: absolute;
       top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: transparent;
     }
 
-    /* ---- Brand block (top section) ---- */
-    .header-brand-bar {
+    .nav-bar {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 22px 64px 16px;
-      position: relative;
-      gap: 0;
+      justify-content: flex-end;
+      padding: 16px 20px;
+      gap: 4px;
     }
 
-    /* Emblem */
-    .header-logo {
-      width: 86px;
-      height: 86px;
-      object-fit: contain;
-      display: block;
-      margin-bottom: 10px;
-      /* Removes white background on dark surface */
-      mix-blend-mode: screen;
-    }
-
-    /* Site name */
-    .header-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.7rem, 5vw, 2.4rem);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.06em;
-      text-align: center;
-      line-height: 1.1;
-    }
-
-    .header-name em {
-      font-style: normal;
-      color: #c9960c;
-    }
-
-    /* Gold underline rule */
-    .header-rule {
-      display: block;
-      width: 160px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, #b8860b 30%, #d4a017 50%, #b8860b 70%, transparent 100%);
-      margin: 10px auto 8px;
-    }
-
-    /* Tagline */
-    .header-tagline {
+    .nav-bar a {
       font-family: 'Lato', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(184, 134, 11, 0.65);
-      text-align: center;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
     }
 
-    /* Mobile hamburger - absolute top-right of brand bar */
+    .nav-bar a:hover,
+    .nav-bar a[aria-current="page"] {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-bar a.nav-donate {
+      color: #f0c040;
+      border: 1px solid rgba(240, 192, 64, 0.5);
+      border-radius: 4px;
+      font-weight: 700;
+      margin-left: 6px;
+      padding: 7px 16px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-bar a.nav-donate:hover {
+      background: #b8860b;
+      color: #fff;
+      border-color: #b8860b;
+    }
+
+    /* Mobile toggle */
     .menu-toggle {
       display: none;
-      position: absolute;
-      top: 20px;
-      right: 16px;
       background: none;
       border: none;
       cursor: pointer;
@@ -102,121 +86,214 @@
       justify-content: center;
     }
 
-    /* ---- Nav row (bottom section) ---- */
-    .header-nav-bar {
-      border-top: 1px solid rgba(184, 134, 11, 0.15);
-    }
-
-    .header-nav {
+    /* =============================================
+       HERO — full width, header lives inside it
+    ============================================= */
+    .home-hero {
+      position: relative;
+      min-height: 100svh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0;
-      padding: 0 24px;
-      flex-wrap: wrap;
+      overflow: hidden;
+      background: #1a1008;
     }
 
-    .header-nav a {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.55);
-      text-decoration: none;
-      padding: 13px 16px;
-      transition: color 0.2s, background 0.2s;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .header-nav a::after {
-      content: '';
+    /* Hero background image */
+    .home-hero__bg {
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: #b8860b;
-      transition: width 0.2s;
+      inset: 0;
+      z-index: 0;
     }
 
-    .header-nav a:hover,
-    .header-nav a[aria-current="page"] {
-      color: #fff;
+    .home-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
-    .header-nav a:hover::after,
-    .header-nav a[aria-current="page"]::after {
-      width: 60%;
+    /* Dark gradient overlay — heavier at top for nav, heavier at bottom for CTA */
+    .home-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.65) 0%,
+          rgba(0, 0, 0, 0.35) 30%,
+          rgba(0, 0, 0, 0.45) 65%,
+          rgba(0, 0, 0, 0.70) 100%
+        );
+      z-index: 1;
     }
 
-    /* Donate stands out */
-    .header-nav a.nav-donate {
-      color: #b8860b;
+    /* Hero content block */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      gap: 0;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    /* Site name */
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 8vw, 4rem);
       font-weight: 700;
-      border: 1px solid rgba(184, 134, 11, 0.45);
-      border-radius: 4px;
-      margin: 8px 0 8px 12px;
-      padding: 7px 20px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .header-nav a.nav-donate::after {
-      display: none;
-    }
-
-    .header-nav a.nav-donate:hover {
-      background: #b8860b;
       color: #fff;
-      border-color: #b8860b;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 12px;
+
+      /* Gold glow + gold drop shadow combo */
+      text-shadow:
+        0 0 40px rgba(184, 134, 11, 0.6),
+        0 0 80px rgba(184, 134, 11, 0.25),
+        3px 3px 8px rgba(100, 60, 0, 0.7);
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: #f0c040;
+      text-shadow:
+        0 0 30px rgba(240, 192, 64, 0.8),
+        0 0 60px rgba(184, 134, 11, 0.4),
+        3px 3px 8px rgba(100, 60, 0, 0.7);
+    }
+
+    /* Gold rule */
+    .hero-rule {
+      display: block;
+      width: 160px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b8860b, #f0c040, #b8860b, transparent);
+      margin: 0 auto 12px;
+    }
+
+    /* Tagline */
+    .hero-tagline {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(240, 192, 64, 0.8);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    /* Mission statement */
+    .hero-mission {
+      font-family: 'Lato', sans-serif;
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.92);
+      text-align: center;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    /* Donate button */
+    .hero-donate {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #b8860b;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(184, 134, 11, 0.4);
+    }
+
+    .hero-donate:hover {
+      background: #d4a017;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(184, 134, 11, 0.55);
     }
 
     /* =============================================
-       MOBILE ≤ 680px
+       MOBILE NAV
     ============================================= */
     @media (max-width: 680px) {
-      .header-brand-bar {
-        padding: 18px 56px 14px 24px;
+      .nav-bar {
+        justify-content: flex-end;
+        padding: 14px 16px;
       }
 
-      .header-logo {
-        width: 68px;
-        height: 68px;
-        margin-bottom: 8px;
+      .nav-bar a:not(.nav-donate):not(.menu-toggle) {
+        display: none;
       }
 
       .menu-toggle {
         display: flex;
       }
 
-      .header-nav {
+      /* Mobile dropdown — appended after nav-bar */
+      .nav-dropdown {
         display: none;
         flex-direction: column;
-        align-items: stretch;
+        background: rgba(0, 0, 0, 0.92);
         padding: 8px 16px 16px;
         gap: 2px;
+        border-bottom: 1px solid rgba(184, 134, 11, 0.2);
       }
 
-      .header-nav.open {
+      .nav-dropdown.open {
         display: flex;
       }
 
-      .header-nav a {
+      .nav-dropdown a {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
         padding: 12px 16px;
-        font-size: 0.88rem;
         border-radius: 6px;
+        transition: color 0.2s, background 0.2s;
       }
 
-      .header-nav a::after {
-        display: none;
+      .nav-dropdown a:hover {
+        color: #fff;
+        background: rgba(184, 134, 11, 0.15);
       }
 
-      .header-nav a.nav-donate {
-        margin: 8px 0 0;
+      .nav-dropdown a.nav-donate {
+        color: #f0c040;
+        border: 1px solid rgba(240, 192, 64, 0.4);
+        border-radius: 6px;
+        margin-top: 8px;
         text-align: center;
-        padding: 12px 16px;
+        font-weight: 700;
+      }
+
+      .nav-dropdown a.nav-donate:hover {
+        background: #b8860b;
+        color: #fff;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 2.1rem;
       }
     }
   </style>
@@ -225,76 +302,84 @@
 <body>
 
   <!-- =============================================
-       HEADER
-       To use on other pages:
-       - Copy everything between these comments
-       - Change aria-current="page" to the correct link
+       HEADER — transparent, floats over hero
   ============================================= -->
   <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html">Shop</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
 
-    <!-- Brand block -->
-    <div class="header-brand-bar">
-
-      <img
-        src="images/Emblem-logo.png"
-        alt="Guardian 4 Heroes emblem"
-        class="header-logo"
-        width="86"
-        height="86"
-      />
-
-      <h1 class="header-name">Guardian <em>4</em> Heroes</h1>
-
-      <span class="header-rule" aria-hidden="true"></span>
-
-      <span class="header-tagline">The Power of the Connection with a Horse</span>
-
-      <!-- Mobile hamburger -->
       <button
         class="menu-toggle"
         aria-label="Open navigation menu"
         aria-expanded="false"
-        aria-controls="main-nav"
+        aria-controls="nav-dropdown"
         onclick="toggleMenu(this)"
       >
         <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line x1="0" y1="1" x2="24" y2="1" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="9" x2="24" y2="9" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="17" x2="24" y2="17" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
+    </nav>
 
+    <!-- Mobile dropdown -->
+    <div class="nav-dropdown" id="nav-dropdown" role="menu">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html">Shop</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
     </div>
-
-    <!-- Nav row -->
-    <div class="header-nav-bar">
-      <nav class="header-nav" id="main-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="contact.html">Contact</a>
-        <a href="shop.html">Shop</a>
-        <a href="donate.html" class="nav-donate">Donate</a>
-      </nav>
-    </div>
-
   </header>
-  <!-- END HEADER -->
 
-
-  <!-- =============================================
-       EXISTING PAGE CONTENT — UNCHANGED
-  ============================================= -->
   <main>
+
+    <!-- =============================================
+         HERO — full page, title lives here
+    ============================================= -->
     <section class="home-hero" role="banner">
+
+      <!-- Background image — swap src to their landscape hero image -->
+      <div class="home-hero__bg">
+        <img
+          src="images/FB_IMG_1749752975080.jpg"
+          alt="Guardian 4 Heroes facility"
+          loading="eager"
+        />
+      </div>
+      <div class="home-hero__overlay"></div>
+
+      <!-- Centered content -->
       <div class="hero-content">
-        <p class="subtitle">Equine Therapy for Veterans & First Responders</p>
-        <div class="donate-button">
-          <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
-        </div>
+
+        <h1 class="hero-title">Guardian <em>4</em> Heroes</h1>
+
+        <span class="hero-rule" aria-hidden="true"></span>
+
+        <p class="hero-tagline">The Power of the Connection with a Horse</p>
+
+        <p class="hero-mission">Equine Therapy for Veterans &amp; First Responders</p>
+
+        <a
+          href="https://givebutter.com/z6eQeg"
+          class="hero-donate"
+          target="_blank"
+          rel="noopener"
+        >Donate Now</a>
+
       </div>
     </section>
 
+    <!-- =============================================
+         EXISTING PAGE CONTENT — UNCHANGED
+    ============================================= -->
     <section class="section">
       <h3>Welcome</h3>
       <p>Welcome to Guardian 4 Heroes, where healing and growth meet the power of the horse. Our nonprofit is dedicated to equine-facilitated psychotherapy and assisted training, offering a compassionate, supportive environment for veterans and first responders on their journey to wellness.</p>
@@ -308,6 +393,7 @@
       <h3>Empowering Journeys Begin</h3>
       <p>Discover the transformative power of EFPT at Guardian 4 Heroes. Our programs harness the power of horses to support mental health and physical well-being. Join us on a journey of healing and hope.</p>
     </section>
+
   </main>
 
   <section class="closing-image">
@@ -322,25 +408,23 @@
   </footer>
 
   <script>
-    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="0" y1="1" x2="24" y2="1" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="1" y1="1" x2="17" y2="17" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#b8860b" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
 
     function toggleMenu(btn) {
-      const nav = document.getElementById('main-nav');
-      const isOpen = nav.classList.toggle('open');
+      const dropdown = document.getElementById('nav-dropdown');
+      const isOpen = dropdown.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen);
       btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
     }
 
-    document.querySelectorAll('.header-nav a').forEach(link => {
+    document.querySelectorAll('.nav-dropdown a').forEach(link => {
       link.addEventListener('click', () => {
-        const nav = document.getElementById('main-nav');
+        const dropdown = document.getElementById('nav-dropdown');
         const btn = document.querySelector('.menu-toggle');
-        if (nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.innerHTML = SVG_OPEN;
-        }
+        dropdown.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = SVG_OPEN;
       });
     });
   </script>

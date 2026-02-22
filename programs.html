@@ -1,157 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy, sound therapy, yoga, and wellness programs for veterans, first responders, and the community.">
-  <meta name="keywords" content="equine therapy, sound therapy, biotune, yoga, veterans, first responders, mental health, nonprofit, Sauk Centre, MN">
-  <title>Guardian 4 Heroes | Our Programs</title>
-  
-  <meta property="og:title" content="Guardian 4 Heroes | Our Programs">
-  <meta property="og:description" content="Guardian 4 Heroes offers equine therapy, sound therapy, yoga, and wellness programs for veterans, first responders, and the community.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guardian 4 Heroes offers equine therapy, sound therapy, yoga, and wellness programs for veterans, first responders, and the community.">
+<meta name="keywords" content="equine therapy, sound therapy, biotune, yoga, veterans, first responders, mental health, nonprofit, Sauk Centre, MN">
+<title>Guardian 4 Heroes | Our Programs</title>
+
+<meta property="og:title" content="Guardian 4 Heroes | Our Programs">
+<meta property="og:description" content="Guardian 4 Heroes offers equine therapy, sound therapy, yoga, and wellness programs for veterans, first responders, and the community.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =============================================
+   PAGE-SPECIFIC OVERRIDES & FIXES
+============================================= */
+body {
+  background-image: none !important;
+  background-color: #1a1008 !important; 
+  color: #f5f5f5;
+}
+body::before { display: none !important; }
+
+main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 1000px !important;
+  padding: 2rem 20px !important;
+}
+
+/* =============================================
+   MOBILE CLIPPING FIX
+============================================= */
+@media (max-width: 480px) {
+  .brand-tagline {
+    display: none !important;
+  }
+}
+
+/* =============================================
+   SUBPAGE HERO
+============================================= */
+.subpage-hero {
+  position: relative !important;
+  min-height: 50svh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #1a1008 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.subpage-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.subpage-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.subpage-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65) 0%,
+    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,1) 100%
+  );
+}
+
+.subpage-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.subpage-hero .hero-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 12px !important;
+  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9) !important;
+}
+
+/* =============================================
+   PROGRAM PAGE LAYOUTS
+============================================= */
+.highlight-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid #f0c040;
+  padding: 2rem;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.highlight-card h3 {
+  color: #f0c040;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+/* Custom layout for core therapies (Alternating side-by-side) */
+.program-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 3rem 0;
+  background: rgba(0,0,0,0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(240,192,64,0.15);
+}
+
+.program-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.program-img {
+  width: 100%;
+  max-width: 400px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px !important; /* Soft rectangle, NO circles */
+  border: 4px solid #b8860b;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.program-info h4 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.program-info .program-meta {
+  color: #f0c040;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.program-info ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.program-info ul li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .program-row, .program-row:nth-child(even) {
+    flex-direction: column;
+    text-align: left;
+  }
+  .program-img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* 3-Column Grid for Wellness Classes */
+.wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.wellness-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240,192,64,0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wellness-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  border-color: rgba(240,192,64,0.4);
+}
+
+.wellness-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px !important; /* Soft rectangle, NO circles */
+  object-fit: cover;
+  border: 3px solid #f0c040;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+}
+
+.wellness-card h4 {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.wellness-card .wellness-meta {
+  color: #f0c040;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+</style>
 </head>
 <body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
+
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Main navigation">
+
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
+        <span class="brand-title">Guardian <em>4</em> Heroes</span>
+        <span class="brand-line"></span>
+        <span class="brand-tagline">The Power of the Connection with a Horse</span>
+      </a>
     </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
-    <div class="nav-links">
+
+    <div class="nav-center">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html" aria-current="page">Programs</a>
-      <a href="donate.html">Donate</a>
       <a href="contact.html">Contact</a>
       <a href="shop.html">Shop</a>
     </div>
+
+    <div class="nav-right">
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </div>
   </nav>
-  <main>
-    <section class="section">
-      <h3>Healing through Connection, Balance, and Purpose</h3>
-      <p>At Guardian 4 Heroes, we believe healing begins with connection: to self, to others, and to the world around us. Our Equine Facilitated Psychotherapy, Sound Therapy, and wellness programs are designed to support anyone seeking emotional, mental, or physical well-being. This includes those navigating trauma, anxiety, depression, or new to sobriety.</p>
-      <p>Our compassionate facilitators guide you through safe, hands-on experiences that allow healing to unfold naturally. Our sliding-scale pricing ensures accessibility for all, because healing should never depend on your current financial situation.</p>
-    </section>
 
-    <section class="section">
-      <h3>Our Core Therapy Programs</h3>
-      <p>We offer services for Veterans, First Responders, Athletes, and our entire community. We are now accepting new clients for all programs. Our core sessions are offered on a sliding scale to ensure access to care.</p>
+  <div class="nav-dropdown" id="nav-dropdown" role="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html" aria-current="page">Programs</a>
+    <a href="donate.html">Donate</a>
+    <a href="contact.html">Contact</a>
+    <a href="shop.html">Shop</a>
+  </div>
+</header>
 
-      <div class="profile-feature">
-        <h4>Equine-Facilitated Psychotherapy & Learning (EFPT)</h4>
-        <div class="profile-image">
-          <img src="images/Grouppastureaction.jpg" alt="A group of horses in a pasture for equine therapy" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <p><strong>(Individuals, or couples/family sessions) - Sara has 3 certifications</strong></p>
-          <p>Work hands-on with our horses in a safe, therapeutic setting. EFPT is designed for those navigating mental health challenges or who are new to sobriety and looking to reconnect. No prior horse experience is needed.</p>
-          <p>In this program, you will:</p>
-          <ul>
-            <li>Build confidence, trust, and self-awareness</li>
-            <li>Practice healthy boundaries and communication skills</li>
-            <li>Develop emotional regulation and find a sense of peace</li>
-          </ul>
-          <p><strong>Session Length:</strong> 45 minutes<br>
-             <strong>Rates:</strong> $80.00 per session (Sliding scale available)</p>
-        </div>
-      </div>
+<section class="subpage-hero" role="banner">
+  <div class="subpage-hero__bg">
+    <img src="images/backg.PNG" alt="Atmospheric background" loading="eager" />
+  </div>
+  <div class="subpage-hero__overlay"></div>
 
-      <div class="profile-feature">
-        <h4>Sound Therapy with BioTune</h4>
-        <div class="profile-image">
-          <img src="images/SoundTherapy.jpg" alt="BioTune sound therapy session in progress" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <p><strong>(Individual or group sessions) - Sara is certified</strong></p>
-          <p>Experience the transformative power of sound. BioTune technology blends vibration, frequency, and rhythm to help you find calm, reconnection, and healing.</p>
-          <p>These sessions are personalized to support your unique needs:</p>
-          <ul>
-            <li>Release tension and balance your body's energy</li>
-            <li>Promote deep relaxation and calm the nervous system</li>
-            <li>Support healing from PTSD, depression, and anxiety</li>
-          </ul>
-          <p><strong>Session Length:</strong> 40-60 minutes<br>
-             <strong>Rates:</strong> $40-$60 per session (Sliding scale available)</p>
-        </div>
-      </div>
-    </section>
+  <div class="hero-content">
+    <h1 class="hero-title">Our <em>Programs</em></h1>
+    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
+    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Healing through Connection, Balance, and Purpose</p>
+  </div>
+</section>
 
-    <section class="section">
-      <h3>Community Wellness at The Barnyard</h3>
-      <p>In addition to our core therapy programs, we offer these weekly sessions (paid for by Guardian 4 Heroes) to promote holistic well-being for our community.</p>
-
-      <div class="profile-feature">
-        <h4>Yoga for Healing</h4>
-        <div class="profile-image">
-          <img src="images/Yoga.jpg" alt="Yoga for Healing session at The Barnyard" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <p><strong>with Heather Zollman (Paid by G4H)</strong><br>
-          (Weekly sessions) - Gentle and restorative yoga sessions designed to reconnect body and mind, enhance flexibility, and cultivate mindfulness.</p>
-        </div>
-      </div>
-
-      <div class="profile-feature">
-        <h4>Meditation, Mindfulness & Intentional Breathing</h4>
-        <div class="profile-image">
-          <img src="images/Meditation.jpg" alt="A peaceful scene representing meditation and mindfulness" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <p><strong>Sara facilitates</strong><br>
-          (Weekly sessions) - Guided moments of stillness and focused breathwork to calm the mind, reduce anxiety, support grounding, and encourage inner peace.</p>
-        </div>
-      </div>
-      
-      <div class="profile-feature">
-        <h4>Workout & Stretching Sessions</h4>
-        <div class="profile-image">
-          <img src="images/Workout.jpg" alt="A scene representing wellness and stretching sessions" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <p><strong>with Melissa Jensen (Paid by G4H)</strong><br>
-          (Weekly sessions) - Movement-based sessions to strengthen the body, relieve stress, and promote overall wellness and resilience.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section class="section">
-      <h3>Why Horses?</h3>
-      <p>Horses are incredibly responsive to human emotion. Their ability to mirror our non-verbal cues creates opportunities for self-discovery and therapeutic growth. They offer honest, immediate feedback and provide a unique path to healing and self-understanding.</p>
-    </section>
-
-    <section class="section">
-        <h3>Schedule Your Session</h3>
-        <p>Are you ready to take a new step in your healing journey? Let the healing begin: one breath, one vibration, one step alongside a horse at a time.</p>
-        <p>Sessions can be scheduled by messaging us on social media, using our website contact form, or by email.</p>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
-        </div>
-        <div class="cta-button">
-            <a href="contact.html" class="cta-link"><button>Contact Us to Get Started</button></a>
-        </div>
-        <div class="donate-button">
-            <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Support Our Mission</a>
-        </div>
-    </section>
-  </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      Sometimes the greatest battles are healed not with words, but in silence, between a soldier and the soul of a horse.
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
+<main>
+  
+  <section class="highlight-card">
+    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">At Guardian 4 Heroes, we believe healing begins with connection: to self, to others, and to the world around us. Our Equine Facilitated Psychotherapy, Sound Therapy, and wellness programs are designed to support anyone seeking emotional, mental, or physical well-being. This includes those navigating trauma, anxiety, depression, or new to sobriety.</p>
+    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 0;">Our compassionate facilitators guide you through safe, hands-on experiences that allow healing to unfold naturally. Our sliding-scale pricing ensures accessibility for all, because healing should never depend on your current financial situation.</p>
   </section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  </script>
+
+  <section>
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h3 style="font-family:'Oswald', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem;">Our Core Therapy Programs</h3>
+      <p style="color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto;">We offer services for Veterans, First Responders, Athletes, and our entire community. We are now accepting new clients for all programs. Our core sessions are offered on a sliding scale to ensure access to care.</p>
+    </div>
+
+    <div class="program-row">
+      <img src="images/Grouppastureaction.jpg" alt="A group of horses in a pasture for equine therapy" class="program-img" loading="lazy">
+      <div class="program-info">
+        <h4>Equine-Facilitated Psychotherapy &amp; Learning (EFPT)</h4>
+        <span class="program-meta">Individuals, Couples, or Family Sessions • Sara is 3x Certified</span>
+        <p>Work hands-on with our horses in a safe, therapeutic setting. EFPT is designed for those navigating mental health challenges or who are new to sobriety and looking to reconnect. No prior horse experience is needed.</p>
+        <p style="margin-bottom: 0.5rem;">In this program, you will:</p>
+        <ul>
+          <li>Build confidence, trust, and self-awareness</li>
+          <li>Practice healthy boundaries and communication skills</li>
+          <li>Develop emotional regulation and find a sense of peace</li>
+        </ul>
+        <p style="margin-top: 1rem; color: #f0c040; font-weight: bold;">
+          Session Length: 45 minutes &nbsp;|&nbsp; Rates: $80.00 (Sliding scale available)
+        </p>
+      </div>
+    </div>
+
+    <div class="program-row">
+      <img src="images/SoundTherapy.jpg" alt="BioTune sound therapy session in progress" class="program-img" loading="lazy">
+      <div class="program-info">
+        <h4>Sound Therapy with BioTune</h4>
+        <span class="program-meta">Individual or Group Sessions • Sara is Certified</span>
+        <p>Experience the transformative power of sound. BioTune technology blends vibration, frequency, and rhythm to help you find calm, reconnection, and healing.</p>
+        <p style="margin-bottom: 0.5rem;">These sessions are personalized to support your unique needs:</p>
+        <ul>
+          <li>Release tension and balance your body's energy</li>
+          <li>Promote deep relaxation and calm the nervous system</li>
+          <li>Support healing from PTSD, depression, and anxiety</li>
+        </ul>
+        <p style="margin-top: 1rem; color: #f0c040; font-weight: bold;">
+          Session Length: 40-60 minutes &nbsp;|&nbsp; Rates: $40-$60 (Sliding scale available)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 5rem;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h3 style="font-family:'Oswald', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem;">Community Wellness at The Barnyard</h3>
+      <p style="color: #f0c040; font-family:'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Weekly sessions paid for by Guardian 4 Heroes</p>
+    </div>
+
+    <div class="wellness-grid">
+      <div class="wellness-card">
+        <img src="images/Yoga.jpg" alt="Yoga for Healing session at The Barnyard" loading="lazy">
+        <h4>Yoga for Healing</h4>
+        <span class="wellness-meta">with Heather Zollman</span>
+        <p>Gentle and restorative weekly yoga sessions designed to reconnect body and mind, enhance flexibility, and cultivate mindfulness.</p>
+      </div>
+
+      <div class="wellness-card">
+        <img src="images/Meditation.jpg" alt="A peaceful scene representing meditation and mindfulness" loading="lazy">
+        <h4>Meditation &amp; Mindfulness</h4>
+        <span class="wellness-meta">Facilitated by Sara</span>
+        <p>Guided moments of stillness and focused breathwork to calm the mind, reduce anxiety, support grounding, and encourage inner peace.</p>
+      </div>
+
+      <div class="wellness-card">
+        <img src="images/Workout.jpg" alt="Wellness and stretching sessions" loading="lazy">
+        <h4>Workout &amp; Stretching</h4>
+        <span class="wellness-meta">with Melissa Jensen</span>
+        <p>Movement-based weekly sessions to strengthen the body, relieve stress, and promote overall physical wellness and resilience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlight-card" style="border-left: none; border-right: 4px solid #f0c040; border-radius: 8px 0 0 8px; background: rgba(0,0,0,0.2); text-align: right;">
+    <h3 style="margin-top: 0; color: #fff; font-family: 'Playfair Display', serif; text-transform: none; font-size: 2rem;">Why Horses?</h3>
+    <p>Horses are incredibly responsive to human emotion. Their ability to mirror our non-verbal cues creates opportunities for self-discovery and therapeutic growth. They offer honest, immediate feedback and provide a unique path to healing and self-understanding.</p>
+  </section>
+
+  <section style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(240,192,64,0.15); border-radius: 16px;">
+    <h2 style="margin-top: 0; color: #f0c040;">Ready to Schedule Your Session?</h2>
+    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto;">Take a new step in your healing journey. Let the healing begin: one breath, one vibration, one step alongside a horse at a time.</p>
+    
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="contact.html" class="button primary-button" style="background: transparent; color: #f0c040; border: 2px solid #f0c040;">Contact Us</a>
+      <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Support Our Mission</a>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing-image">
+  <blockquote class="inspiring-quote">
+    Sometimes the greatest battles are healed not with words, but in silence, between a soldier and the soul of a horse.
+    <span class="inspiring-quote-accent"></span>
+  </blockquote>
+</section>
+
+<footer style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+  <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+  function toggleMenu(btn) {
+    const dropdown = document.getElementById('nav-dropdown');
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
+  }
+</script>
+
 </body>
 </html>

@@ -6,38 +6,309 @@
   <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
   <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
   <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
-  
+
   <meta property="og:title" content="Guardian 4 Heroes | Equine Therapy for Veterans">
   <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
-    </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
-    <div class="nav-links">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
-      <a href="contact.html">Contact</a>
-      <a href="shop.html">Shop</a>
-    </div>
-  </nav>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Oswald:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* =============================================
+       HEADER — full redesign
+       Replaces the old .site-header .new-header + nav
+    ============================================= */
+    .site-header {
+      background: #0e0e0e;
+      border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    /* Brand: logo + name + tagline */
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      flex-shrink: 0;
+      /* Invert to make the dark elements white/gold on dark bg */
+      filter: brightness(1.05);
+    }
+
+    .header-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .header-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .header-name span {
+      color: #b8860b;
+    }
+
+    .header-tagline {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184, 134, 11, 0.75);
+      white-space: nowrap;
+    }
+
+    /* Desktop nav */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .header-nav a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .header-nav a:hover,
+    .header-nav a[aria-current="page"] {
+      color: #fff;
+      background: rgba(184, 134, 11, 0.12);
+    }
+
+    /* Donate CTA button in nav */
+    .header-nav a.nav-donate {
+      background: #b8860b;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-left: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .header-nav a.nav-donate:hover {
+      background: #d4a017;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(184, 134, 11, 0.4);
+      color: #b8860b;
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .menu-toggle:hover {
+      background: rgba(184, 134, 11, 0.1);
+    }
+
+    /* Gold accent bar under header */
+    .header-accent {
+      height: 2px;
+      background: linear-gradient(90deg, #b8860b 0%, #d4a017 50%, transparent 100%);
+      width: 100%;
+    }
+
+    /* =============================================
+       MOBILE
+    ============================================= */
+    @media (max-width: 768px) {
+      .header-inner {
+        height: 68px;
+        padding: 0 16px;
+      }
+
+      .header-name {
+        font-size: 1.1rem;
+      }
+
+      .header-tagline {
+        display: none;
+      }
+
+      .header-logo {
+        width: 46px;
+        height: 46px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .header-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0e0e0e;
+        border-top: 1px solid rgba(184, 134, 11, 0.2);
+        border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 16px 16px;
+        gap: 2px;
+      }
+
+      .header-nav.open {
+        display: flex;
+      }
+
+      .header-nav a {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+      }
+
+      .header-nav a.nav-donate {
+        margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
+        padding: 12px 16px;
+      }
+
+      .site-header {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-name {
+        font-size: 0.95rem;
+      }
+
+      .header-brand {
+        gap: 10px;
+      }
+
+      .header-logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       NEW HEADER — replaces old .site-header + <nav>
+       Drop this block into index.html, about.html,
+       programs.html, donate.html, contact.html, shop.html
+       Remove the old <header> and <nav> blocks entirely.
+  ============================================= -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Brand -->
+      <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes — Home">
+        <img
+          src="images/newlogo.png"
+          alt="Guardian 4 Heroes emblem"
+          class="header-logo"
+          width="58"
+          height="58"
+        />
+        <div class="header-brand-text">
+          <span class="header-name">Guardian <span>4</span> Heroes</span>
+          <span class="header-tagline">The Power of the Connection with a Horse</span>
+        </div>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        onclick="toggleMenu(this)"
+      >☰</button>
+
+      <!-- Nav links -->
+      <nav class="header-nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html" class="nav-donate">Donate</a>
+      </nav>
+
+    </div>
+    <div class="header-accent" aria-hidden="true"></div>
+  </header>
+  <!-- END NEW HEADER -->
+
+
+  <!-- =============================================
+       EVERYTHING BELOW THIS LINE IS UNCHANGED
+       Just keep your existing <main>, <footer>, etc.
+  ============================================= -->
   <main>
     <section class="home-hero" role="banner">
       <div class="hero-content">
         <p class="subtitle">Equine Therapy for Veterans & First Responders</p>
         <div class="donate-button">
-          <a href="httpsf://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
+          <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
         </div>
       </div>
     </section>
@@ -56,19 +327,37 @@
       <p>Discover the transformative power of EFPT at Guardian 4 Heroes. Our programs harness the power of horses to support mental health and physical well-being. Join us on a journey of healing and hope.</p>
     </section>
   </main>
+
   <section class="closing-image">
     <blockquote class="inspiring-quote">
       When the noise of war fades, the silence can be loud. But here, with every hoofbeat and shared breath, healing begins.
       <span class="inspiring-quote-accent"></span>
     </blockquote>
   </section>
+
   <footer>
     <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
+
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
+    function toggleMenu(btn) {
+      const nav = document.getElementById('main-nav');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      btn.textContent = isOpen ? '✕' : '☰';
     }
+
+    // Close nav when a link is clicked on mobile
+    document.querySelectorAll('.header-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('main-nav');
+        const btn = document.querySelector('.menu-toggle');
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = '☰';
+      });
+    });
   </script>
+
 </body>
 </html>

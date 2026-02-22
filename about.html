@@ -1,175 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
-  <title>Guardian 4 Heroes | About</title>
-  
-  <meta property="og:title" content="Guardian 4 Heroes | About">
-  <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+<meta name="keywords" content="equine therapy, veterans, first responders, mental health, nonprofit">
+<title>Guardian 4 Heroes | About</title>
+
+<meta property="og:title" content="Guardian 4 Heroes | About">
+<meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =============================================
+   PAGE-SPECIFIC OVERRIDES (WebOps Style)
+   Overrides global background for a sleek look
+============================================= */
+body {
+  background-image: none !important;
+  background-color: #1a1008 !important; /* Rich, dark brand background */
+  color: #f5f5f5;
+}
+body::before { display: none !important; }
+
+main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 1000px !important;
+  padding: 2rem 20px !important;
+}
+
+/* =============================================
+   HEADER (Mirrors new index.html)
+============================================= */
+.site-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 200 !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+.nav-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 20px !important;
+  position: relative !important;
+}
+
+/* BRAND LOGO (TEXT + TAGLINE + GOLD LINE) */
+.header-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  text-decoration: none !important;
+  margin-left: 12px;
+}
+
+.brand-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(1.2rem, 4vw, 1.4rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8) !important;
+}
+
+.brand-title em {
+  font-style: normal !important;
+  color: #f0c040 !important;
+}
+
+.brand-line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #f0c040, #b8860b, transparent);
+  margin: 4px 0 3px 0;
+  opacity: 0.8;
+}
+
+.brand-tagline {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.5rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #f0c040 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8) !important;
+  white-space: nowrap;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  min-width: 48px;
+}
+
+.menu-toggle {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 6px !important;
+  font-size: inherit !important;
+  margin: 0 !important;
+  color: #f0c040 !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CENTER — desktop links */
+.nav-center {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.nav-center a {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-decoration: none !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  transition: color 0.2s, background 0.2s !important;
+}
+
+.nav-center a:hover,
+.nav-center a[aria-current="page"] {
+  color: #fff !important;
+  background: rgba(0,0,0,0.35) !important;
+  text-decoration: none !important;
+}
+
+/* RIGHT — donate always visible */
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-donate {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #f0c040 !important;
+  border: 1px solid rgba(240,192,64,0.55) !important;
+  border-radius: 4px !important;
+  padding: 7px 16px !important;
+  text-decoration: none !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-donate:hover {
+  background: #b8860b !important;
+  color: #fff !important;
+  border-color: #b8860b !important;
+}
+
+/* MOBILE DROPDOWN */
+.nav-dropdown {
+  display: none !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 300 !important;
+  flex-direction: column !important;
+  background: rgba(12, 9, 3, 0.97) !important;
+  padding: 8px 16px 16px !important;
+  gap: 2px !important;
+  border-bottom: 1px solid rgba(240,192,64,0.2) !important;
+}
+.nav-dropdown.open { display: flex !important; }
+.nav-dropdown a {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #f0c040 !important;
+  text-decoration: none !important;
+  padding: 14px 16px !important;
+  border-radius: 6px !important;
+}
+.nav-dropdown a:hover {
+  color: #fff !important;
+  background: rgba(240,192,64,0.12) !important;
+}
+
+@media (max-width: 850px) {
+  .nav-center { display: none !important; }
+  .menu-toggle { display: flex !important; }
+}
+
+/* =============================================
+   ABOUT HERO
+============================================= */
+.about-hero {
+  position: relative !important;
+  min-height: 50svh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #1a1008 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.about-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.about-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65) 0%,
+    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,1) 100% /* Blends perfectly into the dark body */
+  );
+}
+
+.about-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.about-hero .hero-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 12px !important;
+  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9) !important;
+}
+
+/* =============================================
+   ABOUT PAGE CONTENT STYLES
+============================================= */
+.mission-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid #f0c040;
+  padding: 2rem;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.mission-card h3 {
+  color: #f0c040;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* Founder Section */
+.founder-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem 0;
+  background: rgba(0,0,0,0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(240,192,64,0.15);
+}
+
+.founder-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #b8860b;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.founder-info h4 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.founder-info .founder-title {
+  color: #f0c040;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .founder-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+/* THE CREW GRID */
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.crew-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240,192,64,0.15);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.crew-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  border-color: rgba(240,192,64,0.4);
+}
+
+.crew-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0c040;
+  margin: 0 auto 1.2rem auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.crew-card h4 {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  background: none;
+  padding: 0;
+  text-transform: none;
+}
+
+.crew-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+/* Maverick Tribute */
+.memorial-card {
+  grid-column: 1 / -1; /* Spans full width */
+  background: linear-gradient(145deg, rgba(26,16,8,1) 0%, rgba(40,30,20,1) 100%);
+  border: 1px solid #b8860b;
+  display: flex;
+  gap: 2rem;
+  text-align: left;
+  align-items: center;
+}
+
+.memorial-card img {
+  width: 200px;
+  height: 200px;
+  border-color: #8a7560;
+  margin: 0;
+}
+
+.memorial-tag {
+  color: #f0c040;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .memorial-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
-  <header class="site-header new-header">
-    <div class="header-images">
-      <img src="images/Guardian4_20250612_160644_0000.png" alt="Guardian 4 Heroes Logo and Title" class="header-combined-image">
+
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Main navigation">
+
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
+        <span class="brand-title">Guardian <em>4</em> Heroes</span>
+        <span class="brand-line"></span>
+        <span class="brand-tagline">The Power of the Connection with a Horse</span>
+      </a>
     </div>
-  </header>
-  <nav aria-label="Main navigation">
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
-    <div class="nav-links">
+
+    <div class="nav-center">
       <a href="index.html">Home</a>
       <a href="about.html" aria-current="page">About</a>
       <a href="programs.html">Programs</a>
-      <a href="donate.html">Donate</a>
       <a href="contact.html">Contact</a>
       <a href="shop.html">Shop</a>
     </div>
+
+    <div class="nav-right">
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </div>
   </nav>
-  <main>
-    <section class="hero" role="banner">
-      <img src="images/about-hero.jpg" alt="Veteran and horse in equine therapy session" loading="lazy" style="display: none;">
-      <h2>Healing Through Connection</h2>
-    </section>
-    <section class="section">
-      <h3>Our Mission</h3>
-      <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through compassionate and empowering equine-facilitated psychotherapy (EFPT). We provide a safe, therapeutic environment where veterans and first responders can heal, grow, and rediscover hope.</p>
-    </section>
-    <section class="section">
-      <h3>Our Purpose</h3>
-      <p>Founded by Sara Peterson, a dedicated veteran advocate, our nonprofit strives to create an environment of safety, peace, and healing for our veterans. Our purpose is to provide a space where veterans and first responders can connect with our horses, develop new coping skills, and find renewed strength for the journey ahead.</p>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Saraprofile.jpg" alt="Sara Peterson, founder of Guardian 4 Heroes" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Sara Peterson</h4>
-          <p>A veteran advocate with over 10 years of experience, Sara founded Guardian 4 Heroes to empower veterans and first responders through transformative equine therapy. Her vision creates an environment where healing and growth are possible for everyone who walks through our gates.</p>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <h3>What Is EFPT?</h3>
-      <p>Equine-Facilitated Psychotherapy Training involves engaging with horses to rebuild confidence, explore boundaries, and enhance self-esteem. Horses, attuned to human emotion, offer a unique and powerful form of feedback and companionship. Our certified EFPT sessions are designed to meet each participant’s unique needs and foster meaningful progress.</p>
-      <div class="donate-button">
-        <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener">Donate Now</a>
-      </div>
-    </section>
-    <section class="section">
-      <h3>Licenses & Certifications</h3>
-      <ul>
-        <li>501c3 #33-3587146</li>
-        <li>MN Non-Profit #1544498100028</li>
-        <li>EFPT Certified</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h3>Meet the Crew</h3>
-      <p>Our equine partners are at the heart of Guardian 4 Heroes. Each horse brings a unique personality and spirit to our therapy sessions, offering profound connections and opportunities for healing.</p>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/hdimage1.jpg" alt="Nelly the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Nelly, or Nelly Bell</h4>
-          <p>A 12-year-old Mustang mare, Nelly sometimes pretends she doesn’t want to be brushed or touched. But she'll always come back for snuggles and is constantly aware of your presence, ensuring everyone feels welcome and safe.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/horse9.jpg" alt="In loving memory of Maverick (Mav)" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>In Loving Memory of Maverick ("Mav")</h4>
-          <p>It is with the heaviest of hearts that we say goodbye to our sweet Mav.</p>
-          <p>His bio always said he was "always there when you’re in need of a hug or snuggles," and that could not have been more true. Mav was a 12-year-old rescue who, despite his own challenges, had a boundless capacity for love and a deep desire for connection. He loved attention and offered a gentle, calming presence to every veteran and first responder he met.</p>
-          <p>He was a living example of his own life lesson: "proving that love and bravery come in many forms."</p>
-          <p>Mav bravely managed his disability for a long time,. but as it progressed, it became too difficult for him to walk without pain, and his daily struggle became too great. With profound sadness, we made the most compassionate decision to let him rest and be free of that struggle.</p>
-          <p>His quiet strength, gentle nuzzles, and unconditional hugs were a gift to us all. He was a true healer, and his spirit will be deeply missed in our fields and in our hearts.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Rocketprofile.jpg" alt="Rocket the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Rocket</h4>
-          <p>Rocket is the biggest of our bunch, both in size and personality! He loves to goof around and craves attention. You’d never guess this spirited horse is 26 years old—he’s truly ageless at heart.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Photoshootsingle.jpg" alt="Drifter the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Drifter</h4>
-          <p>Drifter may seem a bit aloof at first, but once he gets to know you, his warm personality shines through. At 20 years old, all he wants to do is please, and he absolutely loves brushing time.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Smokey.jpg" alt="Smokey the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Smokey</h4>
-          <p>Our biggest boy at 17.1, 10 year old who loves attention and always checking everyone pocket for treats. He will stand for hours to be brushed.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Frank.jpg" alt="Frank the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Frank</h4>
-          <p>Our baby at 4 years old. He ties Smokey on height of 17.1 more lean and muscular. Very inquisitive of the obstacle and new things and shows off his skills around the agility courses.</p>
-        </div>
-      </div>
-      <div class="profile-feature">
-        <div class="profile-image">
-          <img src="images/Sarge.jpg" alt="Sarge the horse" loading="lazy">
-        </div>
-        <div class="profile-bio">
-          <h4>Sarge</h4>
-          <p>At 17 he found his way to the middle of the herd and inserts himself into any conversation happening around him or brushing session with the other horses that he can. Doesn’t let his asthma or allergies slow him down.</p>
-        </div>
-      </div>
-    </section>
-    <section class="section veteran-stories">
-      <h3 class="veteran-stories-heading">Veteran Stories</h3>
-      <div class="stories-grid">
-        <div class="story-card">
-          <span class="big-quote">“</span>
-          <div class="story-icon" aria-label="veteran icon">
-            <span style="font-size:2em; color:var(--primary-accent-dark);">🎖️</span>
-          </div>
-          <p class="story-text">
-            I’m Craig, a 35-year-old Army veteran who served in Afghanistan. After leaving the Army, I struggled with substance abuse and felt lost. I was hesitant to join Guardian 4 Heroes, even though I knew I needed help. From my first equine therapy session, I felt a sense of peace and acceptance I hadn’t experienced in years. Working with the horses taught me patience, trust, and how to reconnect with others. Guardian 4 Heroes didn’t just help me recover—they gave me a new sense of purpose and belonging.
-          </p>
-          <div class="story-meta">
-            <span class="vet-name">Craig</span> <span class="vet-role">— Army Veteran</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <section class="closing-image">
-    <blockquote class="inspiring-quote">
-      Sometimes, the deepest healing happens between two souls who never speak the same language
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
+
+  <div class="nav-dropdown" id="nav-dropdown" role="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="contact.html">Contact</a>
+    <a href="shop.html">Shop</a>
+  </div>
+</header>
+
+<section class="about-hero" role="banner">
+  <div class="about-hero__bg">
+    <img src="images/backg.PNG" alt="Atmospheric background" loading="eager" />
+  </div>
+  <div class="about-hero__overlay"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">About <em>Us</em></h1>
+    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
+    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Healing Through Connection</p>
+  </div>
+</section>
+
+<main>
+  
+  <section class="mission-card">
+    <h3>Our Mission</h3>
+    <p>At Guardian 4 Heroes, we are dedicated to supporting the mental wellness of our veterans through compassionate and empowering equine-facilitated psychotherapy (EFPT). We provide a safe, therapeutic environment where veterans and first responders can heal, grow, and rediscover hope.</p>
   </section>
-  <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  </script>
+
+  <section class="mission-card">
+    <h3>Our Purpose</h3>
+    <p>Founded by Sara Peterson, a dedicated veteran advocate, our nonprofit strives to create an environment of safety, peace, and healing for our veterans. Our purpose is to provide a space where veterans and first responders can connect with our horses, develop new coping skills, and find renewed strength for the journey ahead.</p>
+  </section>
+
+  <section class="founder-section">
+    <img src="images/Saraprofile.jpg" alt="Sara Peterson, founder of Guardian 4 Heroes" class="founder-img" loading="lazy">
+    <div class="founder-info">
+      <h4>Sara Peterson</h4>
+      <span class="founder-title">Founder & Veteran Advocate</span>
+      <p>With over 10 years of experience advocating for veterans, Sara founded Guardian 4 Heroes to empower veterans and first responders through transformative equine therapy. Her vision creates an environment where healing and growth are possible for everyone who walks through our gates.</p>
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center; margin-bottom: 4rem;">
+    <h3 style="font-family:'Oswald', sans-serif; font-size: 2rem; color: #f0c040; border: none; background: none; margin-bottom: 1rem;">What Is EFPT?</h3>
+    <p style="max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.1rem; color: rgba(255,255,255,0.8);">
+      Equine-Facilitated Psychotherapy Training involves engaging with horses to rebuild confidence, explore boundaries, and enhance self-esteem. Horses, attuned to human emotion, offer a unique and powerful form of feedback and companionship. Our certified EFPT sessions are designed to meet each participant’s unique needs and foster meaningful progress.
+    </p>
+    <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener" style="margin-top: 1rem;">Support Our Mission</a>
+  </section>
+
+  <section class="section">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h3 style="font-family:'Oswald', sans-serif; font-size: 2.2rem; color: #fff; border: none; background: none;">Meet the Crew</h3>
+      <p style="color: #f0c040; font-family:'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Our Equine Partners</p>
+    </div>
+
+    <div class="crew-grid">
+      <div class="crew-card">
+        <img src="images/hdimage1.jpg" alt="Nelly the horse" loading="lazy">
+        <h4>Nelly Bell</h4>
+        <p>A 12-year-old Mustang mare, Nelly sometimes pretends she doesn’t want to be brushed or touched. But she'll always come back for snuggles and is constantly aware of your presence, ensuring everyone feels safe.</p>
+      </div>
+
+      <div class="crew-card">
+        <img src="images/Rocketprofile.jpg" alt="Rocket the horse" loading="lazy">
+        <h4>Rocket</h4>
+        <p>The biggest of our bunch, both in size and personality! He loves to goof around and craves attention. You’d never guess this spirited horse is 26 years old—he’s truly ageless at heart.</p>
+      </div>
+
+      <div class="crew-card">
+        <img src="images/Photoshootsingle.jpg" alt="Drifter the horse" loading="lazy">
+        <h4>Drifter</h4>
+        <p>Drifter may seem a bit aloof at first, but once he gets to know you, his warm personality shines through. At 20 years old, all he wants to do is please, and he absolutely loves brushing time.</p>
+      </div>
+
+      <div class="crew-card">
+        <img src="images/Smokey.jpg" alt="Smokey the horse" loading="lazy">
+        <h4>Smokey</h4>
+        <p>Our biggest boy at 17.1! This 10-year-old loves attention and is always checking everyone's pockets for treats. He will happily stand for hours just to be brushed.</p>
+      </div>
+
+      <div class="crew-card">
+        <img src="images/Frank.jpg" alt="Frank the horse" loading="lazy">
+        <h4>Frank</h4>
+        <p>Our baby at 4 years old. He ties Smokey in height but is leaner and more muscular. Very inquisitive of obstacles, he loves showing off his skills around the agility courses.</p>
+      </div>
+
+      <div class="crew-card">
+        <img src="images/Sarge.jpg" alt="Sarge the horse" loading="lazy">
+        <h4>Sarge</h4>
+        <p>At 17, he finds his way to the middle of the herd and inserts himself into any conversation or brushing session he can. He doesn’t let his asthma or allergies slow him down!</p>
+      </div>
+
+      <div class="crew-card memorial-card">
+        <img src="images/horse9.jpg" alt="Maverick (Mav)" loading="lazy">
+        <div>
+          <span class="memorial-tag">In Loving Memory</span>
+          <h4>Maverick ("Mav")</h4>
+          <p>It is with the heaviest of hearts that we say goodbye to our sweet Mav. His bio always said he was "always there when you’re in need of a hug," and that could not have been more true. Mav was a 12-year-old rescue who, despite his own challenges, had a boundless capacity for love.</p>
+          <p style="margin-top: 10px;">He was a living example of his own life lesson: "proving that love and bravery come in many forms." His quiet strength, gentle nuzzles, and unconditional hugs were a gift to us all. He was a true healer, and his spirit will be deeply missed in our fields and in our hearts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing-image" style="margin-top: 4rem;">
+  <blockquote class="inspiring-quote">
+    Sometimes, the deepest healing happens between two souls who never speak the same language.
+    <span class="inspiring-quote-accent"></span>
+  </blockquote>
+</section>
+
+<footer style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+  <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+  function toggleMenu(btn) {
+    const dropdown = document.getElementById('nav-dropdown');
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
+  }
+</script>
 </body>
 </html>

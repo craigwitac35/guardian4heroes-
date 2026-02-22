@@ -164,16 +164,15 @@ main {
   border-color: rgba(240,192,64,0.4);
 }
 
-/* PERFECTLY CENTERED, UNIFORM IMAGES (NO CROPPING) */
+/* REVERTED TO EDGE-TO-EDGE SQUARE IMAGES */
 .product-card img {
   width: 100%;
-  height: 280px !important; /* Fixed height so the grid lines up beautifully */
-  object-fit: contain !important; /* Forces the ENTIRE image to fit inside the box without clipping */
-  object-position: center !important; /* Perfectly centers it both vertically and horizontally */
-  background-color: rgba(0, 0, 0, 0.2); /* Soft dark background behind the image to fill empty space elegantly */
+  height: auto !important;
+  aspect-ratio: 1 / 1; /* Forces a perfect, large square */
+  object-fit: cover; /* Fills the entire box right up to the borders */
+  object-position: center; 
   display: block;
   border-bottom: 2px solid #f0c040;
-  padding: 1rem; /* Gives the product some breathing room inside the box */
 }
 
 .product-info {

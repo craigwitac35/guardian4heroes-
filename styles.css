@@ -88,27 +88,20 @@ main {
   z-index: 2;
 }
 
-/* --- 05. GLOBAL NAVIGATION & HEADER (STICKY HEADER UPGRADE) --- */
+/* --- 05. GLOBAL NAVIGATION & HEADER (SOLID FIXED HEADER) --- */
 .site-header {
-  position: fixed !important; /* Changed to fixed so it follows the user */
+  position: fixed !important; 
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; /* Keeps it above all images and content */
-  background: transparent;
+  z-index: 999; 
+  background-color: rgba(26, 16, 8, 0.98) !important; /* Always solid dark brown/charcoal */
+  backdrop-filter: blur(8px); /* Keeps the premium frosted glass effect */
+  -webkit-backdrop-filter: blur(8px);
   padding: 0;
   display: block;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
-  border-bottom: 1px solid transparent;
-}
-
-/* JavaScript triggered class for when the user scrolls down */
-.site-header.scrolled {
-  background-color: rgba(26, 16, 8, 0.95) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  border-bottom: 1px solid rgba(240, 192, 64, 0.2) !important;
+  border-bottom: 1px solid rgba(240, 192, 64, 0.2) !important; /* Subtle gold line always visible */
 }
 
 .nav-bar {
@@ -453,4 +446,4 @@ footer {
   padding: 2rem 1rem;
   margin-top: auto;
   font-size: 0.9rem;
-}
+   }

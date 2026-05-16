@@ -695,3 +695,46 @@ footer {
     padding: 1.15rem 1.5rem;
   }
 }
+/* =============================================
+   G4H EVENT CARD — Mission Possible color scheme
+   ============================================= */
+
+.g4h-event-card {
+  background: #0B1426;
+  border-color: #F4ECD8;
+  box-shadow: 0 0 0 1px rgba(244, 236, 216, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+.g4h-event-card:hover {
+  box-shadow: 0 0 0 1px rgba(244, 236, 216, 0.3), 0 30px 60px -12px rgba(0, 0, 0, 0.8);
+}
+
+.g4h-event-image-link {
+  border-bottom-color: #F4ECD8;
+}
+
+.g4h-event-heading::after {
+  background: #C9A961;
+}
+
+.g4h-event-label {
+  color: #C9A961;
+}
+
+.g4h-event-text {
+  color: #F4ECD8;
+}
+
+.g4h-event-cta {
+  background: #8B1E2D;
+  color: #F4ECD8 !important;
+}
+
+.g4h-event-cta:hover {
+  background: #C9A961;
+  color: #0B1426 !important;
+}
+
+.g4h-event-url {
+  color: rgba(244, 236, 216, 0.6);
+}

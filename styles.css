@@ -738,3 +738,36 @@ footer {
 .g4h-event-url {
   color: rgba(244, 236, 216, 0.6);
 }
+/* =============================================
+   G4H EVENT CARD — Side-by-side layout (desktop)
+   Image (portrait) on left, details on right
+   Stacks on mobile
+   ============================================= */
+
+@media (min-width: 768px) {
+  .g4h-event-card {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: stretch;
+  }
+
+  .g4h-event-image-link {
+    border-bottom: none;
+    border-right: 2px solid #F4ECD8;
+    height: 100%;
+  }
+
+  .g4h-event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .g4h-event-body {
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -447,3 +447,251 @@ footer {
   margin-top: auto;
   font-size: 0.9rem;
    }
+/* =============================================
+   G4H — ANNOUNCEMENTS SECTION
+   ============================================= */
+
+.g4h-announce-section {
+  max-width: 1100px;
+  margin: 3.5rem auto 2.5rem;
+  padding: 0 1.25rem;
+}
+
+.g4h-announce-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 0.02em;
+}
+
+.g4h-announce-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold-primary);
+  margin: 0.75rem auto 0;
+}
+
+.g4h-announce-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .g4h-announce-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.g4h-announce-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(240, 192, 64, 0.25);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 2rem 1.5rem 1.75rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.g4h-announce-card:hover {
+  border-color: rgba(240, 192, 64, 0.45);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.g4h-announce-badge {
+  display: inline-block;
+  position: absolute;
+  top: -0.75rem;
+  left: 1.25rem;
+  background: var(--gold-primary);
+  color: #1a1008;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.g4h-announce-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin: 0.5rem 0 1rem;
+  line-height: 1.3;
+}
+
+.g4h-announce-body {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.88);
+  margin: 0 0 0.85rem;
+}
+
+.g4h-announce-body:last-child {
+  margin-bottom: 0;
+}
+
+.g4h-announce-when {
+  background: rgba(240, 192, 64, 0.08);
+  border-left: 2px solid var(--gold-primary);
+  padding: 0.65rem 0.85rem;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.g4h-announce-when strong {
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+.g4h-announce-italic {
+  font-style: italic;
+  color: rgba(245, 245, 245, 0.7);
+  font-size: 0.9rem;
+}
+
+
+/* =============================================
+   G4H — EVENT CARD (Mission Possible Mud Run)
+   ============================================= */
+
+.g4h-event-section {
+  max-width: 1100px;
+  margin: 3rem auto 3.5rem;
+  padding: 0 1.25rem;
+}
+
+.g4h-event-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 0.02em;
+}
+
+.g4h-event-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold-primary);
+  margin: 0.75rem auto 0;
+}
+
+.g4h-event-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 3px solid var(--gold-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.g4h-event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.3), 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+}
+
+.g4h-event-image-link {
+  display: block;
+  line-height: 0;
+  border-bottom: 2px solid var(--gold-primary);
+}
+
+.g4h-event-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+.g4h-event-image-link:hover .g4h-event-image {
+  opacity: 0.92;
+}
+
+.g4h-event-body {
+  padding: 2rem 1.75rem;
+}
+
+.g4h-event-detail {
+  margin-bottom: 1.25rem;
+}
+
+.g4h-event-detail:last-of-type {
+  margin-bottom: 1.75rem;
+}
+
+.g4h-event-label {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.g4h-event-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(245, 245, 245, 0.92);
+  margin: 0;
+}
+
+.g4h-event-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--gold-primary);
+  color: #1a1008 !important;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.g4h-event-cta:hover {
+  background: var(--gold-dark);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.g4h-event-url {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(240, 192, 64, 0.7);
+  margin: 0.85rem 0 0;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 768px) {
+  .g4h-event-body {
+    padding: 2.5rem 2.5rem;
+  }
+
+  .g4h-event-cta {
+    font-size: 1.05rem;
+    padding: 1.15rem 1.5rem;
+  }
+}

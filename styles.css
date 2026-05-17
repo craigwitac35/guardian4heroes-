@@ -771,3 +771,87 @@ footer {
     justify-content: center;
   }
 }
+/* =============================================
+   G4H — CSS AMENDMENT
+   Mud Run image fix + Sara/Rocket image polish
+   Add this to the very bottom of styles.css
+   ============================================= */
+
+/* Fix Mud Run poster crop on desktop */
+@media (min-width: 768px) {
+  .g4h-event-card {
+    grid-template-columns: minmax(340px, 48%) 1fr;
+    align-items: center;
+  }
+
+  .g4h-event-image-link {
+    height: auto;
+    align-self: center;
+    background: #0B1426;
+  }
+
+  .g4h-event-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    background: #0B1426;
+  }
+}
+
+/* Keep the Mud Run card cleaner on smaller screens */
+@media (max-width: 767px) {
+  .g4h-event-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Polish Sara + Rocket image so it feels intentional */
+.home-banner-image {
+  position: relative;
+  max-width: 820px;
+  margin: 4.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+.home-banner-image img {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 14px;
+  border: 3px solid var(--gold-dark);
+  box-shadow:
+    0 0 0 1px rgba(240, 192, 64, 0.25),
+    0 24px 55px rgba(0, 0, 0, 0.55);
+  filter: brightness(0.92) contrast(1.06) saturate(1.02);
+}
+
+/* Optional subtle caption overlay */
+.home-banner-image::after {
+  content: "Healing Happens Here";
+  position: absolute;
+  left: 50%;
+  bottom: 1.6rem;
+  transform: translateX(-50%);
+  background: rgba(26, 16, 8, 0.78);
+  color: #f0c040;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(240, 192, 64, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .home-banner-image::after {
+    bottom: 1rem;
+    font-size: 0.95rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

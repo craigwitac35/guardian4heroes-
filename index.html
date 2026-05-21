@@ -19,8 +19,9 @@
 <style>
   /* =============================================
      MOBILE CLIPPING FIX
+     Hide the long tagline on small phones so it
+     doesn't smash into the Donate button.
   ============================================= */
-  /* Hides the long tagline on small phone screens so it doesn't smash into the Donate button */
   @media (max-width: 480px) {
     .brand-tagline {
       display: none !important;
@@ -28,17 +29,22 @@
   }
 
   /* =============================================
-     HOME HERO ONLY 
+     HOME HERO — BARN INTERIOR (warm welcome)
+     The barn photo already harmonizes with the cream
+     theme (warm wood, cream walls, soft string lights).
+     Treatment: soft cream wash from edges + centered
+     vignette so the text reads, photo stays warm and
+     inviting rather than dramatic.
   ============================================= */
   .home-hero {
     position: relative;
-    min-height: 100svh;
+    min-height: 92svh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;       /* center the text in the frame */
     overflow: hidden;
-    background: #1a1008;
+    background: #2C2620;           /* earth fallback while image loads */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -58,17 +64,31 @@
     display: block;
   }
 
+  /* Overlay: soft radial vignette + cream wash at edges
+     so the photo blends INTO the page rather than
+     ending in a hard line. Center stays clearer where
+     the natural wood color creates a darker pool that
+     the text sits over. */
   .home-hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.55) 0%,
-      rgba(0,0,0,0.28) 30%,
-      rgba(0,0,0,0.42) 65%,
-      rgba(0,0,0,0.72) 100%
-    );
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(28, 22, 14, 0.55) 0%,
+        rgba(28, 22, 14, 0.35) 40%,
+        rgba(28, 22, 14, 0.15) 70%,
+        rgba(245, 239, 226, 0.0) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(245, 239, 226, 0.25) 0%,
+        rgba(245, 239, 226, 0) 18%,
+        rgba(245, 239, 226, 0) 78%,
+        rgba(245, 239, 226, 0.55) 100%
+      );
+    pointer-events: none;
   }
 
   .home-hero .hero-content {
@@ -78,82 +98,80 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 100px 32px 60px;
-    max-width: 700px;
+    padding: 100px 32px 90px;
+    max-width: 760px;
     width: 100%;
     box-sizing: border-box;
   }
 
   .home-hero .hero-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.4rem, 8vw, 4rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    margin-bottom: 12px;
-    text-shadow:
-      0 0 40px rgba(184,134,11,0.6),
-      0 0 80px rgba(184,134,11,0.25),
-      3px 3px 8px rgba(0,0,0,0.85);
+    font-size: clamp(2.6rem, 8vw, 4.5rem);
+    font-weight: 600;
+    color: #F5EFE2;                /* cream */
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.7), 0 0 60px rgba(0, 0, 0, 0.35);
   }
 
   .home-hero .hero-title em {
-    font-style: normal;
-    color: #f0c040;
-    text-shadow:
-      0 0 30px rgba(240,192,64,0.8),
-      0 0 60px rgba(184,134,11,0.4),
-      3px 3px 8px rgba(0,0,0,0.85);
+    font-style: italic;
+    color: #D4B560;                /* warmer, brighter gold against wood */
+    font-weight: 600;
   }
 
   .home-hero .hero-rule {
     display: block;
-    width: 160px;
+    width: 140px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #b8860b, #f0c040, #b8860b, transparent);
-    margin: 0 auto 14px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 181, 96, 0.6),
+      #D4B560,
+      rgba(212, 181, 96, 0.6),
+      transparent
+    );
+    margin: 6px auto 18px;
     border: none;
   }
 
   .home-hero .hero-tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #f0c040;
-    margin-bottom: 28px;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8);
+    color: #D4B560;
+    margin-bottom: 22px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
   }
 
   .home-hero .hero-mission {
-    font-family: 'Lato', sans-serif;
-    font-size: clamp(1.05rem, 3vw, 1.3rem);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
     font-weight: 400;
-    color: #fff;
-    line-height: 1.55;
-    letter-spacing: 0.02em;
-    margin-bottom: 36px;
-    max-width: 480px;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.8);
+    color: #F5EFE2;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    margin-bottom: 0;
+    max-width: 520px;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
   }
 
-  /* Homepage specific banner image styling */
-  .home-banner-image {
-    margin: 4rem auto;
-    text-align: center;
-    padding: 0 20px;
-  }
-  
-  .home-banner-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: var(--border-radius-lg, 16px);
-    border: 4px solid var(--gold-dark, #b8860b);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    display: inline-block;
+  /* Soft fade from hero into cream page body */
+  .home-hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #F5EFE2);
+    z-index: 1;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -166,9 +184,9 @@
       <div class="nav-left">
         <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
           <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-            <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-            <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="1" x2="24" y2="1" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="9" x2="24" y2="9" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="17" x2="24" y2="17" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
 
@@ -204,7 +222,7 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/FB_IMG_1749752975080.jpg" alt="Guardian 4 Heroes facility" loading="eager" />
+      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barn interior — warm wood, string lights, gathering space" loading="eager" />
     </div>
     <div class="home-hero__overlay"></div>
 
@@ -220,7 +238,9 @@
     <section class="highlight-card">
       <h3 style="margin-top: 0;">Welcome</h3>
       <p>Welcome to Guardian 4 Heroes, where healing and growth meet the power of the horse. Our nonprofit is dedicated to equine-facilitated psychotherapy and assisted training, offering a compassionate, supportive environment for veterans and first responders on their journey to wellness.</p>
-    </section><!-- =============================================
+    </section>
+
+    <!-- =============================================
          ANNOUNCEMENTS
          To remove an announcement: delete the entire
          <article class="g4h-announce-card"> block
@@ -269,12 +289,13 @@
           </p>
           <p class="g4h-announce-body g4h-announce-italic">
             Bring a friend, and come find your peace with us. All are welcome!
-          
-    </article>
+          </p>
+        </article>
 
       </div>
     </section>
     <!-- ============= END ANNOUNCEMENTS ============= -->
+
     <!-- =============================================
          EVENT CARD — MISSION POSSIBLE MUD RUN
          To update: change text or image below
@@ -341,8 +362,8 @@
       <img src="images/sararocket2.jpg" alt="Sara and Rocket - Just Livin" loading="lazy">
     </section>
 
-    <section class="highlight-card" style="border-left: none; border-right: 4px solid #f0c040; border-radius: 8px 0 0 8px; background: rgba(0,0,0,0.2);">
-      <h3 style="margin-top: 0; color: #fff;">Empowering Journeys Begin</h3>
+    <section class="highlight-card">
+      <h3 style="margin-top: 0;">Empowering Journeys Begin</h3>
       <p>Discover the transformative power of EFPT at Guardian 4 Heroes. Our programs harness the power of horses to support mental health and physical well-being. Join us on a journey of healing and hope.</p>
       <br>
       <a href="programs.html" class="button primary-button">Explore Our Programs</a>
@@ -357,12 +378,12 @@
   </section>
 
   <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+    <p>© 2026 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
 
   <script>
-    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#2D4A3E" stroke-width="2" stroke-linecap="round"/></svg>`;
 
     function toggleMenu(btn) {
       const dropdown = document.getElementById('nav-dropdown');

@@ -1,41 +1,14 @@
 /* ==========================================================================
    GUARDIAN 4 HEROES - GLOBAL STYLESHEET
-   Theme: Light Direction — Cream base, Forest Green, Burnished Gold
-   Fonts: Playfair Display (display) + Lato (body)
+   Theme: Modern, Dark, Elegant (WebOps Style)
    ========================================================================== */
 
 /* --- 01. CSS VARIABLES --- */
 :root {
-  /* Surfaces */
-  --cream: #F5EFE2;             /* Main background — warm paper */
-  --cream-soft: #FAF6EC;        /* Slightly lighter, for cards */
-  --cream-deep: #EDE4D1;        /* Slightly darker, for inset details */
-
-  /* Ink (text) */
-  --ink: #1F1A14;               /* Body / headings */
-  --ink-soft: #3A322A;          /* Secondary text */
-  --ink-mute: #6B6157;          /* Muted captions, fine print */
-
-  /* Brand */
-  --green: #2D4A3E;             /* Forest / pasture — primary action */
-  --green-deep: #1F3A2E;        /* Footer, hover */
-  --green-soft: #3D5C50;        /* Lighter green for accents */
-  --gold: #A88937;              /* Burnished gold — meaningful moments only */
-  --gold-deep: #8A6F2A;         /* Hover/depth */
-  --gold-bright: #C9A961;       /* Highlight gold (used on dark surfaces) */
-  --earth: #2C2620;             /* Deep warm charcoal — used as ACCENT only */
-
-  /* Lines */
-  --rule: rgba(31, 26, 20, 0.14);
-  --rule-soft: rgba(31, 26, 20, 0.07);
-
-  /* Legacy aliases — keep so any old class still works during migration */
-  --bg-dark: var(--cream);
-  --text-light: var(--ink);
-  --gold-primary: var(--gold);
-  --gold-dark: var(--gold-deep);
-
-  /* Misc */
+  --bg-dark: #1a1008;              /* The rich dark brown/charcoal background */
+  --text-light: #f5f5f5;           /* Off-white for highly readable body text */
+  --gold-primary: #f0c040;         /* Bright gold accent */
+  --gold-dark: #b8860b;            /* Deeper gold for hover states/gradients */
   --border-radius-sm: 8px;
   --border-radius-lg: 16px;
   --transition-speed: 0.2s;
@@ -55,68 +28,53 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
-  line-height: 1.65;
-  color: var(--ink);
-  background-color: var(--cream);
+  line-height: 1.6;
+  color: var(--text-light);
+  background-color: var(--bg-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  -webkit-font-smoothing: antialiased;
 }
-
-img { max-width: 100%; height: auto; display: block; }
 
 /* --- 03. TYPOGRAPHY (HEADINGS & TEXT) --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, serif;
-  color: var(--ink);
-  line-height: 1.15;
+  color: #fff;
+  line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   margin-top: 3rem;
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 1.85rem);
-  color: var(--green);
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  color: var(--gold-primary);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 h4 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--ink);
 }
 
 p {
   margin-bottom: 1.2rem;
-  color: var(--ink-soft);
 }
 
 a {
-  color: var(--green);
+  color: var(--gold-primary);
   text-decoration: none;
   transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-  color: var(--gold-deep);
-}
-
-em {
-  font-style: italic;
-}
-
-strong {
-  color: var(--ink);
-  font-weight: 700;
+  color: #fff;
 }
 
 /* --- 04. MAIN LAYOUT CONTAINER --- */
@@ -130,20 +88,20 @@ main {
   z-index: 2;
 }
 
-/* --- 05. GLOBAL NAVIGATION & HEADER (LIGHT CREAM FIXED HEADER) --- */
+/* --- 05. GLOBAL NAVIGATION & HEADER (SOLID FIXED HEADER) --- */
 .site-header {
-  position: fixed !important;
+  position: fixed !important; 
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
-  background-color: rgba(245, 239, 226, 0.96) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  z-index: 999; 
+  background-color: rgba(26, 16, 8, 0.98) !important; /* Always solid dark brown/charcoal */
+  backdrop-filter: blur(8px); /* Keeps the premium frosted glass effect */
+  -webkit-backdrop-filter: blur(8px);
   padding: 0;
   display: block;
-  box-shadow: 0 1px 0 var(--rule), 0 4px 20px rgba(31, 26, 20, 0.04);
-  border-bottom: 1px solid var(--rule) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(240, 192, 64, 0.2) !important; /* Subtle gold line always visible */
 }
 
 .nav-bar {
@@ -165,35 +123,35 @@ main {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   font-weight: 700;
-  color: var(--ink);
-  letter-spacing: 0.02em;
+  color: #fff;
+  letter-spacing: 0.04em;
   line-height: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 .brand-title em {
-  font-style: italic;
-  color: var(--gold);
-  font-weight: 600;
+  font-style: normal;
+  color: var(--gold-primary);
 }
 .brand-line {
   display: block;
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-deep), transparent);
+  background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark), transparent);
   margin: 4px 0 3px 0;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .brand-tagline {
   font-family: 'Lato', sans-serif;
   font-size: 0.5rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--green);
-  font-weight: 600;
+  color: var(--gold-primary);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
   white-space: nowrap;
 }
 
 /* Nav Layout */
-.nav-left  { display: flex; align-items: center; min-width: 48px; }
+.nav-left { display: flex; align-items: center; min-width: 48px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-end; }
 .nav-center {
   display: flex;
@@ -210,26 +168,13 @@ main {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.92);
   padding: 8px 12px;
   border-radius: 4px;
-  position: relative;
-  transition: color 0.2s ease;
 }
-.nav-center a:hover {
-  color: var(--green);
-}
-.nav-center a[aria-current="page"] {
-  color: var(--green);
-}
-.nav-center a[aria-current="page"]::after {
-  content: '';
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 2px;
-  height: 2px;
-  background: var(--gold);
+.nav-center a:hover, .nav-center a[aria-current="page"] {
+  color: #fff;
+  background: rgba(0,0,0,0.35);
 }
 
 /* Donate Button in Nav */
@@ -239,17 +184,15 @@ main {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cream);
-  background: var(--green);
-  border: 2px solid var(--green);
+  color: var(--gold-primary);
+  border: 1px solid rgba(240,192,64,0.55);
   border-radius: 4px;
   padding: 7px 16px;
-  transition: all 0.2s ease;
 }
 .nav-donate:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--ink);
+  background: var(--gold-dark);
+  color: #fff;
+  border-color: var(--gold-dark);
 }
 
 /* Mobile Menu Toggle & Dropdown */
@@ -259,7 +202,7 @@ main {
   border: none;
   cursor: pointer;
   padding: 6px;
-  color: var(--green);
+  color: var(--gold-primary);
 }
 .nav-dropdown {
   display: none;
@@ -269,12 +212,9 @@ main {
   right: 0;
   z-index: 300;
   flex-direction: column;
-  background: rgba(245, 239, 226, 0.98);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(12, 9, 3, 0.97);
   padding: 8px 16px 16px;
-  border-bottom: 1px solid var(--rule);
-  box-shadow: 0 8px 20px rgba(31, 26, 20, 0.06);
+  border-bottom: 1px solid rgba(240,192,64,0.2);
 }
 .nav-dropdown.open { display: flex; }
 .nav-dropdown a {
@@ -283,31 +223,30 @@ main {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--gold-primary);
   padding: 14px 16px;
   border-radius: 6px;
 }
 .nav-dropdown a:hover {
-  color: var(--green);
-  background: var(--cream-deep);
+  color: #fff;
+  background: rgba(240,192,64,0.12);
 }
 
 @media (max-width: 850px) {
-  .nav-center  { display: none; }
+  .nav-center { display: none; }
   .menu-toggle { display: flex; }
 }
 
-/* --- 06. SUBPAGE HERO SECTIONS (LIGHT — cream with soft photo wash) --- */
+/* --- 06. SUBPAGE HERO SECTIONS --- */
 .subpage-hero {
   position: relative;
-  min-height: 45svh;
+  min-height: 50svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   width: 100%;
-  background: var(--cream);
 }
 
 .subpage-hero__bg {
@@ -320,7 +259,6 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.35;
 }
 
 .subpage-hero__overlay {
@@ -329,9 +267,9 @@ main {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(245, 239, 226, 0.55) 0%,
-    rgba(245, 239, 226, 0.75) 60%,
-    var(--cream) 100%
+    rgba(0,0,0,0.65) 0%,
+    rgba(26,16,8,0.4) 50%,
+    rgba(26,16,8,1) 100% 
   );
 }
 
@@ -339,77 +277,51 @@ main {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 100px 20px 60px;
-  max-width: 900px;
+  padding: 80px 20px 40px;
 }
 
 .subpage-hero .hero-title {
-  font-size: clamp(2.5rem, 6vw, 3.75rem);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   margin-bottom: 12px;
-  color: var(--ink);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9);
 }
 
 /* --- 07. GLOBAL BUTTONS --- */
-.button,
-.primary-button,
-.order-now-btn,
-.order-submit-btn,
-button[type="submit"] {
+.button, .primary-button, .order-now-btn, .order-submit-btn, button[type="submit"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--green);
-  color: var(--cream);
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
+  background: linear-gradient(98deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: #1a1a1a;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 0.95em 2em;
-  border: 2px solid var(--green);
+  padding: 0.8em 2em;
+  border: none;
   border-radius: 50px;
-  box-shadow: 0 4px 14px rgba(45, 74, 62, 0.18);
+  box-shadow: 0 4px 15px rgba(184,134,11,0.3);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-.button:hover,
-.primary-button:hover,
-.order-now-btn:hover,
-button[type="submit"]:hover {
-  background: var(--green-deep);
-  border-color: var(--green-deep);
+.button:hover, .primary-button:hover, .order-now-btn:hover, button[type="submit"]:hover {
+  background: linear-gradient(100deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(45, 74, 62, 0.28);
-  color: var(--cream);
-}
-
-/* Secondary button variant — outline */
-.button.secondary,
-.secondary-button {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--ink);
-  box-shadow: none;
-}
-.button.secondary:hover,
-.secondary-button:hover {
-  background: var(--ink);
-  color: var(--cream);
-  border-color: var(--ink);
+  box-shadow: 0 6px 20px rgba(184,134,11,0.4);
+  color: #000;
 }
 
 /* --- 08. REUSABLE COMPONENTS (Cards, Profiles, Quotes) --- */
 
 .highlight-card {
-  background: var(--cream-soft);
-  border-left: 4px solid var(--gold);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--gold-primary);
   padding: 2rem;
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   margin-bottom: 3rem;
-  box-shadow: 0 8px 24px rgba(31, 26, 20, 0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* Profile / Founder Row Layout */
@@ -418,21 +330,20 @@ button[type="submit"]:hover {
   align-items: center;
   gap: 3rem;
   margin: 4rem 0;
-  background: var(--cream-soft);
+  background: rgba(0,0,0,0.2);
   padding: 2rem;
   border-radius: var(--border-radius-lg);
-  border: 1px solid var(--rule);
-  box-shadow: 0 6px 24px rgba(31, 26, 20, 0.04);
+  border: 1px solid rgba(240,192,64,0.15);
 }
 
 .profile-row img {
   width: 250px;
-  height: 320px;
-  border-radius: var(--border-radius-sm);
+  height: 320px; 
+  border-radius: var(--border-radius-sm); 
   object-fit: cover;
-  border: 3px solid var(--cream-deep);
+  border: 4px solid var(--gold-dark);
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(31, 26, 20, 0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 @media (max-width: 768px) {
   .profile-row { flex-direction: column; text-align: center; }
@@ -449,17 +360,17 @@ button[type="submit"]:hover {
 
 /* Grid Items (The individual cards) */
 .grid-card {
-  background: var(--cream-soft);
-  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(240,192,64,0.15);
   border-radius: var(--border-radius-lg);
   padding: 1.5rem;
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .grid-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(31, 26, 20, 0.08);
-  border-color: rgba(168, 137, 55, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  border-color: rgba(240,192,64,0.4);
 }
 
 .grid-card img {
@@ -467,96 +378,75 @@ button[type="submit"]:hover {
   height: 240px;
   border-radius: var(--border-radius-sm);
   object-fit: cover;
-  border: 2px solid var(--cream-deep);
+  border: 3px solid var(--gold-primary);
   margin: 0 auto 1.2rem auto;
   display: block;
 }
 
-.grid-card h3,
-.grid-card h4 {
-  color: var(--ink);
-  margin-top: 0.5rem;
-}
-
-/* Inspiring Quote Block (Bottom of pages) — DARK ACCENT for rhythm break */
+/* Inspiring Quote Block (Bottom of pages) */
 .inspiring-quote {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem, 4vw, 1.85rem);
-  color: var(--cream);
-  background: var(--earth);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  color: #fff;
   text-align: center;
-  margin: 5rem -20px 0;
-  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 4rem auto;
   font-style: italic;
-  line-height: 1.4;
-  position: relative;
+  padding: 0 20px;
 }
 .inspiring-quote-accent {
   display: block;
-  height: 1px;
+  height: 2px;
   width: 80px;
-  background: var(--gold-bright);
+  background: var(--gold-primary);
   margin: 1.5rem auto 0;
 }
 
 /* --- 09. FORMS & INPUTS --- */
 .dark-form {
-  background: var(--cream-soft);
-  border: 1px solid var(--rule);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(240,192,64,0.15);
   border-radius: var(--border-radius-lg);
   padding: 2.5rem;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(31, 26, 20, 0.05);
 }
 .dark-form label {
   display: block;
-  color: var(--green);
+  color: var(--gold-primary);
   font-weight: 700;
   margin-bottom: 0.5rem;
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.05em;
-  font-size: 0.85rem;
-  text-transform: uppercase;
 }
-.dark-form input,
-.dark-form textarea {
+.dark-form input, .dark-form textarea {
   width: 100%;
   padding: 1rem;
-  background: #fff;
-  border: 1px solid var(--rule);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--border-radius-sm);
-  color: var(--ink);
+  color: #fff;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  transition: border 0.2s, box-shadow 0.2s;
+  transition: border 0.2s;
 }
-.dark-form input:focus,
-.dark-form textarea:focus {
+.dark-form input:focus, .dark-form textarea:focus {
   outline: none;
-  border-color: var(--green);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.12);
+  border-color: var(--gold-primary);
+  background: rgba(255,255,255,0.08);
 }
 
 /* --- 10. FOOTER --- */
 footer {
-  background: var(--green-deep);
-  border-top: none;
-  color: rgba(245, 239, 226, 0.75);
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: 2rem 1rem;
   margin-top: auto;
   font-size: 0.9rem;
-}
-footer a {
-  color: var(--gold-bright);
-}
-footer a:hover {
-  color: var(--cream);
-}
-
+   }
 /* =============================================
    G4H — ANNOUNCEMENTS SECTION
    ============================================= */
@@ -569,12 +459,12 @@ footer a:hover {
 
 .g4h-announce-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 600;
-  color: var(--ink);
+  color: #fff;
   text-align: center;
   margin: 0 0 2rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 .g4h-announce-heading::after {
@@ -582,7 +472,7 @@ footer a:hover {
   display: block;
   width: 60px;
   height: 2px;
-  background: var(--gold);
+  background: var(--gold-primary);
   margin: 0.75rem auto 0;
 }
 
@@ -600,18 +490,17 @@ footer a:hover {
 
 .g4h-announce-card {
   position: relative;
-  background: var(--cream-soft);
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--gold);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(240, 192, 64, 0.25);
+  border-left: 3px solid var(--gold-primary);
   border-radius: 8px;
   padding: 2rem 1.5rem 1.75rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .g4h-announce-card:hover {
-  background: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(31, 26, 20, 0.07);
+  border-color: rgba(240, 192, 64, 0.45);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .g4h-announce-badge {
@@ -619,32 +508,32 @@ footer a:hover {
   position: absolute;
   top: -0.75rem;
   left: 1.25rem;
-  background: var(--green);
-  color: var(--cream);
+  background: var(--gold-primary);
+  color: #1a1008;
   font-family: 'Lato', sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0.4rem 0.95rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
   white-space: nowrap;
 }
 
 .g4h-announce-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--gold-primary);
   margin: 0.5rem 0 1rem;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .g4h-announce-body {
   font-family: 'Lato', sans-serif;
-  font-size: 0.97rem;
-  line-height: 1.65;
-  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.88);
   margin: 0 0 0.85rem;
 }
 
@@ -653,31 +542,27 @@ footer a:hover {
 }
 
 .g4h-announce-when {
-  background: var(--cream-deep);
-  border-left: 3px solid var(--gold);
-  padding: 0.75rem 1rem;
-  color: var(--ink);
+  background: rgba(240, 192, 64, 0.08);
+  border-left: 2px solid var(--gold-primary);
+  padding: 0.65rem 0.85rem;
+  color: #fff;
   font-size: 0.95rem;
-  border-radius: 0 4px 4px 0;
 }
 
 .g4h-announce-when strong {
-  color: var(--green);
+  color: var(--gold-primary);
   font-weight: 700;
 }
 
 .g4h-announce-italic {
   font-style: italic;
-  font-family: 'Playfair Display', Georgia, serif;
-  color: var(--green);
-  font-size: 1.05rem;
+  color: rgba(245, 245, 245, 0.7);
+  font-size: 0.9rem;
 }
 
 
 /* =============================================
-   G4H — EVENT CARD (base layout)
-   NOTE: Mud Run color scheme below overrides this
-   for that specific card (navy / cream / maroon).
+   G4H — EVENT CARD (Mission Possible Mud Run)
    ============================================= */
 
 .g4h-event-section {
@@ -688,12 +573,12 @@ footer a:hover {
 
 .g4h-event-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 600;
-  color: var(--ink);
+  color: #fff;
   text-align: center;
   margin: 0 0 2rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 .g4h-event-heading::after {
@@ -701,28 +586,28 @@ footer a:hover {
   display: block;
   width: 60px;
   height: 2px;
-  background: var(--gold);
+  background: var(--gold-primary);
   margin: 0.75rem auto 0;
 }
 
 .g4h-event-card {
   background: rgba(0, 0, 0, 0.35);
-  border: 3px solid var(--gold);
+  border: 3px solid var(--gold-primary);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(168, 137, 55, 0.15), 0 20px 45px -12px rgba(31, 26, 20, 0.2);
+  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .g4h-event-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 0 1px rgba(168, 137, 55, 0.3), 0 30px 60px -12px rgba(31, 26, 20, 0.3);
+  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.3), 0 30px 60px -12px rgba(0, 0, 0, 0.7);
 }
 
 .g4h-event-image-link {
   display: block;
   line-height: 0;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold-primary);
 }
 
 .g4h-event-image {
@@ -754,7 +639,7 @@ footer a:hover {
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-primary);
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
@@ -763,7 +648,7 @@ footer a:hover {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--cream);
+  color: rgba(245, 245, 245, 0.92);
   margin: 0;
 }
 
@@ -771,8 +656,8 @@ footer a:hover {
   display: block;
   width: 100%;
   text-align: center;
-  background: var(--gold);
-  color: var(--earth) !important;
+  background: var(--gold-primary);
+  color: #1a1008 !important;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -786,8 +671,8 @@ footer a:hover {
 }
 
 .g4h-event-cta:hover {
-  background: var(--gold-deep);
-  color: var(--cream) !important;
+  background: var(--gold-dark);
+  color: #fff !important;
   transform: translateY(-1px);
 }
 
@@ -795,7 +680,7 @@ footer a:hover {
   text-align: center;
   font-family: 'Lato', sans-serif;
   font-size: 0.82rem;
-  color: rgba(168, 137, 55, 0.7);
+  color: rgba(240, 192, 64, 0.7);
   margin: 0.85rem 0 0;
   letter-spacing: 0.04em;
 }
@@ -810,13 +695,8 @@ footer a:hover {
     padding: 1.15rem 1.5rem;
   }
 }
-
 /* =============================================
-   G4H EVENT CARD — MISSION POSSIBLE MUD RUN
-   Intentionally kept in Mission Possible's own
-   palette: navy / cream / muted gold / maroon.
-   This is a partner event identity, not the
-   main site palette.
+   G4H EVENT CARD — Mission Possible color scheme
    ============================================= */
 
 .g4h-event-card {
@@ -858,18 +738,53 @@ footer a:hover {
 .g4h-event-url {
   color: rgba(244, 236, 216, 0.6);
 }
+/* =============================================
+   G4H EVENT CARD — Side-by-side layout (desktop)
+   Image (portrait) on left, details on right
+   Stacks on mobile
+   ============================================= */
 
-/* Side-by-side layout (desktop) */
 @media (min-width: 768px) {
   .g4h-event-card {
     display: grid;
-    grid-template-columns: minmax(340px, 48%) 1fr;
-    align-items: center;
+    grid-template-columns: 40% 60%;
+    align-items: stretch;
   }
 
   .g4h-event-image-link {
     border-bottom: none;
     border-right: 2px solid #F4ECD8;
+    height: 100%;
+  }
+
+  .g4h-event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .g4h-event-body {
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+/* =============================================
+   G4H — CSS AMENDMENT
+   Mud Run image fix + Sara/Rocket image polish
+   Add this to the very bottom of styles.css
+   ============================================= */
+
+/* Fix Mud Run poster crop on desktop */
+@media (min-width: 768px) {
+  .g4h-event-card {
+    grid-template-columns: minmax(340px, 48%) 1fr;
+    align-items: center;
+  }
+
+  .g4h-event-image-link {
     height: auto;
     align-self: center;
     background: #0B1426;
@@ -883,15 +798,9 @@ footer a:hover {
     object-position: center;
     background: #0B1426;
   }
-
-  .g4h-event-body {
-    padding: 2.5rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 }
 
+/* Keep the Mud Run card cleaner on smaller screens */
 @media (max-width: 767px) {
   .g4h-event-image {
     width: 100%;
@@ -900,10 +809,7 @@ footer a:hover {
   }
 }
 
-/* =============================================
-   HOME BANNER IMAGE (Sara + Rocket)
-   Cream-friendly framing
-   ============================================= */
+/* Polish Sara + Rocket image so it feels intentional */
 .home-banner-image {
   position: relative;
   max-width: 820px;
@@ -914,33 +820,31 @@ footer a:hover {
 .home-banner-image img {
   width: 100%;
   max-width: 720px;
-  margin: 0 auto;
   border-radius: 14px;
-  border: 3px solid var(--cream-deep);
+  border: 3px solid var(--gold-dark);
   box-shadow:
-    0 0 0 1px var(--rule),
-    0 18px 45px rgba(31, 26, 20, 0.15);
-  filter: brightness(1.0) contrast(1.04) saturate(1.02);
+    0 0 0 1px rgba(240, 192, 64, 0.25),
+    0 24px 55px rgba(0, 0, 0, 0.55);
+  filter: brightness(0.92) contrast(1.06) saturate(1.02);
 }
 
-/* Optional caption overlay */
+/* Optional subtle caption overlay */
 .home-banner-image::after {
   content: "Healing Happens Here";
   position: absolute;
   left: 50%;
   bottom: 1.6rem;
   transform: translateX(-50%);
-  background: var(--cream);
-  color: var(--green);
+  background: rgba(26, 16, 8, 0.78);
+  color: #f0c040;
   font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
   font-size: clamp(1rem, 2.4vw, 1.35rem);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 0.5rem 1.1rem;
-  border: 1px solid var(--rule);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(240, 192, 64, 0.35);
   border-radius: 999px;
-  box-shadow: 0 8px 25px rgba(31, 26, 20, 0.12);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
   white-space: nowrap;
 }
 
@@ -948,6 +852,6 @@ footer a:hover {
   .home-banner-image::after {
     bottom: 1rem;
     font-size: 0.95rem;
-    padding: 0.4rem 0.85rem;
+    padding: 0.35rem 0.8rem;
   }
 }

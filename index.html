@@ -29,20 +29,19 @@
   }
 
   /* =============================================
-     HOME HERO — BARN INTERIOR (warm welcome)
-     The barn photo already harmonizes with the cream
-     theme (warm wood, cream walls, soft string lights).
-     Treatment: soft cream wash from edges + centered
-     vignette so the text reads, photo stays warm and
-     inviting rather than dramatic.
+     HOME HERO — FULL-DRAMA PHOTO
+     Soldier-and-horse-at-sunset image shows at 100%
+     opacity. Headline + tagline sit at bottom over
+     a soft dark gradient. Below the hero, the page
+     returns to cream calm.
   ============================================= */
   .home-hero {
     position: relative;
-    min-height: 92svh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;       /* center the text in the frame */
+    justify-content: flex-end;     /* anchor text to bottom */
     overflow: hidden;
     background: #2C2620;           /* earth fallback while image loads */
     width: 100%;
@@ -64,30 +63,19 @@
     display: block;
   }
 
-  /* Overlay: soft radial vignette + cream wash at edges
-     so the photo blends INTO the page rather than
-     ending in a hard line. Center stays clearer where
-     the natural wood color creates a darker pool that
-     the text sits over. */
+  /* Gradient — clear on top (sky stays vibrant),
+     darker at bottom so headline + tagline read. */
   .home-hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-      radial-gradient(
-        ellipse at center,
-        rgba(28, 22, 14, 0.55) 0%,
-        rgba(28, 22, 14, 0.35) 40%,
-        rgba(28, 22, 14, 0.15) 70%,
-        rgba(245, 239, 226, 0.0) 100%
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(245, 239, 226, 0.25) 0%,
-        rgba(245, 239, 226, 0) 18%,
-        rgba(245, 239, 226, 0) 78%,
-        rgba(245, 239, 226, 0.55) 100%
-      );
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 22, 14, 0) 0%,
+      rgba(28, 22, 14, 0) 35%,
+      rgba(28, 22, 14, 0.40) 65%,
+      rgba(28, 22, 14, 0.80) 100%
+    );
     pointer-events: none;
   }
 
@@ -112,12 +100,12 @@
     letter-spacing: -0.01em;
     line-height: 1.05;
     margin-bottom: 14px;
-    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.7), 0 0 60px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
   }
 
   .home-hero .hero-title em {
     font-style: italic;
-    color: #D4B560;                /* warmer, brighter gold against wood */
+    color: #C9A961;                /* bright gold for the "4" on dark */
     font-weight: 600;
   }
 
@@ -128,9 +116,9 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(212, 181, 96, 0.6),
-      #D4B560,
-      rgba(212, 181, 96, 0.6),
+      rgba(201, 169, 97, 0.7),
+      #C9A961,
+      rgba(201, 169, 97, 0.7),
       transparent
     );
     margin: 6px auto 18px;
@@ -143,9 +131,9 @@
     font-weight: 600;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #D4B560;
+    color: #C9A961;                /* bright gold on dark */
     margin-bottom: 22px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   }
 
   .home-hero .hero-mission {
@@ -158,7 +146,7 @@
     letter-spacing: 0.01em;
     margin-bottom: 0;
     max-width: 520px;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
   }
 
   /* Soft fade from hero into cream page body */
@@ -168,7 +156,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100px;
+    height: 90px;
     background: linear-gradient(to bottom, transparent, #F5EFE2);
     z-index: 1;
     pointer-events: none;
@@ -222,7 +210,7 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barn interior — warm wood, string lights, gathering space" loading="eager" />
+      <img src="images/FB_IMG_1749752975080.jpg" alt="Veteran and horse at sunset — Guardian 4 Heroes" loading="eager" />
     </div>
     <div class="home-hero__overlay"></div>
 

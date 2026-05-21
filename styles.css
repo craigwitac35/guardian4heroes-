@@ -1,14 +1,33 @@
 /* ==========================================================================
    GUARDIAN 4 HEROES - GLOBAL STYLESHEET
-   Theme: Modern, Dark, Elegant (WebOps Style)
+   Theme: Refined Dark — same identity, more air, more rhythm
+   Refinements: warm off-white text, softer gold, middle tone for cards,
+                tighter heading scale, generous line-height & padding,
+                italic Playfair for emphasis
    ========================================================================== */
 
 /* --- 01. CSS VARIABLES --- */
 :root {
-  --bg-dark: #1a1008;              /* The rich dark brown/charcoal background */
-  --text-light: #f5f5f5;           /* Off-white for highly readable body text */
-  --gold-primary: #f0c040;         /* Bright gold accent */
-  --gold-dark: #b8860b;            /* Deeper gold for hover states/gradients */
+  /* Surfaces */
+  --bg-dark: #1a1008;                /* Main page background (unchanged) */
+  --bg-card: #2A1F14;                /* NEW: middle tone — warm tan for cards */
+  --bg-card-soft: rgba(58, 46, 34, 0.45);  /* Translucent middle, for layered cards */
+
+  /* Text */
+  --text-light: #ECE2CE;             /* Warm off-white (was #f5f5f5 — less clinical) */
+  --text-soft: #B8AC97;              /* Muted body — for captions, secondary text */
+  --text-faint: #7C7264;             /* Faintest — fine print only */
+
+  /* Gold accents */
+  --gold-primary: #C9A961;           /* Refined gold (was #f0c040 — less yellow, more bronze) */
+  --gold-bright: #E4C275;            /* Bright moments only — h2, hover */
+  --gold-dark: #8A6F2A;              /* Deep gold for hover/gradients */
+
+  /* Lines & dividers */
+  --rule: rgba(201, 169, 97, 0.22);
+  --rule-soft: rgba(236, 226, 206, 0.08);
+
+  /* Misc */
   --border-radius-sm: 8px;
   --border-radius-lg: 16px;
   --transition-speed: 0.2s;
@@ -27,45 +46,77 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17.5px;                 /* Was 16px — bigger body for easier reading */
+  line-height: 1.78;                 /* Was 1.6 — more air between lines */
   color: var(--text-light);
   background-color: var(--bg-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.005em;           /* Tiny tracking — softens dense paragraphs */
 }
+
+img { max-width: 100%; height: auto; display: block; }
 
 /* --- 03. TYPOGRAPHY (HEADINGS & TEXT) --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, serif;
-  color: #fff;
-  line-height: 1.2;
-  font-weight: 700;
+  color: var(--text-light);
+  line-height: 1.25;                 /* Was 1.2 — slightly more headroom */
+  font-weight: 600;                  /* Was 700 — less aggressive weight */
+  letter-spacing: -0.005em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  margin-top: 3rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.35rem);  /* Was up to 2.5rem — pulled down */
+  margin-top: 3.25rem;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.6vw, 1.7rem);    /* Was up to 1.8rem — calmer */
   color: var(--gold-primary);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 h4 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* Italic Playfair for emphasis — softens the wall of bold serif */
+em, .italic-accent {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Inside body copy, em should match Lato weight */
+p em, li em, span em {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: inherit;
 }
 
 p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
+  color: var(--text-light);
+  max-width: 68ch;                   /* Cap reading width — prevents huge lines */
 }
+
+/* Allow full-width paragraphs inside cards/grids when needed */
+.full-width p,
+.grid-card p,
+.profile-row p,
+.g4h-announce-card p { max-width: none; }
 
 a {
   color: var(--gold-primary);
@@ -74,7 +125,25 @@ a {
 }
 
 a:hover {
-  color: #fff;
+  color: var(--gold-bright);
+}
+
+strong {
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+/* Pull quotes / featured small text */
+.eyebrow,
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
 }
 
 /* --- 04. MAIN LAYOUT CONTAINER --- */
@@ -83,32 +152,36 @@ main {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 20px 4rem 20px;
+  padding: 3rem 20px 5rem 20px;      /* Was 2rem top, 4rem bottom — more breathing room */
   position: relative;
   z-index: 2;
 }
 
-/* --- 05. GLOBAL NAVIGATION & HEADER (SOLID FIXED HEADER) --- */
+section {
+  margin-bottom: 1rem;
+}
+
+/* --- 05. GLOBAL NAVIGATION & HEADER --- */
 .site-header {
-  position: fixed !important; 
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; 
-  background-color: rgba(26, 16, 8, 0.98) !important; /* Always solid dark brown/charcoal */
-  backdrop-filter: blur(8px); /* Keeps the premium frosted glass effect */
-  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  background-color: rgba(26, 16, 8, 0.92) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 0;
   display: block;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  border-bottom: 1px solid rgba(240, 192, 64, 0.2) !important; /* Subtle gold line always visible */
+  box-shadow: 0 1px 0 var(--rule-soft), 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--rule-soft) !important;
 }
 
 .nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 14px 20px;
   position: relative;
 }
 
@@ -122,15 +195,15 @@ main {
 .brand-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
   line-height: 1;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 .brand-title em {
-  font-style: normal;
+  font-style: italic;
   color: var(--gold-primary);
+  font-weight: 500;
 }
 .brand-line {
   display: block;
@@ -138,20 +211,20 @@ main {
   width: 100%;
   background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark), transparent);
   margin: 4px 0 3px 0;
-  opacity: 0.8;
+  opacity: 0.65;
 }
 .brand-tagline {
   font-family: 'Lato', sans-serif;
   font-size: 0.5rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-primary);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  font-weight: 600;
   white-space: nowrap;
 }
 
 /* Nav Layout */
-.nav-left { display: flex; align-items: center; min-width: 48px; }
+.nav-left  { display: flex; align-items: center; min-width: 48px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-end; }
 .nav-center {
   display: flex;
@@ -164,35 +237,49 @@ main {
 
 .nav-center a {
   font-family: 'Lato', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--text-soft);
   padding: 8px 12px;
   border-radius: 4px;
+  position: relative;
+  transition: color 0.2s ease;
 }
-.nav-center a:hover, .nav-center a[aria-current="page"] {
-  color: #fff;
-  background: rgba(0,0,0,0.35);
+.nav-center a:hover {
+  color: var(--gold-primary);
+}
+.nav-center a[aria-current="page"] {
+  color: var(--gold-primary);
+}
+.nav-center a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 1px;
+  background: var(--gold-primary);
 }
 
 /* Donate Button in Nav */
 .nav-donate {
   font-family: 'Lato', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-primary);
-  border: 1px solid rgba(240,192,64,0.55);
+  color: var(--bg-dark);
+  background: var(--gold-primary);
+  border: 2px solid var(--gold-primary);
   border-radius: 4px;
   padding: 7px 16px;
+  transition: all 0.2s ease;
 }
 .nav-donate:hover {
-  background: var(--gold-dark);
-  color: #fff;
-  border-color: var(--gold-dark);
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
 }
 
 /* Mobile Menu Toggle & Dropdown */
@@ -212,9 +299,12 @@ main {
   right: 0;
   z-index: 300;
   flex-direction: column;
-  background: rgba(12, 9, 3, 0.97);
+  background: rgba(26, 16, 8, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 8px 16px 16px;
-  border-bottom: 1px solid rgba(240,192,64,0.2);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 .nav-dropdown.open { display: flex; }
 .nav-dropdown a {
@@ -223,17 +313,17 @@ main {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-primary);
+  color: var(--text-light);
   padding: 14px 16px;
   border-radius: 6px;
 }
 .nav-dropdown a:hover {
-  color: #fff;
-  background: rgba(240,192,64,0.12);
+  color: var(--gold-primary);
+  background: var(--bg-card-soft);
 }
 
 @media (max-width: 850px) {
-  .nav-center { display: none; }
+  .nav-center  { display: none; }
   .menu-toggle { display: flex; }
 }
 
@@ -247,6 +337,7 @@ main {
   justify-content: center;
   overflow: hidden;
   width: 100%;
+  background: var(--bg-dark);
 }
 
 .subpage-hero__bg {
@@ -267,9 +358,9 @@ main {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.65) 0%,
-    rgba(26,16,8,0.4) 50%,
-    rgba(26,16,8,1) 100% 
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(26, 16, 8, 0.35) 50%,
+    rgba(26, 16, 8, 1) 100%
   );
 }
 
@@ -277,51 +368,81 @@ main {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 80px 20px 40px;
+  padding: 100px 20px 60px;
+  max-width: 900px;
 }
 
 .subpage-hero .hero-title {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
-  margin-bottom: 12px;
-  text-shadow: 0 0 40px rgba(184,134,11,0.5), 2px 2px 6px rgba(0,0,0,0.9);
+  margin-bottom: 14px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.subpage-hero .hero-title em {
+  color: var(--gold-primary);
+  font-style: italic;
+  font-weight: 500;
 }
 
 /* --- 07. GLOBAL BUTTONS --- */
-.button, .primary-button, .order-now-btn, .order-submit-btn, button[type="submit"] {
+.button,
+.primary-button,
+.order-now-btn,
+.order-submit-btn,
+button[type="submit"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(98deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
-  color: #1a1a1a;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.15rem;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+  color: var(--bg-dark);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.8em 2em;
-  border: none;
+  padding: 0.95em 2.1em;
+  border: 2px solid transparent;
   border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(184,134,11,0.3);
+  box-shadow: 0 4px 14px rgba(201, 169, 97, 0.25);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: all 0.25s ease;
 }
 
-.button:hover, .primary-button:hover, .order-now-btn:hover, button[type="submit"]:hover {
-  background: linear-gradient(100deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+.button:hover,
+.primary-button:hover,
+.order-now-btn:hover,
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-primary));
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(184,134,11,0.4);
-  color: #000;
+  box-shadow: 0 6px 22px rgba(228, 194, 117, 0.4);
+  color: var(--bg-dark);
 }
 
-/* --- 08. REUSABLE COMPONENTS (Cards, Profiles, Quotes) --- */
+.button.secondary,
+.secondary-button {
+  background: transparent;
+  color: var(--text-light);
+  border-color: var(--text-light);
+  box-shadow: none;
+}
+.button.secondary:hover,
+.secondary-button:hover {
+  background: var(--text-light);
+  color: var(--bg-dark);
+}
+
+/* --- 08. REUSABLE COMPONENTS --- */
 
 .highlight-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid var(--gold-primary);
-  padding: 2rem;
+  background: var(--bg-card);
+  border-left: 3px solid var(--gold-primary);
+  padding: 2.25rem 2rem;
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 /* Profile / Founder Row Layout */
@@ -330,27 +451,28 @@ main {
   align-items: center;
   gap: 3rem;
   margin: 4rem 0;
-  background: rgba(0,0,0,0.2);
-  padding: 2rem;
+  background: var(--bg-card);
+  padding: 2.25rem;
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(240,192,64,0.15);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
 .profile-row img {
   width: 250px;
-  height: 320px; 
-  border-radius: var(--border-radius-sm); 
+  height: 320px;
+  border-radius: var(--border-radius-sm);
   object-fit: cover;
-  border: 4px solid var(--gold-dark);
+  border: 2px solid var(--gold-dark);
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 @media (max-width: 768px) {
   .profile-row { flex-direction: column; text-align: center; }
   .profile-row img { width: 100%; height: auto; max-width: 350px; }
 }
 
-/* Responsive Grid (For Horses, Shop Items, etc) */
+/* Responsive Grid */
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -358,19 +480,19 @@ main {
   margin-top: 2rem;
 }
 
-/* Grid Items (The individual cards) */
+/* Grid Items */
 .grid-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(240,192,64,0.15);
+  background: var(--bg-card);
+  border: 1px solid var(--rule-soft);
   border-radius: var(--border-radius-lg);
-  padding: 1.5rem;
+  padding: 1.75rem 1.5rem;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .grid-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-  border-color: rgba(240,192,64,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+  border-color: var(--rule);
 }
 
 .grid-card img {
@@ -378,38 +500,48 @@ main {
   height: 240px;
   border-radius: var(--border-radius-sm);
   object-fit: cover;
-  border: 3px solid var(--gold-primary);
+  border: 1px solid var(--gold-dark);
   margin: 0 auto 1.2rem auto;
   display: block;
 }
 
-/* Inspiring Quote Block (Bottom of pages) */
+.grid-card h3,
+.grid-card h4 {
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* Inspiring Quote */
 .inspiring-quote {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem, 4vw, 1.8rem);
-  color: #fff;
-  text-align: center;
-  max-width: 800px;
-  margin: 4rem auto;
   font-style: italic;
-  padding: 0 20px;
+  font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+  color: var(--text-light);
+  text-align: center;
+  margin: 5rem auto 2rem;
+  padding: 3rem 2rem;
+  line-height: 1.5;
+  position: relative;
+  font-weight: 500;
+  max-width: 820px;
 }
 .inspiring-quote-accent {
   display: block;
-  height: 2px;
+  height: 1px;
   width: 80px;
   background: var(--gold-primary);
-  margin: 1.5rem auto 0;
+  margin: 1.75rem auto 0;
 }
 
 /* --- 09. FORMS & INPUTS --- */
 .dark-form {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(240,192,64,0.15);
+  background: var(--bg-card);
+  border: 1px solid var(--rule-soft);
   border-radius: var(--border-radius-lg);
   padding: 2.5rem;
   max-width: 600px;
   margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 .dark-form label {
   display: block;
@@ -417,69 +549,85 @@ main {
   font-weight: 700;
   margin-bottom: 0.5rem;
   font-family: 'Lato', sans-serif;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
 }
-.dark-form input, .dark-form textarea {
+.dark-form input,
+.dark-form textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--rule);
   border-radius: var(--border-radius-sm);
-  color: #fff;
+  color: var(--text-light);
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
 }
-.dark-form input:focus, .dark-form textarea:focus {
+.dark-form input:focus,
+.dark-form textarea:focus {
   outline: none;
   border-color: var(--gold-primary);
-  background: rgba(255,255,255,0.08);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.15);
+}
+.dark-form input::placeholder,
+.dark-form textarea::placeholder {
+  color: var(--text-faint);
 }
 
 /* --- 10. FOOTER --- */
 footer {
-  background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6);
+  background: rgba(0, 0, 0, 0.35);
+  border-top: 1px solid var(--rule-soft);
+  color: var(--text-soft);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
   margin-top: auto;
   font-size: 0.9rem;
-   }
+}
+footer a {
+  color: var(--gold-primary);
+}
+footer a:hover {
+  color: var(--gold-bright);
+}
+
 /* =============================================
    G4H — ANNOUNCEMENTS SECTION
    ============================================= */
 
 .g4h-announce-section {
   max-width: 1100px;
-  margin: 3.5rem auto 2.5rem;
+  margin: 4rem auto 3rem;
   padding: 0 1.25rem;
 }
 
 .g4h-announce-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
   font-weight: 600;
-  color: #fff;
+  color: var(--text-light);
   text-align: center;
-  margin: 0 0 2rem;
-  letter-spacing: 0.02em;
+  margin: 0 0 2.5rem;
+  letter-spacing: -0.005em;
 }
 
 .g4h-announce-heading::after {
   content: '';
   display: block;
   width: 60px;
-  height: 2px;
+  height: 1px;
   background: var(--gold-primary);
-  margin: 0.75rem auto 0;
+  margin: 1rem auto 0;
 }
 
 .g4h-announce-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 @media (min-width: 768px) {
@@ -490,17 +638,17 @@ footer {
 
 .g4h-announce-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(240, 192, 64, 0.25);
+  background: var(--bg-card);
+  border: 1px solid var(--rule-soft);
   border-left: 3px solid var(--gold-primary);
   border-radius: 8px;
-  padding: 2rem 1.5rem 1.75rem;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  padding: 2.25rem 1.75rem 1.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .g4h-announce-card:hover {
-  border-color: rgba(240, 192, 64, 0.45);
-  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .g4h-announce-badge {
@@ -509,32 +657,32 @@ footer {
   top: -0.75rem;
   left: 1.25rem;
   background: var(--gold-primary);
-  color: #1a1008;
+  color: var(--bg-dark);
   font-family: 'Lato', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   border-radius: 999px;
   white-space: nowrap;
 }
 
 .g4h-announce-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--gold-primary);
+  color: var(--text-light);
   margin: 0.5rem 0 1rem;
   line-height: 1.3;
 }
 
 .g4h-announce-body {
   font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(245, 245, 245, 0.88);
-  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-light);
+  margin: 0 0 0.95rem;
 }
 
 .g4h-announce-body:last-child {
@@ -542,11 +690,13 @@ footer {
 }
 
 .g4h-announce-when {
-  background: rgba(240, 192, 64, 0.08);
+  background: rgba(0, 0, 0, 0.3);
   border-left: 2px solid var(--gold-primary);
-  padding: 0.65rem 0.85rem;
-  color: #fff;
+  padding: 0.85rem 1.1rem;
+  color: var(--text-light);
   font-size: 0.95rem;
+  border-radius: 0 4px 4px 0;
+  margin: 0.5rem 0 1.1rem;
 }
 
 .g4h-announce-when strong {
@@ -556,38 +706,40 @@ footer {
 
 .g4h-announce-italic {
   font-style: italic;
-  color: rgba(245, 245, 245, 0.7);
-  font-size: 0.9rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--gold-primary);
+  font-size: 1.08rem;
+  font-weight: 500;
 }
 
 
 /* =============================================
-   G4H — EVENT CARD (Mission Possible Mud Run)
+   G4H — EVENT CARD (base — Mud Run overrides below)
    ============================================= */
 
 .g4h-event-section {
   max-width: 1100px;
-  margin: 3rem auto 3.5rem;
+  margin: 3rem auto 4rem;
   padding: 0 1.25rem;
 }
 
 .g4h-event-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
   font-weight: 600;
-  color: #fff;
+  color: var(--text-light);
   text-align: center;
-  margin: 0 0 2rem;
-  letter-spacing: 0.02em;
+  margin: 0 0 2.5rem;
+  letter-spacing: -0.005em;
 }
 
 .g4h-event-heading::after {
   content: '';
   display: block;
   width: 60px;
-  height: 2px;
+  height: 1px;
   background: var(--gold-primary);
-  margin: 0.75rem auto 0;
+  margin: 1rem auto 0;
 }
 
 .g4h-event-card {
@@ -595,13 +747,13 @@ footer {
   border: 3px solid var(--gold-primary);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.15), 0 20px 45px -12px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .g4h-event-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 0 1px rgba(240, 192, 64, 0.3), 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.3), 0 30px 60px -12px rgba(0, 0, 0, 0.65);
 }
 
 .g4h-event-image-link {
@@ -622,11 +774,11 @@ footer {
 }
 
 .g4h-event-body {
-  padding: 2rem 1.75rem;
+  padding: 2.25rem 1.75rem;
 }
 
 .g4h-event-detail {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.3rem;
 }
 
 .g4h-event-detail:last-of-type {
@@ -647,8 +799,8 @@ footer {
 .g4h-event-text {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  line-height: 1.55;
-  color: rgba(245, 245, 245, 0.92);
+  line-height: 1.65;
+  color: var(--text-light);
   margin: 0;
 }
 
@@ -657,7 +809,7 @@ footer {
   width: 100%;
   text-align: center;
   background: var(--gold-primary);
-  color: #1a1008 !important;
+  color: var(--bg-dark) !important;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -671,8 +823,7 @@ footer {
 }
 
 .g4h-event-cta:hover {
-  background: var(--gold-dark);
-  color: #fff !important;
+  background: var(--gold-bright);
   transform: translateY(-1px);
 }
 
@@ -680,7 +831,7 @@ footer {
   text-align: center;
   font-family: 'Lato', sans-serif;
   font-size: 0.82rem;
-  color: rgba(240, 192, 64, 0.7);
+  color: var(--text-soft);
   margin: 0.85rem 0 0;
   letter-spacing: 0.04em;
 }
@@ -689,14 +840,15 @@ footer {
   .g4h-event-body {
     padding: 2.5rem 2.5rem;
   }
-
   .g4h-event-cta {
     font-size: 1.05rem;
     padding: 1.15rem 1.5rem;
   }
 }
+
 /* =============================================
-   G4H EVENT CARD — Mission Possible color scheme
+   G4H EVENT CARD — MISSION POSSIBLE MUD RUN
+   Kept in MP's own palette (navy / cream / gold / maroon).
    ============================================= */
 
 .g4h-event-card {
@@ -738,53 +890,18 @@ footer {
 .g4h-event-url {
   color: rgba(244, 236, 216, 0.6);
 }
-/* =============================================
-   G4H EVENT CARD — Side-by-side layout (desktop)
-   Image (portrait) on left, details on right
-   Stacks on mobile
-   ============================================= */
 
+/* Side-by-side layout (desktop) */
 @media (min-width: 768px) {
   .g4h-event-card {
     display: grid;
-    grid-template-columns: 40% 60%;
-    align-items: stretch;
-  }
-
-  .g4h-event-image-link {
-    border-bottom: none;
-    border-right: 2px solid #F4ECD8;
-    height: 100%;
-  }
-
-  .g4h-event-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .g4h-event-body {
-    padding: 2.5rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-/* =============================================
-   G4H — CSS AMENDMENT
-   Mud Run image fix + Sara/Rocket image polish
-   Add this to the very bottom of styles.css
-   ============================================= */
-
-/* Fix Mud Run poster crop on desktop */
-@media (min-width: 768px) {
-  .g4h-event-card {
     grid-template-columns: minmax(340px, 48%) 1fr;
     align-items: center;
   }
 
   .g4h-event-image-link {
+    border-bottom: none;
+    border-right: 2px solid #F4ECD8;
     height: auto;
     align-self: center;
     background: #0B1426;
@@ -798,9 +915,15 @@ footer {
     object-position: center;
     background: #0B1426;
   }
+
+  .g4h-event-body {
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
-/* Keep the Mud Run card cleaner on smaller screens */
 @media (max-width: 767px) {
   .g4h-event-image {
     width: 100%;
@@ -809,49 +932,23 @@ footer {
   }
 }
 
-/* Polish Sara + Rocket image so it feels intentional */
+/* =============================================
+   HOME BANNER IMAGE (Sara + Rocket)
+   ============================================= */
 .home-banner-image {
   position: relative;
   max-width: 820px;
   margin: 4.5rem auto 4rem;
   padding: 0 1.25rem;
+  text-align: center;
 }
 
 .home-banner-image img {
   width: 100%;
-  max-width: 720px;
-  border-radius: 14px;
-  border: 3px solid var(--gold-dark);
-  box-shadow:
-    0 0 0 1px rgba(240, 192, 64, 0.25),
-    0 24px 55px rgba(0, 0, 0, 0.55);
-  filter: brightness(0.92) contrast(1.06) saturate(1.02);
-}
-
-/* Optional subtle caption overlay */
-.home-banner-image::after {
-  content: "Healing Happens Here";
-  position: absolute;
-  left: 50%;
-  bottom: 1.6rem;
-  transform: translateX(-50%);
-  background: rgba(26, 16, 8, 0.78);
-  color: #f0c040;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1rem, 2.4vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.45rem 1rem;
-  border: 1px solid rgba(240, 192, 64, 0.35);
-  border-radius: 999px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-  .home-banner-image::after {
-    bottom: 1rem;
-    font-size: 0.95rem;
-    padding: 0.35rem 0.8rem;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg);
+  border: 2px solid var(--gold-dark);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  display: inline-block;
 }

@@ -597,6 +597,9 @@ footer a:hover {
 
 /* =============================================
    G4H — ANNOUNCEMENTS SECTION
+   Treatment: cards as pinned paper flyers on a
+   wood-grain dark wall. Cream paper, brass
+   pushpin, subtle texture, alternating tilt.
    ============================================= */
 
 .g4h-announce-section {
@@ -611,7 +614,7 @@ footer a:hover {
   font-weight: 600;
   color: var(--text-light);
   text-align: center;
-  margin: 0 0 2.5rem;
+  margin: 0 0 3rem;
   letter-spacing: -0.005em;
 }
 
@@ -627,89 +630,182 @@ footer a:hover {
 .g4h-announce-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem;
+  gap: 3rem;                          /* extra room because of tilt + pin */
+  padding-top: 1.5rem;                /* room for the pushpin above the card */
 }
 
 @media (min-width: 768px) {
   .g4h-announce-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 }
 
+/* The card = paper flyer */
 .g4h-announce-card {
   position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--rule-soft);
-  border-left: 3px solid var(--gold-primary);
-  border-radius: 8px;
-  padding: 2.25rem 1.75rem 1.75rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #ECDFC2;                 /* warm aged paper */
+  border: 1px solid rgba(58, 46, 34, 0.18);
+  border-radius: 3px;                  /* paper has sharp-ish corners */
+  padding: 2.5rem 1.75rem 1.75rem;
+  color: #2A1F14;
+  /* Subtle paper texture (CSS noise) */
+  background-image:
+    radial-gradient(ellipse at top left, rgba(140, 110, 70, 0.07), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(70, 50, 30, 0.06), transparent 55%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.13 0 0 0 0 0.08 0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  background-blend-mode: multiply, multiply, normal;
+  /* Shadow: paper resting against wood */
+  box-shadow:
+    0 1px 0 rgba(255, 245, 220, 0.12) inset,
+    0 14px 28px -8px rgba(0, 0, 0, 0.55),
+    0 4px 10px -2px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1.1),
+              box-shadow 0.35s ease;
 }
 
+/* Alternating tilt — feels intentional, not random */
+.g4h-announce-card:nth-child(odd)  { transform: rotate(-1.2deg); }
+.g4h-announce-card:nth-child(even) { transform: rotate(1.4deg); }
+
+/* Hover: paper straightens slightly, shadow deepens
+   like you're leaning in to read it */
 .g4h-announce-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transform: rotate(-0.3deg);
+  box-shadow:
+    0 1px 0 rgba(255, 245, 220, 0.15) inset,
+    0 22px 38px -10px rgba(0, 0, 0, 0.65),
+    0 6px 14px -3px rgba(0, 0, 0, 0.45);
+}
+.g4h-announce-card:nth-child(even):hover {
+  transform: rotate(0.3deg);
 }
 
+/* On mobile, kill rotation — it creates awkward edge slivers */
+@media (max-width: 600px) {
+  .g4h-announce-card,
+  .g4h-announce-card:nth-child(odd),
+  .g4h-announce-card:nth-child(even) {
+    transform: none;
+  }
+  .g4h-announce-card:hover,
+  .g4h-announce-card:nth-child(even):hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* The brass pushpin */
+.g4h-announce-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      #F5DD8A 0%,
+      #D4B560 30%,
+      #A88937 65%,
+      #5C4517 100%);
+  box-shadow:
+    0 1px 1px rgba(255, 240, 200, 0.6) inset,
+    0 -1px 2px rgba(60, 40, 15, 0.5) inset,
+    0 3px 6px rgba(0, 0, 0, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Tiny shine highlight on the pushpin */
+.g4h-announce-card::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: rgba(255, 250, 220, 0.7);
+  filter: blur(0.5px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Date badge — deep brown chip on the paper */
 .g4h-announce-badge {
   display: inline-block;
-  position: absolute;
-  top: -0.75rem;
-  left: 1.25rem;
-  background: var(--gold-primary);
-  color: var(--bg-dark);
+  background: #2A1F14;
+  color: #ECDFC2;
   font-family: 'Lato', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0.4rem 0.95rem;
-  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
   white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(42, 31, 20, 0.25);
 }
 
+/* Title in deep brown serif */
 .g4h-announce-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 600;
-  color: var(--text-light);
-  margin: 0.5rem 0 1rem;
-  line-height: 1.3;
+  color: #1F1610;
+  margin: 0.25rem 0 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
 }
 
+/* Body in warm dark brown */
 .g4h-announce-body {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text-light);
-  margin: 0 0 0.95rem;
+  line-height: 1.7;
+  color: #3D3025;
+  margin: 0 0 1rem;
+  max-width: none;
 }
 
 .g4h-announce-body:last-child {
   margin-bottom: 0;
 }
 
-.g4h-announce-when {
-  background: rgba(0, 0, 0, 0.3);
-  border-left: 2px solid var(--gold-primary);
-  padding: 0.85rem 1.1rem;
-  color: var(--text-light);
-  font-size: 0.95rem;
-  border-radius: 0 4px 4px 0;
-  margin: 0.5rem 0 1.1rem;
-}
-
-.g4h-announce-when strong {
-  color: var(--gold-primary);
+.g4h-announce-body strong {
+  color: #1F1610;
   font-weight: 700;
 }
 
+/* When/where inset — slightly darker cream pool */
+.g4h-announce-when {
+  background: #DDCDA8;
+  border-left: 2px solid #8A6F2A;
+  padding: 0.85rem 1.1rem;
+  color: #2A1F14;
+  font-size: 0.95rem;
+  border-radius: 0 3px 3px 0;
+  margin: 0.5rem 0 1.1rem;
+  box-shadow: inset 0 1px 2px rgba(80, 55, 25, 0.08);
+}
+
+.g4h-announce-when strong {
+  color: #5C4517;
+  font-weight: 700;
+}
+
+/* Closing italic line — deep gold serif */
 .g4h-announce-italic {
   font-style: italic;
   font-family: 'Playfair Display', Georgia, serif;
-  color: var(--gold-primary);
-  font-size: 1.08rem;
+  color: #5C4517;
+  font-size: 1.1rem;
   font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 

@@ -6,31 +6,58 @@
                 italic Playfair for emphasis
    ========================================================================== */
 
-/* --- 01. CSS VARIABLES --- */
+/* --- 01. DESIGN TOKENS — LIGHT "RANGE PAPER" SYSTEM ---
+   Palette anchored to the Guardian 4 Heroes emblem bronze (#A87818).
+   Light body brackets a dark header, hero and footer.
+   New semantic names are primary; the bg, text and gold names
+   below are kept as aliases so every existing rule inherits the new
+   theme automatically. Update the aliases, not the rules. */
 :root {
-  /* Surfaces */
-  --bg-dark: #1a1008;                /* Main page background (unchanged) */
-  --bg-card: #2A1F14;                /* NEW: middle tone — warm tan for cards */
-  --bg-card-soft: rgba(58, 46, 34, 0.45);  /* Translucent middle, for layered cards */
+  /* Light surfaces */
+  --paper:      #F4EDDF;   /* aged range cream — page background */
+  --paper-deep: #EDE4D2;   /* slightly deeper cream — alternating bands */
+  --card:       #FBF6EC;   /* raised parchment — cards */
+  --card-alt:   #EADFC9;   /* warmer card — insets, quiet blocks */
 
-  /* Text */
-  --text-light: #ECE2CE;             /* Warm off-white (was #f5f5f5 — less clinical) */
-  --text-soft: #B8AC97;              /* Muted body — for captions, secondary text */
-  --text-faint: #7C7264;             /* Faintest — fine print only */
+  /* Ink (warm brown-black) */
+  --ink:        #2E2417;   /* body text — 13:1 on paper */
+  --ink-soft:   #5A4B33;   /* secondary text */
+  --ink-faint:  #7A6A50;   /* fine print — still AA on paper */
 
-  /* Gold accents */
-  --gold-primary: #C9A961;           /* Refined gold (was #f0c040 — less yellow, more bronze) */
-  --gold-bright: #E4C275;            /* Bright moments only — h2, hover */
-  --gold-dark: #8A6F2A;              /* Deep gold for hover/gradients */
+  /* Bronze / leather accents */
+  --bronze:        #A87818;  /* emblem brass — headings, rules, accents (large only) */
+  --bronze-bright: #C08A2E;  /* glow/hover on the dark hero */
+  --leather:       #6E4E1F;  /* text-weight gold, hovers, deep detail */
+  --text-on-bronze:#1F1608;  /* dark text on a bronze fill */
 
-  /* Lines & dividers */
-  --rule: rgba(201, 169, 97, 0.22);
-  --rule-soft: rgba(236, 226, 206, 0.08);
+  /* Dark bracket (header / hero / footer) */
+  --dark:      #211407;
+  --dark-2:    #1A1008;
+  --on-dark:   #EDE3CF;                    /* light text on dark surfaces */
+  --on-dark-soft: rgba(237, 227, 207, 0.72);
+
+  /* Craft details */
+  --stitch:    rgba(110, 78, 31, 0.55);    /* saddle-stitch dashes */
+  --rule:      rgba(110, 78, 31, 0.30);
+  --rule-soft: rgba(46, 36, 23, 0.12);
+  --shadow:    rgba(58, 42, 20, 0.16);     /* warm shadow for cream */
+  --shadow-lg: rgba(58, 42, 20, 0.22);
 
   /* Misc */
   --border-radius-sm: 8px;
   --border-radius-lg: 16px;
   --transition-speed: 0.2s;
+
+  /* --- Compatibility aliases (old rules keep working, now light) --- */
+  --bg-dark:      var(--dark);
+  --bg-card:      var(--card);
+  --bg-card-soft: rgba(110, 78, 31, 0.10);
+  --text-light:   var(--ink);
+  --text-soft:    var(--ink-soft);
+  --text-faint:   var(--ink-faint);
+  --gold-primary: var(--bronze);
+  --gold-bright:  var(--bronze-bright);
+  --gold-dark:    var(--leather);
 }
 
 /* --- 02. GLOBAL RESETS & BASE --- */
@@ -48,8 +75,8 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 17.5px;                 /* Was 16px — bigger body for easier reading */
   line-height: 1.78;                 /* Was 1.6 — more air between lines */
-  color: var(--text-light);
-  background-color: var(--bg-dark);
+  color: var(--ink);
+  background-color: var(--paper);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -73,7 +100,6 @@ h2 {
   font-size: clamp(1.85rem, 3.4vw, 2.35rem);  /* Was up to 2.5rem — pulled down */
   margin-top: 3.25rem;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
   font-weight: 600;
 }
 
@@ -119,13 +145,13 @@ p {
 .g4h-announce-card p { max-width: none; }
 
 a {
-  color: var(--gold-primary);
+  color: var(--leather);
   text-decoration: none;
   transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-  color: var(--gold-bright);
+  color: var(--bronze);
 }
 
 strong {
@@ -142,7 +168,7 @@ strong {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold-primary);
+  color: var(--leather);
   margin-bottom: 1rem;
 }
 
@@ -196,7 +222,7 @@ section {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--on-dark);
   letter-spacing: 0.02em;
   line-height: 1;
 }
@@ -241,7 +267,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--on-dark-soft);
   padding: 8px 12px;
   border-radius: 4px;
   position: relative;
@@ -313,7 +339,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-light);
+  color: var(--on-dark);
   padding: 14px 16px;
   border-radius: 6px;
 }
@@ -437,12 +463,13 @@ button[type="submit"]:hover {
 /* --- 08. REUSABLE COMPONENTS --- */
 
 .highlight-card {
-  background: var(--bg-card);
-  border-left: 3px solid var(--gold-primary);
+  background: var(--card);
+  border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--bronze);
   padding: 2.25rem 2rem;
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   margin-bottom: 3rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px var(--shadow);
 }
 
 /* Profile / Founder Row Layout */
@@ -455,7 +482,7 @@ button[type="submit"]:hover {
   padding: 2.25rem;
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--rule-soft);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px var(--shadow);
 }
 
 .profile-row img {
@@ -465,7 +492,7 @@ button[type="submit"]:hover {
   object-fit: cover;
   border: 2px solid var(--gold-dark);
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 26px var(--shadow-lg);
 }
 @media (max-width: 768px) {
   .profile-row { flex-direction: column; text-align: center; }
@@ -491,7 +518,7 @@ button[type="submit"]:hover {
 }
 .grid-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 36px var(--shadow-lg);
   border-color: var(--rule);
 }
 
@@ -541,7 +568,7 @@ button[type="submit"]:hover {
   padding: 2.5rem;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px var(--shadow);
 }
 .dark-form label {
   display: block;
@@ -557,10 +584,10 @@ button[type="submit"]:hover {
 .dark-form textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: var(--border-radius-sm);
-  color: var(--text-light);
+  color: var(--ink);
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   margin-bottom: 1.5rem;
@@ -569,9 +596,9 @@ button[type="submit"]:hover {
 .dark-form input:focus,
 .dark-form textarea:focus {
   outline: none;
-  border-color: var(--gold-primary);
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.15);
+  border-color: var(--bronze);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(168, 120, 24, 0.18);
 }
 .dark-form input::placeholder,
 .dark-form textarea::placeholder {
@@ -580,9 +607,9 @@ button[type="submit"]:hover {
 
 /* --- 10. FOOTER --- */
 footer {
-  background: rgba(0, 0, 0, 0.35);
-  border-top: 1px solid var(--rule-soft);
-  color: var(--text-soft);
+  background: var(--dark);
+  border-top: 1px solid rgba(168, 120, 24, 0.35);
+  color: var(--on-dark-soft);
   text-align: center;
   padding: 2.5rem 1rem;
   margin-top: auto;
@@ -594,6 +621,7 @@ footer a {
 footer a:hover {
   color: var(--gold-bright);
 }
+footer p { color: var(--on-dark-soft); max-width: none; }
 
 /* =============================================
    G4H — ANNOUNCEMENTS SECTION
@@ -648,7 +676,7 @@ footer a:hover {
 
 .g4h-announce-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 36px var(--shadow-lg);
 }
 
 .g4h-announce-badge {
@@ -690,24 +718,24 @@ footer a:hover {
 }
 
 .g4h-announce-when {
-  background: rgba(0, 0, 0, 0.3);
-  border-left: 2px solid var(--gold-primary);
+  background: var(--card-alt);
+  border-left: 2px solid var(--bronze);
   padding: 0.85rem 1.1rem;
-  color: var(--text-light);
+  color: var(--ink);
   font-size: 0.95rem;
   border-radius: 0 4px 4px 0;
   margin: 0.5rem 0 1.1rem;
 }
 
 .g4h-announce-when strong {
-  color: var(--gold-primary);
+  color: var(--leather);
   font-weight: 700;
 }
 
 .g4h-announce-italic {
   font-style: italic;
   font-family: 'Playfair Display', Georgia, serif;
-  color: var(--gold-primary);
+  color: var(--leather);
   font-size: 1.08rem;
   font-weight: 500;
 }
@@ -949,6 +977,6 @@ footer a:hover {
   margin: 0 auto;
   border-radius: var(--border-radius-lg);
   border: 2px solid var(--gold-dark);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 14px 34px var(--shadow-lg);
   display: inline-block;
    }

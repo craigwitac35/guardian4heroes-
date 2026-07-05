@@ -6,154 +6,264 @@
 <meta name="description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
 <title>Guardian 4 Heroes | Equine Therapy for Veterans</title>
 <meta property="og:title" content="Guardian 4 Heroes | Equine Therapy for Veterans">
-<meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
+<meta property="og:description" content="Equine-facilitated therapy for veterans and first responders. The power of the connection with a horse.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/logo.png">
+<meta property="og:image" content="images/Emblem-logo.png">
 
+<link rel="icon" type="image/png" href="images/Emblem-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 
 <style>
   /* =============================================
-     MOBILE CLIPPING FIX
+     HOME — "RANGE PAPER" LANDING (scoped to index)
+     Dark hero  →  light editorial body  →  dark footer
+     Signature: saddle-stitch rule + brass concho, mono stamp labels
   ============================================= */
-  /* Hides the long tagline on small phone screens so it doesn't smash into the Donate button */
+
+  :root { --mono: 'JetBrains Mono', ui-monospace, monospace; }
+
   @media (max-width: 480px) {
-    .brand-tagline {
-      display: none !important;
-    }
+    .brand-tagline { display: none !important; }
   }
 
-  /* =============================================
-     HOME HERO ONLY 
-  ============================================= */
+  /* ---------- HERO (kept dark & full-bleed) ---------- */
   .home-hero {
     position: relative;
     min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     overflow: hidden;
-    background: #1a1008;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    background: var(--dark-2);
+    width: 100%; margin: 0; padding: 0;
   }
-
-  .home-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .home-hero__bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
+  .home-hero__bg { position: absolute; inset: 0; z-index: 0; }
+  .home-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .home-hero__overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.55) 0%,
-      rgba(0,0,0,0.28) 30%,
-      rgba(0,0,0,0.42) 65%,
-      rgba(0,0,0,0.72) 100%
-    );
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.28) 0%, rgba(26,16,8,0.62) 62%, rgba(20,12,5,0.86) 100%),
+      linear-gradient(to bottom, rgba(20,12,5,0.55) 0%, rgba(20,12,5,0.20) 34%, rgba(20,12,5,0.78) 100%);
   }
 
   .home-hero .hero-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center;
     text-align: center;
-    padding: 100px 32px 60px;
-    max-width: 700px;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 110px 32px 88px;
+    max-width: 720px; width: 100%; box-sizing: border-box;
+    opacity: 0; transform: translateY(18px);
+    animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .15s forwards;
+  }
+  @keyframes heroRise { to { opacity: 1; transform: none; } }
+
+  .hero-emblem {
+    width: 74px; height: 74px; margin-bottom: 22px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,.6));
+    opacity: .96;
   }
 
   .home-hero .hero-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.4rem, 8vw, 4rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    margin-bottom: 12px;
-    text-shadow:
-      0 0 40px rgba(184,134,11,0.6),
-      0 0 80px rgba(184,134,11,0.25),
-      3px 3px 8px rgba(0,0,0,0.85);
+    font-size: clamp(2.5rem, 8.4vw, 4.15rem);
+    font-weight: 700; color: #fff;
+    letter-spacing: 0.03em; line-height: 1.06; margin-bottom: 18px;
+    text-shadow: 0 2px 30px rgba(192,138,46,0.35), 0 3px 10px rgba(0,0,0,0.8);
   }
-
   .home-hero .hero-title em {
-    font-style: normal;
-    color: #f0c040;
-    text-shadow:
-      0 0 30px rgba(240,192,64,0.8),
-      0 0 60px rgba(184,134,11,0.4),
-      3px 3px 8px rgba(0,0,0,0.85);
+    font-style: normal; color: var(--bronze-bright);
+    text-shadow: 0 0 34px rgba(192,138,46,0.6), 0 3px 10px rgba(0,0,0,0.8);
   }
 
   .home-hero .hero-rule {
-    display: block;
-    width: 160px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #b8860b, #f0c040, #b8860b, transparent);
-    margin: 0 auto 14px;
-    border: none;
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; width: min(280px, 70%); margin: 0 auto 18px;
+  }
+  .home-hero .hero-rule::before,
+  .home-hero .hero-rule::after {
+    content: ""; height: 1px; flex: 1;
+    background: linear-gradient(90deg, transparent, rgba(213,178,110,0.85));
+  }
+  .home-hero .hero-rule::after { transform: scaleX(-1); }
+  .home-hero .hero-rule i {
+    width: 9px; height: 9px; transform: rotate(45deg);
+    background: var(--bronze-bright);
+    box-shadow: 0 0 14px rgba(192,138,46,0.7);
   }
 
   .home-hero .hero-tagline {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #f0c040;
-    margin-bottom: 28px;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8);
+    font-family: var(--mono);
+    font-size: 0.66rem; font-weight: 500;
+    letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--bronze-bright);
+    margin-bottom: 26px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
   }
-
   .home-hero .hero-mission {
     font-family: 'Lato', sans-serif;
-    font-size: clamp(1.05rem, 3vw, 1.3rem);
-    font-weight: 400;
-    color: #fff;
-    line-height: 1.55;
-    letter-spacing: 0.02em;
-    margin-bottom: 36px;
-    max-width: 480px;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.8);
+    font-size: clamp(1.08rem, 3vw, 1.32rem);
+    font-weight: 400; color: #f4ecdd;
+    line-height: 1.55; letter-spacing: 0.01em;
+    max-width: 460px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.9);
   }
 
-  /* Homepage specific banner image styling */
-  .home-banner-image {
-    margin: 4rem auto;
-    text-align: center;
-    padding: 0 20px;
+  .hero-scroll {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: rgba(237,227,207,0.7);
+    animation: bob 2.4s ease-in-out infinite;
   }
-  
-  .home-banner-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: var(--border-radius-lg, 16px);
-    border: 4px solid var(--gold-dark, #b8860b);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    display: inline-block;
+  .hero-scroll span { width: 1px; height: 30px; background: linear-gradient(rgba(213,178,110,0.9), transparent); }
+  @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,7px); } }
+
+  /* ---------- SHARED SECTION RHYTHM ---------- */
+  main { max-width: 1060px; }
+
+  .stitch {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin: 0 auto; width: min(340px, 78%);
+    padding: 0;
+  }
+  .stitch::before, .stitch::after {
+    content: ""; flex: 1; height: 0;
+    border-top: 2px dashed var(--stitch);
+  }
+  .stitch i {
+    width: 10px; height: 10px; transform: rotate(45deg);
+    border: 2px solid var(--bronze); background: var(--paper);
+    flex: none;
+  }
+
+  .eyebrow-stamp {
+    display: inline-block; font-family: var(--mono);
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--leather); margin-bottom: 0.9rem;
+  }
+
+  /* ---------- MISSION BAND ---------- */
+  .home-mission {
+    text-align: center; max-width: 760px;
+    margin: clamp(3.5rem, 8vw, 6rem) auto clamp(2.5rem,6vw,4rem);
+    padding: 0 1.25rem;
+  }
+  .home-mission .lead {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.55rem, 4.2vw, 2.35rem);
+    line-height: 1.34; font-weight: 500; color: var(--ink);
+    margin: 0.5rem 0 1.4rem; letter-spacing: -0.01em;
+  }
+  .home-mission .lead em { color: var(--leather); }
+  .home-mission p.sub {
+    font-size: 1.06rem; color: var(--ink-soft);
+    max-width: 60ch; margin: 0 auto 2rem;
+  }
+
+  /* ---------- WORK SPLIT (image + copy) ---------- */
+  .home-work {
+    display: grid; grid-template-columns: 1fr; gap: 2.25rem;
+    align-items: center;
+    margin: clamp(3rem,7vw,5rem) auto; padding: 0 1.25rem;
+  }
+  .home-work__media { position: relative; }
+  .home-work__media img {
+    width: 100%; height: 100%; max-height: 560px; object-fit: cover;
+    border-radius: 14px; border: 1px solid var(--rule);
+    box-shadow: 0 18px 40px var(--shadow-lg);
+  }
+  .home-work__media::after {
+    content: ""; position: absolute; inset: 10px;
+    border: 1px solid rgba(244,236,221,0.28); border-radius: 8px;
+    pointer-events: none;
+  }
+  .home-work__body h2 { margin-top: 0.4rem; }
+  .home-work__body .badge-line {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.4rem 0 0.5rem;
+  }
+  .home-work__body .chip {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--leather);
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 0.4rem 0.85rem; background: var(--card);
+  }
+  @media (min-width: 820px) {
+    .home-work { grid-template-columns: 0.95fr 1.05fr; gap: 3.5rem; }
+    .home-work--reverse .home-work__media { order: 2; }
+  }
+
+  /* ---------- SINGLE FEATURE ANNOUNCEMENT (balanced) ---------- */
+  .home-announce { max-width: 720px; margin: clamp(3.5rem,8vw,5.5rem) auto; padding: 0 1.25rem; }
+  .home-announce .g4h-announce-grid { grid-template-columns: 1fr; }
+  .home-announce .g4h-announce-card {
+    background: var(--card);
+    border: 1px solid var(--rule-soft); border-left: 3px solid var(--bronze);
+    box-shadow: 0 14px 34px var(--shadow);
+  }
+
+  /* ---------- STORY / QUOTE ---------- */
+  .home-story {
+    position: relative; margin: clamp(3.5rem,8vw,6rem) auto 0;
+    padding: clamp(2.5rem,6vw,4rem) 1.25rem;
+    background: var(--paper-deep);
+    border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft);
+  }
+  .home-story__inner { max-width: 900px; margin: 0 auto; display: grid; gap: 2.5rem; align-items: center; }
+  .home-story__media img {
+    width: 100%; border-radius: 14px; border: 1px solid var(--rule);
+    box-shadow: 0 16px 38px var(--shadow-lg);
+  }
+  .home-story__caption {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-faint);
+    text-align: center; margin-top: 0.9rem;
+  }
+  .home-quote {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: clamp(1.35rem, 3.6vw, 1.95rem); line-height: 1.5;
+    color: var(--ink); font-weight: 500; text-align: left;
+  }
+  .home-quote .mark {
+    display: block; font-size: 3.4rem; line-height: 0.6; color: var(--bronze);
+    font-family: 'Playfair Display', serif; margin-bottom: 0.6rem;
+  }
+  @media (min-width: 820px) {
+    .home-story__inner { grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; }
+  }
+
+  /* ---------- GET INVOLVED CTA ---------- */
+  .home-cta {
+    max-width: 1000px; margin: clamp(3.5rem,8vw,5.5rem) auto clamp(1rem,3vw,2rem);
+    padding: clamp(2.5rem,5vw,3.5rem) 1.5rem;
+    text-align: center;
+    background: var(--card-alt);
+    border: 1px solid var(--rule-soft); border-radius: 18px;
+    box-shadow: 0 14px 34px var(--shadow);
+  }
+  .home-cta h2 { margin: 0.8rem 0 0.6rem; }
+  .home-cta p { color: var(--ink-soft); max-width: 52ch; margin: 0 auto 2rem; }
+  .home-cta__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+  .cta-ghost {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.92rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.95em 2.1em; border-radius: 50px;
+    color: var(--leather); background: transparent; border: 2px solid var(--bronze);
+    transition: all 0.25s ease;
+  }
+  .cta-ghost:hover { background: var(--bronze); color: var(--text-on-bronze); transform: translateY(-2px); }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .home-hero .hero-content { animation: none; opacity: 1; transform: none; }
+    .hero-scroll { animation: none; }
   }
 </style>
 </head>
@@ -162,23 +272,20 @@
 
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
-
       <div class="nav-left">
         <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
           <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-            <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-            <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="1" x2="24" y2="1" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="9" x2="24" y2="9" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="17" x2="24" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
-
         <a href="index.html" class="header-brand" aria-label="Guardian 4 Heroes Home">
           <span class="brand-title">Guardian <em>4</em> Heroes</span>
           <span class="brand-line"></span>
           <span class="brand-tagline">Equine Therapy</span>
         </a>
       </div>
-
       <div class="nav-center">
         <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
@@ -186,12 +293,10 @@
         <a href="contact.html">Contact</a>
         <a href="shop.html">Shop</a>
       </div>
-
       <div class="nav-right">
         <a href="donate.html" class="nav-donate">Donate</a>
       </div>
     </nav>
-
     <div class="nav-dropdown" id="nav-dropdown" role="menu">
       <a href="index.html" aria-current="page">Home</a>
       <a href="about.html">About</a>
@@ -204,165 +309,146 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/FB_IMG_1749752975080.jpg" alt="Guardian 4 Heroes facility" loading="eager" />
+      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barnyard at dusk" loading="eager" />
     </div>
     <div class="home-hero__overlay"></div>
 
     <div class="hero-content">
+      <img class="hero-emblem" src="images/Emblem-logo.png" alt="Guardian 4 Heroes emblem" />
       <h1 class="hero-title">Guardian <em>4</em> Heroes</h1>
-      <span class="hero-rule" aria-hidden="true"></span>
-      <p class="hero-tagline">The Power of the Connection with a Horse</p>
-      <p class="hero-mission">Equine Therapy for Veterans &amp; First Responders</p>
+      <span class="hero-rule" aria-hidden="true"><i></i></span>
+      <p class="hero-tagline">The power of the connection with a horse</p>
+      <p class="hero-mission">Equine-facilitated therapy for veterans &amp; first responders.</p>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span></span>
+      Scroll
     </div>
   </section>
 
   <main>
-    <section class="highlight-card">
-      <h3 style="margin-top: 0;">Welcome</h3>
-      <p>Welcome to Guardian 4 Heroes, where healing and growth meet the power of the horse. Our nonprofit is dedicated to equine-facilitated psychotherapy and assisted training, offering a compassionate, supportive environment for veterans and first responders on their journey to wellness.</p>
-    </section><!-- =============================================
-         ANNOUNCEMENTS
-         To remove an announcement: delete the entire
-         <article class="g4h-announce-card"> block
-         To edit: change text inside each card
-         ============================================= -->
-    <section class="g4h-announce-section" aria-label="Announcements">
-      <h2 class="g4h-announce-heading">Announcements</h2>
 
+    <!-- MISSION BAND -->
+    <section class="home-mission reveal">
+      <span class="eyebrow-stamp">Our Mission</span>
+      <p class="lead">Where healing and growth meet the <em>power of the horse.</em></p>
+      <p class="sub">Guardian 4 Heroes is a nonprofit dedicated to equine-facilitated psychotherapy and assisted learning &mdash; a grounded, judgment-free place for veterans and first responders to do the quiet work of coming home.</p>
+      <div class="stitch" aria-hidden="true"><i></i></div>
+    </section>
+
+    <!-- THE WORK -->
+    <section class="home-work home-work--reverse reveal">
+      <div class="home-work__media">
+        <img src="images/Talkingtorocket%20.jpg" alt="A veteran in a quiet moment with Rocket" loading="lazy" />
+      </div>
+      <div class="home-work__body">
+        <span class="eyebrow-stamp">The Work</span>
+        <h2>A horse meets you exactly where you are</h2>
+        <p>Horses read what words hide. They respond to what you feel, not what you say &mdash; and in that honest exchange, the guard comes down. Our equine-facilitated programs pair licensed guidance with the steady presence of the herd to support mental health, regulation, and trust.</p>
+        <div class="badge-line">
+          <span class="chip">Psychotherapy</span>
+          <span class="chip">Assisted Learning</span>
+          <span class="chip">Groundwork</span>
+        </div>
+        <p style="margin-top:1.6rem;">
+          <a href="programs.html" class="button primary-button">Explore Our Programs</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ANNOUNCEMENTS -->
+    <section class="home-announce reveal" aria-label="Announcements">
+      <h2 class="g4h-announce-heading">At the Barnyard</h2>
       <div class="g4h-announce-grid">
-
-        <!-- ANNOUNCEMENT 1: Memorial Day (time-sensitive — remove after May 25) -->
-        <article class="g4h-announce-card">
-          <span class="g4h-announce-badge">May 25</span>
-          <h3 class="g4h-announce-title">Join Us at the Barnyard This Memorial Day</h3>
-          <p class="g4h-announce-body">
-            Please join us as we pause to honor and remember the brave men and women who made the ultimate sacrifice for our freedom.
-          </p>
-          <p class="g4h-announce-body g4h-announce-when">
-            <strong>Monday, May 25 &middot; 8:30 AM</strong><br>
-            At the Barnyard
-          </p>
-          <p class="g4h-announce-body">
-            We will gather for a special flag lowering as Taps plays, taking a moment of reflection and gratitude for our heroes.
-          </p>
-          <p class="g4h-announce-body">
-            Coffee and cookies to follow as we come together in fellowship and remembrance.
-          </p>
-          <p class="g4h-announce-body g4h-announce-italic">
-            All are welcome as we honor those who gave all.
-          </p>
-        </article>
-
-        <!-- ANNOUNCEMENT 2: Weekly Yoga (recurring) -->
         <article class="g4h-announce-card">
           <span class="g4h-announce-badge">Every Tuesday</span>
-          <h3 class="g4h-announce-title">Join Us Every Tuesday for Yoga at the Barnyard</h3>
+          <h3 class="g4h-announce-title">Yoga in the Barnyard</h3>
           <p class="g4h-announce-body">
-            Take a deep breath, slow down, and reconnect with yourself in the peaceful beauty of the barnyard.
+            Take a deep breath, slow down, and reconnect with yourself in the quiet of the barnyard.
           </p>
           <p class="g4h-announce-body g4h-announce-when">
             <strong>Every Tuesday &middot; 9:00 AM</strong><br>
             At the Barnyard
           </p>
           <p class="g4h-announce-body">
-            Yoga is <strong>FREE</strong> to attend with our yoga instructor Heather, however donations are always welcome.
+            Led by our instructor Heather. Yoga is <strong>free</strong> to attend &mdash; donations are always welcome.
           </p>
           <p class="g4h-announce-body g4h-announce-italic">
-            Bring a friend, and come find your peace with us. All are welcome!
-          
-    </article>
-
+            Bring a friend and come find your peace with us. All are welcome.
+          </p>
+        </article>
       </div>
     </section>
-    <!-- ============= END ANNOUNCEMENTS ============= -->
-    <!-- =============================================
-         EVENT CARD — MISSION POSSIBLE MUD RUN
-         To update: change text or image below
-         To remove: delete this entire <section> block
-         ============================================= -->
-    <section class="g4h-event-section" aria-label="Upcoming Event">
+
+    <!-- UPCOMING EVENT (Mission Possible — kept in its own palette) -->
+    <section class="g4h-event-section reveal" aria-label="Upcoming Event">
       <h2 class="g4h-event-heading">Upcoming Event</h2>
-
       <article class="g4h-event-card">
-        <a
-          href="https://www.missionpossiblehoovesandpaws.com/"
-          target="_blank"
-          rel="noopener"
-          class="g4h-event-image-link"
-          aria-label="Open Mission Possible registration site"
-        >
-          <img
-            src="images/mud-run.png"
-            alt="Mission Possible: Hooves &amp; Paws Mud Run — August 29, 2026"
-            class="g4h-event-image"
-            loading="lazy"
-          />
+        <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener"
+           class="g4h-event-image-link" aria-label="Open Mission Possible registration site">
+          <img src="images/mud-run.png" alt="Mission Possible: Hooves &amp; Paws Mud Run — August 29, 2026"
+               class="g4h-event-image" loading="lazy" />
         </a>
-
         <div class="g4h-event-body">
           <div class="g4h-event-detail">
             <span class="g4h-event-label">Hosted By</span>
-            <p class="g4h-event-text">
-              Guardian 4 Heroes &amp; Heroes K9 Odyssey Academy
-            </p>
+            <p class="g4h-event-text">Guardian 4 Heroes &amp; Heroes K9 Odyssey Academy</p>
           </div>
-
           <div class="g4h-event-detail">
             <span class="g4h-event-label">Where</span>
-            <p class="g4h-event-text">
-              The Eagles Healing Nest<br>
-              310 US Hwy 71 N, Sauk Centre, MN 56378
-            </p>
+            <p class="g4h-event-text">The Eagles Healing Nest<br>310 US Hwy 71 N, Sauk Centre, MN 56378</p>
           </div>
-
           <div class="g4h-event-detail">
             <span class="g4h-event-label">What</span>
-            <p class="g4h-event-text">
-              A mud run event supporting equine therapy and K9 training for veterans, first responders, and their families.
-            </p>
+            <p class="g4h-event-text">A mud run supporting equine therapy and K9 training for veterans, first responders, and their families.</p>
           </div>
-
-          <a
-            href="https://www.missionpossiblehoovesandpaws.com/"
-            target="_blank"
-            rel="noopener"
-            class="g4h-event-cta"
-          >
+          <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" class="g4h-event-cta">
             Learn More &amp; Register &rarr;
           </a>
-
           <p class="g4h-event-url">missionpossiblehoovesandpaws.com</p>
         </div>
       </article>
     </section>
-    <!-- ============= END EVENT CARD ============= -->
 
-    <section class="home-banner-image">
-      <img src="images/sararocket2.jpg" alt="Sara and Rocket - Just Livin" loading="lazy">
+    <!-- STORY / QUOTE -->
+    <section class="home-story reveal">
+      <div class="home-story__inner">
+        <div class="home-story__media">
+          <img src="images/sararocket2.jpg" alt="Sara and Rocket" loading="lazy" />
+          <p class="home-story__caption">Sara &amp; Rocket &middot; Just livin'</p>
+        </div>
+        <div>
+          <span class="eyebrow-stamp">Why We're Here</span>
+          <p class="home-quote">
+            <span class="mark" aria-hidden="true">&ldquo;</span>
+            When the noise of war fades, the silence can be loud. But here, with every hoofbeat and shared breath, healing begins.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section class="highlight-card" style="border-left: none; border-right: 4px solid #f0c040; border-radius: 8px 0 0 8px; background: rgba(0,0,0,0.2);">
-      <h3 style="margin-top: 0; color: #fff;">Empowering Journeys Begin</h3>
-      <p>Discover the transformative power of EFPT at Guardian 4 Heroes. Our programs harness the power of horses to support mental health and physical well-being. Join us on a journey of healing and hope.</p>
-      <br>
-      <a href="programs.html" class="button primary-button">Explore Our Programs</a>
+    <!-- GET INVOLVED -->
+    <section class="home-cta reveal">
+      <span class="eyebrow-stamp">Get Involved</span>
+      <h2>Stand with our heroes</h2>
+      <p>Every donation, every hour, every share keeps the gates open and the herd ready for the next person who needs them.</p>
+      <div class="home-cta__actions">
+        <a href="donate.html" class="button primary-button">Donate</a>
+        <a href="programs.html" class="cta-ghost">Our Programs</a>
+        <a href="contact.html" class="cta-ghost">Get in Touch</a>
+      </div>
     </section>
+
   </main>
 
-  <section class="closing-image" style="margin-top: 2rem;">
-    <blockquote class="inspiring-quote">
-      When the noise of war fades, the silence can be loud. But here, with every hoofbeat and shared breath, healing begins.
-      <span class="inspiring-quote-accent"></span>
-    </blockquote>
-  </section>
-
   <footer>
-    <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
+    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
   </footer>
 
   <script>
-    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/></svg>`;
 
     function toggleMenu(btn) {
       const dropdown = document.getElementById('nav-dropdown');
@@ -370,18 +456,23 @@
       btn.setAttribute('aria-expanded', isOpen);
       btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
     }
-
     document.querySelectorAll('.nav-dropdown a').forEach(link => {
       link.addEventListener('click', () => {
         const dropdown = document.getElementById('nav-dropdown');
         const btn = document.querySelector('.menu-toggle');
-        if(dropdown.classList.contains('open')) {
+        if (dropdown.classList.contains('open')) {
           dropdown.classList.remove('open');
           btn.setAttribute('aria-expanded', 'false');
           btn.innerHTML = SVG_OPEN;
         }
       });
     });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
   <script src="script.js"></script>
 

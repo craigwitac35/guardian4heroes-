@@ -61,7 +61,7 @@
   @keyframes heroRise { to { opacity: 1; transform: none; } }
 
   .hero-emblem {
-    width: 74px; height: 74px; margin-bottom: 22px;
+    width: 92px; height: 92px; margin-bottom: 22px;
     filter: drop-shadow(0 4px 16px rgba(0,0,0,.6));
     opacity: .96;
   }
@@ -109,6 +109,16 @@
     line-height: 1.55; letter-spacing: 0.01em;
     max-width: 460px;
     text-shadow: 0 1px 12px rgba(0,0,0,0.9);
+  }
+
+  /* Desktop hero scale-up (mobile/tablet keep the clamp sizes above) */
+  @media (min-width: 1024px) {
+    .home-hero .hero-content { max-width: 940px; padding: 120px 32px 100px; }
+    .hero-emblem { width: 118px; height: 118px; margin-bottom: 30px; }
+    .home-hero .hero-title { font-size: 5rem; letter-spacing: 0.035em; margin-bottom: 22px; }
+    .home-hero .hero-rule { width: min(360px, 58%); margin-bottom: 22px; }
+    .home-hero .hero-tagline { font-size: 0.82rem; letter-spacing: 0.4em; margin-bottom: 32px; }
+    .home-hero .hero-mission { font-size: 1.5rem; max-width: 600px; }
   }
 
   .hero-scroll {

@@ -10,7 +10,7 @@
 <meta property="og:title" content="Guardian 4 Heroes | About">
 <meta property="og:description" content="Guardian 4 Heroes offers equine therapy for veterans and first responders, promoting mental health and well-being.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/logo.png">
+<meta property="og:image" content="images/Emblem-logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
 ============================================= */
 body {
   background-image: none !important;
-  background-color: #1a1008 !important; 
-  color: #f5f5f5;
+  background-color: var(--paper) !important; 
+  color: var(--ink);
 }
 body::before { display: none !important; }
 
@@ -109,16 +109,16 @@ main {
    ABOUT PAGE CONTENT STYLES
 ============================================= */
 .mission-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #f0c040;
+  background: #FBF6EC;
+  border-left: 4px solid #A87818;
   padding: 2rem;
   border-radius: 0 12px 12px 0;
   margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px #EADFC9;
 }
 
 .mission-card h3 {
-  color: #f0c040;
+  color: #6E4E1F;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -134,10 +134,10 @@ main {
   align-items: center;
   gap: 3rem;
   margin: 4rem 0;
-  background: rgba(0,0,0,0.2);
+  background: #EADFC9;
   padding: 2rem;
   border-radius: 16px;
-  border: 1px solid rgba(240,192,64,0.15);
+  border: 1px solid rgba(110,78,31,0.30);
 }
 
 .founder-img {
@@ -145,14 +145,14 @@ main {
   max-width: 300px;
   height: auto !important; /* Allows natural image height without clipping */
   border-radius: 8px !important; 
-  border: 4px solid #b8860b;
+  border: 4px solid #6E4E1F;
   flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 .founder-info h4 {
   font-size: 2rem;
-  color: #fff;
+  color: #2E2417;
   margin-bottom: 0.5rem;
   border: none;
   background: none;
@@ -160,7 +160,7 @@ main {
 }
 
 .founder-info .founder-title {
-  color: #f0c040;
+  color: #6E4E1F;
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -186,8 +186,8 @@ main {
 }
 
 .crew-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(240,192,64,0.15);
+  background: #FBF6EC;
+  border: 1px solid rgba(110,78,31,0.30);
   border-radius: 16px;
   padding: 1.5rem;
   text-align: center;
@@ -204,14 +204,14 @@ main {
   width: 100%;
   height: auto !important; /* Let it display its exact, natural dimensions */
   border-radius: 8px !important; 
-  border: 3px solid #f0c040;
+  border: 3px solid #A87818;
   margin: 0 auto 1.2rem auto;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 16px #EADFC9;
   display: block;
 }
 
 .crew-card h4 {
-  color: #fff;
+  color: #2E2417;
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   margin-bottom: 0.8rem;
@@ -223,7 +223,7 @@ main {
 
 .crew-card p {
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.8);
+  color: #2E2417;
   line-height: 1.6;
 }
 
@@ -231,7 +231,7 @@ main {
 .memorial-card {
   grid-column: 1 / -1; 
   background: linear-gradient(145deg, rgba(26,16,8,1) 0%, rgba(40,30,20,1) 100%);
-  border: 1px solid #b8860b;
+  border: 1px solid #6E4E1F;
   display: flex;
   gap: 2rem;
   text-align: left;
@@ -248,7 +248,7 @@ main {
 }
 
 .memorial-tag {
-  color: #f0c040;
+  color: #6E4E1F;
   font-style: italic;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -271,9 +271,9 @@ main {
     <div class="nav-left">
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu(this)">
         <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
-          <line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="1" x2="24" y2="1" stroke="#A87818" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="9" x2="24" y2="9" stroke="#A87818" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="17" x2="24" y2="17" stroke="#A87818" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
 
@@ -315,8 +315,8 @@ main {
 
   <div class="hero-content">
     <h1 class="hero-title">About <em>Us</em></h1>
-    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#f0c040; margin:0 auto 15px;"></span>
-    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#f0c040; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Healing Through Connection</p>
+    <span class="hero-rule" aria-hidden="true" style="display:block; width:120px; height:2px; background:#A87818; margin:0 auto 15px;"></span>
+    <p class="hero-tagline" style="font-family:'Lato', sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:#C08A2E; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Healing Through Connection</p>
   </div>
 </section>
 
@@ -342,8 +342,8 @@ main {
   </section>
 
   <section class="section" style="text-align: center; margin-bottom: 4rem;">
-    <h3 style="font-family:'Oswald', sans-serif; font-size: 2rem; color: #f0c040; border: none; background: none; margin-bottom: 1rem;">What Is EFPT?</h3>
-    <p style="max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.1rem; color: rgba(255,255,255,0.8);">
+    <h3 style="font-family:'Oswald', sans-serif; font-size: 2rem; color: #6E4E1F; border: none; background: none; margin-bottom: 1rem;">What Is EFPT?</h3>
+    <p style="max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.1rem; color: #2E2417;">
       Equine-Facilitated Psychotherapy Training involves engaging with horses to rebuild confidence, explore boundaries, and enhance self-esteem. Horses, attuned to human emotion, offer a unique and powerful form of feedback and companionship. Our certified EFPT sessions are designed to meet each participant’s unique needs and foster meaningful progress.
     </p>
     <a href="https://givebutter.com/z6eQeg" class="button primary-button" target="_blank" rel="noopener" style="margin-top: 1rem;">Support Our Mission</a>
@@ -351,8 +351,8 @@ main {
 
   <section class="section">
     <div style="text-align: center; margin-bottom: 3rem;">
-      <h3 style="font-family:'Oswald', sans-serif; font-size: 2.2rem; color: #fff; border: none; background: none;">Meet the Crew</h3>
-      <p style="color: #f0c040; font-family:'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Our Equine Partners</p>
+      <h3 style="font-family:'Oswald', sans-serif; font-size: 2.2rem; color: #2E2417; border: none; background: none;">Meet the Crew</h3>
+      <p style="color: #6E4E1F; font-family:'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Our Equine Partners</p>
     </div>
 
     <div class="crew-grid">
@@ -413,13 +413,13 @@ main {
   </blockquote>
 </section>
 
-<footer style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+<footer>
   <p>© 2025 Guardian 4 Heroes. All Rights Reserved.</p>
 </footer>
 
 <script>
-  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
-  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#f0c040" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#A87818" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#A87818" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#A87818" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#A87818" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#A87818" stroke-width="2" stroke-linecap="round"/></svg>`;
 
   function toggleMenu(btn) {
     const dropdown = document.getElementById('nav-dropdown');

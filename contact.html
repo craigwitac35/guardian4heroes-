@@ -148,17 +148,70 @@ main {
   line-height: 1.6;
 }
 
-.social-links-contact a {
-  font-size: 2rem;
-  margin-right: 1rem;
-  color: #A87818;
-  transition: transform 0.2s, color 0.2s;
+.info-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  fill: currentColor;
+}
+
+.info-block address {
+  font-style: normal;
+}
+
+.info-landmark {
+  color: #6E4E1F;
+  font-size: 1rem;
+}
+
+.map-link {
   display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #6E4E1F;
+  border-bottom: 1px solid rgba(110, 78, 31, 0.4);
+  padding-bottom: 2px;
+}
+
+.map-link:hover {
+  color: #A87818;
+  border-color: #A87818;
+}
+
+.social-links-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.social-links-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6E4E1F;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-links-contact a svg {
+  width: 1.4em;
+  height: 1.4em;
+  fill: #A87818;
+  flex: none;
+  transition: fill 0.2s;
 }
 
 .social-links-contact a:hover {
-  transform: translateY(-3px);
   color: #2E2417;
+  transform: translateX(3px);
+}
+
+.social-links-contact a:hover svg {
+  fill: #2E2417;
 }
 
 @media (max-width: 850px) {
@@ -172,7 +225,6 @@ main {
   }
 }
 </style>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -234,27 +286,55 @@ main {
 <main>
   
   <section style="text-align: center; max-width: 800px; margin: 0 auto;">
-    <p style="font-size: 1.2rem;">Have questions about our programs, volunteering, or how you can support our mission? We're here to help. Reach out to us using the form below or via email.</p>
+    <p style="font-size: 1.2rem;">Have questions about our programs, volunteering, or how you can support our mission? We're here to help. Reach out using the form below, or by phone or email.</p>
   </section>
 
   <div class="contact-container">
     
     <div class="contact-details">
       <div class="info-block">
-        <h4><i class="fas fa-envelope"></i> Email Us</h4>
+        <h4>
+          <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 4.5-8-4.5V6l8 4.5L20 6v2.24z"/></svg>
+          Email Us
+        </h4>
         <p><a href="mailto:contact@guardian4heroes.org">contact@guardian4heroes.org</a></p>
       </div>
 
       <div class="info-block">
-        <h4><i class="fas fa-map-marker-alt"></i> Our Location</h4>
-        <p>Sauk Centre, MN<br>(Visits by appointment only)</p>
+        <h4>
+          <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24 11.4 11.4 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.44.57 3.56a1 1 0 0 1-.25 1.03l-2.2 2.2z"/></svg>
+          Call Us
+        </h4>
+        <p><a href="tel:+13208282477">(320) 828-2477</a></p>
       </div>
 
       <div class="info-block">
-        <h4><i class="fas fa-hashtag"></i> Follow Us</h4>
+        <h4>
+          <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          Our Location
+        </h4>
+        <address>
+          310 US Hwy 71 N<br>
+          Sauk Centre, MN 56378<br>
+          <span class="info-landmark">At the Barnyard, The Eagles Healing Nest</span>
+        </address>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=310+US+Hwy+71+N+Sauk+Centre+MN+56378" target="_blank" rel="noopener noreferrer">Open in Maps &rarr;</a>
+      </div>
+
+      <div class="info-block">
+        <h4>
+          <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3 9 7H5.5l-.4 2H8.8l-.6 6H4.7l-.4 2h3.7l-.5 4h2l.5-4h4l-.5 4h2l.5-4h3.6l.4-2h-3.8l.6-6h3.5l.4-2h-3.7l.5-4h-2l-.5 4h-4l.5-4h-2zm.6 6h4l-.6 6h-4l.6-6z"/></svg>
+          Follow Us
+        </h4>
         <div class="social-links-contact">
-          <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/166AZz6rxd/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/guardian4heroes?igsh=cjlxbWFvbnRiMXJr&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+            Instagram
+          </a>
         </div>
       </div>
     </div>

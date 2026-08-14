@@ -30,14 +30,16 @@
     .brand-tagline { display: none !important; }
   }
 
-  /* ---------- HERO (full-viewport, artwork uncropped) ----------
+  /* ---------- HERO (full-viewport, edge to edge) ----------
      styles.css sets .site-header to position:fixed, so the hero must reserve
      space for it or the header covers the top of the artwork (the logo circle).
      --hdr is that reserved height; bump it if the header ever gets taller.
 
-     The artwork has the logo, title and tagline baked in, so it must never be
-     cropped. object-fit:contain scales it as large as it can go without
-     cutting anything; the warm backdrop fills whatever space is left over. */
+     object-fit:cover makes the artwork fill the hero edge to edge with no
+     letterbox bands. It crops slightly off whichever axis is over-long, but
+     both source images keep the logo and title centered with margin around
+     them, so the baked-in type stays clear. The <picture> element below serves
+     a portrait crop under 768px so the crop is never severe. */
   .home-hero {
     --hdr: 68px;
     position: relative;
@@ -76,8 +78,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    max-height: calc(100svh - var(--hdr));
-    object-fit: contain;
+    min-height: calc(100svh - var(--hdr));
+    object-fit: cover;
     object-position: center;
   }
 

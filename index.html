@@ -30,27 +30,59 @@
     .brand-tagline { display: none !important; }
   }
 
-  /* ---------- HERO (full artwork banner, text baked into image) ----------
-     The image already contains the logo, title and tagline, so the hero shows
-     the artwork uncropped at its natural 16:9 ratio instead of filling the
-     viewport. No overlay: it would dull the baked-in type. */
+  /* ---------- HERO (full-viewport, artwork uncropped) ----------
+     styles.css sets .site-header to position:fixed, so the hero must reserve
+     space for it or the header covers the top of the artwork (the logo circle).
+     --hdr is that reserved height; bump it if the header ever gets taller.
+
+     The artwork has the logo, title and tagline baked in, so it must never be
+     cropped. object-fit:contain scales it as large as it can go without
+     cutting anything; the warm backdrop fills whatever space is left over. */
   .home-hero {
+    --hdr: 68px;
     position: relative;
-    display: block;
-    width: 100%; margin: 0; padding: 0;
-    background: var(--dark-2);
-    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: var(--hdr) 0 0;
+    box-sizing: border-box;
+    min-height: 100svh;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, #2a1a0c 0%, #4a2c14 42%, #7d4a1e 78%, #a86a2c 100%);
     opacity: 0;
     animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .1s forwards;
   }
   @keyframes heroRise { to { opacity: 1; } }
 
-  .home-hero__bg { display: block; width: 100%; }
+  .home-hero__bg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-hero__bg picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
   .home-hero__bg img {
     display: block;
-    width: 100%; height: auto;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100svh - var(--hdr));
     object-fit: contain;
+    object-position: center;
+  }
+
+  @media (min-width: 1024px) {
+    .home-hero { --hdr: 76px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -243,9 +275,12 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/landing-page-g4h_20260814_134345_0000.png"
-           alt="Guardian 4 Heroes — The Power of the Connection With a Horse. A horse at sunrise in front of the red barn."
-           width="1920" height="1080" loading="eager" fetchpriority="high" />
+      <picture>
+        <source media="(max-width: 767px)" srcset="images/landing-page-mobile.png">
+        <img src="images/landing-page-g4h_20260814_134345_0000.png"
+             alt="Guardian 4 Heroes — The Power of the Connection With a Horse. A horse at sunrise in front of the red barn."
+             loading="eager" fetchpriority="high" />
+      </picture>
     </div>
   </section>
 

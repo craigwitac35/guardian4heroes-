@@ -38,8 +38,13 @@
      object-fit:cover makes the artwork fill the hero edge to edge with no
      letterbox bands. It crops slightly off whichever axis is over-long, but
      both source images keep the logo and title centered with margin around
-     them, so the baked-in type stays clear. The <picture> element below serves
-     a portrait crop under 768px so the crop is never severe. */
+     them, so the baked-in type stays clear.
+
+     The <picture> element switches on ASPECT RATIO, not width. A phone using
+     Chrome's "Desktop site" toggle reports ~980px wide but is still a tall
+     narrow window; a width breakpoint would hand it the 16:9 artwork and crop
+     the title off both sides. Taller-than-wide gets the portrait crop, wider-
+     than-tall gets the wide crop, regardless of pixel width. */
   .home-hero {
     --hdr: 68px;
     position: relative;
@@ -278,7 +283,7 @@
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
       <picture>
-        <source media="(max-width: 767px)" srcset="images/landing-page-mobile.png">
+        <source media="(max-aspect-ratio: 1/1)" srcset="images/landing-page-mobile.png">
         <img src="images/landing-page-g4h_20260814_134345_0000.png"
              alt="Guardian 4 Heroes — The Power of the Connection With a Horse. A horse at sunrise in front of the red barn."
              loading="eager" fetchpriority="high" />

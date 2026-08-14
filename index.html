@@ -20,7 +20,7 @@
 <style>
   /* =============================================
      HOME — "RANGE PAPER" LANDING (scoped to index)
-     Dark hero  →  light editorial body  →  dark footer
+     Light hero  →  light editorial body  →  dark footer
      Signature: saddle-stitch rule + brass concho, mono stamp labels
   ============================================= */
 
@@ -30,7 +30,7 @@
     .brand-tagline { display: none !important; }
   }
 
-  /* ---------- HERO (kept dark & full-bleed) ---------- */
+  /* ---------- HERO (light & full-bleed) ---------- */
   .home-hero {
     position: relative;
     min-height: 100svh;
@@ -45,8 +45,8 @@
   .home-hero__overlay {
     position: absolute; inset: 0; z-index: 1;
     background:
-      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.28) 0%, rgba(26,16,8,0.62) 62%, rgba(20,12,5,0.86) 100%),
-      linear-gradient(to bottom, rgba(20,12,5,0.55) 0%, rgba(20,12,5,0.20) 34%, rgba(20,12,5,0.78) 100%);
+      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.10) 0%, rgba(26,16,8,0.30) 62%, rgba(20,12,5,0.52) 100%),
+      linear-gradient(to bottom, rgba(20,12,5,0.30) 0%, rgba(20,12,5,0.06) 34%, rgba(20,12,5,0.44) 100%);
   }
 
   .home-hero .hero-content {
@@ -59,6 +59,16 @@
     animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .15s forwards;
   }
   @keyframes heroRise { to { opacity: 1; transform: none; } }
+
+  /* Soft scrim behind the text block only — keeps copy legible on a bright photo
+     without darkening the whole image. Adjust the two alpha values to taste. */
+  .home-hero .hero-content::before {
+    content: "";
+    position: absolute; inset: 4% -4%;
+    z-index: -1;
+    background: radial-gradient(58% 52% at 50% 50%, rgba(20,12,5,0.52) 0%, rgba(20,12,5,0.28) 55%, rgba(20,12,5,0) 100%);
+    pointer-events: none;
+  }
 
   .hero-emblem {
     width: 92px; height: 92px; margin-bottom: 22px;
@@ -319,7 +329,7 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barnyard at dusk" loading="eager" />
+      <img src="images/landing-page.png" alt="Horses grazing at the Guardian 4 Heroes barnyard" loading="eager" />
     </div>
     <div class="home-hero__overlay"></div>
 
@@ -446,45 +456,4 @@
       <div class="home-cta__actions">
         <a href="donate.html" class="button primary-button">Donate</a>
         <a href="programs.html" class="cta-ghost">Our Programs</a>
-        <a href="contact.html" class="cta-ghost">Get in Touch</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Guardian 4 Heroes. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    const SVG_OPEN = `<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="24" y2="1" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/></svg>`;
-    const SVG_CLOSE = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="17" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="1" x2="1" y2="17" stroke="#C08A2E" stroke-width="2" stroke-linecap="round"/></svg>`;
-
-    function toggleMenu(btn) {
-      const dropdown = document.getElementById('nav-dropdown');
-      const isOpen = dropdown.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-      btn.innerHTML = isOpen ? SVG_CLOSE : SVG_OPEN;
-    }
-    document.querySelectorAll('.nav-dropdown a').forEach(link => {
-      link.addEventListener('click', () => {
-        const dropdown = document.getElementById('nav-dropdown');
-        const btn = document.querySelector('.menu-toggle');
-        if (dropdown.classList.contains('open')) {
-          dropdown.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.innerHTML = SVG_OPEN;
-        }
-      });
-    });
-
-    // Scroll reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.14 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-  <script src="script.js"></script>
-
-</body>
-</html>
+        <a href="contact.html" class="cta-ghost">Get in Touch</

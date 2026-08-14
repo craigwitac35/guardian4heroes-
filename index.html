@@ -30,7 +30,7 @@
     .brand-tagline { display: none !important; }
   }
 
-  /* ---------- HERO (light photo + local text scrim) ---------- */
+  /* ---------- HERO (kept dark & full-bleed) ---------- */
   .home-hero {
     position: relative;
     min-height: 100svh;
@@ -45,17 +45,8 @@
   .home-hero__overlay {
     position: absolute; inset: 0; z-index: 1;
     background:
-      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.10) 0%, rgba(26,16,8,0.30) 62%, rgba(20,12,5,0.52) 100%),
-      linear-gradient(to bottom, rgba(20,12,5,0.30) 0%, rgba(20,12,5,0.06) 34%, rgba(20,12,5,0.44) 100%);
-  }
-
-  /* Soft scrim behind the text only. Raise 0.52 for more contrast, lower for less. */
-  .home-hero .hero-content::before {
-    content: "";
-    position: absolute; inset: 4% -4%;
-    z-index: -1;
-    background: radial-gradient(58% 52% at 50% 50%, rgba(20,12,5,0.52) 0%, rgba(20,12,5,0.28) 55%, rgba(20,12,5,0) 100%);
-    pointer-events: none;
+      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.28) 0%, rgba(26,16,8,0.62) 62%, rgba(20,12,5,0.86) 100%),
+      linear-gradient(to bottom, rgba(20,12,5,0.55) 0%, rgba(20,12,5,0.20) 34%, rgba(20,12,5,0.78) 100%);
   }
 
   .home-hero .hero-content {
@@ -68,6 +59,12 @@
     animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .15s forwards;
   }
   @keyframes heroRise { to { opacity: 1; transform: none; } }
+
+  .hero-emblem {
+    width: 92px; height: 92px; margin-bottom: 22px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,.6));
+    opacity: .96;
+  }
 
   .home-hero .hero-title {
     font-family: 'Playfair Display', Georgia, serif;
@@ -117,18 +114,11 @@
   /* Desktop hero scale-up (mobile/tablet keep the clamp sizes above) */
   @media (min-width: 1024px) {
     .home-hero .hero-content { max-width: 1100px; padding: 130px 32px 110px; }
+    .hero-emblem { width: clamp(118px, 9vw, 158px); height: clamp(118px, 9vw, 158px); margin-bottom: 32px; }
     .home-hero .hero-title { font-size: clamp(6rem, 8vw, 8.5rem); letter-spacing: 0.02em; line-height: 1.03; margin-bottom: 26px; }
     .home-hero .hero-rule { width: min(420px, 60%); margin-bottom: 24px; }
     .home-hero .hero-tagline { font-size: clamp(0.82rem, 1.1vw, 1.05rem); letter-spacing: 0.4em; margin-bottom: 34px; }
     .home-hero .hero-mission { font-size: clamp(1.5rem, 1.9vw, 1.9rem); max-width: 640px; }
-  }
-
-  /* Mobile: shorter hero so a landscape photo isn't zoomed to fill a tall
-     portrait viewport. Raise/lower the 72svh to taste. */
-  @media (max-width: 767px) {
-    .home-hero { min-height: 72svh; }
-    .home-hero__bg img { object-position: 60% center; }
-    .home-hero .hero-content { padding: 72px 26px 64px; }
   }
 
   .hero-scroll {
@@ -329,11 +319,12 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/hero-image-new.png" alt="Horses grazing at the Guardian 4 Heroes barnyard" loading="eager" />
+      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barnyard at dusk" loading="eager" />
     </div>
     <div class="home-hero__overlay"></div>
 
     <div class="hero-content">
+      <img class="hero-emblem" src="images/Emblem-logo.png" alt="Guardian 4 Heroes emblem" />
       <h1 class="hero-title">Guardian <em>4</em><br>Heroes</h1>
       <span class="hero-rule" aria-hidden="true"><i></i></span>
       <p class="hero-tagline">The power of the connection with a horse</p>

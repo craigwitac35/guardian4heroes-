@@ -30,106 +30,32 @@
     .brand-tagline { display: none !important; }
   }
 
-  /* ---------- HERO (kept dark & full-bleed) ---------- */
+  /* ---------- HERO (full artwork banner, text baked into image) ----------
+     The image already contains the logo, title and tagline, so the hero shows
+     the artwork uncropped at its natural 16:9 ratio instead of filling the
+     viewport. No overlay: it would dull the baked-in type. */
   .home-hero {
     position: relative;
-    min-height: 100svh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    overflow: hidden;
-    background: var(--dark-2);
+    display: block;
     width: 100%; margin: 0; padding: 0;
+    background: var(--dark-2);
+    line-height: 0;
+    opacity: 0;
+    animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .1s forwards;
   }
-  .home-hero__bg { position: absolute; inset: 0; z-index: 0; }
-  .home-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .home-hero__overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background:
-      radial-gradient(120% 90% at 50% 42%, rgba(26,16,8,0.28) 0%, rgba(26,16,8,0.62) 62%, rgba(20,12,5,0.86) 100%),
-      linear-gradient(to bottom, rgba(20,12,5,0.55) 0%, rgba(20,12,5,0.20) 34%, rgba(20,12,5,0.78) 100%);
+  @keyframes heroRise { to { opacity: 1; } }
+
+  .home-hero__bg { display: block; width: 100%; }
+  .home-hero__bg img {
+    display: block;
+    width: 100%; height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
   }
 
-  .home-hero .hero-content {
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center;
-    padding: 110px 32px 88px;
-    max-width: 720px; width: 100%; box-sizing: border-box;
-    opacity: 0; transform: translateY(18px);
-    animation: heroRise 1s cubic-bezier(.2,.7,.2,1) .15s forwards;
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero { animation: none; opacity: 1; }
   }
-  @keyframes heroRise { to { opacity: 1; transform: none; } }
-
-  .hero-emblem {
-    width: 92px; height: 92px; margin-bottom: 22px;
-    filter: drop-shadow(0 4px 16px rgba(0,0,0,.6));
-    opacity: .96;
-  }
-
-  .home-hero .hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.5rem, 8.4vw, 4.15rem);
-    font-weight: 700; color: #fff;
-    letter-spacing: 0.03em; line-height: 1.06; margin-bottom: 18px;
-    text-shadow: 0 2px 30px rgba(192,138,46,0.35), 0 3px 10px rgba(0,0,0,0.8);
-  }
-  .home-hero .hero-title em {
-    font-style: normal; color: var(--bronze-bright);
-    text-shadow: 0 0 34px rgba(192,138,46,0.6), 0 3px 10px rgba(0,0,0,0.8);
-  }
-
-  .home-hero .hero-rule {
-    display: flex; align-items: center; justify-content: center;
-    gap: 14px; width: min(280px, 70%); margin: 0 auto 18px;
-  }
-  .home-hero .hero-rule::before,
-  .home-hero .hero-rule::after {
-    content: ""; height: 1px; flex: 1;
-    background: linear-gradient(90deg, transparent, rgba(213,178,110,0.85));
-  }
-  .home-hero .hero-rule::after { transform: scaleX(-1); }
-  .home-hero .hero-rule i {
-    width: 9px; height: 9px; transform: rotate(45deg);
-    background: var(--bronze-bright);
-    box-shadow: 0 0 14px rgba(192,138,46,0.7);
-  }
-
-  .home-hero .hero-tagline {
-    font-family: var(--mono);
-    font-size: 0.66rem; font-weight: 500;
-    letter-spacing: 0.34em; text-transform: uppercase;
-    color: var(--bronze-bright);
-    margin-bottom: 26px;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
-  }
-  .home-hero .hero-mission {
-    font-family: 'Lato', sans-serif;
-    font-size: clamp(1.08rem, 3vw, 1.32rem);
-    font-weight: 400; color: #f4ecdd;
-    line-height: 1.55; letter-spacing: 0.01em;
-    max-width: 460px;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.9);
-  }
-
-  /* Desktop hero scale-up (mobile/tablet keep the clamp sizes above) */
-  @media (min-width: 1024px) {
-    .home-hero .hero-content { max-width: 1100px; padding: 130px 32px 110px; }
-    .hero-emblem { width: clamp(118px, 9vw, 158px); height: clamp(118px, 9vw, 158px); margin-bottom: 32px; }
-    .home-hero .hero-title { font-size: clamp(6rem, 8vw, 8.5rem); letter-spacing: 0.02em; line-height: 1.03; margin-bottom: 26px; }
-    .home-hero .hero-rule { width: min(420px, 60%); margin-bottom: 24px; }
-    .home-hero .hero-tagline { font-size: clamp(0.82rem, 1.1vw, 1.05rem); letter-spacing: 0.4em; margin-bottom: 34px; }
-    .home-hero .hero-mission { font-size: clamp(1.5rem, 1.9vw, 1.9rem); max-width: 640px; }
-  }
-
-  .hero-scroll {
-    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
-    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
-    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.3em;
-    text-transform: uppercase; color: rgba(237,227,207,0.7);
-    animation: bob 2.4s ease-in-out infinite;
-  }
-  .hero-scroll span { width: 1px; height: 30px; background: linear-gradient(rgba(213,178,110,0.9), transparent); }
-  @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,7px); } }
 
   /* ---------- SHARED SECTION RHYTHM ---------- */
   main { max-width: 1060px; }
@@ -272,8 +198,6 @@
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .home-hero .hero-content { animation: none; opacity: 1; transform: none; }
-    .hero-scroll { animation: none; }
   }
 </style>
 </head>
@@ -319,21 +243,9 @@
 
   <section class="home-hero" role="banner">
     <div class="home-hero__bg">
-      <img src="images/FB_IMG_1749752975080.jpg" alt="The Guardian 4 Heroes barnyard at dusk" loading="eager" />
-    </div>
-    <div class="home-hero__overlay"></div>
-
-    <div class="hero-content">
-      <img class="hero-emblem" src="images/Emblem-logo.png" alt="Guardian 4 Heroes emblem" />
-      <h1 class="hero-title">Guardian <em>4</em><br>Heroes</h1>
-      <span class="hero-rule" aria-hidden="true"><i></i></span>
-      <p class="hero-tagline">The power of the connection with a horse</p>
-      <p class="hero-mission">Equine-facilitated therapy for veterans &amp; first responders.</p>
-    </div>
-
-    <div class="hero-scroll" aria-hidden="true">
-      <span></span>
-      Scroll
+      <img src="images/landing-page-g4h_20260814_134345_0000.png"
+           alt="Guardian 4 Heroes — The Power of the Connection With a Horse. A horse at sunrise in front of the red barn."
+           width="1920" height="1080" loading="eager" fetchpriority="high" />
     </div>
   </section>
 
